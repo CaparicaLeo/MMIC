@@ -26,8 +26,8 @@ export const finalCta = {
   closingLockup: {
     src: "/images/curitiba-e-rock.png",
     alt: closing,
-    width: 1186,
-    height: 394,
+    width: 1177,
+    height: 395,
   } satisfies Media,
 };
 
