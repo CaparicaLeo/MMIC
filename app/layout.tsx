@@ -30,31 +30,25 @@ export const metadata: Metadata = {
    */
   alternates: { canonical: siteUrl },
   /**
-   * Favicon com variante por tema. A convenção de arquivo do App Router
-   * (app/icon.png) não aceita `media`, então as duas versões são declaradas
-   * aqui: a marca escura para barra de abas clara, a branca para escura.
+   * Favicon com variante por tema.
    *
-   * O app/favicon.ico continua existindo como fallback — atende quem pede
-   * /favicon.ico direto (crawlers, leitores de feed) e navegador que ignore
-   * `media`. Ele usa a marca escura, porque fundo de aba claro é o caso mais
-   * comum nesse cenário.
+   * A troca acontece DENTRO do /icon.svg, com uma media query no próprio
+   * arquivo, e não via atributo `media` no <link>. Motivo: o navegador busca
+   * /favicon.ico de qualquer jeito, e esse não tem media — no tema escuro ele
+   * vencia e a marca escura sumia na barra de abas escura. Um arquivo só
+   * elimina a disputa.
+   *
+   * A ordem importa. O <link> do favicon.ico sai primeiro (convenção de
+   * arquivo do App Router) e o SVG depois: quem entende SVG usa o SVG, quem
+   * não entende para no .ico. O .ico usa a marca escura porque o cenário em
+   * que ele sobra — crawler, leitor de feed, navegador antigo — costuma ter
+   * fundo claro.
    *
    * O apple-touch-icon é opaco de propósito: o iOS descarta o alfa e pinta o
    * fundo de preto sozinho, então a chapa #0a0a0a entra declarada.
    */
   icons: {
-    icon: [
-      {
-        url: "/icon-light.png",
-        type: "image/png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark.png",
-        type: "image/png",
-        media: "(prefers-color-scheme: dark)",
-      },
-    ],
+    icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   applicationName: event.name,
