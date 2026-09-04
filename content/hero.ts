@@ -37,13 +37,13 @@ export const hero = {
   } satisfies Cta,
   scrollHint: "Role para descobrir",
   /**
-   * Camada de imagem com parallax leve. A arte já vem com degradê escuro à
-   * esquerda, onde a headline se apoia — se ela for trocada por uma foto
-   * chapada, o texto perde contraste e vai precisar de overlay próprio.
+   * Camada de imagem com parallax leve. O terço inferior da foto é público em
+   * contraluz, quase silhueta, e é sobre ele que a headline se apoia. Uma
+   * troca por foto de fundo claro embaixo exigiria overlay próprio.
    */
   background: {
     src: "/images/hero.jpg",
-    alt: "Corredora com a camisa do Brasil e medalha no peito, cercada pelo público na chegada",
+    alt: "Público de mãos erguidas em frente ao palco, no fim da tarde",
     width: 2560,
     height: 1440,
   } satisfies Media,

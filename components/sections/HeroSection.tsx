@@ -67,19 +67,25 @@ export function HeroSection() {
       <div aria-hidden className="absolute inset-0 -z-20">
         <div data-hero-media className="absolute inset-x-0 -top-[8%] h-[116%]">
           {/*
-            `object-position` puxado para a direita porque é lá que está a
-            corredora. Com o padrão (50%), o `object-cover` num viewport
-            estreito mostrava só 22% da largura da foto — a faixa central,
-            escura, sem ninguém. `sizes` declara mais que 100vw porque a
-            camada é 116% da altura e o cover amplia a imagem além da largura
-            do viewport.
+            `object-position` fora do centro porque num viewport estreito o
+            `object-cover` mostra só ~22% da largura: em 50% a janela cai na
+            estrutura do palco, e em 78% sobra quase só céu e a tenda. 65%
+            pega as mãos erguidas em contraluz, que é o assunto.
+            `sizes` declara mais que 100vw porque a camada é 116% da altura e
+            o cover amplia a imagem além da largura do viewport.
+
+            A opacidade subiu de 45% para 70% junto com a troca da foto: a
+            anterior tinha camisas amarelas em plena luz e sobrevivia ao
+            gradiente, esta é contraluz e a 45% sumia por completo. O texto
+            continua legível porque se apoia no terço de baixo, que é público
+            em silhueta.
           */}
           <Media
             media={hero.background}
             preload
             sizes="(min-width: 1024px) 160vw, 100vw"
             className="h-full w-full"
-            imageClassName="opacity-45 object-[78%_center]"
+            imageClassName="opacity-70 object-[65%_center]"
           />
         </div>
       </div>
