@@ -11,16 +11,16 @@ Para substituir:
 3. ajuste `width`/`height` se a proporção mudar — é ela que define o espaço
    reservado, não o componente.
 
-| Arquivo  | Proporção | Onde aparece         | Conteúdo           |
-| -------- | --------- | -------------------- | ------------------ |
-| `og.svg` | 1200×630  | Open Graph / Twitter | `content/event.ts` |
+| Arquivo    | Proporção | Onde aparece         | Conteúdo           |
+| ---------- | --------- | -------------------- | ------------------ |
+| `og.svg`   | 1200×630  | Open Graph / Twitter | `content/event.ts` |
+| `show.png` | 2080×1440 | bloco do show        | `content/show.ts`  |
 
 Já substituídos pela arte definitiva — os placeholders foram removidos:
 
 | Arte                     | Proporção | Onde aparece            | Conteúdo          |
 | ------------------------ | --------- | ----------------------- | ----------------- |
 | `../hero.jpg`            | 16:9      | fundo do hero, parallax | `content/hero.ts` |
-| `../cpm22.jpg`           | 16:9      | bloco do show           | `content/show.ts` |
 | `../mmic-logo.png`       | 950×242   | header e rodapé         | `content/event.ts` |
 | `../curitiba-e-rock.png` | 1177×395  | fecho da seção final    | `content/cta.ts`  |
 

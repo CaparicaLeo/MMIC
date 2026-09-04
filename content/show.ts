@@ -3,10 +3,12 @@ import type { Media, SectionIntro } from "./types";
 /**
  * Bloco do show.
  *
- * O line-up abriu com o CPM22 confirmado como atração principal — o slot que
- * antes exibia "a ser anunciada" agora renderiza o nome. `lineup` segue vazio
- * e existe para as atrações de apoio, quando houver: preencher o array já é
- * suficiente, o componente não muda.
+ * O line-up voltou a ser teaser: o nome da atração principal saiu e o slot
+ * anuncia "Banda surpresa". `headliner` continua sendo o campo do nome — é só
+ * escrever a banda ali quando ela puder ser revelada, e trocar a arte de
+ * `media` pela foto oficial. `lineup` segue vazio e existe para as atrações
+ * de apoio, quando houver: preencher o array já é suficiente, o componente
+ * não muda.
  */
 export const show = {
   intro: {
@@ -18,8 +20,12 @@ export const show = {
   support:
     "É o momento em que o atleta, a família que veio torcer e quem só passou para assistir estão exatamente no mesmo lugar, e nenhum deles quer ir embora.",
 
-  /** Atração principal confirmada. */
-  headliner: "CPM22" as string | null,
+  /**
+   * Atração principal. O teaser ocupa o slot do nome de propósito: ele é o
+   * anúncio da seção, então entra pelo ramo do nome (destaque cheio), não
+   * pelo `headlinerPlaceholder`, que é o estado apagado de "nada a dizer".
+   */
+  headliner: "Banda surpresa" as string | null,
   /** Atrações de apoio. Vazio até o resto do line-up fechar. */
   lineup: [] as string[],
   /** Texto de fallback, caso `headliner` volte a ser null. */
@@ -27,13 +33,12 @@ export const show = {
 
   media: {
     /**
-     * O arquivo do designer vinha com uma tarja preta chapada ocupando os
-     * 480px da esquerda (18% da largura), sobra do export e não parte da
-     * cena — ela aparecia como uma barra morta ao lado da banda. A arte
-     * versionada já está recortada, daí a proporção 2080x1440.
+     * Placeholder até a arte da banda chegar. A proporção 2080x1440 é a
+     * mesma da foto anterior de propósito: mantém o quadro e o parallax
+     * calibrados, então trocar pela arte definitiva é mexer só no `src`.
      */
-    src: "/images/cpm22.jpg",
-    alt: "CPM22, atração principal da Rock Edition",
+    src: "/images/placeholders/show.png",
+    alt: "Atração principal da Rock Edition ainda não anunciada",
     width: 2080,
     height: 1440,
   } satisfies Media,
