@@ -2,14 +2,18 @@ import type { Metadata, Viewport } from "next";
 
 import { AnimationProvider } from "@/components/animation/AnimationProvider";
 import { RegistrationProvider } from "@/components/registration/RegistrationProvider";
-import { event, siteUrl } from "@/content";
+import { event, seoDescription, siteUrl } from "@/content";
 
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
 const title = `${event.name} ${event.year} · ${event.edition}`;
-const description =
-  "Quando o esporte encontra o rock, Curitiba vira o palco. 5 km, 10 km e 21 km que começam correndo e terminam em festival.";
+/**
+ * A anterior abria com a assinatura criativa e só citava as distâncias — não
+ * trazia "meia maratona" nem a praça de forma explícita, que é o que a busca
+ * casa. A versão canônica vive em content/event.ts e é a mesma do JSON-LD.
+ */
+const description = seoDescription;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -18,6 +22,13 @@ export const metadata: Metadata = {
     template: `%s · ${event.name}`,
   },
   description,
+  /**
+   * Canonical explícito da home. Cada rota abaixo declara o SEU canonical em
+   * page.tsx: no App Router o metadata do layout é herdado, então sem isso
+   * /inscricao, /cronograma, /patrocinadores e /imprensa herdariam este valor
+   * e se declarariam duplicatas da home — o que as tira do índice.
+   */
+  alternates: { canonical: siteUrl },
   applicationName: event.name,
   keywords: [
     "meia maratona",

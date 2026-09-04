@@ -104,7 +104,12 @@ export function HeroSection() {
           {hero.eyebrow}
         </Badge>
 
-        <h1 className="headline mt-7 max-w-5xl text-[clamp(2.75rem,10vw,7.5rem)]">
+        {/*
+          A assinatura criativa é <p>, não <h1>: ela é a frase de campanha e
+          não diz o que a página é. As mesmas classes de antes, então nada
+          muda na tela — a troca é só de tag.
+        */}
+        <p className="headline mt-7 max-w-5xl text-[clamp(2.75rem,10vw,7.5rem)]">
           {hero.headlineLines.map((line) => (
             <span key={line} className="headline-mask">
               <span data-hero-line className="block will-change-transform">
@@ -112,14 +117,20 @@ export function HeroSection() {
               </span>
             </span>
           ))}
-        </h1>
+        </p>
 
-        <p
+        {/*
+          O <h1> da home é o nome do evento. Fica visível e com o mesmo peso
+          de antes (as classes são as mesmas do <p> que ocupava este lugar);
+          o reset do Tailwind zera fonte, peso e margem padrão de h1, então a
+          tag não altera a renderização.
+        */}
+        <h1
           data-hero-fade
           className="mt-8 max-w-xl text-base leading-relaxed text-text-gray sm:text-lg"
         >
           {hero.subheadline}
-        </p>
+        </h1>
 
         {/* Selo das distâncias */}
         <div

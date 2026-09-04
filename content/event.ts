@@ -51,5 +51,22 @@ export const event = {
   },
 };
 
+/**
+ * Descrição canônica do evento. Fonte única: alimenta a `description` do
+ * metadata (e, por herança, Open Graph e Twitter) e o JSON-LD. Mantida abaixo
+ * de 155 caracteres para não ser truncada no resultado de busca.
+ */
+export const seoDescription =
+  "Meia Maratona Internacional de Curitiba 2027 · Rock Edition. Corra 5 km, 10 km ou 21 km em Curitiba (PR) e termine em festival com show ao vivo.";
+
+/**
+ * Domínio de produção. O fallback precisa estar correto porque é ele que
+ * alimenta `metadataBase`, Open Graph, canonical, sitemap.xml e robots.txt —
+ * um valor errado aqui propaga para todos de uma vez.
+ *
+ * Em produção, prefira definir NEXT_PUBLIC_SITE_URL (ver .env.example): a
+ * variável permite apontar previews e staging para o próprio host sem
+ * recompilar com o domínio de produção cravado.
+ */
 export const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://meiamaratonacuritiba.com.br";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.meiadecuritiba.com.br";

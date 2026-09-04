@@ -5,7 +5,10 @@ import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
 export const metadata: Metadata = {
   title: "Patrocinadores",
   description:
-    "Marcas parceiras da Meia Maratona Internacional de Curitiba 2027 · Rock Edition.",
+    "Patrocine a Meia Maratona Internacional de Curitiba 2027: 5 km, 10 km e 21 km em Curitiba (PR), com show ao vivo na chegada. Cotas e contato.",
+  /* Canonical próprio: sem ele a rota herda o da home (app/layout.tsx)
+     e se declara duplicata dela. Relativo, resolvido por metadataBase. */
+  alternates: { canonical: "/patrocinadores" },
 };
 
 /** Placeholder. Vai listar cotas e marcas parceiras. */

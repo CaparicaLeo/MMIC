@@ -1,3 +1,4 @@
+import { EventJsonLd } from "@/components/seo/EventJsonLd";
 import { ConceptSection } from "@/components/sections/ConceptSection";
 import { DaySection } from "@/components/sections/DaySection";
 import { DistancesSection } from "@/components/sections/DistancesSection";
@@ -18,6 +19,9 @@ import { StructureSection } from "@/components/sections/StructureSection";
 export default function HomePage() {
   return (
     <>
+      {/* Dados estruturados só aqui: descrevem o evento, não cada rota. */}
+      <EventJsonLd />
+
       <HeroSection />
       <ConceptSection />
       <DaySection />

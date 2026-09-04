@@ -1,5 +1,5 @@
 /** Barrel da camada de conteúdo — importe daqui, não dos arquivos soltos. */
-export { event, siteUrl } from "./event";
+export { event, siteUrl, seoDescription } from "./event";
 export { mainNav, footerNav } from "./navigation";
 export { hero } from "./hero";
 export { concept } from "./concept";
