@@ -41,7 +41,7 @@ export function DistancesSection() {
               data-distance-card
               className={cn(
                 "flex flex-col bg-bg-dark p-8 lg:p-10",
-                item.featured && "bg-[#120406]",
+                item.featured && "bg-[#120a04]",
               )}
             >
               <div className="flex items-start justify-between gap-4">

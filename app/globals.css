@@ -5,15 +5,21 @@
  *
  * Regra de uso da paleta:
  *   - preto (bg-dark) é a base editorial/rock e domina a página;
- *   - vermelho (accent-red) aparece SÓ em CTAs, números de destaque e
+ *   - o acento (accent-red) aparece SÓ em CTAs, números de destaque e
  *     tarjas/badges — nunca como cor de texto corrido. Use <Highlight> e
  *     <Badge> para aplicá-lo pontualmente.
+ *
+ * PROVISÓRIO: o acento está em laranja (#ec7316) no lugar do vermelho
+ * original (#e11f27 / #7a0e10). Os nomes dos tokens seguem `accent-red` para
+ * não espalhar a troca por toda a base — voltar é editar só os dois valores
+ * abaixo, mais os hex citados em components/ui/Timeline.tsx,
+ * components/sections/DistancesSection.tsx e as artes em public/images.
  * ------------------------------------------------------------------------- */
 @theme {
   --color-bg-dark: #0a0a0a;
   --color-bg-light: #f2f2f2;
-  --color-accent-red: #e11f27;
-  --color-accent-red-dark: #7a0e10;
+  --color-accent-red: #ec7316;
+  --color-accent-red-dark: #7f3c0b;
   --color-text-white: #ffffff;
   --color-text-gray: #9a9a9a;
   --color-text-dark: #0f0f0f;
