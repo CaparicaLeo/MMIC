@@ -29,6 +29,34 @@ export const metadata: Metadata = {
    * e se declarariam duplicatas da home — o que as tira do índice.
    */
   alternates: { canonical: siteUrl },
+  /**
+   * Favicon com variante por tema. A convenção de arquivo do App Router
+   * (app/icon.png) não aceita `media`, então as duas versões são declaradas
+   * aqui: a marca escura para barra de abas clara, a branca para escura.
+   *
+   * O app/favicon.ico continua existindo como fallback — atende quem pede
+   * /favicon.ico direto (crawlers, leitores de feed) e navegador que ignore
+   * `media`. Ele usa a marca escura, porque fundo de aba claro é o caso mais
+   * comum nesse cenário.
+   *
+   * O apple-touch-icon é opaco de propósito: o iOS descarta o alfa e pinta o
+   * fundo de preto sozinho, então a chapa #0a0a0a entra declarada.
+   */
+  icons: {
+    icon: [
+      {
+        url: "/icon-light.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: light)",
+      },
+      {
+        url: "/icon-dark.png",
+        type: "image/png",
+        media: "(prefers-color-scheme: dark)",
+      },
+    ],
+    apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
+  },
   applicationName: event.name,
   keywords: [
     "meia maratona",
