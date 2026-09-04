@@ -6,23 +6,23 @@ import type { Media as MediaType } from "@/content/types";
 /**
  * Wrapper de next/image.
  *
- * As imagens definitivas ainda não existem — os `src` apontam para SVGs de
- * placeholder em /public/images/placeholders com a MESMA proporção da arte
- * final. Como a proporção vem do conteúdo, trocar o arquivo depois não causa
- * layout shift nem exige mexer em componente.
+ * A proporção sempre vem do conteúdo (`media.width`/`media.height`), nunca do
+ * componente: trocar a arte por outra de proporção diferente é editar o
+ * arquivo em /content, sem layout shift e sem mexer aqui.
  */
 export function Media({
   media,
   className,
   imageClassName,
   sizes = "100vw",
-  priority = false,
+  preload = false,
 }: {
   media: MediaType;
   className?: string;
   imageClassName?: string;
   sizes?: string;
-  priority?: boolean;
+  /** Só para o elemento LCP — hoje, a imagem de fundo do hero. */
+  preload?: boolean;
 }) {
   return (
     <div
@@ -34,7 +34,7 @@ export function Media({
         alt={media.alt}
         fill
         sizes={sizes}
-        priority={priority}
+        preload={preload}
         className={cn("object-cover", imageClassName)}
       />
     </div>

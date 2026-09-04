@@ -68,7 +68,7 @@ export function HeroSection() {
         <div data-hero-media className="absolute inset-x-0 -top-[8%] h-[116%]">
           <Media
             media={hero.background}
-            priority
+            preload
             sizes="100vw"
             className="h-full w-full"
             imageClassName="opacity-45"

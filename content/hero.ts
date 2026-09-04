@@ -32,11 +32,15 @@ export const hero = {
     href: "#distancias",
   } satisfies Cta,
   scrollHint: "Role para descobrir",
-  /** Camada de imagem com parallax leve. Trocar pelo asset final. */
+  /**
+   * Camada de imagem com parallax leve. A arte já vem com degradê escuro à
+   * esquerda, onde a headline se apoia — se ela for trocada por uma foto
+   * chapada, o texto perde contraste e vai precisar de overlay próprio.
+   */
   background: {
-    src: "/images/placeholders/hero.svg",
-    alt: "Atletas correndo pelas ruas de Curitiba ao amanhecer",
-    width: 1920,
-    height: 1080,
+    src: "/images/hero.jpg",
+    alt: "Corredora com a camisa do Brasil e medalha no peito, cercada pelo público na chegada",
+    width: 2560,
+    height: 1440,
   } satisfies Media,
 };

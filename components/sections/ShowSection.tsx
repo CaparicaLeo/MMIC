@@ -70,10 +70,9 @@ export function ShowSection() {
           </p>
 
           {/*
-            Slot do line-up.
-            Nenhuma atração está confirmada, então `show.headliner` é null e
-            renderizamos só o aviso neutro. Quando o nome for anunciado, ele
-            entra em content/show.ts e aparece aqui — sem tocar no componente.
+            Slot do line-up. O nome vem de content/show.ts; o ramo do
+            placeholder segue aqui para o caso de `headliner` voltar a ser
+            null, e para as atrações de apoio ainda não anunciadas.
           */}
           <div
             data-reveal
@@ -103,9 +102,19 @@ export function ShowSection() {
         </div>
 
         <div data-reveal className="relative">
-          {/* Container com a proporção final da arte; a camada interna é
-              mais alta para dar folga ao parallax sem mostrar borda. */}
-          <div className="relative aspect-4/3 overflow-hidden">
+          {/*
+            A proporção vem do conteúdo, não do componente: a foto da banda é
+            16:9 e um recorte fixo em 4:3 cortava o integrante da ponta.
+            Trocar a arte de novo é mexer só em content/show.ts.
+            A camada interna é mais alta para dar folga ao parallax sem
+            mostrar borda.
+          */}
+          <div
+            className="relative overflow-hidden"
+            style={{
+              aspectRatio: `${show.media.width} / ${show.media.height}`,
+            }}
+          >
             <div data-show-media className="absolute inset-x-0 -top-[7%] h-[114%]">
               <Media
                 media={show.media}

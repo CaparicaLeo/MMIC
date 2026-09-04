@@ -3,10 +3,10 @@ import type { Media, SectionIntro } from "./types";
 /**
  * Bloco do show.
  *
- * IMPORTANTE: nenhuma atração está confirmada nesta versão — o texto é
- * deliberadamente genérico e NÃO cita nome próprio de banda ou artista.
- * Quando o line-up fechar, preencha `headliner` (e opcionalmente `lineup`) e
- * o slot já reservado no componente passa a renderizar. Nada mais muda.
+ * O line-up abriu com o CPM22 confirmado como atração principal — o slot que
+ * antes exibia "a ser anunciada" agora renderiza o nome. `lineup` segue vazio
+ * e existe para as atrações de apoio, quando houver: preencher o array já é
+ * suficiente, o componente não muda.
  */
 export const show = {
   intro: {
@@ -18,16 +18,17 @@ export const show = {
   support:
     "É o momento em que o atleta, a família que veio torcer e quem só passou para assistir estão exatamente no mesmo lugar — e nenhum deles quer ir embora.",
 
-  /** Slot do line-up. `null` até a atração ser anunciada oficialmente. */
-  headliner: null as string | null,
+  /** Atração principal confirmada. */
+  headliner: "CPM22" as string | null,
+  /** Atrações de apoio. Vazio até o resto do line-up fechar. */
   lineup: [] as string[],
-  /** Texto exibido enquanto o line-up não é anunciado. */
+  /** Texto de fallback, caso `headliner` volte a ser null. */
   headlinerPlaceholder: "Atração principal a ser anunciada",
 
   media: {
-    src: "/images/placeholders/show.svg",
-    alt: "Arena lotada durante o show ao vivo após a corrida",
-    width: 1280,
-    height: 960,
+    src: "/images/cpm22.jpg",
+    alt: "CPM22, atração principal da Rock Edition",
+    width: 2560,
+    height: 1440,
   } satisfies Media,
 };
