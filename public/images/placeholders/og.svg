@@ -2,8 +2,8 @@
   <defs>
     <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
       <stop offset="0%" stop-color="#0A0A0A"/>
-      <stop offset="60%" stop-color="#1A0D05"/>
-      <stop offset="100%" stop-color="#7F3C0B"/>
+      <stop offset="60%" stop-color="#1A0507"/>
+      <stop offset="100%" stop-color="#7A0E10"/>
     </linearGradient>
     <pattern id="p" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
       <rect width="56" height="56" fill="none"/>

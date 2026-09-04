@@ -57,7 +57,7 @@ export function Timeline({
           onEnter: () =>
             g.to(marker, {
               scale: 1,
-              backgroundColor: "#EC7316",
+              backgroundColor: "#E11F27",
               duration: 0.4,
               ease: "back.out(2)",
             }),
