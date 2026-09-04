@@ -30,22 +30,22 @@ export const metadata: Metadata = {
    */
   alternates: { canonical: siteUrl },
   /**
-   * Favicon com variante por tema.
+   * Favicon com chapa, e não com variante por tema.
    *
-   * A troca acontece DENTRO do /icon.svg, com uma media query no próprio
-   * arquivo, e não via atributo `media` no <link>. Motivo: o navegador busca
-   * /favicon.ico de qualquer jeito, e esse não tem media — no tema escuro ele
-   * vencia e a marca escura sumia na barra de abas escura. Um arquivo só
-   * elimina a disputa.
+   * As duas tentativas anteriores falharam pelo mesmo motivo: o Chrome não
+   * aplica `prefers-color-scheme` a favicon, nem via atributo `media` no
+   * <link> (ele busca /favicon.ico junto e esse vence), nem via media query
+   * dentro do SVG. Verificado lendo o bitmap que o Chrome grava no perfil: o
+   * ícone rasterizado é byte a byte o mesmo em tema claro e escuro. Com a
+   * marca transparente, isso deixava preto sobre preto na barra escura.
    *
-   * A ordem importa. O <link> do favicon.ico sai primeiro (convenção de
-   * arquivo do App Router) e o SVG depois: quem entende SVG usa o SVG, quem
-   * não entende para no .ico. O .ico usa a marca escura porque o cenário em
-   * que ele sobra — crawler, leitor de feed, navegador antigo — costuma ter
-   * fundo claro.
+   * A chapa #0a0a0a (o fundo do site) com a marca branca resolve sem depender
+   * de suporte do navegador: em barra clara lê como quadrado escuro com a
+   * marca branca, em barra escura a chapa some e sobra a marca. Os três
+   * arquivos usam a mesma arte, então o conjunto fica coerente.
    *
-   * O apple-touch-icon é opaco de propósito: o iOS descarta o alfa e pinta o
-   * fundo de preto sozinho, então a chapa #0a0a0a entra declarada.
+   * O apple-touch-icon é opaco também porque o iOS descarta o alfa e pinta o
+   * fundo de preto por conta.
    */
   icons: {
     icon: [{ url: "/icon.svg", type: "image/svg+xml" }],
