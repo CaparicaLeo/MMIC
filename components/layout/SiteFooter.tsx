@@ -1,16 +1,22 @@
+import Image from "next/image";
 import Link from "next/link";
 
 import { Badge } from "@/components/ui/Badge";
-import { event, footerNav } from "@/content";
+import { event, finalCta, footerNav } from "@/content";
 
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#060606]">
       <div className="container-page grid gap-12 py-16 lg:grid-cols-[1.2fr_1fr_1fr] lg:py-20">
         <div>
-          <p className="headline text-3xl sm:text-4xl">
-            Meia Maratona <span className="text-accent-red">CWB</span>
-          </p>
+          <Image
+            src={event.logo.src}
+            alt={event.logo.alt}
+            width={event.logo.width}
+            height={event.logo.height}
+            sizes="(min-width: 640px) 188px, 157px"
+            className="h-10 w-auto sm:h-12"
+          />
           <p className="label-condensed mt-2 text-[0.7rem] text-text-gray">
             {event.edition} · {event.year} · {event.location}
           </p>
@@ -56,9 +62,7 @@ export function SiteFooter() {
           <p>
             © {event.year} {event.name}. Todos os direitos reservados.
           </p>
-          <p className="label-condensed text-[0.65rem]">
-            Curitiba é rock. Curitiba corre.
-          </p>
+          <p className="label-condensed text-[0.65rem]">{finalCta.closing}</p>
         </div>
       </div>
     </footer>

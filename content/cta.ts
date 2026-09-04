@@ -1,5 +1,11 @@
-import type { Cta } from "./types";
+import type { Cta, Media } from "./types";
 import { event } from "./event";
+
+/**
+ * Assinatura do evento. Fonte única: entra como texto no rodapé e como `alt`
+ * do lockup na seção final — a frase não é duplicada em lugar nenhum.
+ */
+const closing = "Curitiba é rock. Curitiba corre.";
 
 export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
@@ -12,7 +18,17 @@ export const finalCta = {
     action: "register",
     pendingLabel: "Abrindo…",
   } satisfies Cta,
-  closing: "Curitiba é rock. Curitiba corre.",
+  closing,
+  /**
+   * Versão em arte da assinatura, exibida no fecho da LP. Mesma restrição da
+   * logo: PNG transparente com lettering branco, só sobre fundo escuro.
+   */
+  closingLockup: {
+    src: "/images/curitiba-e-rock.png",
+    alt: closing,
+    width: 1186,
+    height: 394,
+  } satisfies Media,
 };
 
 /** Copy do modal de placeholder (não há fluxo de inscrição ainda). */

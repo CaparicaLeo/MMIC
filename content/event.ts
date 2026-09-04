@@ -24,6 +24,18 @@ export const event = {
 
   distances: ["5 KM", "10 KM", "21 KM"],
 
+  /**
+   * Marca do evento. PNG com fundo transparente — o lettering é branco e o
+   * "DE CURITIBA" vermelho, então ela só funciona sobre superfície escura.
+   * Se um dia entrar uma seção clara, é preciso uma variante invertida.
+   */
+  logo: {
+    src: "/images/mmic-logo.png",
+    alt: "Meia Maratona Internacional de Curitiba",
+    width: 950,
+    height: 242,
+  } satisfies Media,
+
   /** Usado em metadata/OG. Trocar quando a arte final existir. */
   ogImage: {
     src: "/images/placeholders/og.svg",

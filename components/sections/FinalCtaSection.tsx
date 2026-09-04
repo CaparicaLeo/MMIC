@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import { Badge } from "@/components/ui/Badge";
 import { Countdown } from "@/components/ui/Countdown";
 import { Highlight } from "@/components/ui/Highlight";
@@ -74,12 +76,21 @@ export function FinalCtaSection() {
           {finalCta.dateNote}
         </p>
 
-        <p
-          data-reveal
-          className="headline mt-20 text-[clamp(1.75rem,5vw,3.5rem)] text-text-white"
-        >
-          {finalCta.closing}
-        </p>
+        {/*
+          A assinatura de fecho é arte, não tipografia: o lockup traz o realce
+          vermelho em "ROCK" que não dá para reproduzir com a fonte. O texto
+          continua acessível pelo alt e segue idêntico ao do rodapé.
+        */}
+        <div data-reveal className="mt-20 w-full max-w-2xl">
+          <Image
+            src={finalCta.closingLockup.src}
+            alt={finalCta.closingLockup.alt}
+            width={finalCta.closingLockup.width}
+            height={finalCta.closingLockup.height}
+            sizes="(min-width: 768px) 42rem, 90vw"
+            className="h-auto w-full"
+          />
+        </div>
       </div>
 
       <div className="relative mt-20 -mx-5 md:-mx-10">
