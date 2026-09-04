@@ -59,8 +59,12 @@ export function SiteFooter() {
 
       <div className="border-t border-white/10">
         <div className="container-page flex flex-col gap-3 py-6 text-xs text-text-gray sm:flex-row sm:items-center sm:justify-between">
+          {/* Ano corrente, não `event.year`: o aviso de copyright vale para
+              a data de publicação, e usar 2027 fazia o rodapé anunciar um ano
+              que ainda não chegou. Congela no build — rebuild anual resolve. */}
           <p>
-            © {event.year} {event.name}. Todos os direitos reservados.
+            © {new Date().getFullYear()} {event.name}. Todos os direitos
+            reservados.
           </p>
           <p className="label-condensed text-[0.65rem]">{finalCta.closing}</p>
         </div>

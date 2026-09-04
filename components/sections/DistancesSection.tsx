@@ -85,7 +85,9 @@ export function DistancesSection() {
                 ))}
               </ul>
 
-              <div className="mt-9 pt-1">
+              {/* `mt-auto` cola o CTA na base: as descrições têm alturas
+                  diferentes e o botão do 5km ficava 26px abaixo dos outros. */}
+              <div className="mt-auto pt-10">
                 <RegisterButton
                   cta={item.cta}
                   source={`distancia-${item.id}`}

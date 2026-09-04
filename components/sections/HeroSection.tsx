@@ -66,12 +66,20 @@ export function HeroSection() {
       {/* Camadas de fundo: imagem (parallax) + gradiente escuro → vermelho */}
       <div aria-hidden className="absolute inset-0 -z-20">
         <div data-hero-media className="absolute inset-x-0 -top-[8%] h-[116%]">
+          {/*
+            `object-position` puxado para a direita porque é lá que está a
+            corredora. Com o padrão (50%), o `object-cover` num viewport
+            estreito mostrava só 22% da largura da foto — a faixa central,
+            escura, sem ninguém. `sizes` declara mais que 100vw porque a
+            camada é 116% da altura e o cover amplia a imagem além da largura
+            do viewport.
+          */}
           <Media
             media={hero.background}
             preload
-            sizes="100vw"
+            sizes="(min-width: 1024px) 160vw, 100vw"
             className="h-full w-full"
-            imageClassName="opacity-45"
+            imageClassName="opacity-45 object-[78%_center]"
           />
         </div>
       </div>
@@ -92,7 +100,7 @@ export function HeroSection() {
 
         <h1 className="headline mt-7 max-w-5xl text-[clamp(2.75rem,10vw,7.5rem)]">
           {hero.headlineLines.map((line) => (
-            <span key={line} className="block overflow-hidden pb-[0.06em]">
+            <span key={line} className="headline-mask">
               <span data-hero-line className="block will-change-transform">
                 {line}
               </span>

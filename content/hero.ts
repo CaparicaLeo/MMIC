@@ -17,8 +17,12 @@ export const hero = {
   ],
   /**
    * Sem dia/mês: a data ainda não está definida. Só o ano e o "em breve".
+   * Sem `event.location` também: o nome do evento já termina em "de
+   * Curitiba", e a linha saía "…de Curitiba · Rock Edition — Curitiba — PR",
+   * repetindo a cidade e quebrando com "— PR" sozinho. A praça continua no
+   * selo acima da headline e no rodapé.
    */
-  subheadline: `${event.name} · ${event.edition} — ${event.location}`,
+  subheadline: `${event.name} · ${event.edition}`,
   dateNote: event.dateLabel,
   distances: event.distances,
   cta: {

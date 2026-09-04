@@ -26,12 +26,17 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     ],
   },
   {
+    /**
+     * Sem `comingSoon` nos itens de propósito: o título da coluna já é
+     * "Em breve" e o selo em cada item repetia a expressão cinco vezes no
+     * mesmo bloco. No `mainNav` o selo continua, porque lá não há título.
+     */
     title: "Em breve",
     items: [
-      { label: "Inscrição", href: "/inscricao", comingSoon: true },
-      { label: "Cronograma", href: "/cronograma", comingSoon: true },
-      { label: "Patrocinadores", href: "/patrocinadores", comingSoon: true },
-      { label: "Imprensa", href: "/imprensa", comingSoon: true },
+      { label: "Inscrição", href: "/inscricao" },
+      { label: "Cronograma", href: "/cronograma" },
+      { label: "Patrocinadores", href: "/patrocinadores" },
+      { label: "Imprensa", href: "/imprensa" },
     ],
   },
 ];

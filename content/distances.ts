@@ -17,7 +17,7 @@ export const distances = {
         "Para quem está começando ou vem pela experiência. Percurso plano, clima de abertura e a mesma chegada de todo mundo.",
       highlights: ["Percurso plano", "Ideal para iniciantes", "Aberto a caminhada"],
       cta: {
-        label: "Quero correr os 5km",
+        label: "Quero correr os 5 km",
         action: "register",
         pendingLabel: "Abrindo…",
       },
@@ -31,7 +31,7 @@ export const distances = {
         "A distância mais disputada do evento. Ritmo forte, ruas fechadas e os principais pontos de som do percurso.",
       highlights: ["Percurso urbano", "Pontos de som no trajeto", "Pelotão por ritmo"],
       cta: {
-        label: "Quero correr os 10km",
+        label: "Quero correr os 10 km",
         action: "register",
         pendingLabel: "Abrindo…",
       },
@@ -49,7 +49,7 @@ export const distances = {
         "Premiação por categoria",
       ],
       cta: {
-        label: "Quero correr os 21km",
+        label: "Quero correr os 21 km",
         action: "register",
         pendingLabel: "Abrindo…",
       },

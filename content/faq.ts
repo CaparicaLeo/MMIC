@@ -40,7 +40,7 @@ export const faq = {
       id: "iniciante",
       question: "Nunca corri uma prova de rua. Dá para participar?",
       answer:
-        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena — guarda-volumes, hidratação, recovery zone e área kids — foi pensada para quem está estreando e vem com a família.",
+        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena — guarda-volumes, hidratação, Recovery Zone e Espaço Kids — foi pensada para quem está estreando e vem com a família.",
     },
   ] satisfies FaqItem[],
 };

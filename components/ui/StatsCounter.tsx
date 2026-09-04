@@ -55,8 +55,13 @@ export function StatsCounter({
       {items.map((item) => (
         <div key={item.id} data-stat className="bg-bg-dark p-7 lg:p-9">
           <p className="flex items-baseline font-display text-5xl leading-none tracking-[-0.02em] text-accent-red sm:text-6xl lg:text-7xl">
+            {/* `whitespace-pre` preserva o espaço final de prefixos como
+                "até " — como flex item, ele era colapsado e saía "até30.000".
+                Prefixos sem espaço ("+") continuam colados ao número. */}
             {item.prefix ? (
-              <span className="text-2xl sm:text-3xl">{item.prefix}</span>
+              <span className="text-2xl whitespace-pre sm:text-3xl">
+                {item.prefix}
+              </span>
             ) : null}
             <span
               data-count={item.value}

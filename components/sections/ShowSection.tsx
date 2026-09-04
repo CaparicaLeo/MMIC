@@ -8,6 +8,14 @@ import { show } from "@/content";
 import { fadeUp, parallax, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
+/**
+ * Folga que a camada de parallax tem além do quadro visível (7% acima e 7%
+ * abaixo). Fica numa constante porque a proporção do quadro é derivada dela:
+ * se as duas saírem de sincronia, o `object-cover` volta a cortar a foto na
+ * horizontal — foi o que decepava os integrantes das pontas da banda.
+ */
+const PARALLAX_OVERSCAN = 1.14;
+
 export function ShowSection() {
   const root = useGsapScroll<HTMLDivElement>(({ scope, prefersReducedMotion }) => {
     revealLines(scope.querySelectorAll("[data-show-line]"), {
@@ -43,12 +51,12 @@ export function ShowSection() {
           </Badge>
 
           <h2 className="headline mt-8 text-[clamp(2.25rem,6vw,4.5rem)]">
-            <span className="block overflow-hidden pb-[0.06em]">
+            <span className="headline-mask">
               <span data-show-line className="block will-change-transform">
                 A linha de chegada
               </span>
             </span>
-            <span className="block overflow-hidden pb-[0.06em]">
+            <span className="headline-mask">
               <span data-show-line className="block will-change-transform">
                 é a <Highlight>frente do palco.</Highlight>
               </span>
@@ -101,18 +109,22 @@ export function ShowSection() {
           </div>
         </div>
 
-        <div data-reveal className="relative">
+        {/* `self-start`: sem isso a célula do grid estica até a altura da
+            coluna de texto e a faixa vermelha, ancorada nela, flutuava ~250px
+            abaixo da foto. */}
+        <div data-reveal className="relative self-start">
           {/*
-            A proporção vem do conteúdo, não do componente: a foto da banda é
-            16:9 e um recorte fixo em 4:3 cortava o integrante da ponta.
-            Trocar a arte de novo é mexer só em content/show.ts.
-            A camada interna é mais alta para dar folga ao parallax sem
-            mostrar borda.
+            A proporção vem do conteúdo, mas descontando o overscan do
+            parallax: a camada interna é PARALLAX_OVERSCAN mais alta que o
+            quadro, então o quadro precisa ser proporcionalmente mais baixo
+            para que a camada volte à proporção da arte. Sem isso o
+            `object-cover` compensa cortando a largura.
+            Trocar a arte é mexer só em content/show.ts.
           */}
           <div
             className="relative overflow-hidden"
             style={{
-              aspectRatio: `${show.media.width} / ${show.media.height}`,
+              aspectRatio: `${show.media.width} / ${show.media.height / PARALLAX_OVERSCAN}`,
             }}
           >
             <div data-show-media className="absolute inset-x-0 -top-[7%] h-[114%]">
@@ -123,12 +135,13 @@ export function ShowSection() {
                 imageClassName="opacity-70"
               />
             </div>
-          </div>
 
-          <span
-            aria-hidden
-            className="absolute -bottom-px left-0 h-1 w-24 bg-accent-red"
-          />
+            {/* Dentro do quadro: a faixa marca a base da foto, não a da célula. */}
+            <span
+              aria-hidden
+              className="absolute bottom-0 left-0 h-1 w-24 bg-accent-red"
+            />
+          </div>
         </div>
       </div>
     </Section>

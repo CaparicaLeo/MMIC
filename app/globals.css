@@ -91,8 +91,66 @@
   font-weight: 400;
   text-transform: uppercase;
   letter-spacing: var(--tracking-poster);
-  line-height: 0.92;
+  /**
+   * A entrelinha aqui é restrição de acento, não estética. Medido no próprio
+   * navegador: caixa alta simples sobe 0.86em acima da baseline na Anton, mas
+   * É/Á/Â/Í sobem 1.105em e Ã sobe 1.075em. Com o 0.92 anterior o acento da
+   * linha de baixo invadia as letras da linha de cima ("ÚLTIMO REFRÃO" sobre
+   * "DA LARGADA AO") e era decepado onde há máscara de reveal — a seção do
+   * conceito exibia "NAO E UMA CORRIDA" e a do show, "E A FRENTE DO PALCO".
+   *
+   * 1.105 seria o mínimo aritmético, mas encosta: sobra menos de 1px entre o
+   * acento e a base da linha de cima. 1.16 dá ~5px de respiro em 68px, que é
+   * o menor valor em que as duas linhas leem como separadas. Abaixo disso os
+   * defeitos voltam.
+   *
+   * O `margin-block` negativo devolve ao layout a folga que a entrelinha
+   * maior criou acima da primeira linha e abaixo da última, para o ritmo
+   * vertical das seções continuar o mesmo.
+   */
+  margin-block: -0.12em;
   text-wrap: balance;
+}
+
+/**
+ * A entrelinha do headline mora aqui, e não dentro do `@utility headline`,
+ * por causa da especificidade.
+ *
+ * As utilities de tamanho do Tailwind (`text-4xl`, `text-6xl`…) trazem um
+ * `line-height` embutido. Empatadas em especificidade com o `@utility`, elas
+ * venciam pela ordem da folha: os títulos de <SectionHeader />, que usam
+ * `text-4xl sm:text-5xl lg:text-6xl`, ficavam em 1.0 e o til de "REFRÃO"
+ * voltava a encostar no "AO" da linha de cima — só os títulos com tamanho
+ * arbitrário (`text-[clamp(...)]`, que não define entrelinha) escapavam.
+ *
+ * Repetir a classe dobra a especificidade e garante que a folga de acento
+ * valha com qualquer `text-*`.
+ */
+@layer utilities {
+  .headline.headline {
+    line-height: 1.16;
+  }
+}
+
+/**
+ * Máscara de uma linha de headline animada: o reveal desliza a linha de baixo
+ * para cima e esta caixa esconde o resto do percurso.
+ *
+ * O `padding-top` não é estética, é espaço para a tinta do acento. Em caixa
+ * alta a Anton sobe 0.86em acima da baseline, mas É/Á/Â/Í sobem 1.105em, e o
+ * excedente caía fora da caixa de linha — a máscara decepava o acento e a
+ * seção do conceito exibia "E UMA EXPERIENCIA". A margem negativa de mesmo
+ * valor devolve o espaço ao fluxo, então o ritmo vertical não muda.
+ *
+ * Só no topo: a linha entra por baixo, e folga embaixo deixaria ela aparecer
+ * antes da hora.
+ */
+@utility headline-mask {
+  display: block;
+  overflow: hidden;
+  padding-top: 0.22em;
+  margin-top: -0.22em;
+  padding-bottom: 0.06em;
 }
 
 /** Rótulo pequeno (kickers, horários, labels de card). */

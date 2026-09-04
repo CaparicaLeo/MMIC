@@ -30,17 +30,17 @@ export function ConceptSection() {
         </Badge>
 
         <p className="headline mt-8 text-[clamp(2rem,6vw,4.25rem)] text-text-white">
-          <span className="block overflow-hidden pb-[0.06em]">
+          <span className="headline-mask">
             <span data-concept-line className="block will-change-transform">
               {concept.intro.title}
             </span>
           </span>
-          <span className="block overflow-hidden pb-[0.06em]">
+          <span className="headline-mask">
             <span data-concept-line className="block will-change-transform">
               É uma <Highlight>experiência urbana</Highlight> que começa
             </span>
           </span>
-          <span className="block overflow-hidden pb-[0.06em]">
+          <span className="headline-mask">
             <span data-concept-line className="block will-change-transform">
               correndo e termina em festival.
             </span>

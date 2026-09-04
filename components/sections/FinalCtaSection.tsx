@@ -38,12 +38,12 @@ export function FinalCtaSection() {
         <Badge data-reveal>{finalCta.kicker}</Badge>
 
         <h2 className="headline mt-8 max-w-4xl text-[clamp(2.25rem,7vw,5.5rem)]">
-          <span className="block overflow-hidden pb-[0.06em]">
+          <span className="headline-mask">
             <span data-final-line className="block will-change-transform">
               Quando o esporte encontra o rock,
             </span>
           </span>
-          <span className="block overflow-hidden pb-[0.06em]">
+          <span className="headline-mask">
             <span data-final-line className="block will-change-transform">
               <Highlight>Curitiba</Highlight> vira o palco.
             </span>
@@ -93,7 +93,11 @@ export function FinalCtaSection() {
         </div>
       </div>
 
-      <div className="relative mt-20 -mx-5 md:-mx-10">
+      {/* `mx-[calc(50%-50vw)]` sangra até a borda da viewport. O -mx-10
+          anterior só cancelava o padding do container, e como ele tem
+          max-width de 82rem a faixa parava 64px antes da borda a partir de
+          1312px — diferente da faixa do hero, que é full-bleed. */}
+      <div className="relative mt-20 mx-[calc(50%-50vw)]">
         <Marquee
           items={[...event.distances, "ROCK EDITION", event.city.toUpperCase(), event.year]}
           className="border-y border-white/10 bg-accent-red text-text-white"
