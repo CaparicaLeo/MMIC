@@ -9,5 +9,5 @@ export { structure } from "./structure";
 export { show } from "./show";
 export { stats } from "./stats";
 export { faq } from "./faq";
-export { finalCta, registrationModal } from "./cta";
+export { finalCta, registrationModal, brandCta, brandModal } from "./cta";
 export type * from "./types";

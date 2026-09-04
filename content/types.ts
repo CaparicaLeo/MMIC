@@ -19,11 +19,20 @@ export type CtaAction = "register" | "link";
 
 export type Cta = {
   label: string;
-  /** `register` abre o modal de "inscrições em breve"; `link` navega. */
+  /** `register` abre um modal de "em breve"; `link` navega. */
   action: CtaAction;
   href?: string;
   /** Texto exibido durante o estado de loading do botão. */
   pendingLabel?: string;
+};
+
+/** Copy de um modal de "ainda não abriu". Só o texto muda entre eles. */
+export type PlaceholderModal = {
+  kicker: string;
+  title: string;
+  description: string;
+  note: string;
+  dismissLabel: string;
 };
 
 export type SectionIntro = {

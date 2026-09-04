@@ -7,7 +7,7 @@ import { siteUrl } from "@/content";
  * "em breve" e devem ser indexáveis desde o lançamento.
  */
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/inscricao", "/cronograma", "/patrocinadores", "/imprensa"];
+  const routes = ["", "/inscricao", "/cronograma", "/marcas", "/imprensa"];
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

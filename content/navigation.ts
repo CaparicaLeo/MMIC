@@ -10,7 +10,7 @@ export const mainNav: NavItem[] = [
   { label: "Distâncias", href: "/#distancias" },
   { label: "O dia", href: "/#o-dia" },
   { label: "Cronograma", href: "/cronograma", comingSoon: true },
-  { label: "Patrocinadores", href: "/patrocinadores", comingSoon: true },
+  { label: "Marcas", href: "/marcas", comingSoon: true },
   { label: "Imprensa", href: "/imprensa", comingSoon: true },
 ];
 
@@ -35,7 +35,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Inscrição", href: "/inscricao" },
       { label: "Cronograma", href: "/cronograma" },
-      { label: "Patrocinadores", href: "/patrocinadores" },
+      { label: "Marcas", href: "/marcas" },
       { label: "Imprensa", href: "/imprensa" },
     ],
   },

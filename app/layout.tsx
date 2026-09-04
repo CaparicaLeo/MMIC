@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   /**
    * Canonical explícito da home. Cada rota abaixo declara o SEU canonical em
    * page.tsx: no App Router o metadata do layout é herdado, então sem isso
-   * /inscricao, /cronograma, /patrocinadores e /imprensa herdariam este valor
+   * /inscricao, /cronograma, /marcas e /imprensa herdariam este valor
    * e se declarariam duplicatas da home — o que as tira do índice.
    */
   alternates: { canonical: siteUrl },

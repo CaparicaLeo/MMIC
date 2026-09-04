@@ -1,4 +1,5 @@
 import Link from "next/link";
+import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
@@ -17,11 +18,18 @@ export function ComingSoonPage({
   title,
   description,
   whatsNext,
+  cta,
 }: {
   kicker: string;
   title: string;
   description: string;
   whatsNext: string[];
+  /**
+   * CTA opcional da página. Vem por prop, e não por um campo de dados, porque
+   * cada página tem uma ação diferente (e client-side) — a casca só reserva
+   * o lugar dele acima do link de volta.
+   */
+  cta?: ReactNode;
 }) {
   return (
     <Section className="grain min-h-[80vh] pt-40">
@@ -57,6 +65,10 @@ export function ComingSoonPage({
           {event.dateLabel}
         </p>
 
+        {cta ? <div className="mt-8">{cta}</div> : null}
+
+        {/* O link de volta é secundário: quando há CTA, ele fica logo abaixo
+            e sem peso visual, para não disputar o clique. */}
         <Link
           href="/"
           className="label-condensed mt-8 inline-flex border border-white/20 px-6 py-3 text-xs text-text-white transition-colors hover:border-accent-red hover:bg-accent-red"

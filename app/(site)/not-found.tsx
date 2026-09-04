@@ -8,7 +8,7 @@ export default function NotFound() {
       description="A página que você procurou não existe (ou ainda não existe). Volte para a home para ver tudo sobre a edição 2027."
       whatsNext={[
         "A largada, o percurso e o show estão na home",
-        "Inscrição, cronograma, patrocinadores e imprensa chegam em breve",
+        "Inscrição, cronograma, marcas e imprensa chegam em breve",
       ]}
     />
   );
