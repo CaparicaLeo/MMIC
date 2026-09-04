@@ -8,5 +8,5 @@ export const concept = {
   statement:
     "É uma experiência urbana que começa correndo e termina em festival.",
   support:
-    "Do primeiro quilômetro ao último acorde, o percurso e a arena fazem parte da mesma noite — ou melhor, do mesmo dia.",
+    "Do primeiro quilômetro ao último acorde, o percurso e a arena fazem parte da mesma noite. Ou melhor: do mesmo dia.",
 };

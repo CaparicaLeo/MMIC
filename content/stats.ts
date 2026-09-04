@@ -11,8 +11,16 @@ export const stats = {
     {
       id: "atletas",
       value: 10000,
+      /**
+       * O número é objetivo da edição, não resultado. A tarja "Meta" e o "+"
+       * dizem isso no próprio número, e a nota fecha explicitando que não é
+       * histórico realizado — a mesma ressalva que a barra de 2027 já traz
+       * no comparativo abaixo.
+       */
+      kicker: "Meta",
+      suffix: "+",
       label: "atletas",
-      note: "Meta para a edição 2027",
+      note: "Objetivo da edição 2027, não número realizado.",
     },
     {
       id: "crescimento",
@@ -25,6 +33,12 @@ export const stats = {
     {
       id: "publico",
       value: 30000,
+      /**
+       * O espaço final fica: como o prefixo é flex item, ele é colapsado na
+       * tela (o respiro visual vem da margem no StatsCounter), mas continua
+       * no textContent — é ele que separa as palavras para leitor de tela e
+       * para quem copia o número.
+       */
       prefix: "até ",
       label: "pessoas em circulação",
       note: "Atletas, acompanhantes e público do show",

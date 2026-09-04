@@ -5,7 +5,7 @@ import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
 export const metadata: Metadata = {
   title: "Cronograma",
   description:
-    "Programação completa da Meia Maratona Internacional de Curitiba 2027 — Rock Edition.",
+    "Programação completa da Meia Maratona Internacional de Curitiba 2027 · Rock Edition.",
 };
 
 /** Placeholder. Vai reaproveitar o <Timeline /> com a programação completa. */

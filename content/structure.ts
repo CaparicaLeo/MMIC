@@ -31,7 +31,7 @@ export const structure = {
       icon: "kids",
       title: "Espaço Kids",
       description:
-        "Área monitorada para as crianças enquanto a família corre — e para todo mundo curtir o show depois.",
+        "Área monitorada para as crianças enquanto a família corre, e para todo mundo curtir o show depois.",
     },
     {
       id: "guarda-volumes",

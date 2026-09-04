@@ -11,7 +11,7 @@ export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
   title: "Quando o esporte encontra o rock, Curitiba vira o palco.",
   description:
-    "As inscrições para a edição 2027 abrem em breve. Garanta o seu lugar na largada — e na primeira fila.",
+    "As inscrições para a edição 2027 abrem em breve. Garanta o seu lugar na largada, e na primeira fila.",
   dateNote: event.dateLabel,
   cta: {
     label: "Quero me inscrever",
@@ -36,7 +36,7 @@ export const registrationModal = {
   kicker: "Inscrições",
   title: "Em breve",
   description:
-    "As inscrições para a Meia Maratona Internacional de Curitiba 2027 — Rock Edition ainda não abriram. A data oficial e o primeiro lote serão anunciados juntos.",
+    "As inscrições para a Meia Maratona Internacional de Curitiba 2027 · Rock Edition ainda não abriram. A data oficial e o primeiro lote serão anunciados juntos.",
   note: "Enquanto isso, acompanhe as redes do evento para ser avisado primeiro.",
   dismissLabel: "Fechar",
 };

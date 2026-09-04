@@ -44,6 +44,12 @@ export type StatItem = {
   id: string;
   /** Valor final do contador. */
   value: number;
+  /**
+   * Tarja curta acima do número. Existe para qualificar o dado ANTES de ele
+   * ser lido: sem ela, um número de meta é lido como número realizado, e a
+   * ressalva só aparecia na nota abaixo, depois do estrago.
+   */
+  kicker?: string;
   prefix?: string;
   suffix?: string;
   /** Casas decimais na contagem (ex.: 43,5%). */

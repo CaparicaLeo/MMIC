@@ -34,13 +34,13 @@ export const faq = {
       id: "data",
       question: "Já existe data confirmada?",
       answer:
-        "Ainda não. A edição 2027 está confirmada, e a data oficial será anunciada em breve — junto com a abertura das inscrições. Acompanhe as redes do evento para não perder o primeiro lote.",
+        "Ainda não. A edição 2027 está confirmada, e a data oficial será anunciada em breve, junto com a abertura das inscrições. Acompanhe as redes do evento para não perder o primeiro lote.",
     },
     {
       id: "iniciante",
       question: "Nunca corri uma prova de rua. Dá para participar?",
       answer:
-        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena — guarda-volumes, hidratação, Recovery Zone e Espaço Kids — foi pensada para quem está estreando e vem com a família.",
+        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena, com guarda-volumes, hidratação, Recovery Zone e Espaço Kids, foi pensada para quem está estreando e vem com a família.",
     },
   ] satisfies FaqItem[],
 };

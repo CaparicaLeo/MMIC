@@ -41,6 +41,8 @@ export function StatsCounter({
     });
   });
 
+  const hasKicker = items.some((item) => item.kicker);
+
   return (
     <div
       ref={root}
@@ -54,12 +56,31 @@ export function StatsCounter({
     >
       {items.map((item) => (
         <div key={item.id} data-stat className="bg-bg-dark p-7 lg:p-9">
+          {/* Se QUALQUER card tem tarja, todos reservam a linha: sem isso o
+              card com "Meta" empurra o próprio número para baixo e os três
+              deixam de alinhar. O placeholder é invisível e fora da árvore
+              de acessibilidade. */}
+          {hasKicker ? (
+            <p
+              aria-hidden={!item.kicker}
+              className={cn(
+                "label-condensed mb-3 w-fit px-2.5 py-1 text-[0.6rem]",
+                item.kicker
+                  ? "bg-accent-red text-text-white"
+                  : "invisible",
+              )}
+            >
+              {item.kicker ?? "\u00A0"}
+            </p>
+          ) : null}
+
           <p className="flex items-baseline font-display text-5xl leading-none tracking-[-0.02em] text-accent-red sm:text-6xl lg:text-7xl">
-            {/* `whitespace-pre` preserva o espaço final de prefixos como
-                "até " — como flex item, ele era colapsado e saía "até30.000".
-                Prefixos sem espaço ("+") continuam colados ao número. */}
+            {/* O respiro entre prefixo e número é margem, não caractere: o
+                span é flex item, então espaço no fim da string era colapsado
+                (saía "até30.000"). O sufixo ("%") segue colado, que é a
+                grafia correta. */}
             {item.prefix ? (
-              <span className="text-2xl whitespace-pre sm:text-3xl">
+              <span className="mr-3 text-2xl sm:mr-4 sm:text-3xl">
                 {item.prefix}
               </span>
             ) : null}

@@ -5,7 +5,7 @@ import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
 export const metadata: Metadata = {
   title: "Patrocinadores",
   description:
-    "Marcas parceiras da Meia Maratona Internacional de Curitiba 2027 — Rock Edition.",
+    "Marcas parceiras da Meia Maratona Internacional de Curitiba 2027 · Rock Edition.",
 };
 
 /** Placeholder. Vai listar cotas e marcas parceiras. */

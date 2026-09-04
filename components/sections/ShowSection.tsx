@@ -9,12 +9,21 @@ import { fadeUp, parallax, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
 /**
- * Folga que a camada de parallax tem além do quadro visível (7% acima e 7%
- * abaixo). Fica numa constante porque a proporção do quadro é derivada dela:
- * se as duas saírem de sincronia, o `object-cover` volta a cortar a foto na
- * horizontal — foi o que decepava os integrantes das pontas da banda.
+ * Folga da camada de parallax além do quadro visível: 4% acima e 4% abaixo.
+ *
+ * Fica numa constante porque três coisas dependem dela e precisam andar
+ * juntas — a altura da camada, o deslocamento inicial e a proporção do
+ * quadro. Se saírem de sincronia, o `object-cover` compensa cortando a foto
+ * na horizontal, que era o que decepava os integrantes das pontas da banda.
+ *
+ * Quanto MENOR a folga, mais alto o quadro (a proporção é descontada dela),
+ * então é ela que dá tamanho à foto. O limite é o parallax: o tween desce
+ * `PARALLAX_STRENGTH`% da altura da camada e isso não pode passar da folga,
+ * ou aparece uma borda no fim do percurso. Com 4% de folga o teto é
+ * 4 / 1.08 ≈ 3.7%.
  */
-const PARALLAX_OVERSCAN = 1.14;
+const PARALLAX_OVERSCAN = 1.08;
+const PARALLAX_STRENGTH = 3.5;
 
 export function ShowSection() {
   const root = useGsapScroll<HTMLDivElement>(({ scope, prefersReducedMotion }) => {
@@ -33,7 +42,7 @@ export function ShowSection() {
     parallax(scope.querySelector("[data-show-media]"), {
       prefersReducedMotion,
       trigger: scope,
-      strength: 10,
+      strength: PARALLAX_STRENGTH,
     });
   });
 
@@ -44,7 +53,13 @@ export function ShowSection() {
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_80%_0%,var(--color-accent-red-dark)_0%,transparent_55%)] opacity-60"
       />
 
-      <div ref={root} className="relative grid gap-14 lg:grid-cols-2 lg:gap-20">
+      {/* A coluna da mídia é mais larga que a do texto: a foto da banda é o
+          anúncio da seção e ficava pequena ao lado de uma coluna de texto
+          bem mais alta. */}
+      <div
+        ref={root}
+        className="relative grid gap-14 lg:grid-cols-[1fr_1.35fr] lg:gap-16"
+      >
         <div>
           <Badge data-reveal className="w-fit">
             {show.intro.kicker}
@@ -127,7 +142,7 @@ export function ShowSection() {
               aspectRatio: `${show.media.width} / ${show.media.height / PARALLAX_OVERSCAN}`,
             }}
           >
-            <div data-show-media className="absolute inset-x-0 -top-[7%] h-[114%]">
+            <div data-show-media className="absolute inset-x-0 -top-[4%] h-[108%]">
               <Media
                 media={show.media}
                 sizes="(min-width: 1024px) 50vw, 100vw"

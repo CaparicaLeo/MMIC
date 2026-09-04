@@ -10,7 +10,7 @@ export const event = {
   year: "2027",
   city: "Curitiba",
   state: "PR",
-  location: "Curitiba — PR",
+  location: "Curitiba (PR)",
 
   /**
    * A data ainda não foi definida.
@@ -39,7 +39,7 @@ export const event = {
   /** Usado em metadata/OG. Trocar quando a arte final existir. */
   ogImage: {
     src: "/images/placeholders/og.svg",
-    alt: "Meia Maratona Internacional de Curitiba 2027 — Rock Edition",
+    alt: "Meia Maratona Internacional de Curitiba 2027 · Rock Edition",
     width: 1200,
     height: 630,
   } satisfies Media,

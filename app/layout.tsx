@@ -7,7 +7,7 @@ import { event, siteUrl } from "@/content";
 import { fontVariables } from "./fonts";
 import "./globals.css";
 
-const title = `${event.name} ${event.year} — ${event.edition}`;
+const title = `${event.name} ${event.year} · ${event.edition}`;
 const description =
   "Quando o esporte encontra o rock, Curitiba vira o palco. 5 km, 10 km e 21 km que começam correndo e terminam em festival.";
 

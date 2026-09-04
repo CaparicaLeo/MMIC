@@ -5,7 +5,7 @@ import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
 export const metadata: Metadata = {
   title: "Inscrição",
   description:
-    "As inscrições para a Meia Maratona Internacional de Curitiba 2027 — Rock Edition abrem em breve.",
+    "As inscrições para a Meia Maratona Internacional de Curitiba 2027 · Rock Edition abrem em breve.",
 };
 
 /** Placeholder. Aqui entram lotes, valores, regulamento e checkout. */

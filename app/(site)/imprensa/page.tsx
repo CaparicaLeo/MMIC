@@ -5,7 +5,7 @@ import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
 export const metadata: Metadata = {
   title: "Imprensa",
   description:
-    "Área de imprensa da Meia Maratona Internacional de Curitiba 2027 — Rock Edition.",
+    "Área de imprensa da Meia Maratona Internacional de Curitiba 2027 · Rock Edition.",
 };
 
 /** Placeholder. Vai concentrar releases, kit de mídia e credenciamento. */

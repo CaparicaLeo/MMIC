@@ -16,7 +16,7 @@ export const show = {
   statement:
     "Quando o último pelotão cruza a chegada, a arena troca de função. O que era ponto de hidratação vira pista, o que era pórtico vira palco, e o cansaço da prova encontra a primeira batida do show ao vivo.",
   support:
-    "É o momento em que o atleta, a família que veio torcer e quem só passou para assistir estão exatamente no mesmo lugar — e nenhum deles quer ir embora.",
+    "É o momento em que o atleta, a família que veio torcer e quem só passou para assistir estão exatamente no mesmo lugar, e nenhum deles quer ir embora.",
 
   /** Atração principal confirmada. */
   headliner: "CPM22" as string | null,
