@@ -26,9 +26,15 @@ export const show = {
   headlinerPlaceholder: "Atração principal a ser anunciada",
 
   media: {
+    /**
+     * O arquivo do designer vinha com uma tarja preta chapada ocupando os
+     * 480px da esquerda (18% da largura), sobra do export e não parte da
+     * cena — ela aparecia como uma barra morta ao lado da banda. A arte
+     * versionada já está recortada, daí a proporção 2080x1440.
+     */
     src: "/images/cpm22.jpg",
     alt: "CPM22, atração principal da Rock Edition",
-    width: 2560,
+    width: 2080,
     height: 1440,
   } satisfies Media,
 };
