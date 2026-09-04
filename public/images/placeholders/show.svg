@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="960" viewBox="0 0 1280 960" role="img" aria-label="IMAGEM DO SHOW 4:3">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="0.35" y2="1">
+      <stop offset="0%" stop-color="#0A0A0A"/>
+      <stop offset="60%" stop-color="#1A0507"/>
+      <stop offset="100%" stop-color="#7A0E10"/>
+    </linearGradient>
+    <pattern id="p" width="56" height="56" patternUnits="userSpaceOnUse" patternTransform="rotate(30)">
+      <rect width="56" height="56" fill="none"/>
+      <rect width="2" height="56" fill="#FFFFFF" opacity="0.05"/>
+    </pattern>
+  </defs>
+  <rect width="1280" height="960" fill="url(#g)"/>
+  <rect width="1280" height="960" fill="url(#p)"/>
+  <text x="50%" y="50%" fill="#9A9A9A" font-family="Arial Narrow, Arial, sans-serif" font-size="43" letter-spacing="6" text-anchor="middle" dominant-baseline="middle">IMAGEM DO SHOW 4:3</text>
+</svg>
