@@ -102,7 +102,8 @@ export default function RootLayout({
         {/*
           Providers globais: o de animação centraliza a manutenção do
           ScrollTrigger; o de inscrição serve o modal "em breve" para
-          qualquer CTA da árvore, em qualquer página.
+          qualquer CTA que ainda use `action: "register"` — hoje nenhum,
+          porque os CTAs de inscrição apontam para a lista de avisos.
         */}
         <AnimationProvider>
           <RegistrationProvider>{children}</RegistrationProvider>

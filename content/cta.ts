@@ -1,5 +1,5 @@
 import type { Cta, Media, PlaceholderModal } from "./types";
-import { event } from "./event";
+import { event, waitlistUrl } from "./event";
 
 /**
  * Assinatura do evento. Fonte única: entra como texto no rodapé e como `alt`
@@ -11,12 +11,12 @@ export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
   title: "Quando o esporte encontra o rock, Curitiba vira o palco.",
   description:
-    "As inscrições para a edição 2027 abrem em breve. Garanta o seu lugar na largada, e na primeira fila.",
+    "As inscrições para a edição 2027 abrem em breve. Entre na lista de avisos e receba a data oficial e o primeiro lote antes de todo mundo.",
   dateNote: event.dateLabel,
   cta: {
-    label: "Quero me inscrever",
-    action: "register",
-    pendingLabel: "Abrindo…",
+    label: "Entrar na lista de avisos",
+    action: "link",
+    href: waitlistUrl,
   } satisfies Cta,
   closing,
   /**

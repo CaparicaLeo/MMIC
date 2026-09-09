@@ -32,9 +32,11 @@ export function useRegistration() {
 /**
  * Placeholder do fluxo de inscrição.
  *
- * Nesta etapa não existe checkout: todo CTA de inscrição abre um modal
- * "em breve". Quando o fluxo real existir, basta trocar o conteúdo do modal
- * por um redirect para /inscricao — os CTAs espalhados pela página não mudam.
+ * Hoje sem gatilho: desde que existe o canal de avisos, todo CTA de inscrição
+ * é `action: "link"` e navega para `waitlistUrl` em vez de abrir modal. O
+ * provider continua montado porque é ele que sustenta o ramo `register` de
+ * <RegisterButton> — é para cá que a página volta se o link sair do conteúdo,
+ * e é aqui que o checkout real entra quando existir.
  */
 export function RegistrationProvider({ children }: { children: ReactNode }) {
   const [source, setSource] = useState<string | null>(null);

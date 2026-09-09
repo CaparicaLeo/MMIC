@@ -186,11 +186,19 @@ export function CTAButton({
   );
 
   if (href) {
+    /* Destino externo (hoje, o canal de avisos no Instagram) abre em outra
+       aba: no desktop a página do evento continua aberta atrás, e no celular
+       o deep link entrega o app sem descartar o site. Âncora interna
+       (#distancias) navega na mesma aba, como qualquer link do site. */
+    const isExternal = /^https?:\/\//.test(href);
+
     return (
       <div ref={root} className={wrapperClass}>
         <Link
           href={href}
           aria-label={ariaLabel}
+          target={isExternal ? "_blank" : undefined}
+          rel={isExternal ? "noopener noreferrer" : undefined}
           className="relative inline-flex w-full focus-visible:outline-offset-4"
         >
           {inner}
