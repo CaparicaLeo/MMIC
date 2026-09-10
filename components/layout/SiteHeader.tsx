@@ -41,22 +41,23 @@ export function SiteHeader() {
       <div className="container-page flex h-16 items-center justify-between gap-6 lg:h-20">
         <Link
           href="/"
-          className="flex flex-col gap-1.5 leading-none"
+          className="flex leading-none"
           aria-label={`${event.name} ${event.year}`}
         >
-          {/* alt vazio: o nome do evento já é anunciado pelo aria-label do link. */}
+          {/*
+            alt vazio: o nome do evento já é anunciado pelo aria-label do link.
+            A linha "Rock Edition - 2027" faz parte da arte, por isso não há
+            mais texto abaixo da logo.
+          */}
           <Image
             src={event.logo.src}
             alt=""
             width={event.logo.width}
             height={event.logo.height}
-            sizes="(min-width: 640px) 122px, 102px"
+            sizes="(min-width: 640px) 178px, 148px"
             loading="eager"
-            className="h-[26px] w-auto sm:h-8"
+            className="h-10 w-auto sm:h-12"
           />
-          <span className="label-condensed text-[0.6rem] text-text-gray">
-            {event.edition} · {event.year}
-          </span>
         </Link>
 
         <nav aria-label="Navegação principal" className="hidden lg:block">

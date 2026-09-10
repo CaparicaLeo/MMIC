@@ -18,11 +18,11 @@ Para substituir:
 
 Já substituídos pela arte definitiva — os placeholders foram removidos:
 
-| Arte                     | Proporção | Onde aparece            | Conteúdo          |
-| ------------------------ | --------- | ----------------------- | ----------------- |
-| `../hero.jpg`            | 16:9      | fundo do hero, parallax | `content/hero.ts` |
-| `../mmic-logo.png`       | 950×242   | header e rodapé         | `content/event.ts` |
-| `../curitiba-e-rock.png` | 1177×395  | fecho da seção final    | `content/cta.ts`  |
+| Arte                            | Proporção | Onde aparece            | Conteúdo           |
+| ------------------------------- | --------- | ----------------------- | ------------------ |
+| `../hero-palco.jpg`             | 2560×1429 | fundo do hero, parallax | `content/hero.ts`  |
+| `../mmic-logo-rock-edition.png` | 1078×292  | header e rodapé         | `content/event.ts` |
+| `../curitiba-e-rock.png`        | 1177×395  | fecho da seção final    | `content/cta.ts`   |
 
 Imagens remotas (CDN/DAM) exigem liberar o host em `images.remotePatterns`
 no `next.config.ts`.

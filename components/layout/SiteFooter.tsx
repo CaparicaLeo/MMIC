@@ -14,11 +14,12 @@ export function SiteFooter() {
             alt={event.logo.alt}
             width={event.logo.width}
             height={event.logo.height}
-            sizes="(min-width: 640px) 188px, 157px"
-            className="h-10 w-auto sm:h-12"
+            sizes="(min-width: 640px) 207px, 177px"
+            className="h-12 w-auto sm:h-14"
           />
-          <p className="label-condensed mt-2 text-[0.7rem] text-text-gray">
-            {event.edition} · {event.year} · {event.location}
+          {/* Edição e ano já estão na arte da logo; aqui fica só o local. */}
+          <p className="label-condensed mt-3 text-[0.7rem] text-text-gray">
+            {event.location}
           </p>
 
           <Badge tone="outline" className="mt-6">

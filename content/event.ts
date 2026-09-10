@@ -25,15 +25,19 @@ export const event = {
   distances: ["5 KM", "10 KM", "21 KM"],
 
   /**
-   * Marca do evento. PNG com fundo transparente — o lettering é branco e o
-   * "DE CURITIBA" vermelho, então ela só funciona sobre superfície escura.
-   * Se um dia entrar uma seção clara, é preciso uma variante invertida.
+   * Marca do evento. PNG com fundo transparente — o símbolo e o lettering são
+   * brancos, o "DE CURITIBA" vermelho e a linha "ROCK EDITION - 2027" cáqui,
+   * então ela só funciona sobre superfície escura. Se um dia entrar uma seção
+   * clara, é preciso uma variante invertida.
+   *
+   * A edição e o ano já estão na arte: não repita `edition`/`year` em texto
+   * colado à logo.
    */
   logo: {
-    src: "/images/mmic-logo.png",
-    alt: "Meia Maratona Internacional de Curitiba",
-    width: 950,
-    height: 242,
+    src: "/images/mmic-logo-rock-edition.png",
+    alt: "Meia Maratona Internacional de Curitiba · Rock Edition 2027",
+    width: 1078,
+    height: 292,
   } satisfies Media,
 
   /** Usado em metadata/OG. Trocar quando a arte final existir. */
