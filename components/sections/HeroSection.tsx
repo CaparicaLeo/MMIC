@@ -74,25 +74,29 @@ export function HeroSection() {
             `sizes` declara mais que 100vw porque a camada é 116% da altura e
             o cover amplia a imagem além da largura do viewport.
 
-            A opacidade subiu de 45% para 70% junto com a troca da foto: a
-            anterior tinha camisas amarelas em plena luz e sobrevivia ao
-            gradiente, esta é contraluz e a 45% sumia por completo. O texto
-            continua legível porque se apoia no terço de baixo, que é público
-            em silhueta.
+            A foto vai em opacidade cheia: é contraluz, já escura por natureza,
+            e a 70% sob um gradiente de no mínimo 70% sobrava ~20% dela. Quem
+            segura a legibilidade são os gradientes abaixo: o vertical escurece
+            só o topo (nav) e a base (emenda com o marquee), e no desktop um
+            lateral cobre a coluna de texto e deixa a metade direita aberta.
           */}
           <Media
             media={hero.background}
             preload
             sizes="(min-width: 1024px) 160vw, 100vw"
             className="h-full w-full"
-            imageClassName="opacity-70 object-[65%_center]"
+            imageClassName="object-[65%_center]"
           />
         </div>
       </div>
 
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-b from-bg-dark via-bg-dark/70 to-bg-dark"
+        className="absolute inset-0 -z-10 bg-linear-to-b from-bg-dark/70 via-bg-dark/25 to-bg-dark"
+      />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 hidden bg-linear-to-r from-bg-dark/60 to-transparent to-60% lg:block"
       />
       <div
         aria-hidden

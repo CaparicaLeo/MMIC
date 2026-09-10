@@ -147,7 +147,6 @@ export function ShowSection() {
                 media={show.media}
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="h-full w-full"
-                imageClassName="opacity-70"
               />
             </div>
 
