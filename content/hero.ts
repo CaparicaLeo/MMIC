@@ -8,12 +8,15 @@ export const hero = {
   /**
    * Mesma frase quebrada em linhas para o reveal com máscara do hero.
    * `headline` continua sendo a fonte única para metadata/SEO.
+   *
+   * "Curitiba vira o palco." fica inteira numa linha: partida ao meio, a
+   * frase de efeito perdia a força. É a linha mais longa, e o tamanho mínimo
+   * da fonte no HeroSection foi calibrado para ela caber a partir de 220px.
    */
   headlineLines: [
     "Quando o esporte",
     "encontra o rock,",
-    "Curitiba vira",
-    "o palco.",
+    "Curitiba vira o palco.",
   ],
   /**
    * Sem dia/mês: a data ainda não está definida. Só o ano e o "em breve".

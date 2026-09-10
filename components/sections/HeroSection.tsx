@@ -113,8 +113,14 @@ export function HeroSection() {
           A assinatura criativa é <p>, não <h1>: ela é a frase de campanha e
           não diz o que a página é. As mesmas classes de antes, então nada
           muda na tela — a troca é só de tag.
+
+          O mínimo do clamp é 2rem (e não 2.75rem) para que a linha mais longa,
+          "Curitiba vira o palco.", não quebre no celular. Ela mede ~8,2× o
+          tamanho da fonte; a 10vw isso cabe na caixa (viewport − 40px) em
+          qualquer tela acima de 220px. Com mínimo de 2.75rem (44px) a fonte
+          travava em 44px e a frase estourava em 360–390px.
         */}
-        <p className="headline mt-7 max-w-5xl text-[clamp(2.75rem,10vw,7.5rem)]">
+        <p className="headline mt-7 max-w-5xl text-[clamp(2rem,10vw,7.5rem)]">
           {hero.headlineLines.map((line) => (
             <span key={line} className="headline-mask">
               <span data-hero-line className="block will-change-transform">
