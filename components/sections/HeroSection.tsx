@@ -69,16 +69,17 @@ export function HeroSection() {
           {/*
             `object-position` fora do centro porque num viewport estreito o
             `object-cover` mostra só ~22% da largura: em 50% a janela cai na
-            estrutura do palco, e em 78% sobra quase só céu e a tenda. 65%
-            pega as mãos erguidas em contraluz, que é o assunto.
+            fumaça e na bateria, 65% pega os corredores com o público atrás,
+            que é o assunto.
             `sizes` declara mais que 100vw porque a camada é 116% da altura e
             o cover amplia a imagem além da largura do viewport.
 
-            A foto vai em opacidade cheia: é contraluz, já escura por natureza,
-            e a 70% sob um gradiente de no mínimo 70% sobrava ~20% dela. Quem
-            segura a legibilidade são os gradientes abaixo: o vertical escurece
-            só o topo (nav) e a base (emenda com o marquee), e no desktop um
-            lateral cobre a coluna de texto e deixa a metade direita aberta.
+            A foto vai em opacidade cheia e quem segura a legibilidade são os
+            gradientes abaixo. Ela é clara (céu estourado, piso do palco ao
+            sol), então o vertical não abre no meio: escurece o topo (nav), mantém
+            metade no miolo, onde o texto cinza passa por cima do público, e
+            fecha na base (emenda com o marquee). No desktop, um lateral cobre a
+            coluna de texto e deixa a metade direita mais aberta.
           */}
           <Media
             media={hero.background}
@@ -92,11 +93,11 @@ export function HeroSection() {
 
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-linear-to-b from-bg-dark/70 via-bg-dark/25 to-bg-dark"
+        className="absolute inset-0 -z-10 bg-linear-to-b from-bg-dark/85 via-bg-dark/50 to-bg-dark"
       />
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 hidden bg-linear-to-r from-bg-dark/60 to-transparent to-60% lg:block"
+        className="absolute inset-0 -z-10 hidden bg-linear-to-r from-bg-dark/75 to-transparent to-65% lg:block"
       />
       <div
         aria-hidden

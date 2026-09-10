@@ -37,14 +37,13 @@ export const hero = {
   } satisfies Cta,
   scrollHint: "Role para descobrir",
   /**
-   * Camada de imagem com parallax leve. O terço inferior da foto é público em
-   * contraluz, quase silhueta, e é sobre ele que a headline se apoia. Uma
-   * troca por foto de fundo claro embaixo exigiria overlay próprio.
+   * Camada de imagem com parallax leve. Foto clara, de fim de tarde: a
+   * legibilidade da headline vem dos gradientes do HeroSection, não da foto.
    */
   background: {
-    src: "/images/hero.jpg",
-    alt: "Público de mãos erguidas em frente ao palco, no fim da tarde",
+    src: "/images/hero-palco.jpg",
+    alt: "Corredores atravessam o palco entre a banda tocando e o público, no fim da tarde",
     width: 2560,
-    height: 1440,
+    height: 1429,
   } satisfies Media,
 };
