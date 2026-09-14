@@ -10,4 +10,5 @@ export { show } from "./show";
 export { stats } from "./stats";
 export { faq } from "./faq";
 export { finalCta, registrationModal, brandCta, brandModal } from "./cta";
+export { contest, contestSubmissionUrl, contestDeadline, contestCta, contestModal } from "./contest";
 export type * from "./types";

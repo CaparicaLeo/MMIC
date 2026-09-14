@@ -11,6 +11,7 @@ export const mainNav: NavItem[] = [
   { label: "O dia", href: "/#o-dia" },
   { label: "Cronograma", href: "/cronograma", comingSoon: true },
   { label: "Marcas", href: "/marcas", comingSoon: true },
+  { label: "Concurso de Camisetas", href: "/concurso-de-camisetas" },
   { label: "Imprensa", href: "/imprensa", comingSoon: true },
 ];
 
@@ -36,6 +37,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
       { label: "Inscrição", href: "/inscricao" },
       { label: "Cronograma", href: "/cronograma" },
       { label: "Marcas", href: "/marcas" },
+      { label: "Concurso de Camisetas", href: "/concurso-de-camisetas" },
       { label: "Imprensa", href: "/imprensa" },
     ],
   },

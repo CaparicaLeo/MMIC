@@ -94,6 +94,25 @@ export type FeatureItem = {
   description: string;
 };
 
+/** Card de premiação do concurso de camisetas. */
+export type PrizeItem = {
+  id: string;
+  /** Ex.: "1º lugar" */
+  place: string;
+  /** Ex.: "R$ 3.000" */
+  value: string;
+  label: string;
+  /** O 1º lugar ganha destaque vermelho. */
+  featured?: boolean;
+};
+
+/** Card genérico de regra/critério/informação. */
+export type RuleItem = {
+  id: string;
+  title: string;
+  description: string;
+};
+
 export type NavItem = {
   label: string;
   href: string;
