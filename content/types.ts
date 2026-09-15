@@ -122,6 +122,45 @@ export type NavItem = {
   comingSoon?: boolean;
 };
 
+/** Opção do select de motivo do formulário de contato. */
+export type ContactTypeOption = {
+  /** Valor enviado ao backend (`type`), em minúsculo. */
+  value: string;
+  label: string;
+};
+
+/** Tipos que o backend aceita em `type`. */
+export type ContactPage = {
+  intro: SectionIntro;
+  form: {
+    email: { label: string; placeholder: string };
+    name: { label: string; placeholder: string };
+    phone: { label: string; placeholder: string };
+    age: { label: string; placeholder: string };
+    gender: { label: string; placeholder: string };
+    message: { label: string; placeholder: string };
+    type: { label: string; options: ContactTypeOption[] };
+    submit: { label: string; pendingLabel: string };
+    success: { title: string; description: string };
+  };
+  notices: {
+    /** Exibido abaixo do envio bem-sucedido (traz o id da oportunidade). */
+    received: string;
+    /** Exibido quando o backend bate no limite de mensagens. */
+    rateLimited: string;
+  };
+  errors: {
+    required: string;
+    invalidEmail: string;
+    invalidPhone: string;
+    /** Falha transitória (rede/backend indisponível). */
+    internal: string;
+    /** Token/não autorizado — nunca revelar o que falhou. */
+    auth: string;
+    tooLarge: string;
+  };
+};
+
 export type GrowthPoint = {
   year: string;
   value: number;
