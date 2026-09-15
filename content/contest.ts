@@ -13,7 +13,7 @@ export const contestSubmissionUrl: string | null =
   "https://forms.gle/EtR7dAHiHS1g5GSM9";
 
 /** Prazo final para envio das propostas. Ex.: "15 de dezembro de 2026". */
-export const contestDeadline: string | null = null;
+export const contestDeadline: string | null = "25 de outubro de 2026";
 
 const instagramHandle = "@meiainternacionalcuritiba";
 const instagramUrl = "https://instagram.com/meiainternacionalcuritiba";
