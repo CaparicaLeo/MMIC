@@ -1,4 +1,4 @@
-import type { Cta, PlaceholderModal, PrizeItem, RuleItem, SectionIntro, TimelineItem } from "./types";
+import type { Cta, Media, PlaceholderModal, PrizeItem, RuleItem, SectionIntro, TimelineItem } from "./types";
 
 /**
  * Concurso de camisetas da Rock Edition 2027.
@@ -9,7 +9,8 @@ import type { Cta, PlaceholderModal, PrizeItem, RuleItem, SectionIntro, Timeline
  */
 
 /** Formulário de envio / regulamento completo / gabarito e logo do concurso. */
-export const contestSubmissionUrl: string | null = null;
+export const contestSubmissionUrl: string | null =
+  "https://forms.gle/EtR7dAHiHS1g5GSM9";
 
 /** Prazo final para envio das propostas. Ex.: "15 de dezembro de 2026". */
 export const contestDeadline: string | null = null;
@@ -22,7 +23,7 @@ export const contest = {
     kicker: "Concurso de Camisetas",
     title: "A sua arte pode ser a camiseta oficial.",
     description:
-      "A Meia Maratona Internacional de Curitiba · Rock Edition 2027 abre, pela primeira vez, um concurso nacional de design para definir a estampa da camisa oficial da prova. A arte vencedora é impressa na peça entregue aos corredores em junho de 2027, com o nome do autor assinando a criação.",
+      "A Meia Maratona Internacional de Curitiba · Rock Edition 2027 abre, pela primeira vez, um concurso nacional de design para definir a estampa da camisa oficial da prova. A arte vencedora será a imagem oficial da camisa dos atletas da MMIC27, com o nome do autor assinando a criação. ",
   },
 
   challenge: {
@@ -35,6 +36,13 @@ export const contest = {
     quote:
       "Não queremos uma camiseta de banda nem uma camiseta de corrida genérica. Queremos a capa de disco de um domingo que só acontece uma vez por ano.",
     attribution: "Filippe Thome — diretor",
+    media: {
+      src: "/images/camisa-template.png",
+      alt: "Proposta de estampa na camiseta técnica preta do concurso",
+      width: 1536,
+      height: 768,
+      caption: "Imagem meramente ilustrativa.",
+    } satisfies Media,
   },
 
   prizes: {
@@ -42,7 +50,7 @@ export const contest = {
       kicker: "Premiação",
       title: "O vencedor assina a camisa da edição.",
       description:
-        "Primeiro, segundo e terceiro lugar levam prêmio em dinheiro — e a estampa do campeão é a camisa oficial entregue aos corredores.",
+        "Primeiro, segundo e terceiro lugar levam prêmio em dinheiro! E a arte do campeão será a camisa oficial entregue aos corredores.",
     } satisfies SectionIntro,
     items: [
       {
@@ -71,7 +79,7 @@ export const contest = {
     intro: {
       kicker: "Como participar",
       title: "Regras e critérios.",
-      description: "O concurso é aberto a designers de todo o país.",
+      description: "O concurso é aberto a designers e criativos de todo o país.",
     } satisfies SectionIntro,
     requirements: [
       {
@@ -144,7 +152,7 @@ export const contest = {
       },
       {
         id: "anuncio",
-        time: "Jun · 2027",
+        time: "2027",
         title: "Anúncio e impressão",
         description:
           "A arte vencedora é impressa na camisa entregue aos corredores, assinada pelo autor.",
@@ -179,8 +187,8 @@ export const contest = {
       },
       {
         id: "largada",
-        title: "Centro Cívico",
-        description: "Largadas na região da Praça Nossa Senhora da Salete.",
+        title: "Local ainda a definir",
+        description: "",
       },
       {
         id: "publico",
@@ -190,7 +198,7 @@ export const contest = {
       {
         id: "inscricoes",
         title: "Inscrições gerais",
-        description: "Abertas ao público em 15 de novembro de 2026.",
+        description: "Abertas a partir de 2026, com vagas limitadas.",
       },
     ] satisfies RuleItem[],
   },

@@ -13,6 +13,7 @@ export const mainNav: NavItem[] = [
   { label: "Marcas", href: "/marcas", comingSoon: true },
   { label: "Concurso de Camisetas", href: "/concurso-de-camisetas" },
   { label: "Imprensa", href: "/imprensa", comingSoon: true },
+  { label: "Contato", href: "/contato" },
 ];
 
 export const footerNav: { title: string; items: NavItem[] }[] = [

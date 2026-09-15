@@ -13,6 +13,8 @@ export type Media = {
   /** Proporção usada para reservar espaço e evitar layout shift. */
   width: number;
   height: number;
+  /** Legenda exibida abaixo da imagem. */
+  caption?: string;
 };
 
 export type CtaAction = "register" | "link";
