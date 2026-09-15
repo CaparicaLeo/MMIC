@@ -40,8 +40,14 @@ export async function POST(request: Request) {
   const token = process.env.CONTACT_API_TOKEN;
 
   if (!baseUrl || !token) {
+    /* Log do lado do servidor para diagnóstico — a mensagem enviada ao
+       cliente continua genérica e não revela qual variável faltou. */
+    console.warn("[opportunities] env ausente:", {
+      CONTACT_API_URL: baseUrl ? "ok" : "ausente",
+      CONTACT_API_TOKEN: token ? "ok" : "ausente",
+    });
     return NextResponse.json(
-      { message: "Serviço indisponível.", errors: {} },
+      { message: "Serviço indisponível por enquanto. Tente novamente em instantes.", errors: {} },
       { status: 503 },
     );
   }

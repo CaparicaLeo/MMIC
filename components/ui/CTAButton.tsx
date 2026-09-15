@@ -87,7 +87,8 @@ export function CTAButton({
     if (pulse && glow) {
       g.to(glow, {
         opacity: 0.55,
-        scale: 1.12,
+        scaleX: 1.12,
+        scaleY: 1.12,
         duration: 1.6,
         repeat: -1,
         yoyo: true,
@@ -96,22 +97,30 @@ export function CTAButton({
     }
 
     const moveY = g.quickTo(target, "y", { duration: 0.35, ease: "power3.out" });
-    const scaleTo = g.quickTo(target, "scale", { duration: 0.35, ease: "power3.out" });
+    /* `scale` não é elegível para reset no quickTo — o GSAP pede propriedades
+       individuais. `scaleX`/`scaleY` mantêm o mesmo efeito e resetam limpo. */
+    const scaleXTo = g.quickTo(target, "scaleX", { duration: 0.35, ease: "power3.out" });
+    const scaleYTo = g.quickTo(target, "scaleY", { duration: 0.35, ease: "power3.out" });
     const glowTo = glow
       ? g.quickTo(glow, "opacity", { duration: 0.4, ease: "power2.out" })
       : null;
 
     const enter = () => {
       moveY(-3);
-      scaleTo(1.02);
+      scaleXTo(1.02);
+      scaleYTo(1.02);
       glowTo?.(0.75);
     };
     const leave = () => {
       moveY(0);
-      scaleTo(1);
+      scaleXTo(1);
+      scaleYTo(1);
       glowTo?.(pulse ? 0.35 : 0);
     };
-    const press = () => scaleTo(0.97);
+    const press = () => {
+      scaleXTo(0.97);
+      scaleYTo(0.97);
+    };
 
     scope.addEventListener("pointerenter", enter);
     scope.addEventListener("pointerleave", leave);

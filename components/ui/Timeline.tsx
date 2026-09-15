@@ -49,21 +49,23 @@ export function Timeline({
         const marker = entry.querySelector("[data-timeline-marker]");
         if (!marker) return;
 
-        g.set(marker, { scale: 0.75, backgroundColor: "#0A0A0A" });
+        g.set(marker, { scaleX: 0.75, scaleY: 0.75, backgroundColor: "#0A0A0A" });
 
         st.create({
           trigger: entry,
           start: "top 65%",
           onEnter: () =>
             g.to(marker, {
-              scale: 1,
+              scaleX: 1,
+              scaleY: 1,
               backgroundColor: "#E11F27",
               duration: 0.4,
               ease: "back.out(2)",
             }),
           onLeaveBack: () =>
             g.to(marker, {
-              scale: 0.75,
+              scaleX: 0.75,
+              scaleY: 0.75,
               backgroundColor: "#0A0A0A",
               duration: 0.3,
             }),

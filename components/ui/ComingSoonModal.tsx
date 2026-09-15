@@ -70,7 +70,8 @@ export function ComingSoonModal({
       gsap.from(panelRef.current, {
         opacity: 0,
         y: 24,
-        scale: 0.97,
+        scaleX: 0.97,
+        scaleY: 0.97,
         duration: 0.45,
         ease: "power3.out",
       });
