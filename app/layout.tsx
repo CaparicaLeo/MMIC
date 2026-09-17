@@ -1,4 +1,5 @@
 import type { Metadata, Viewport } from "next";
+import { Analytics } from "@vercel/analytics/react";
 
 import { AnimationProvider } from "@/components/animation/AnimationProvider";
 import { RegistrationProvider } from "@/components/registration/RegistrationProvider";
@@ -108,6 +109,7 @@ export default function RootLayout({
         <AnimationProvider>
           <RegistrationProvider>{children}</RegistrationProvider>
         </AnimationProvider>
+        <Analytics />
       </body>
     </html>
   );
