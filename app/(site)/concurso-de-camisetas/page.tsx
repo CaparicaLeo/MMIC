@@ -4,6 +4,7 @@ import { ChallengeSection } from "@/components/contest/ChallengeSection";
 import { ContestFinalCtaSection } from "@/components/contest/ContestFinalCtaSection";
 import { ContestHeroSection } from "@/components/contest/ContestHeroSection";
 import { ContestTimelineSection } from "@/components/contest/ContestTimelineSection";
+import { FloatingContestCta } from "@/components/contest/FloatingContestCta";
 import { PrizesSection } from "@/components/contest/PrizesSection";
 import { RaceSection } from "@/components/contest/RaceSection";
 import { RulesSection } from "@/components/contest/RulesSection";
@@ -29,6 +30,7 @@ export default function ConcursoDeCamisetasPage() {
       <VotingSection />
       <RaceSection />
       <ContestFinalCtaSection />
+      <FloatingContestCta />
     </>
   );
 }

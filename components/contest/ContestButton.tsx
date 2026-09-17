@@ -2,7 +2,7 @@
 
 import { useCallback, useState } from "react";
 
-import { CTAButton } from "@/components/ui/CTAButton";
+import { CTAButton, type CTAButtonProps } from "@/components/ui/CTAButton";
 import { ComingSoonModal } from "@/components/ui/ComingSoonModal";
 import { contestCta, contestModal } from "@/content";
 import type { Cta } from "@/content/types";
@@ -16,7 +16,10 @@ import type { Cta } from "@/content/types";
  * Quando o concurso tiver um formulário de verdade, `contestCta` vira
  * `action: "link"` e o ramo de baixo passa a navegar sem tocar nesta casca.
  */
-export function ContestButton() {
+export function ContestButton({
+  className,
+  size,
+}: Pick<CTAButtonProps, "className" | "size">) {
   const [isOpen, setIsOpen] = useState(false);
   const close = useCallback(() => setIsOpen(false), []);
 
@@ -27,7 +30,11 @@ export function ContestButton() {
   const cta: Cta = contestCta;
 
   if (cta.action === "link" && cta.href) {
-    return <CTAButton href={cta.href}>{cta.label}</CTAButton>;
+    return (
+      <CTAButton href={cta.href} className={className} size={size}>
+        {cta.label}
+      </CTAButton>
+    );
   }
 
   return (
@@ -35,6 +42,8 @@ export function ContestButton() {
       <CTAButton
         onClick={() => setIsOpen(true)}
         pendingLabel={cta.pendingLabel}
+        className={className}
+        size={size}
         pulse
       >
         {cta.label}
