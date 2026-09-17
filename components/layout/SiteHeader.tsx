@@ -5,13 +5,12 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { RegisterButton } from "@/components/registration/RegisterButton";
-import { event, mainNav, waitlistUrl } from "@/content";
+import { event, mainNav } from "@/content";
 import { cn } from "@/lib/cn";
 
 const headerCta = {
   label: "Entrar na lista",
-  action: "link" as const,
-  href: waitlistUrl,
+  action: "register" as const,
 };
 
 /**
