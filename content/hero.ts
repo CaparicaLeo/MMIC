@@ -1,5 +1,5 @@
 import type { Cta, Media } from "./types";
-import { event, waitlistUrl } from "./event";
+import { event } from "./event";
 
 export const hero = {
   /** Tarja acima da headline. */
@@ -30,8 +30,7 @@ export const hero = {
   distances: event.distances,
   cta: {
     label: "Entrar na lista de avisos",
-    action: "link",
-    href: waitlistUrl,
+    action: "register",
   } satisfies Cta,
   secondaryCta: {
     label: "Ver as distâncias",

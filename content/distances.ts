@@ -1,5 +1,4 @@
 import type { DistanceItem, SectionIntro } from "./types";
-import { waitlistUrl } from "./event";
 
 export const distances = {
   intro: {
@@ -19,8 +18,7 @@ export const distances = {
       highlights: ["Percurso plano", "Ideal para iniciantes", "Aberto a caminhada"],
       cta: {
         label: "Avise-me sobre os 5 km",
-        action: "link",
-        href: waitlistUrl,
+        action: "register",
       },
     },
     {
@@ -33,8 +31,7 @@ export const distances = {
       highlights: ["Percurso urbano", "Pontos de som no trajeto", "Pelotão por ritmo"],
       cta: {
         label: "Avise-me sobre os 10 km",
-        action: "link",
-        href: waitlistUrl,
+        action: "register",
       },
     },
     {
@@ -51,8 +48,7 @@ export const distances = {
       ],
       cta: {
         label: "Avise-me sobre os 21 km",
-        action: "link",
-        href: waitlistUrl,
+        action: "register",
       },
       featured: true,
     },

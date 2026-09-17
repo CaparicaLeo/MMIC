@@ -1,18 +1,15 @@
 "use client";
 
-import { ComingSoonModal } from "@/components/ui/ComingSoonModal";
-import { registrationModal } from "@/content";
+import { WaitlistModal } from "./WaitlistModal";
 
 import { useRegistration } from "./RegistrationProvider";
 
 /**
- * Modal de inscrição. Só liga o estado global do fluxo à casca compartilhada
- * em <ComingSoonModal> — o comportamento (foco, Escape, scroll) mora lá.
+ * Modal de inscrição. Só liga o estado global do fluxo à casca da lista de
+ * avisos — o comportamento (foco, Escape, scroll) mora no <WaitlistModal>.
  */
 export function RegistrationModal() {
   const { isOpen, close } = useRegistration();
 
-  return (
-    <ComingSoonModal isOpen={isOpen} onClose={close} content={registrationModal} />
-  );
+  return <WaitlistModal isOpen={isOpen} onClose={close} />;
 }

@@ -1,5 +1,5 @@
 import type { Cta, Media, PlaceholderModal } from "./types";
-import { event, waitlistUrl } from "./event";
+import { event } from "./event";
 
 /**
  * Assinatura do evento. Fonte única: entra como texto no rodapé e como `alt`
@@ -15,8 +15,7 @@ export const finalCta = {
   dateNote: event.dateLabel,
   cta: {
     label: "Entrar na lista de avisos",
-    action: "link",
-    href: waitlistUrl,
+    action: "register",
   } satisfies Cta,
   closing,
   /**
@@ -30,16 +29,6 @@ export const finalCta = {
     height: 395,
   } satisfies Media,
 };
-
-/** Copy do modal de placeholder (não há fluxo de inscrição ainda). */
-export const registrationModal = {
-  kicker: "Inscrições",
-  title: "Em breve",
-  description:
-    "As inscrições para a Meia Maratona Internacional de Curitiba 2027 · Rock Edition ainda não abriram. A data oficial e o primeiro lote serão anunciados juntos.",
-  note: "Enquanto isso, acompanhe as redes do evento para ser avisado primeiro.",
-  dismissLabel: "Fechar",
-} satisfies PlaceholderModal;
 
 /**
  * CTA comercial da página /marcas.

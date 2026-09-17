@@ -56,12 +56,9 @@ export const event = {
 };
 
 /**
- * Canal do evento no Instagram, usado como lista de avisos enquanto o
- * checkout não existe: é para cá que aponta todo CTA de inscrição da página.
- *
- * O destino não é uma inscrição — é uma lista. Os rótulos dos CTAs em
- * /content precisam continuar dizendo isso; um "quero me inscrever" que
- * entrega um canal do Instagram quebra a promessa do clique.
+ * Canal do evento no Instagram, entregue após preencher a lista de avisos
+ * (<WaitlistModal>). O formulário captura o lead; este link confirma o
+ * acompanhamento no canal, onde os anúncios saem primeiro.
  */
 export const waitlistUrl = "https://ig.me/j/t5la8vc57GKOevuM/";
 

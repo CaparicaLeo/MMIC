@@ -21,7 +21,7 @@ export type CtaAction = "register" | "link";
 
 export type Cta = {
   label: string;
-  /** `register` abre um modal de "em breve"; `link` navega. */
+  /** `register` abre o modal de lista de avisos; `link` navega. */
   action: CtaAction;
   href?: string;
   /** Texto exibido durante o estado de loading do botão. */
@@ -166,4 +166,32 @@ export type GrowthPoint = {
   value: number;
   /** Marca a edição ainda não realizada (meta, não histórico). */
   projected?: boolean;
+};
+
+/** Copy do formulário de lista de avisos, aberto pelos CTAs de inscrição. */
+export type WaitlistContent = {
+  kicker: string;
+  title: string;
+  description: string;
+  form: {
+    email: { label: string; placeholder: string };
+    name: { label: string; placeholder: string };
+    whatsapp: { label: string; placeholder: string };
+    instagram: { label: string; placeholder: string };
+  };
+  submit: { label: string; pendingLabel: string };
+  success: {
+    title: string;
+    description: string;
+    note: string;
+    ctaLabel: string;
+    dismissLabel: string;
+  };
+  notices: { rateLimited: string };
+  errors: {
+    required: string;
+    invalidEmail: string;
+    invalidPhone: string;
+    internal: string;
+  };
 };
