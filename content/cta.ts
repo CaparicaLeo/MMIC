@@ -1,4 +1,4 @@
-import type { Cta, Media, PlaceholderModal } from "./types";
+import type { Cta, Media } from "./types";
 import { event } from "./event";
 
 /**
@@ -29,28 +29,3 @@ export const finalCta = {
     height: 395,
   } satisfies Media,
 };
-
-/**
- * CTA comercial da página /marcas.
- *
- * `action: "register"` aqui não é inscrição de corredor: é o mesmo padrão
- * de "clique abre um modal de em breve", porque as cotas ainda não têm
- * fluxo nem contato comercial publicado. Quando tiver, isto vira
- * `action: "link"` com o `href` do e-mail ou do formulário, e o botão não
- * muda.
- */
-export const brandCta = {
-  label: "Seja uma marca oficial do evento",
-  action: "register",
-  pendingLabel: "Abrindo…",
-} satisfies Cta;
-
-/** Copy do modal aberto pelo CTA de marcas. */
-export const brandModal = {
-  kicker: "Marcas",
-  title: "Em breve",
-  description:
-    "As cotas de patrocínio da Meia Maratona Internacional de Curitiba 2027 · Rock Edition ainda não abriram. O plano comercial e o contato para marcas serão divulgados junto com a data oficial.",
-  note: "Se a sua marca quer estar na arena, acompanhe as redes do evento — o anúncio sai por lá primeiro.",
-  dismissLabel: "Fechar",
-} satisfies PlaceholderModal;

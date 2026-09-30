@@ -10,7 +10,7 @@ export const mainNav: NavItem[] = [
   { label: "Distâncias", href: "/#distancias" },
   { label: "O dia", href: "/#o-dia" },
   { label: "Cronograma", href: "/cronograma", comingSoon: true },
-  { label: "Marcas", href: "/marcas", comingSoon: true },
+  { label: "Marcas", href: "/marcas" },
   { label: "Concurso de Camisetas", href: "/concurso-de-camisetas" },
   { label: "Imprensa", href: "/imprensa", comingSoon: true },
   { label: "Contato", href: "/contato" },
@@ -28,6 +28,10 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     ],
   },
   {
+    title: "Marcas",
+    items: [{ label: "Patrocine o evento", href: "/marcas" }],
+  },
+  {
     /**
      * Sem `comingSoon` nos itens de propósito: o título da coluna já é
      * "Em breve" e o selo em cada item repetia a expressão cinco vezes no
@@ -37,7 +41,6 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Inscrição", href: "/inscricao" },
       { label: "Cronograma", href: "/cronograma" },
-      { label: "Marcas", href: "/marcas" },
       { label: "Concurso de Camisetas", href: "/concurso-de-camisetas" },
       { label: "Imprensa", href: "/imprensa" },
     ],
