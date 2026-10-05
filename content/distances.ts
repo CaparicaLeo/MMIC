@@ -1,4 +1,5 @@
 import type { DistanceItem, SectionIntro } from "./types";
+import { backstage } from "./backstage";
 
 export const distances = {
   intro: {
@@ -7,17 +8,26 @@ export const distances = {
     description:
       "Três percursos, uma chegada. Todos terminam na mesma arena, no mesmo som.",
   } satisfies SectionIntro,
+
+  /**
+   * Os três cards apontam para o mesmo formulário do Backstage, com a distância
+   * pré-marcada. O rótulo do botão é o mesmo dos outros CTAs do site de
+   * propósito — trocar por "Entrar no Backstage (21 km)" faria a pessoa duvidar
+   * de que estão falando da mesma coisa. A distância aparece na tarja do modal,
+   * que é onde ela precisa ser confirmada.
+   */
   items: [
     {
       id: "5km",
       distance: "5",
       unit: "KM",
       name: "A estreia",
+      audience: "Para quem está começando, vem pela experiência ou vem com a família.",
       description:
-        "Para quem está começando ou vem pela experiência. Percurso plano, clima de abertura e a mesma chegada de todo mundo.",
+        "Percurso plano, clima de abertura e a mesma chegada de todo mundo.",
       highlights: ["Percurso plano", "Ideal para iniciantes", "Aberto a caminhada"],
       cta: {
-        label: "Avise-me sobre os 5 km",
+        label: backstage.ctaLabel,
         action: "register",
       },
     },
@@ -26,11 +36,12 @@ export const distances = {
       distance: "10",
       unit: "KM",
       name: "O ritmo",
+      audience: "Para quem já corre 10 km com folga e quer um dia com som no trajeto.",
       description:
-        "A distância mais disputada do evento. Ritmo forte, ruas fechadas e os principais pontos de som do percurso.",
+        "A distância mais disputada do evento, com ritmo forte e ruas fechadas.",
       highlights: ["Percurso urbano", "Pontos de som no trajeto", "Pelotão por ritmo"],
       cta: {
-        label: "Avise-me sobre os 10 km",
+        label: backstage.ctaLabel,
         action: "register",
       },
     },
@@ -39,15 +50,16 @@ export const distances = {
       distance: "21",
       unit: "KM",
       name: "A meia",
+      audience: "Para quem corre meia maratona e quer a chegada mais barulhenta do ano.",
       description:
-        "A prova principal. Percurso internacional homologado, cronometragem oficial e a chegada mais barulhenta do ano.",
+        "A prova principal, com percurso internacional homologado e cronometragem oficial.",
       highlights: [
         "Percurso homologado",
         "Cronometragem oficial",
         "Premiação por categoria",
       ],
       cta: {
-        label: "Avise-me sobre os 21 km",
+        label: backstage.ctaLabel,
         action: "register",
       },
       featured: true,

@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { PendingNote } from "@/components/ui/PendingNote";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 import { stats } from "@/content";
 import { countUp, drawLine, fadeUp } from "@/lib/animations/presets";
@@ -103,6 +104,8 @@ export function StatsSection() {
                     {point.source}
                   </span>
                 ) : null}
+
+                {point.pending ? <PendingNote text={point.pending} /> : null}
               </li>
             ))}
           </ul>

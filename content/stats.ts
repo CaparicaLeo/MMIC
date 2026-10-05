@@ -26,7 +26,7 @@ export const stats = {
       value: 5000,
       label: "atletas em 2026",
       note: "Resultado da edição 2026.",
-      source: "Ticket Sports",
+      source: "Edição 2026",
       // TODO(confirmar): o número oficial de 2026 precisa ser confirmado com a
       // Ticket Sports antes de publicar. Enquanto isso o marcador aparece em dev.
       pending: "confirmar número oficial 2026 com a Ticket Sports",
@@ -67,14 +67,29 @@ export const stats = {
   /** Comparativo histórico exibido como barras. */
   growth: {
     label: "Atletas por edição",
+    /*
+      2025 e 2026 estão sem fonte confirmada: o valor de 2025 veio do histórico
+      do site e o de 2026 foi informado como pendente de verificação com a
+      Ticket Sports. Atribuir a fonte "Ticket Sports" aos dois seria inventar
+      procedência justamente nos anos que a barra usa para mostrar trajetória,
+      então as duas linhas carregam marcador de pendência até haver documento.
+    */
     series: [
-      { year: "2025", value: 5000, source: "Ticket Sports" },
-      // TODO(confirmar): mesmo número do card "atletas-2026" — confirmar a
-      // fonte antes de publicar.
+      {
+        year: "2025",
+        value: 5000,
+        source: "Edição 2025",
+        // TODO(confirmar): número de inscritos da edição 2025 e a fonte oficial
+        // do número. Hoje o valor vem do histórico do site, sem comprovação.
+        pending: "confirmar número e fonte da edição 2025",
+      },
       {
         year: "2026",
         value: 5000,
-        source: "Ticket Sports",
+        source: "Edição 2026",
+        // TODO(confirmar): confirmar com a Ticket Sports o número oficial de
+        // 2026 e a fonte que o publica.
+        pending: "confirmar número oficial de 2026 com a Ticket Sports",
       },
       {
         year: "2027",

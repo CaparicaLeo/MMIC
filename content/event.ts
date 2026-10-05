@@ -27,9 +27,14 @@ export const event = {
    * É este o alvo do <Countdown /> do hero e do bloco de oferta: um prazo que
    * existe é melhor que "data em breve". Fuso explícito no ISO para o relógio
    * não depender do fuso da máquina de quem renders.
+   *
+   * A hora é 00:00 de propósito: só a data foi confirmada, e usar a meia-noite
+   * como alvo faz o contador terminar no início do dia anunciado, sem afirmar
+   * uma hora que ninguém confirmou. Se a produção informar o horário, é só
+   * trocar este valor e o `dateLabel`/`registrationLabel` continuam válidos.
    */
-  // TODO(confirmar): validar a data com a produção antes de publicar.
-  registrationOpensAt: "2026-11-15T09:00:00-03:00" as string | null,
+  // TODO(confirmar): horário exato de abertura com a produção.
+  registrationOpensAt: "2026-11-15T00:00:00-03:00" as string | null,
 
   /**
    * Texto curto do prazo, usado no rodapé, no hero e nas páginas "em breve".

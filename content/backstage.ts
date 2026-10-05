@@ -35,7 +35,7 @@ export const backstage = {
     {
       id: "form" as const,
       label: "Quero entrar pelo formulário",
-      hint: "Dois campos. Você escolhe como quer ser chamado.",
+      hint: "Nome, contato e e-mail. Você escolhe se quer aviso por WhatsApp ou por e-mail.",
     },
   ],
 } as const;

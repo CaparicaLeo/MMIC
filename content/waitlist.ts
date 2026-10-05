@@ -6,36 +6,37 @@ import { backstage } from "./backstage";
  *
  * É este formulário que transforma o clique do CTA principal em lead no
  * backend (POST /api/opportunities, com `type` "waitlist" e `source`
- * "meia-de-curitiba:<bloco>"). O link do canal do Instagram só aparece depois do
- * envio, na tela de sucesso — a promessa do CTA continua honesta.
+ * "meia-de-curitiba:<bloco>"). O link do canal do Instagram fica disponível
+ * antes e depois do envio — é uma entrada, não um prêmio.
  */
 export const waitlist: WaitlistContent = {
   kicker: backstage.name,
   title: "Entre no Backstage antes de todo mundo.",
   description:
-    "O Backstage 21K é o grupo de pré-lançamento: é lá que a votação da camiseta, o line-up e a venda do primeiro lote saem primeiro. Preencha ao lado ou entre direto pelo Instagram.",
+    "O Backstage 21K é o grupo de pré-lançamento: é lá que a votação da camiseta, o line-up e a venda do primeiro lote aparecem primeiro. Entre pelo Instagram ou deixe dois campos e a gente chama você.",
+
+  channels: backstage.channels,
+
   form: {
-    email: {
-      label: "E-mail",
-      placeholder: "voce@email.com",
+    contact: {
+      label: "WhatsApp ou e-mail",
+      placeholder: "(41) 99999-9999 ou voce@email.com",
+      hint: "Serve qualquer um dos dois. É por aqui que o aviso chega.",
     },
     name: {
       label: "Nome",
       placeholder: "Seu nome completo",
     },
-    whatsapp: {
-      label: "WhatsApp",
-      placeholder: "(41) 99999-9999",
+    email: {
+      label: "E-mail",
+      placeholder: "voce@email.com",
     },
-    instagram: {
-      label: "Instagram",
-      placeholder: "@seu.usuario",
+    submit: {
+      label: backstage.ctaLabel,
+      pendingLabel: "Enviando…",
     },
   },
-  submit: {
-    label: backstage.ctaLabel,
-    pendingLabel: "Enviando…",
-  },
+
   success: {
     title: "Você está no Backstage.",
     description:
@@ -44,13 +45,15 @@ export const waitlist: WaitlistContent = {
     ctaLabel: "Entrar pelo Instagram",
     dismissLabel: "Fechar",
   },
+
   notices: {
     rateLimited: "Muitos envios em pouco tempo. Aguarde um instante e tente novamente.",
   },
+
   errors: {
     required: "Preencha este campo.",
+    invalidContact: "Digite um e-mail válido ou um número de WhatsApp com DDD.",
     invalidEmail: "Digite um e-mail válido.",
-    invalidPhone: "Digite um número de WhatsApp válido.",
     internal: "Não foi possível enviar neste momento. Tente novamente em alguns instantes.",
   },
 };
