@@ -74,6 +74,21 @@ export type StatItem = {
   decimals?: number;
   label: string;
   note?: string;
+  /**
+   * Origem do número, exibida ao lado dele.
+   *
+   * Todo número público do site precisa dizer de onde veio — é o que separa
+   * "5.000 atletas em 2026" (realizado) de "meta 10.000" (intenção). Sem
+   * `source`, o card não deveria render: o campo existe justamente para não
+   * haver número sem procedência.
+   */
+  source?: string;
+  /**
+   * Descrição do dado que ainda depende de aprovação. Renderiza o marcador
+   * `{{DADO_PENDENTE: …}}` visível apenas em desenvolvimento, ao lado do
+   * número — nunca em produção, onde viraria ruído para o usuário final.
+   */
+  pending?: string;
 };
 
 export type FaqItem = {
@@ -173,6 +188,8 @@ export type GrowthPoint = {
   value: number;
   /** Marca a edição ainda não realizada (meta, não histórico). */
   projected?: boolean;
+  /** Origem do número, exibida ao lado da barra. */
+  source?: string;
 };
 
 /** Copy do formulário de lista de avisos, aberto pelos CTAs de inscrição. */

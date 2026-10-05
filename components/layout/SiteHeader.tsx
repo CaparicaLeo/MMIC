@@ -5,11 +5,11 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { RegisterButton } from "@/components/registration/RegisterButton";
-import { event, mainNav } from "@/content";
+import { backstage, event, mainNav } from "@/content";
 import { cn } from "@/lib/cn";
 
 const headerCta = {
-  label: "Entrar na lista",
+  label: backstage.ctaLabel,
   action: "register" as const,
 };
 
@@ -85,7 +85,13 @@ export function SiteHeader() {
             source="header"
             size="md"
             animateIn={false}
-            className="hidden sm:inline-flex"
+            /*
+              `xl` e não `sm`: o rótulo do CTA principal passou a ser a frase
+              completa ("Quero entrar no Backstage"), e entre 640px e 1280px ela
+              competia por largura com as oito entradas do menu. Abaixo de `xl`
+              quem converte é a barra fixa do rodapé, não o header.
+            */
+            className="hidden xl:inline-flex"
           />
 
           <button

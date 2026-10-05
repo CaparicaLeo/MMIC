@@ -1,6 +1,7 @@
 "use client";
 
 import { countUp, fadeUp } from "@/lib/animations/presets";
+import { PendingNote } from "@/components/ui/PendingNote";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 import { formatNumber } from "@/lib/format";
 import { cn } from "@/lib/cn";
@@ -104,6 +105,20 @@ export function StatsCounter({
               {item.note}
             </p>
           ) : null}
+
+          {/*
+            A fonte fica entre a nota e o fim do card, e não escondida em
+            tooltip: a pergunta "de onde saiu esse número?" precisa ser
+            respondida sem interação. É o que distingue 5.000done empresas de
+            10.000 projetados.
+          */}
+          {item.source ? (
+            <p className="mt-4 border-t border-white/10 pt-3 text-xs leading-relaxed text-text-gray">
+              Fonte: {item.source}
+            </p>
+          ) : null}
+
+          {item.pending ? <PendingNote text={item.pending} /> : null}
         </div>
       ))}
     </div>

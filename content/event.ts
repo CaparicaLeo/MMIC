@@ -13,14 +13,44 @@ export const event = {
   location: "Curitiba (PR)",
 
   /**
-   * A data ainda não foi definida.
+   * A data do evento ainda não foi definida.
    *
    * Quando for, preencha `date` com um ISO 8601 (ex.: "2027-09-12T06:00:00-03:00")
    * e o <Countdown /> passa a renderizar automaticamente, sem mudar componente.
    * Enquanto `date` for null, nada de data/contador aparece na página.
    */
   date: null as string | null,
-  dateLabel: "Data em breve",
+
+  /**
+   * Abertura das inscrições — a data concreta que o site pode anunciar hoje.
+   *
+   * É este o alvo do <Countdown /> do hero e do bloco de oferta: um prazo que
+   * existe é melhor que "data em breve". Fuso explícito no ISO para o relógio
+   * não depender do fuso da máquina de quem renders.
+   */
+  // TODO(confirmar): validar a data com a produção antes de publicar.
+  registrationOpensAt: "2026-11-15T09:00:00-03:00" as string | null,
+
+  /**
+   * Texto curto do prazo, usado no rodapé, no hero e nas páginas "em breve".
+   *
+   * É o fallback para quem não vê o <Countdown /> (sem JavaScript, movimento
+   * reduzido, ou renderização de servidor): a informação tem de existir em
+   * texto, não só em dígitos animados. Mantido em dia à mão — se
+   * `registrationOpensAt` mudar, este campo muda junto.
+   */
+  // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
+  dateLabel: "Inscrições em 15/11/2026" as string,
+
+  /**
+   * Versão em caixa alta do prazo, para o marquee do hero.
+   *
+   * O marquee é a única tira de texto com fundo vermelho da home; "DATA EM
+   * BREVE" ocupava esse espaço e não dizia nada. A data concreta ocupa melhor
+   * e é o que a pessoa precisa ler duas vezes por rolagem.
+   */
+  // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
+  registrationLabel: "INSCRIÇÕES 15/11" as string,
 
   distances: ["5 KM", "10 KM", "21 KM"],
 

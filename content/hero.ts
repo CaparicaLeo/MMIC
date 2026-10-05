@@ -1,4 +1,5 @@
 import type { Cta, Media } from "./types";
+import { backstage } from "./backstage";
 import { event } from "./event";
 
 export const hero = {
@@ -28,8 +29,16 @@ export const hero = {
   subheadline: `${event.name} · ${event.edition}`,
   dateNote: event.dateLabel,
   distances: event.distances,
+  /**
+   * Linha de promessa logo abaixo do CTA.
+   *
+   * O CTA sozinho não diz o que a pessoa ganha — e "entrar na lista de avisos"
+   * prometia data, que era o oposto do benefício real. Aqui a troca é concreta:
+   * votar, ver antes, comprar antes.
+   */
+  promise: backstage.promise,
   cta: {
-    label: "Entrar na lista de avisos",
+    label: backstage.ctaLabel,
     action: "register",
   } satisfies Cta,
   secondaryCta: {

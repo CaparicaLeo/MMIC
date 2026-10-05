@@ -57,16 +57,25 @@ export function FinalCtaSection() {
           {finalCta.description}
         </p>
 
-        {/* Sem data definida: o Countdown não renderiza nada por enquanto. */}
-        <Countdown date={event.date} className="mt-10 justify-center" />
+        {/* Mesmo alvo e mesmo rótulo do hero: é o mesmo prazo, contado duas
+            vezes na página. */}
+        <Countdown
+          date={event.registrationOpensAt}
+          caption="Inscrições abrem em"
+          className="mt-10 justify-center"
+        />
 
-        <div data-reveal className="mt-10">
+        <div data-reveal className="mt-10 flex flex-col items-center">
           <RegisterButton
             cta={finalCta.cta}
             source="cta-final"
             pulse
             animateIn={false}
           />
+
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-text-gray">
+            {finalCta.promise}
+          </p>
         </div>
 
         <p

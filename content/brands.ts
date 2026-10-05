@@ -402,13 +402,18 @@ export const brands = {
         id: "escala",
         title: "Escala",
         description:
-          "Meta de 10 mil atletas e até 30 mil pessoas em circulação na edição 2027.",
+          "Meta de 10 mil atletas e projeção de 30 mil pessoas em circulação na edição 2027.",
       },
       {
-        id: "crescimento",
-        title: "Crescimento",
+        /*
+          "Crescimento" saiu daqui (§1): o +43% de inscritos de 2026 para 2027
+          comparava uma meta com um número do ano anterior. A edição de 2026,
+          realizada, é a credencial — e é a mesma que está nos cards de número.
+        */
+        id: "realizado",
+        title: "Edição realizada",
         description:
-          "Três edições e +43% de inscritos de 2026 para 2027. A operação só aumenta.",
+          "5 mil atletas correram a edição de 2026, com percurso internacional homologado e cronometragem oficial.",
       },
       {
         id: "cenario",

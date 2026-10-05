@@ -17,7 +17,7 @@ const marqueeItems = [
   "ROCK EDITION",
   "CURITIBA",
   event.year,
-  "DATA EM BREVE",
+  event.registrationLabel,
 ];
 
 export function HeroSection() {
@@ -166,7 +166,19 @@ export function HeroSection() {
           data-hero-fade
           className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
         >
-          <RegisterButton cta={hero.cta} source="hero" pulse animateIn={false} />
+          <div className="flex flex-col items-start gap-3">
+            <RegisterButton cta={hero.cta} source="hero" pulse animateIn={false} />
+
+            {/*
+              A promessa vai logo abaixo do botão e não dentro dele: o rótulo
+              precisa caber em uma linha em 320px, e a frase do benefício não
+              cabe. Também é ela que separa este CTA de um link qualquer — sem
+              ela o botão não diz o que a pessoa ganha.
+            */}
+            <p className="max-w-md text-sm leading-relaxed text-text-gray">
+              {hero.promise}
+            </p>
+          </div>
 
           <CTAButton
             href={hero.secondaryCta.href ?? "#distancias"}
@@ -178,10 +190,16 @@ export function HeroSection() {
         </div>
 
         {/*
-          A data ainda não existe: `event.date` é null e o Countdown não
-          renderiza nada. Fica só o aviso textual "Data em breve".
+          O alvo do contador é a abertura das inscrições, não a data da prova:
+          `event.date` continua null e o hero não anuncia um dia que não existe.
+          Enquanto o prazo mudar, o contador acompanha — não há magic number
+          no JSX.
         */}
-        <Countdown date={event.date} className="mt-9" />
+        <Countdown
+          date={event.registrationOpensAt}
+          caption="Inscrições abrem em"
+          className="mt-9"
+        />
 
         <p
           data-hero-fade

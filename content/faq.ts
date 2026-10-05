@@ -30,12 +30,17 @@ export const faq = {
       answer:
         "A inscrição é individual e nominal, com lotes por ordem de compra. Transferência de titularidade e troca de distância seguem prazos definidos em regulamento, publicado na abertura das vendas. Cancelamentos seguem a política vigente informada no ato da compra.",
     },
-    {
-      id: "data",
-      question: "Já existe data confirmada?",
-      answer:
-        "Ainda não. A edição 2027 está confirmada, e a data oficial será anunciada em breve, junto com a abertura das inscrições. Acompanhe as redes do evento para não perder o primeiro lote.",
-    },
+{
+        id: "data",
+        question: "Já existe data confirmada?",
+        // Resposta trocada em §1: "será anunciada em breve" era a quinta
+        // ocorrência do mesmo aviso sem data no site. A pergunta segue de pé —
+        // a data da prova ainda não está fechada — mas a resposta passa a
+        // dizer o que está confirmado (a abertura das inscrições) em vez de
+        // repetir que nada está.
+        answer:
+          "A data da prova ainda não foi anunciada. O que já está confirmado é a abertura das inscrições, em 15 de novembro de 2026. Quem entra no Backstage 21K recebe o primeiro lote antes da venda aberta.",
+      },
     {
       id: "iniciante",
       question: "Nunca corri uma prova de rua. Dá para participar?",
