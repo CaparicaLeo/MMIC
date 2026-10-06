@@ -94,10 +94,19 @@ export const event = {
     height: 630,
   } satisfies Media,
 
+  /**
+   * Perfis oficiais do evento. Fonte única para o `sameAs` do Organization
+   * (JSON-LD) e para qualquer link social futuro.
+   *
+   * Só o Instagram é confirmado; os demais ficam `null` em vez de placeholder
+   * — `sameAs` apontando para a home de uma rede genérica sinaliza entidade
+   * errada para o buscador, e é pior do que não declarar.
+   */
+  // TODO(confirmar): YouTube/TikTok oficiais, quando existirem.
   social: {
-    instagram: "https://instagram.com",
-    youtube: "https://youtube.com",
-    tiktok: "https://tiktok.com",
+    instagram: "https://www.instagram.com/meiainternacionalcuritiba/",
+    youtube: null as string | null,
+    tiktok: null as string | null,
   },
 };
 

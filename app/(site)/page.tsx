@@ -1,4 +1,6 @@
 import { EventJsonLd } from "@/components/seo/EventJsonLd";
+import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
+import { WebsiteJsonLd } from "@/components/seo/WebsiteJsonLd";
 import { ConceptSection } from "@/components/sections/ConceptSection";
 import { DaySection } from "@/components/sections/DaySection";
 import { DistancesSection } from "@/components/sections/DistancesSection";
@@ -19,8 +21,15 @@ import { StructureSection } from "@/components/sections/StructureSection";
 export default function HomePage() {
   return (
     <>
-      {/* Dados estruturados só aqui: descrevem o evento, não cada rota. */}
+      {/*
+        Dados estruturados só aqui: descrevem o evento (SportsEvent), o site
+        (WebSite + Organization) e o FAQ da página — repetir esses blocos nas
+        rotas de "em breve" criaria declarações concorrentes da mesma
+        entidade.
+      */}
       <EventJsonLd />
+      <WebsiteJsonLd />
+      <FaqJsonLd />
 
       <HeroSection />
       <ConceptSection />
