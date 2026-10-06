@@ -16,7 +16,7 @@ export default function InscricaoPage() {
   return (
     <ComingSoonPage
       kicker="Inscrição"
-      title="As inscrições abrem em breve."
+      title="Meia Maratona de Curitiba: inscrições em breve."
       description="A data oficial da prova e o primeiro lote de inscrições serão anunciados juntos. Esta página vai receber lotes, valores, regulamento e o fluxo de compra."
       whatsNext={[
         "Lotes e valores por distância (5 km, 10 km e 21 km)",

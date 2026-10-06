@@ -16,8 +16,8 @@ export default function ImprensaPage() {
   return (
     <ComingSoonPage
       kicker="Imprensa"
-      title="Material para quem vai contar essa história."
-      description="Esta página vai concentrar releases, kit de mídia, imagens em alta resolução e o credenciamento para cobertura do evento."
+      title="Meia Maratona de Curitiba: área de imprensa."
+      description="Material para quem vai contar essa história: releases, kit de mídia, imagens em alta resolução e o credenciamento para cobertura do evento."
       whatsNext={[
         "Releases oficiais da edição 2027",
         "Kit de mídia e logos em alta resolução",

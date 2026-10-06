@@ -8,7 +8,7 @@ import type { ContactPage } from "./types";
 export const contact: ContactPage = {
   intro: {
     kicker: "Contato",
-    title: "Fale com a equipe da Meia Maratona de Curitiba.",
+    title: "Fale com a equipe da Meia Maratona de Curitiba 2027.",
     description:
       "Dúvidas sobre a prova, negócios e parcerias ou propostas de imprensa: escolha o assunto e deixe sua mensagem. A equipe responde pelo e-mail informado.",
   },

@@ -37,7 +37,9 @@ export function ConceptSection() {
           {concept.intro.kicker}
         </Badge>
 
-        <p className="headline mt-8 text-[clamp(2rem,6vw,4.25rem)] text-text-white">
+        {/* h2, não <p>: sem ele a home pulava de h1 direto para o h2 do
+            cronograma, e o buscador perde a hierarquia das seções. */}
+        <h2 className="headline mt-8 text-[clamp(2rem,6vw,4.25rem)] text-text-white">
           <span className="headline-mask">
             <span data-concept-line className="block will-change-transform">
               {concept.intro.title}
@@ -53,7 +55,7 @@ export function ConceptSection() {
               correndo e termina em festival.
             </span>
           </span>
-        </p>
+        </h2>
 
         <p
           data-reveal

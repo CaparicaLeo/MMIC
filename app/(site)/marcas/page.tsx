@@ -12,8 +12,9 @@ import { FloatingBrandCta } from "@/components/brands/FloatingBrandCta";
 
 export const metadata: Metadata = {
   title: "Marcas",
+  /* ≤155 chars: acima disso o Google corta no SERP. */
   description:
-    "Seja uma marca oficial da Meia Maratona Internacional de Curitiba 2027: 5 km, 10 km e 21 km em Curitiba (PR), com show ao vivo na chegada. Cotas, ativações e contato comercial.",
+    "Seja uma marca oficial da Meia Maratona Internacional de Curitiba 2027: 5 km, 10 km e 21 km em Curitiba (PR), com show na chegada.",
   /* Canonical próprio: sem ele a rota herda o da home (app/layout.tsx)
      e se declara duplicata dela. Relativo, resolvido por metadataBase. */
   alternates: { canonical: "/marcas" },

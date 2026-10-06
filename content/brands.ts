@@ -132,7 +132,13 @@ export const brands = {
      * meio, a frase de efeito perdia a força — e é a mais longa, então é ela
      * que calibra o tamanho mínimo da headline.
      */
-    headlineLines: ["Sua marca no palco.", "Com quem corre", "e com quem assiste."],
+    /**
+     * O nome do evento e o ano entram no h1 — "meia maratona de curitiba
+     * 2027" é busca alvo e o h1 é o título que o buscador lê. A linha mais
+     * longa continua calibrando o tamanho mínimo da headline, por isso o
+     * nome foi partido em três linhas em vez de entrar numa só.
+     */
+    headlineLines: ["Sua marca no palco", "da Meia Maratona", "de Curitiba 2027."],
     description:
       "A Meia Maratona Internacional de Curitiba não é só uma prova. É um dia em que o esporte e o rock dividem a mesma arena, e a sua marca entra no meio deles: no percurso, na chegada, no palco e no público que acompanha tudo de pertinho.",
     cta: {

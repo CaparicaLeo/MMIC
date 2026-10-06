@@ -25,8 +25,11 @@ export const hero = {
    * Curitiba", e a linha saía "…de Curitiba · Rock Edition — Curitiba — PR",
    * repetindo a cidade e quebrando com "— PR" sozinho. A praça continua no
    * selo acima da headline e no rodapé.
+   *
+   * O ano entra no h1 (antes ficava só no badge): "meia maratona curitiba
+   * 2027" é uma das buscas alvo e o h1 é o título que o buscador lê.
    */
-  subheadline: `${event.name} · ${event.edition}`,
+  subheadline: `${event.name} ${event.year} · ${event.edition}`,
   /**
    * Card de abertura das inscrições — o bloco de prazo do hero.
    *

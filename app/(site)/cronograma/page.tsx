@@ -16,7 +16,7 @@ export default function CronogramaPage() {
   return (
     <ComingSoonPage
       kicker="Cronograma"
-      title="A programação completa vem aí."
+      title="Meia Maratona de Curitiba: cronograma em breve."
       description="A linha do tempo do dia da prova já está na home, em versão resumida. Esta página vai trazer a programação completa, incluindo os dias de retirada de kit."
       whatsNext={[
         "Programação hora a hora do dia da prova",

@@ -14,6 +14,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   "/marcas",
   "/concurso-de-camisetas",
   "/imprensa",
+  "/contato",
 ];
 
   return routes.map((route) => ({
