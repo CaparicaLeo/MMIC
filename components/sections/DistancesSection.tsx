@@ -3,8 +3,9 @@
 import { RegisterButton } from "@/components/registration/RegisterButton";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { distances } from "@/content";
+import { distances, hero } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 import { cn } from "@/lib/cn";
@@ -27,7 +28,10 @@ export function DistancesSection() {
   });
 
   return (
-    <Section id="distancias" tone="darker">
+    <Section id="distancias" tone="darker" className="isolate">
+      {/* Uma seção sim, uma não — depois de conceito, esta é a com foto. */}
+      <SectionBackdrop media={hero.background} />
+
       <div ref={root}>
         <SectionHeader intro={distances.intro} />
 
