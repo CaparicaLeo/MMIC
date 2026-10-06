@@ -86,14 +86,6 @@ export const event = {
     height: 292,
   } satisfies Media,
 
-  /** Usado em metadata/OG. Trocar quando a arte final existir. */
-  ogImage: {
-    src: "/images/placeholders/og.svg",
-    alt: "Meia Maratona Internacional de Curitiba 2027 · Rock Edition",
-    width: 1200,
-    height: 630,
-  } satisfies Media,
-
   /**
    * Perfis oficiais do evento. Fonte única para o `sameAs` do Organization
    * (JSON-LD) e para qualquer link social futuro.

@@ -70,20 +70,15 @@ export const metadata: Metadata = {
     siteName: event.name,
     title,
     description,
-    images: [
-      {
-        url: event.ogImage.src,
-        width: event.ogImage.width,
-        height: event.ogImage.height,
-        alt: event.ogImage.alt,
-      },
-    ],
+    // `images` sai daqui de propósito: a imagem vem de
+    // app/opengraph-image.tsx (file-based metadata tem prioridade e o PNG
+    // gerado substitui o placeholder SVG, que o WhatsApp/X não renderizam).
+    // Sem `twitter.images` declarado, o X cai no og:image — que é o gerado.
   },
   twitter: {
     card: "summary_large_image",
     title,
     description,
-    images: [event.ogImage.src],
   },
 };
 
