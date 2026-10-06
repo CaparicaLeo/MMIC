@@ -24,6 +24,7 @@ export default function CronogramaPage() {
         "Mapa do percurso por distância",
         "Guia de acessos e transporte até a arena",
       ]}
+      raceDatePending
     />
   );
 }

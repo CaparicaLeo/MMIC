@@ -110,6 +110,27 @@ export const event = {
 export const waitlistUrl = "https://ig.me/j/t5la8vc57GKOevuM/";
 
 /**
+ * Data e horários da prova ainda não confirmados.
+ *
+ * Regra do projeto: nenhuma data é inventada. Até a produção fechar o dia e
+ * o horário, as páginas "em breve" que dependem disso não exibem chute nem
+ * contador — apontam pro grupo do Instagram, onde o anúncio sai primeiro,
+ * para a pessoa ficar ligada sem precisar voltar ao site.
+ *
+ * `href` é o mesmo canal do waitlist: é o grupo onde as novidades do evento
+ * são publicadas, e o único canal de acompanhamento confirmado.
+ */
+// TODO(confirmar): quando a produção fechar data/horário, remover este bloco
+// e publicar o evento com `event.date` preenchido.
+export const raceDateFollow = {
+  note:
+    "A data e os horários do dia da prova ainda não foram anunciados — eles saem primeiro no grupo do Instagram.",
+  label: "Entrar no grupo do Instagram",
+  handle: "@meiainternacionalcuritiba",
+  href: waitlistUrl,
+} as const;
+
+/**
  * Descrição canônica do evento. Fonte única: alimenta a `description` do
  * metadata (e, por herança, Open Graph e Twitter) e o JSON-LD. Mantida abaixo
  * de 155 caracteres para não ser truncada no resultado de busca.

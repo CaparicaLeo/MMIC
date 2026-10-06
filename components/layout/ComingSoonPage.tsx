@@ -3,7 +3,7 @@ import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
-import { event } from "@/content";
+import { event, raceDateFollow } from "@/content";
 
 /**
  * Casca das páginas que ainda não têm conteúdo.
@@ -19,6 +19,7 @@ export function ComingSoonPage({
   description,
   whatsNext,
   cta,
+  raceDatePending = false,
 }: {
   kicker: string;
   title: string;
@@ -30,6 +31,13 @@ export function ComingSoonPage({
    * o lugar dele acima do link de volta.
    */
   cta?: ReactNode;
+  /**
+   * Liga o bloco "data/horários ainda não anunciados" com o grupo do
+   * Instagram (content/event.ts `raceDateFollow`). Usado pelas páginas cujo
+   * "em breve" existe porque a data da prova não fechou — largada, retirada
+   * de kit, horários. Sem a data, o site não inventa: aponta o grupo.
+   */
+  raceDatePending?: boolean;
 }) {
   return (
     <Section className="grain min-h-[80vh] pt-40">
@@ -64,6 +72,23 @@ export function ComingSoonPage({
         <p className="label-condensed mt-10 text-[0.7rem] text-text-gray">
           {event.dateLabel}
         </p>
+
+        {raceDatePending ? (
+          <div className="mt-8">
+            <p className="max-w-md text-sm leading-relaxed text-text-gray">
+              {raceDateFollow.note}
+            </p>
+            <Link
+              href={raceDateFollow.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="label-condensed mt-4 inline-flex items-center gap-2 border border-accent-red px-6 py-3 text-xs text-accent-red transition-colors hover:bg-accent-red hover:text-black"
+            >
+              {raceDateFollow.label}
+              <span aria-hidden className="size-1.5 bg-accent-red" />
+            </Link>
+          </div>
+        ) : null}
 
         {cta ? <div className="mt-8">{cta}</div> : null}
 

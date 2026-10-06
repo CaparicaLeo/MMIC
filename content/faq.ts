@@ -39,7 +39,7 @@ export const faq = {
         // dizer o que está confirmado (a abertura das inscrições) em vez de
         // repetir que nada está.
         answer:
-          "A data da prova ainda não foi anunciada. O que já está confirmado é a abertura das inscrições, em 15 de novembro de 2026. Quem entra no Backstage 21K recebe o primeiro lote antes da venda aberta.",
+          "A data da prova ainda não foi anunciada. O que já está confirmado é a abertura das inscrições, em 15 de novembro de 2026. Quem entra no Backstage 21K recebe o primeiro lote antes da venda aberta. Para saber a data e os horários assim que saírem, entre no grupo do Instagram (@meiainternacionalcuritiba).",
       },
     {
       id: "iniciante",

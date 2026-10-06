@@ -24,6 +24,7 @@ export default function InscricaoPage() {
         "Fluxo de compra e emissão de comprovante",
         "Informações de retirada de kit",
       ]}
+      raceDatePending
     />
   );
 }
