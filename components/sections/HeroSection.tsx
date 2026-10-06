@@ -6,14 +6,18 @@ import { Countdown } from "@/components/ui/Countdown";
 import { Marquee } from "@/components/ui/Marquee";
 import { Media } from "@/components/ui/Media";
 import { RegisterButton } from "@/components/registration/RegisterButton";
-import { event, hero } from "@/content";
+import { event, hero, schedule } from "@/content";
 import { parallax } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
+/*
+  A faixa rola o cronograma do dia, não as distâncias: 5/10/21 km sumiram do
+  hero e ficaram na seção "Escolha o seu palco". Cada item do timeline vira
+  uma entrada (o `label-condensed` da faixa deixa em caixa alta), seguido do
+  restante da tarja — assinatura, ano e o prazo das inscrições.
+*/
 const marqueeItems = [
-  "5 KM",
-  "10 KM",
-  "21 KM",
+  ...schedule.items.map((item) => `${item.time} ${item.title}`),
   "ROCK EDITION",
   "CURITIBA",
   event.year,
