@@ -27,16 +27,21 @@ export const hero = {
    * selo acima da headline e no rodapé.
    */
   subheadline: `${event.name} · ${event.edition}`,
-  dateNote: event.dateLabel,
-  distances: event.distances,
   /**
-   * Linha de promessa logo abaixo do CTA.
+   * Card de abertura das inscrições — o bloco de prazo do hero.
    *
-   * O CTA sozinho não diz o que a pessoa ganha — e "entrar na lista de avisos"
-   * prometia data, que era o oposto do benefício real. Aqui a troca é concreta:
-   * votar, ver antes, comprar antes.
+   * Ele substituiu o selo de distâncias: em vez de listar 5/10/21 km (que
+   * continuam na seção "Escolha o seu palco"), o hero responde a única
+   * pergunta com data de hoje — quando abrem as inscrições — e entrega o CTA
+   * do Backstage junto. Tudo que é texto mora aqui; o componente só formata.
    */
-  promise: backstage.promise,
+  registrationCard: {
+    label: "Abertura das inscrições",
+    date: event.registrationOpensLabel,
+    countdownCaption: "Inscrições abrem em",
+    /** Benefício colado no CTA: o que quem entra agora leva a mais. */
+    note: "Quem está no Backstage compra 24h antes de todo mundo.",
+  },
   cta: {
     label: backstage.ctaLabel,
     action: "register",

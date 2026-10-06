@@ -55,6 +55,8 @@ export function Countdown({
   className,
   caption,
   compact = false,
+  showSeconds = true,
+  tone = "red",
   labels = { days: "dias", hours: "horas", minutes: "min", seconds: "seg" },
 }: {
   date: string | null;
@@ -67,6 +69,18 @@ export function Countdown({
    * parecer travado no primeiro segundo de render.
    */
   compact?: boolean;
+  /**
+   * Mostra o dígito de segundos. O card do hero pede só dias/horas/minutos:
+   * um contador que só muda a cada minuto é aceitável ali porque o alvo é uma
+   * data distante — e é o formato pedido para o bloco. A barra de prova social
+   * continua com os quatro dígitos.
+   */
+  showSeconds?: boolean;
+  /**
+   * Cor dos dígitos. Vermelho (padrão) em fundo escuro; branco para o card
+   * preto do hero, onde o vermelho fica reservado ao rótulo de destaque.
+   */
+  tone?: "red" | "white";
   labels?: Record<keyof Remaining, string>;
 }) {
   const nowSeconds = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -77,7 +91,9 @@ export function Countdown({
   const remaining = getRemaining(target, nowSeconds * 1000);
   if (remaining === null) return null;
 
-  const units: (keyof Remaining)[] = ["days", "hours", "minutes", "seconds"];
+  const units: (keyof Remaining)[] = showSeconds
+    ? ["days", "hours", "minutes", "seconds"]
+    : ["days", "hours", "minutes"];
 
   return (
     <div className={cn(compact ? "flex flex-col gap-3" : "flex flex-col gap-4", className)}>
@@ -98,6 +114,7 @@ export function Countdown({
             <p
               className={cn(
                 "font-display leading-none tabular-nums text-accent-red",
+                tone === "white" && "text-text-white",
                 compact ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl",
               )}
             >

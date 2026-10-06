@@ -143,70 +143,61 @@ export function HeroSection() {
           {hero.subheadline}
         </h1>
 
-        {/* Selo das distâncias */}
+        {/*
+          Card de abertura das inscrições — o único bloco de prazo do hero.
+          Data, contador, CTA e a linha de benefício moram juntos: era isso
+          que a pessoa precisava ler antes de clicar, e o selo de distâncias
+          que ocupava este lugar só repetia o que a seção "Escolha o seu
+          palco" já dizia melhor.
+
+          O alvo do contador é `registrationOpensAt`, não a data da prova —
+          `event.date` continua null e o hero não anuncia um dia que não
+          existe. Sem segundos (o prazo está meses distante) e com os dígitos
+          em branco: no card preto o vermelho fica só no rótulo.
+        */}
         <div
           data-hero-fade
-          className="mt-8 flex w-fit items-center gap-4 border border-white/20 px-5 py-3"
+          className="mt-8 w-fit max-w-xl border border-white/15 bg-black p-6 sm:p-8"
         >
-          {hero.distances.map((distance, index) => (
-            <span key={distance} className="flex items-center gap-4">
-              {index > 0 ? (
-                <span aria-hidden className="text-accent-red">
-                  ·
-                </span>
-              ) : null}
-              <span className="label-condensed text-sm text-text-white sm:text-base">
-                {distance}
-              </span>
-            </span>
-          ))}
+          <p className="label-condensed text-[0.65rem] text-accent-red">
+            {hero.registrationCard.label}
+          </p>
+
+          <p className="font-display mt-3 text-3xl leading-none text-text-white sm:text-4xl">
+            {hero.registrationCard.date}
+          </p>
+
+          <Countdown
+            date={event.registrationOpensAt}
+            caption={hero.registrationCard.countdownCaption}
+            showSeconds={false}
+            tone="white"
+            className="mt-7"
+          />
+
+          <RegisterButton
+            cta={hero.cta}
+            source="hero"
+            pulse
+            animateIn={false}
+            className="mt-8 w-full"
+          />
+
+          <p className="mt-4 max-w-md text-sm leading-relaxed text-text-gray">
+            {hero.registrationCard.note}
+          </p>
         </div>
 
-        <div
-          data-hero-fade
-          className="mt-9 flex flex-col items-start gap-4 sm:flex-row sm:items-center"
-        >
-          <div className="flex flex-col items-start gap-3">
-            <RegisterButton cta={hero.cta} source="hero" pulse animateIn={false} />
-
-            {/*
-              A promessa vai logo abaixo do botão e não dentro dele: o rótulo
-              precisa caber em uma linha em 320px, e a frase do benefício não
-              cabe. Também é ela que separa este CTA de um link qualquer — sem
-              ela o botão não diz o que a pessoa ganha.
-            */}
-            <p className="max-w-md text-sm leading-relaxed text-text-gray">
-              {hero.promise}
-            </p>
-          </div>
-
+        {/* Link texto para as distâncias — elas continuam na seção dela. */}
+        <div data-hero-fade className="mt-5">
           <CTAButton
             href={hero.secondaryCta.href ?? "#distancias"}
-            variant="outline"
+            variant="ghost"
             animateIn={false}
           >
             {hero.secondaryCta.label}
           </CTAButton>
         </div>
-
-        {/*
-          O alvo do contador é a abertura das inscrições, não a data da prova:
-          `event.date` continua null e o hero não anuncia um dia que não existe.
-          Enquanto o prazo mudar, o contador acompanha — não há magic number
-          no JSX.
-        */}
-        <Countdown
-          date={event.registrationOpensAt}
-          caption="Inscrições abrem em"
-          className="mt-9"
-        />
-
-        <p
-          data-hero-fade
-          className="label-condensed mt-6 text-[0.7rem] text-text-gray"
-        >
-          {hero.dateNote}
-        </p>
 
         <div
           data-hero-scroll

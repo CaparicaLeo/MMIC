@@ -37,6 +37,17 @@ export const event = {
   registrationOpensAt: "2026-11-15T00:00:00-03:00" as string | null,
 
   /**
+   * Mesma abertura por extenso, para o card do hero.
+   *
+   * É a informação grande do card ("15 de novembro de 2026"), enquanto
+   * `dateLabel` e `registrationLabel` seguem nas versões curtas (rodapé,
+   * marquee). Escrito à mão de propósito: data por extenso não se monta a
+   * partir do ISO sem depender de locale.
+   */
+  // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
+  registrationOpensLabel: "15 de novembro de 2026" as string,
+
+  /**
    * Texto curto do prazo, usado no rodapé, no hero e nas páginas "em breve".
    *
    * É o fallback para quem não vê o <Countdown /> (sem JavaScript, movimento
