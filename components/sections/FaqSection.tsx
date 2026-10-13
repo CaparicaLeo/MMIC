@@ -2,8 +2,9 @@
 
 import { Accordion } from "@/components/ui/Accordion";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { faq } from "@/content";
+import { faq, hero } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -17,7 +18,13 @@ export function FaqSection() {
   });
 
   return (
-    <Section id="faq">
+    <Section id="faq" className="isolate">
+      {/*
+        Seção sim, uma não. Show não ganha esta foto: já tem a imagem dela
+        à direita — a contagem continua (conceito, distâncias, FAQ).
+      */}
+      <SectionBackdrop media={hero.background} />
+
       <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
         <div ref={root} className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeader intro={faq.intro} />

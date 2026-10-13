@@ -2,6 +2,7 @@
 
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
+import { PendingNote } from "@/components/ui/PendingNote";
 import { StatsCounter } from "@/components/ui/StatsCounter";
 import { stats } from "@/content";
 import { countUp, drawLine, fadeUp } from "@/lib/animations/presets";
@@ -91,6 +92,20 @@ export function StatsSection() {
                     {formatNumber(point.value)}
                   </span>
                 </span>
+
+                {/*
+                  A fonte vem na própria linha do ano, não numa nota genérica no
+                  rodapé do gráfico: a pergunta é sempre "esse número é de onde",
+                  e a resposta precisa estar na mesma linha do número.
+                */}
+                {point.source ? (
+                  <span className="label-condensed w-40 shrink-0 text-[0.6rem] text-text-gray/70">
+                    {point.projected ? "Meta · " : "Fonte: "}
+                    {point.source}
+                  </span>
+                ) : null}
+
+                {point.pending ? <PendingNote text={point.pending} /> : null}
               </li>
             ))}
           </ul>

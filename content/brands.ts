@@ -132,7 +132,13 @@ export const brands = {
      * meio, a frase de efeito perdia a força — e é a mais longa, então é ela
      * que calibra o tamanho mínimo da headline.
      */
-    headlineLines: ["Sua marca no palco.", "Com quem corre", "e com quem assiste."],
+    /**
+     * O nome do evento e o ano entram no h1 — "meia maratona de curitiba
+     * 2027" é busca alvo e o h1 é o título que o buscador lê. A linha mais
+     * longa continua calibrando o tamanho mínimo da headline, por isso o
+     * nome foi partido em três linhas em vez de entrar numa só.
+     */
+    headlineLines: ["Sua marca no palco", "da Meia Maratona", "de Curitiba 2027."],
     description:
       "A Meia Maratona Internacional de Curitiba não é só uma prova. É um dia em que o esporte e o rock dividem a mesma arena, e a sua marca entra no meio deles: no percurso, na chegada, no palco e no público que acompanha tudo de pertinho.",
     cta: {
@@ -402,13 +408,18 @@ export const brands = {
         id: "escala",
         title: "Escala",
         description:
-          "Meta de 10 mil atletas e até 30 mil pessoas em circulação na edição 2027.",
+          "Meta de 10 mil atletas e projeção de 30 mil pessoas em circulação na edição 2027.",
       },
       {
-        id: "crescimento",
-        title: "Crescimento",
+        /*
+          "Crescimento" saiu daqui (§1): o +43% de inscritos de 2026 para 2027
+          comparava uma meta com um número do ano anterior. A edição de 2026,
+          realizada, é a credencial — e é a mesma que está nos cards de número.
+        */
+        id: "realizado",
+        title: "Edição realizada",
         description:
-          "Três edições e +43% de inscritos de 2026 para 2027. A operação só aumenta.",
+          "5 mil atletas correram a edição de 2026, com percurso internacional homologado e cronometragem oficial.",
       },
       {
         id: "cenario",

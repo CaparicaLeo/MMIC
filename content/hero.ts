@@ -1,4 +1,5 @@
 import type { Cta, Media } from "./types";
+import { backstage } from "./backstage";
 import { event } from "./event";
 
 export const hero = {
@@ -24,12 +25,28 @@ export const hero = {
    * Curitiba", e a linha saía "…de Curitiba · Rock Edition — Curitiba — PR",
    * repetindo a cidade e quebrando com "— PR" sozinho. A praça continua no
    * selo acima da headline e no rodapé.
+   *
+   * O ano entra no h1 (antes ficava só no badge): "meia maratona curitiba
+   * 2027" é uma das buscas alvo e o h1 é o título que o buscador lê.
    */
-  subheadline: `${event.name} · ${event.edition}`,
-  dateNote: event.dateLabel,
-  distances: event.distances,
+  subheadline: `${event.name} ${event.year} · ${event.edition}`,
+  /**
+   * Card de abertura das inscrições — o bloco de prazo do hero.
+   *
+   * Ele substituiu o selo de distâncias: em vez de listar 5/10/21 km (que
+   * continuam na seção "Escolha o seu palco"), o hero responde a única
+   * pergunta com data de hoje — quando abrem as inscrições — e entrega o CTA
+   * do Backstage junto. Tudo que é texto mora aqui; o componente só formata.
+   */
+  registrationCard: {
+    label: "Abertura das inscrições",
+    date: event.registrationOpensLabel,
+    countdownCaption: "Inscrições abrem em",
+    /** Benefício colado no CTA: o que quem entra agora leva a mais. */
+    note: "Quem está no grupo VIP compra 24h antes de todo mundo.",
+  },
   cta: {
-    label: "Entrar na lista de avisos",
+    label: backstage.ctaLabel,
     action: "register",
   } satisfies Cta,
   secondaryCta: {

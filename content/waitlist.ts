@@ -1,55 +1,59 @@
 import type { WaitlistContent } from "./types";
+import { backstage } from "./backstage";
 
 /**
- * Copy do modal de lista de avisos.
+ * Copy do modal do Backstage 21K.
  *
- * É este formulário que transforma o clique do "Entrar na lista de avisos"
- * em lead no backend (POST /api/opportunities, com type "waitlist" e source
- * "meia-de-curitiba:<cta>"). O link do canal do Instagram só aparece depois
- * do envio, na tela de sucesso — a promessa do CTA continua honesta.
+ * É este formulário que transforma o clique do CTA principal em lead no
+ * backend (POST /api/opportunities, com `type` "waitlist" e `source`
+ * "meia-de-curitiba:<bloco>"). O link do canal do Instagram fica disponível
+ * antes e depois do envio — é uma entrada, não um prêmio.
  */
 export const waitlist: WaitlistContent = {
-  kicker: "Lista de avisos",
-  title: "Receba a data oficial antes de todo mundo.",
+  kicker: backstage.name,
+  title: "Entre no grupo VIP antes de todo mundo.",
   description:
-    "Preencha os dados abaixo para entrar na lista de avisos. Quando a data oficial e o primeiro lote de inscrições forem anunciados, você fica sabendo primeiro.",
+    "O Grupo VIP é o grupo de pré-lançamento do evento: é lá que a votação da camiseta, o line-up e a venda do primeiro lote aparecem primeiro. Entre pelo Instagram ou deixe dois campos e a gente chama você.",
+
+  channels: backstage.channels,
+
   form: {
-    email: {
-      label: "E-mail",
-      placeholder: "voce@email.com",
+    contact: {
+      label: "WhatsApp ou e-mail",
+      placeholder: "(41) 99999-9999 ou voce@email.com",
+      hint: "Serve qualquer um dos dois. É por aqui que o aviso chega.",
     },
     name: {
       label: "Nome",
       placeholder: "Seu nome completo",
     },
-    whatsapp: {
-      label: "WhatsApp",
-      placeholder: "(41) 99999-9999",
+    email: {
+      label: "E-mail",
+      placeholder: "voce@email.com",
     },
-    instagram: {
-      label: "Instagram",
-      placeholder: "@seu.usuario",
+    submit: {
+      label: backstage.ctaLabel,
+      pendingLabel: "Enviando…",
     },
   },
-  submit: {
-    label: "Entrar na lista",
-    pendingLabel: "Enviando…",
-  },
+
   success: {
-    title: "Você está na lista.",
+    title: "Você está no grupo VIP.",
     description:
-      "Seus dados foram recebidos. Quando a data oficial e o primeiro lote saírem, o aviso chega primeiro para quem está na lista.",
-    note: "Para não perder nada, acesse também o canal de avisos no Instagram — os anúncios saem por lá primeiro.",
-    ctaLabel: "Acessar o canal de avisos",
+      "Seus dados foram recebidos. A votação da camiseta, o line-up e o primeiro lote chegam primeiro aqui.",
+    note: "Para não perder nada, entre também no canal do Instagram — os anúncios saem por lá primeiro.",
+    ctaLabel: "Entrar pelo Instagram",
     dismissLabel: "Fechar",
   },
+
   notices: {
     rateLimited: "Muitos envios em pouco tempo. Aguarde um instante e tente novamente.",
   },
+
   errors: {
     required: "Preencha este campo.",
+    invalidContact: "Digite um e-mail válido ou um número de WhatsApp com DDD.",
     invalidEmail: "Digite um e-mail válido.",
-    invalidPhone: "Digite um número de WhatsApp válido.",
     internal: "Não foi possível enviar neste momento. Tente novamente em alguns instantes.",
   },
 };

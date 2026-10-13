@@ -106,7 +106,8 @@ export function ContestHeroSection() {
           {contest.hero.kicker}
         </Badge>
 
-        <p className="headline mt-7 max-w-4xl text-[clamp(2.5rem,8vw,5.5rem)]">
+        {/* h1 da rota: era um <p> e a página ficava sem nenhum h1. */}
+        <h1 className="headline mt-7 max-w-4xl text-[clamp(2.5rem,8vw,5.5rem)]">
           {["A sua arte pode", "ser a camiseta oficial."].map((line) => (
             <span key={line} className="headline-mask">
               <span data-hero-line className="block will-change-transform">
@@ -114,7 +115,7 @@ export function ContestHeroSection() {
               </span>
             </span>
           ))}
-        </p>
+        </h1>
 
         <p
           data-hero-fade

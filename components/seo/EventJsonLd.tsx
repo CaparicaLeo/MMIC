@@ -14,6 +14,14 @@ import { event, hero, seoDescription, siteUrl } from "@/content";
  * sair sozinho e o resultado fica elegível a rich result de evento.
  */
 export function EventJsonLd() {
+  // Perfis confirmados; os `null` saem do filtro. Mesmo critério do
+  // WebsiteJsonLd — declarar rede genérica é pior que não declarar.
+  const sameAs = [
+    event.social.instagram,
+    event.social.youtube,
+    event.social.tiktok,
+  ].filter((url): url is string => Boolean(url));
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsEvent",
@@ -41,6 +49,8 @@ export function EventJsonLd() {
       "@type": "Organization",
       name: event.name,
       url: siteUrl,
+      logo: `${siteUrl}${event.logo.src}`,
+      ...(sameAs.length > 0 ? { sameAs } : {}),
     },
     subEvent: event.distances.map((distance) => ({
       "@type": "SportsEvent",

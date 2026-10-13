@@ -40,21 +40,47 @@ function getRemaining(target: number, now: number): Remaining | null {
 }
 
 /**
- * Contador regressivo — DESLIGADO nesta versão.
+ * Contador regressivo para um prazo que existe.
  *
- * A data do evento ainda não foi definida, então `content/event.ts` mantém
- * `date: null` e este componente não renderiza nada (nem contador, nem data,
- * nem placeholder). No dia em que a data for anunciada, basta preencher
- * `event.date` com um ISO 8601: o contador aparece sozinho, sem nenhuma
- * mudança de componente ou de página.
+ * Reutilizável: as duas instâncias do site (abertura das inscrições e votação
+ * da camiseta) passam `date` e `caption` diferentes a partir do conteúdo, sem
+ * duplicar componente.
+ *
+ * Quando a data ainda não existe, `date` é `null` e o componente não renderiza
+ * nada — nem contador, nem data, nem placeholder. É o estado vazio que o
+ * projeto já usava como padrão (`event.date`).
  */
 export function Countdown({
   date,
   className,
+  caption,
+  compact = false,
+  showSeconds = true,
+  tone = "red",
   labels = { days: "dias", hours: "horas", minutes: "min", seconds: "seg" },
 }: {
   date: string | null;
   className?: string;
+  /** Texto acima dos dígitos. Ex.: "Inscrições abrem em". */
+  caption?: string;
+  /**
+   * Versão de uma linha, para caber em barra ou faixa estreita. Mantém os
+   * quatro dígitos, porque esconder segundos é o truque que faz o contador
+   * parecer travado no primeiro segundo de render.
+   */
+  compact?: boolean;
+  /**
+   * Mostra o dígito de segundos. O card do hero pede só dias/horas/minutos:
+   * um contador que só muda a cada minuto é aceitável ali porque o alvo é uma
+   * data distante — e é o formato pedido para o bloco. A barra de prova social
+   * continua com os quatro dígitos.
+   */
+  showSeconds?: boolean;
+  /**
+   * Cor dos dígitos. Vermelho (padrão) em fundo escuro; branco para o card
+   * preto do hero, onde o vermelho fica reservado ao rótulo de destaque.
+   */
+  tone?: "red" | "white";
   labels?: Record<keyof Remaining, string>;
 }) {
   const nowSeconds = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
@@ -65,20 +91,41 @@ export function Countdown({
   const remaining = getRemaining(target, nowSeconds * 1000);
   if (remaining === null) return null;
 
-  const units: (keyof Remaining)[] = ["days", "hours", "minutes", "seconds"];
+  const units: (keyof Remaining)[] = showSeconds
+    ? ["days", "hours", "minutes", "seconds"]
+    : ["days", "hours", "minutes"];
 
   return (
-    <div className={cn("flex gap-5", className)}>
-      {units.map((unit) => (
-        <div key={unit} className="text-center">
-          <p className="font-display text-4xl leading-none text-accent-red sm:text-5xl">
-            {String(remaining[unit]).padStart(2, "0")}
-          </p>
-          <p className="label-condensed mt-2 text-[0.65rem] text-text-gray">
-            {labels[unit]}
-          </p>
-        </div>
-      ))}
+    <div className={cn(compact ? "flex flex-col gap-3" : "flex flex-col gap-4", className)}>
+      {caption ? (
+        <p className="label-condensed text-[0.7rem] text-text-gray">{caption}</p>
+      ) : null}
+
+      <div
+        className={cn(
+          "flex gap-5",
+          // Na versão compacta os dígitos ficam menores e o espaço entre eles
+          // encolhe, senão a barra de prova social não cabe em 320px.
+          compact && "gap-3 sm:gap-4",
+        )}
+      >
+        {units.map((unit) => (
+          <div key={unit} className="text-center">
+            <p
+              className={cn(
+                "font-display leading-none tabular-nums text-accent-red",
+                tone === "white" && "text-text-white",
+                compact ? "text-3xl sm:text-4xl" : "text-4xl sm:text-5xl",
+              )}
+            >
+              {String(remaining[unit]).padStart(2, "0")}
+            </p>
+            <p className="label-condensed mt-2 text-[0.65rem] text-text-gray">
+              {labels[unit]}
+            </p>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

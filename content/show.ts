@@ -1,4 +1,5 @@
-import type { Media, SectionIntro } from "./types";
+import type { Cta, Media, SectionIntro } from "./types";
+import { backstage } from "./backstage";
 
 /**
  * Bloco do show.
@@ -30,6 +31,26 @@ export const show = {
   lineup: [] as string[],
   /** Texto de fallback, caso `headliner` volte a ser null. */
   headlinerPlaceholder: "Atração principal a ser anunciada",
+
+  /**
+   * CTA do Backstage, logo abaixo do texto da seção.
+   *
+   * O anúncio da banda sai primeiro no grupo, então o convite é a leitura
+   * natural depois do teaser. Rótulo vem de `backstage` (fonte única) e o
+   * `register` abre o mesmo modal dos outros CTAs — no componente,
+   * `source="banda"` vira `origem_bloco=banda` no analytics.
+   *
+   * Sem citar atração, estilo ou pista: "banda surpresa" continua sendo o
+   * único nome que a seção tem.
+   */
+  backstageCta: {
+    phrase: "Quem está no grupo VIP descobre a banda antes de todo mundo.",
+    support: "O anúncio sai primeiro no grupo. Depois, para o resto da cidade.",
+    cta: {
+      label: backstage.ctaLabel,
+      action: "register",
+    } satisfies Cta,
+  },
 
   media: {
     /**

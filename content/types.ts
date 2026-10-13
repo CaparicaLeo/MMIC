@@ -74,6 +74,21 @@ export type StatItem = {
   decimals?: number;
   label: string;
   note?: string;
+  /**
+   * Origem do número, exibida ao lado dele.
+   *
+   * Todo número público do site precisa dizer de onde veio — é o que separa
+   * "5.000 atletas em 2026" (realizado) de "meta 10.000" (intenção). Sem
+   * `source`, o card não deveria render: o campo existe justamente para não
+   * haver número sem procedência.
+   */
+  source?: string;
+  /**
+   * Descrição do dado que ainda depende de aprovação. Renderiza o marcador
+   * `{{DADO_PENDENTE: …}}` visível apenas em desenvolvimento, ao lado do
+   * número — nunca em produção, onde viraria ruído para o usuário final.
+   */
+  pending?: string;
 };
 
 export type FaqItem = {
@@ -88,6 +103,14 @@ export type DistanceItem = {
   distance: string;
   unit: string;
   name: string;
+  /**
+   * "Para quem é", em uma linha.
+   *
+   * É a primeira coisa que decide alguém entre 5 e 21 km, e a resposta não
+   * estava no card: a `description` explica o percurso, não quem deve correr
+   * ele. Uma linha, antes dos bullets.
+   */
+  audience: string;
   description: string;
   /** Bullets curtos exibidos no card. */
   highlights: string[];
@@ -173,20 +196,47 @@ export type GrowthPoint = {
   value: number;
   /** Marca a edição ainda não realizada (meta, não histórico). */
   projected?: boolean;
+  /** Origem do número, exibida ao lado da barra. */
+  source?: string;
+  /**
+   * Texto do marcador de dado não confirmado (visível só em desenvolvimento).
+   *
+   * `source` e `pending` juntos: a fonte declarada responde "de onde veio", o
+   * marcador responde "isto ainda não está confirmado". Um número de anos
+   * anteriores não tem menos obrigação de ter fonte que um número de hoje.
+   */
+  pending?: string;
 };
 
-/** Copy do formulário de lista de avisos, aberto pelos CTAs de inscrição. */
+/**
+ * Copy do formulário do Backstage, aberto pelos CTAs principais.
+ *
+ * `channels` descreve os dois caminhos de entrada; o formulário só aparece
+ * quando o visitante escolhe o caminho `form`.
+ */
 export type WaitlistContent = {
   kicker: string;
   title: string;
   description: string;
+
+  /** `readonly`: os objetos de conteúdo são `as const`, e nada reordena esta lista. */
+  readonly channels: readonly {
+    id: "instagram" | "form";
+    label: string;
+    hint: string;
+  }[];
+
   form: {
-    email: { label: string; placeholder: string };
+    /**
+     * Campo único que aceita e-mail OU WhatsApp. O rótulo diz as duas opções e
+     * a validação decide para onde vai: se temarrobaindo, é e-mail; se tem
+     * dígitos, é telefone.
+     */
+    contact: { label: string; placeholder: string; hint: string };
     name: { label: string; placeholder: string };
-    whatsapp: { label: string; placeholder: string };
-    instagram: { label: string; placeholder: string };
+    email: { label: string; placeholder: string };
+    submit: { label: string; pendingLabel: string };
   };
-  submit: { label: string; pendingLabel: string };
   success: {
     title: string;
     description: string;
@@ -197,8 +247,9 @@ export type WaitlistContent = {
   notices: { rateLimited: string };
   errors: {
     required: string;
+    /** Campo de contato vazio ou sem formato reconhecível. */
+    invalidContact: string;
     invalidEmail: string;
-    invalidPhone: string;
     internal: string;
   };
 };

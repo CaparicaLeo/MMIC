@@ -3,8 +3,9 @@
 import { RegisterButton } from "@/components/registration/RegisterButton";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { distances } from "@/content";
+import { distances, hero } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 import { cn } from "@/lib/cn";
@@ -27,7 +28,10 @@ export function DistancesSection() {
   });
 
   return (
-    <Section id="distancias" tone="darker">
+    <Section id="distancias" tone="darker" className="isolate">
+      {/* Uma seção sim, uma não — depois de conceito, esta é a com foto. */}
+      <SectionBackdrop media={hero.background} />
+
       <div ref={root}>
         <SectionHeader intro={distances.intro} />
 
@@ -66,7 +70,16 @@ export function DistancesSection() {
                 {item.name}
               </h3>
 
-              <p className="mt-3 text-base leading-relaxed text-text-gray">
+              {/*
+                "Para quem é" vem antes da descrição: é a informação que decide
+                a escolha entre 5 e 21 km, e ela responde mais rápido que
+                percurso e bullets.
+              */}
+              <p className="mt-3 text-base leading-relaxed text-text-white/85">
+                {item.audience}
+              </p>
+
+              <p className="mt-3 text-sm leading-relaxed text-text-gray">
                 {item.description}
               </p>
 
@@ -88,9 +101,15 @@ export function DistancesSection() {
               {/* `mt-auto` cola o CTA na base: as descrições têm alturas
                   diferentes e o botão do 5km ficava 26px abaixo dos outros. */}
               <div className="mt-auto pt-10">
+                {/*
+                  `distance` abre o mesmo modal do Backstage com a distância já
+                  marcada. A chave `distance` do payload acompanha o id do card,
+                  então o lead gravado diz de onde veio sem depender de texto.
+                */}
                 <RegisterButton
                   cta={item.cta}
                   source={`distancia-${item.id}`}
+                  distance={item.id as "5km" | "10km" | "21km"}
                   variant={item.featured ? "primary" : "outline"}
                   size="md"
                   animateIn={false}

@@ -3,7 +3,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { Highlight } from "@/components/ui/Highlight";
 import { Section } from "@/components/ui/Section";
-import { concept } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { concept, hero } from "@/content";
 import { fadeUp, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -23,13 +24,22 @@ export function ConceptSection() {
   });
 
   return (
-    <Section id="conceito" tone="darker">
+    <Section id="conceito" tone="darker" className="isolate">
+      {/*
+        `isolate` é o que deixa a foto do fundo aparecer: sem contexto de
+        empilhamento, o preto da seção é pintado por cima da camada `-z-10`.
+        Seção sim, uma não — a próxima com foto é a de distâncias.
+      */}
+      <SectionBackdrop media={hero.background} />
+
       <div ref={root} className="max-w-4xl">
         <Badge data-reveal className="w-fit">
           {concept.intro.kicker}
         </Badge>
 
-        <p className="headline mt-8 text-[clamp(2rem,6vw,4.25rem)] text-text-white">
+        {/* h2, não <p>: sem ele a home pulava de h1 direto para o h2 do
+            cronograma, e o buscador perde a hierarquia das seções. */}
+        <h2 className="headline mt-8 text-[clamp(2rem,6vw,4.25rem)] text-text-white">
           <span className="headline-mask">
             <span data-concept-line className="block will-change-transform">
               {concept.intro.title}
@@ -45,7 +55,7 @@ export function ConceptSection() {
               correndo e termina em festival.
             </span>
           </span>
-        </p>
+        </h2>
 
         <p
           data-reveal

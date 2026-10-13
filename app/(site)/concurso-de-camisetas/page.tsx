@@ -12,8 +12,9 @@ import { VotingSection } from "@/components/contest/VotingSection";
 
 export const metadata: Metadata = {
   title: "Concurso de Camisetas",
+  /* ≤155 chars: acima disso o Google corta no SERP. */
   description:
-    "Concurso nacional de design para a camisa oficial da Meia Maratona Internacional de Curitiba 2027 · Rock Edition. A arte vencedora é impressa na peça entregue aos corredores, assinada pelo autor.",
+    "Concurso de design da camisa oficial da Meia Maratona Internacional de Curitiba 2027: a arte vencedora vai para os corredores.",
   /* Canonical próprio: sem ele a rota herda o da home (app/layout.tsx)
      e se declara duplicata dela. Relativo, resolvido por metadataBase. */
   alternates: { canonical: "/concurso-de-camisetas" },

@@ -1,5 +1,6 @@
 /** Barrel da camada de conteúdo — importe daqui, não dos arquivos soltos. */
-export { event, siteUrl, seoDescription, waitlistUrl } from "./event";
+export { event, siteUrl, seoDescription, waitlistUrl, raceDateFollow } from "./event";
+export { backstage } from "./backstage";
 export { mainNav, footerNav } from "./navigation";
 export { hero } from "./hero";
 export { concept } from "./concept";

@@ -4,6 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Highlight } from "@/components/ui/Highlight";
 import { Media } from "@/components/ui/Media";
 import { Section } from "@/components/ui/Section";
+import { RegisterButton } from "@/components/registration/RegisterButton";
 import { show } from "@/content";
 import { fadeUp, parallax, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
@@ -121,6 +122,33 @@ export function ShowSection() {
                 {show.headlinerPlaceholder}
               </p>
             )}
+          </div>
+
+          {/*
+            CTA do Backstage, colado no slot do line-up: quem acabou de ler
+            "banda surpresa" é justamente quem quer descobrir antes. Borda
+            vermelha para separar do card do line-up sem criar um terceiro
+            estilo de bloco. `source="banda"` vira `origem_bloco=banda` no
+            analytics — mesmo evento e mesmo funil do CTA do hero.
+          */}
+          <div
+            data-reveal
+            className="mt-6 border border-accent-red/50 bg-bg-dark/60 p-6"
+          >
+            <p className="text-base font-semibold leading-relaxed text-text-white sm:text-lg">
+              {show.backstageCta.phrase}
+            </p>
+
+            <p className="mt-3 text-sm leading-relaxed text-text-gray">
+              {show.backstageCta.support}
+            </p>
+
+            <RegisterButton
+              cta={show.backstageCta.cta}
+              source="banda"
+              animateIn={false}
+              className="mt-5"
+            />
           </div>
         </div>
 

@@ -1,4 +1,5 @@
 import type { Cta, Media } from "./types";
+import { backstage } from "./backstage";
 import { event } from "./event";
 
 /**
@@ -11,12 +12,14 @@ export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
   title: "Quando o esporte encontra o rock, Curitiba vira o palco.",
   description:
-    "As inscrições para a edição 2027 abrem em breve. Entre na lista de avisos e receba a data oficial e o primeiro lote antes de todo mundo.",
+    "O grupo VIP entra antes: no concurso de camisetas, no line-up e na venda do primeiro lote.",
   dateNote: event.dateLabel,
   cta: {
-    label: "Entrar na lista de avisos",
+    label: backstage.ctaLabel,
     action: "register",
   } satisfies Cta,
+  /** Mesma promessa do hero — é o mesmo CTA, então é a mesma frase. */
+  promise: backstage.promise,
   closing,
   /**
    * Versão em arte da assinatura, exibida no fecho da LP. Mesma restrição da
