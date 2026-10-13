@@ -12,7 +12,7 @@ export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
   title: "Quando o esporte encontra o rock, Curitiba vira o palco.",
   description:
-    "O Backstage 21K é o grupo que entra antes: no concurso de camisetas, no line-up e na venda do primeiro lote.",
+    "O grupo VIP entra antes: no concurso de camisetas, no line-up e na venda do primeiro lote.",
   dateNote: event.dateLabel,
   cta: {
     label: backstage.ctaLabel,

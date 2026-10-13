@@ -43,7 +43,7 @@ export const hero = {
     date: event.registrationOpensLabel,
     countdownCaption: "Inscrições abrem em",
     /** Benefício colado no CTA: o que quem entra agora leva a mais. */
-    note: "Quem está no Backstage compra 24h antes de todo mundo.",
+    note: "Quem está no grupo VIP compra 24h antes de todo mundo.",
   },
   cta: {
     label: backstage.ctaLabel,

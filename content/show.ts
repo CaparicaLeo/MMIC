@@ -44,7 +44,7 @@ export const show = {
    * único nome que a seção tem.
    */
   backstageCta: {
-    phrase: "Quem está no Backstage descobre a banda antes de todo mundo.",
+    phrase: "Quem está no grupo VIP descobre a banda antes de todo mundo.",
     support: "O anúncio sai primeiro no grupo. Depois, para o resto da cidade.",
     cta: {
       label: backstage.ctaLabel,

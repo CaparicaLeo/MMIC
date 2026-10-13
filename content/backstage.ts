@@ -9,10 +9,10 @@
  */
 export const backstage = {
   /** Nome do grupo. É o que aparece na tarja do modal. */
-  name: "Backstage 21K",
+  name: "Grupo VIP",
 
   /** Rótulo do CTA principal. Idêntico em todo o site, sem exceção. */
-  ctaLabel: "Quero entrar no Backstage",
+  ctaLabel: "Quero entrar no grupo VIP",
 
   /**
    * Promessa exibida imediatamente abaixo de cada CTA principal. É a troca que

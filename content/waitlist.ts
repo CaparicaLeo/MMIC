@@ -11,9 +11,9 @@ import { backstage } from "./backstage";
  */
 export const waitlist: WaitlistContent = {
   kicker: backstage.name,
-  title: "Entre no Backstage antes de todo mundo.",
+  title: "Entre no grupo VIP antes de todo mundo.",
   description:
-    "O Backstage 21K é o grupo de pré-lançamento: é lá que a votação da camiseta, o line-up e a venda do primeiro lote aparecem primeiro. Entre pelo Instagram ou deixe dois campos e a gente chama você.",
+    "O Grupo VIP é o grupo de pré-lançamento do evento: é lá que a votação da camiseta, o line-up e a venda do primeiro lote aparecem primeiro. Entre pelo Instagram ou deixe dois campos e a gente chama você.",
 
   channels: backstage.channels,
 
@@ -38,7 +38,7 @@ export const waitlist: WaitlistContent = {
   },
 
   success: {
-    title: "Você está no Backstage.",
+    title: "Você está no grupo VIP.",
     description:
       "Seus dados foram recebidos. A votação da camiseta, o line-up e o primeiro lote chegam primeiro aqui.",
     note: "Para não perder nada, entre também no canal do Instagram — os anúncios saem por lá primeiro.",
