@@ -63,12 +63,15 @@ export function StatsSection() {
 
           <ul className="mt-8 flex flex-col gap-7">
             {stats.growth.series.map((point) => (
-              <li key={point.year} className="flex items-center gap-5">
+              <li
+                key={point.year}
+                className="flex flex-wrap items-center gap-x-5 gap-y-2"
+              >
                 <span className="label-condensed w-14 shrink-0 text-sm text-text-white">
                   {point.year}
                 </span>
 
-                <span className="relative h-2 flex-1 bg-white/8">
+                <span className="relative h-2 flex-1 basis-24 bg-white/8">
                   <span
                     data-growth-bar
                     className={cn(
@@ -99,7 +102,7 @@ export function StatsSection() {
                   e a resposta precisa estar na mesma linha do número.
                 */}
                 {point.source ? (
-                  <span className="label-condensed w-40 shrink-0 text-[0.6rem] text-text-gray/70">
+                  <span className="label-condensed w-full shrink-0 text-[0.6rem] text-text-gray/70 sm:w-40">
                     {point.projected ? "Meta · " : "Fonte: "}
                     {point.source}
                   </span>
