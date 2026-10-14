@@ -3,6 +3,7 @@
 import Image from "next/image";
 
 import { Badge } from "@/components/ui/Badge";
+import { BenefitList } from "@/components/ui/BenefitList";
 import { Countdown } from "@/components/ui/Countdown";
 import { Highlight } from "@/components/ui/Highlight";
 import { Marquee } from "@/components/ui/Marquee";
@@ -65,6 +66,18 @@ export function FinalCtaSection() {
           className="mt-10 justify-center"
         />
 
+        {/*
+          O que o Grupo VIP entrega, em lista. Fica acima do botão para que a
+          troca apareça antes do clique — a mesma lista em qualquer lugar que
+          venda o CTA (fonte única em `backstage.benefits`).
+        */}
+        <div data-reveal className="mt-10">
+          <BenefitList
+            title={finalCta.benefitsTitle}
+            items={finalCta.benefits}
+          />
+        </div>
+
         <div data-reveal className="mt-10 flex flex-col items-center">
           <RegisterButton
             cta={finalCta.cta}
@@ -72,10 +85,6 @@ export function FinalCtaSection() {
             pulse
             animateIn={false}
           />
-
-          <p className="mt-4 max-w-md text-sm leading-relaxed text-text-gray">
-            {finalCta.promise}
-          </p>
         </div>
 
         <p

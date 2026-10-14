@@ -15,11 +15,17 @@ export const backstage = {
   ctaLabel: "Quero entrar no grupo VIP",
 
   /**
-   * Promessa exibida imediatamente abaixo de cada CTA principal. É a troca que
-   * o CTA faz: não é "lista de avisos", são três vantagens com data.
+   * O que o Grupo VIP entrega a quem entra. É a troca do CTA — não é uma
+   * "lista de avisos", são vantagens concretas. Fonte única: alimenta a lista
+   * da seção final de CTA e, se preciso, o modal.
    */
-  promise:
-    "Vote na camiseta, veja o line-up antes e compre 24h antes de todo mundo.",
+  benefitsTitle: "Só no grupo VIP tem",
+
+  benefits: [
+    "Detalhes da construção do evento em primeira mão",
+    "Participação na votação da camiseta oficial do evento",
+    "Desafios interativos com premiações exclusivas",
+  ],
 
   /**
    * Canais de entrada no Backstage, na ordem em que aparecem no modal. O

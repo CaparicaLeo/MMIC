@@ -18,8 +18,9 @@ export const finalCta = {
     label: backstage.ctaLabel,
     action: "register",
   } satisfies Cta,
-  /** Mesma promessa do hero — é o mesmo CTA, então é a mesma frase. */
-  promise: backstage.promise,
+  /** Benefícios do Grupo VIP — mesma lista em qualquer lugar que venda o CTA. */
+  benefitsTitle: backstage.benefitsTitle,
+  benefits: backstage.benefits,
   closing,
   /**
    * Versão em arte da assinatura, exibida no fecho da LP. Mesma restrição da

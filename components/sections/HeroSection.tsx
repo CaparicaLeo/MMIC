@@ -1,12 +1,13 @@
 "use client";
 
 import { Badge } from "@/components/ui/Badge";
+import { BenefitList } from "@/components/ui/BenefitList";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Countdown } from "@/components/ui/Countdown";
 import { Marquee } from "@/components/ui/Marquee";
 import { Media } from "@/components/ui/Media";
 import { RegisterButton } from "@/components/registration/RegisterButton";
-import { event, hero, schedule } from "@/content";
+import { backstage, event, hero, schedule } from "@/content";
 import { parallax } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -149,19 +150,19 @@ export function HeroSection() {
 
         {/*
           Card de abertura das inscrições — o único bloco de prazo do hero.
-          Data, contador, CTA e a linha de benefício moram juntos: era isso
-          que a pessoa precisava ler antes de clicar, e o selo de distâncias
-          que ocupava este lugar só repetia o que a seção "Escolha o seu
-          palco" já dizia melhor.
+          Data, contador, CTA, a lista de benefícios do Grupo VIP e a nota de
+          fecho moram juntos: era isso que a pessoa precisava ler antes de
+          clicar, e o selo de distâncias que ocupava este lugar só repetia o
+          que a seção "Escolha o seu palco" já dizia melhor.
 
           O alvo do contador é `registrationOpensAt`, não a data da prova —
           `event.date` continua null e o hero não anuncia um dia que não
-          existe. Sem segundos (o prazo está meses distante) e com os dígitos
-          em branco: no card preto o vermelho fica só no rótulo.
+          existe. Com segundos, porque o card é o relógio da campanha; e com os
+          dígitos em branco: no card preto o vermelho fica só no rótulo.
         */}
         <div
           data-hero-fade
-          className="mt-8 w-fit max-w-xl border border-white/15 bg-black p-6 sm:p-8"
+          className="mt-8 w-fit max-w-xl border border-white/15 bg-black/60 p-6 sm:p-8"
         >
           <p className="label-condensed text-[0.65rem] text-accent-red">
             {hero.registrationCard.label}
@@ -174,9 +175,14 @@ export function HeroSection() {
           <Countdown
             date={event.registrationOpensAt}
             caption={hero.registrationCard.countdownCaption}
-            showSeconds={false}
             tone="white"
             className="mt-7"
+          />
+
+          <BenefitList
+            title={backstage.benefitsTitle}
+            items={backstage.benefits}
+            className="mt-8 items-start"
           />
 
           <RegisterButton
