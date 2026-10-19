@@ -37,10 +37,10 @@ export function SiteHeader() {
           : "border-b border-transparent",
       )}
     >
-      <div className="container-page flex h-16 items-center justify-between gap-6 lg:h-20">
+      <div className="container-page flex h-16 items-center justify-between gap-5 lg:h-20">
         <Link
           href="/"
-          className="flex leading-none"
+          className="flex shrink-0 leading-none"
           aria-label={`${event.name} ${event.year}`}
         >
           {/*
@@ -60,12 +60,12 @@ export function SiteHeader() {
         </Link>
 
         <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-7">
+          <ul className="flex items-center gap-4 xl:gap-5">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="label-condensed text-[0.7rem] text-text-gray transition-colors hover:text-text-white"
+                  className="label-condensed whitespace-nowrap text-[0.7rem] text-text-gray transition-colors hover:text-text-white"
                 >
                   {item.label}
                   {item.comingSoon ? (
@@ -91,7 +91,7 @@ export function SiteHeader() {
               competia por largura com as oito entradas do menu. Abaixo de `xl`
               quem converte é a barra fixa do rodapé, não o header.
             */
-            className="hidden xl:inline-flex"
+            className="hidden shrink-0 whitespace-nowrap xl:inline-flex"
           />
 
           <button
