@@ -13,6 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   "/cronograma",
   "/marcas",
   "/concurso-de-camisetas",
+  "/concurso-de-camisetas/vencedores",
   "/imprensa",
   "/contato",
 ];

@@ -4,6 +4,7 @@ import Image from "next/image";
 
 import { Badge } from "@/components/ui/Badge";
 import { ContestButton } from "@/components/contest/ContestButton";
+import { ResultsLinkButton } from "@/components/contest/ResultsLinkButton";
 import { Section } from "@/components/ui/Section";
 import { contest, contestDeadline } from "@/content";
 import { revealLines, fadeUp } from "@/lib/animations/presets";
@@ -67,8 +68,9 @@ export function ContestFinalCtaSection() {
           {contest.finalCta.description}
         </p>
 
-        <div data-reveal className="mt-10">
+        <div data-reveal className="mt-10 flex flex-wrap justify-center gap-4">
           <ContestButton />
+          <ResultsLinkButton size="lg" />
         </div>
 
         <p
