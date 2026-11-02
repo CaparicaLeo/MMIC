@@ -23,13 +23,11 @@ export const stats = {
   items: [
     {
       id: "atletas-2026",
-      value: 5000,
-      label: "atletas em 2026",
+      value: 7000,
+      label: "corredores confirmados em 2026",
       note: "Resultado da edição 2026.",
-      source: "Edição 2026",
-      // TODO(confirmar): o número oficial de 2026 precisa ser confirmado com a
-      // Ticket Sports antes de publicar. Enquanto isso o marcador aparece em dev.
-      pending: "confirmar número oficial 2026 com a Ticket Sports",
+      /* Número confirmado pela organização em 02/11/2026. */
+      source: "Organização · edição 2026",
     },
     {
       id: "atletas",
@@ -68,11 +66,9 @@ export const stats = {
   growth: {
     label: "Atletas por edição",
     /*
-      2025 e 2026 estão sem fonte confirmada: o valor de 2025 veio do histórico
-      do site e o de 2026 foi informado como pendente de verificação com a
-      Ticket Sports. Atribuir a fonte "Ticket Sports" aos dois seria inventar
-      procedência justamente nos anos que a barra usa para mostrar trajetória,
-      então as duas linhas carregam marcador de pendência até haver documento.
+      2026 foi confirmado pela organização (7.000 corredores confirmados). 2025
+      segue sem fonte: o valor veio do histórico do site, então a linha carrega
+      marcador de pendência até haver documento.
     */
     series: [
       {
@@ -85,11 +81,8 @@ export const stats = {
       },
       {
         year: "2026",
-        value: 5000,
-        source: "Edição 2026",
-        // TODO(confirmar): confirmar com a Ticket Sports o número oficial de
-        // 2026 e a fonte que o publica.
-        pending: "confirmar número oficial de 2026 com a Ticket Sports",
+        value: 7000,
+        source: "Organização · edição 2026",
       },
       {
         year: "2027",

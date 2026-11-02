@@ -2,6 +2,7 @@
 
 import { Badge } from "@/components/ui/Badge";
 import { ContestButton } from "@/components/contest/ContestButton";
+import { ResultsLinkButton } from "@/components/contest/ResultsLinkButton";
 import { Marquee } from "@/components/ui/Marquee";
 import { Media } from "@/components/ui/Media";
 import { contest, event } from "@/content";
@@ -124,8 +125,9 @@ export function ContestHeroSection() {
           {contest.hero.description}
         </p>
 
-        <div data-hero-fade className="mt-9">
+        <div data-hero-fade className="mt-9 flex flex-wrap gap-4">
           <ContestButton />
+          <ResultsLinkButton size="lg" />
         </div>
 
         <p
