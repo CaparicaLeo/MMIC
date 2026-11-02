@@ -6,6 +6,7 @@ import { finalistMedia } from "@/components/contest/finalists/finalistMedia";
 import { Badge } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Media } from "@/components/ui/Media";
+import { ZoomableMedia } from "@/components/ui/ZoomableMedia";
 import { Section } from "@/components/ui/Section";
 import { contestFinalists, contestFinalistsPage, contestVotingUrl } from "@/content";
 import type { ContestFinalist } from "@/content/contestFinalists";
@@ -109,7 +110,7 @@ export default async function FinalistaPage({ params }: Props) {
           </div>
         </header>
 
-        <Media
+        <ZoomableMedia
           media={media.camisa}
           preload
           sizes="(min-width: 1024px) 60vw, 100vw"
@@ -120,7 +121,7 @@ export default async function FinalistaPage({ params }: Props) {
 
       <div className="mt-16 grid items-start gap-12 lg:mt-24 lg:grid-cols-[minmax(0,1.5fr)_minmax(0,1fr)] lg:gap-12">
         <div>
-          <Media
+          <ZoomableMedia
             media={media.conceito}
             sizes="(min-width: 1024px) 50vw, 100vw"
             className="w-full"
@@ -137,7 +138,7 @@ export default async function FinalistaPage({ params }: Props) {
         </div>
 
         <figure>
-          <Media
+          <ZoomableMedia
             media={media.aplicacao}
             sizes="(min-width: 1024px) 35vw, 100vw"
             className="w-full"
