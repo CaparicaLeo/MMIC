@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 
+import { FinalistNavLink } from "@/components/contest/finalists/FinalistNavLink";
 import { finalistMedia } from "@/components/contest/finalists/finalistMedia";
 import { Badge } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/ui/CTAButton";
@@ -160,24 +161,24 @@ export default async function FinalistaPage({ params }: Props) {
         className="mt-16 grid grid-cols-2 gap-px border border-white/10 bg-white/10"
       >
         {previous ? (
-          <Link
+          <FinalistNavLink
             href={finalistHref(previous)}
             className="flex flex-col gap-2 bg-bg-dark p-5 transition-colors hover:bg-[#120406] sm:p-6"
           >
             <span className="label-condensed text-[0.65rem] text-text-gray">← Anterior</span>
             <span className="text-sm text-text-white sm:text-base">{previous.titulo}</span>
-          </Link>
+          </FinalistNavLink>
         ) : (
           <span className="bg-bg-dark" />
         )}
         {next ? (
-          <Link
+          <FinalistNavLink
             href={finalistHref(next)}
             className="flex flex-col gap-2 bg-bg-dark p-5 transition-colors hover:bg-[#120406] sm:p-6"
           >
             <span className="label-condensed text-[0.65rem] text-text-gray">Próxima →</span>
             <span className="text-sm text-text-white sm:text-base">{next.titulo}</span>
-          </Link>
+          </FinalistNavLink>
         ) : (
           <span className="bg-bg-dark" />
         )}
