@@ -4,7 +4,8 @@ import Link from "next/link";
 import type { ComponentProps } from "react";
 
 /**
- * Link de anterior/próxima entre finalistas que leva ao topo da página.
+ * Link entre as páginas das finalistas (anterior/próxima e "voltar para as
+ * finalistas") que leva ao topo da página.
  *
  * O <Link> só rola ao topo quando a página nova não está visível; entre duas
  * finalistas o layout é o mesmo e a página continua na tela, então o Next

@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { notFound } from "next/navigation";
 
 import { FinalistNavLink } from "@/components/contest/finalists/FinalistNavLink";
@@ -79,12 +78,12 @@ export default async function FinalistaPage({ params }: Props) {
 
   return (
     <Section id="finalista" tone="darker">
-      <Link
+      <FinalistNavLink
         href={listHref}
         className="label-condensed text-[0.7rem] text-text-gray transition-colors hover:text-text-white"
       >
         ← {page.backLabel}
-      </Link>
+      </FinalistNavLink>
 
       {/* Topo: autor à esquerda, arte da camisa na largura restante. No
           mobile empilha na mesma ordem. */}
