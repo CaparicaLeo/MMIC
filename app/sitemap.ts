@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-import { siteUrl } from "@/content";
+import { contestFinalists, siteUrl } from "@/content";
 
 /**
  * Sitemap. Já inclui as rotas futuras — elas existem como páginas de
@@ -14,6 +14,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   "/marcas",
   "/concurso-de-camisetas",
   "/concurso-de-camisetas/vencedores",
+  "/concurso-de-camisetas/finalistas",
+  ...contestFinalists.map((finalist) => `/concurso-de-camisetas/finalistas/${finalist.slug}`),
   "/imprensa",
   "/contato",
 ];

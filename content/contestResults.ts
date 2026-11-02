@@ -1,3 +1,4 @@
+import type { ContestFinalist } from "./contestFinalists";
 import type { Media, SectionIntro } from "./types";
 
 /**
@@ -8,8 +9,8 @@ import type { Media, SectionIntro } from "./types";
  *
  *  - `curadoria`: prazo encerrado, ninguém escolhido. A página mostra em que
  *    passo o concurso está e aponta o Instagram.
- *  - `votacao`: `finalists` preenchido. A grade das finalistas aparece com o
- *    CTA de voto.
+ *  - `votacao`: a grade das finalistas (de content/contestFinalists.ts)
+ *    aparece com o CTA de voto.
  *  - `resultado`: `winners` preenchido. Campeão, pódio e finalistas.
  *
  * Nenhum nome entra aqui antes do anúncio oficial no Instagram: a página é
@@ -17,29 +18,22 @@ import type { Media, SectionIntro } from "./types";
  */
 export type ContestPhase = "curadoria" | "votacao" | "resultado";
 
-/** Proposta finalista. Os vencedores são finalistas com colocação. */
-export type ContestEntry = {
-  id: string;
-  /** Nome como o autor quer ser creditado — é o que vai impresso na camisa. */
-  author: string;
-  /** Ex.: "Curitiba (PR)" */
-  location: string;
-  /** Nome que o autor deu à arte. */
-  title: string;
-  /** Uma ou duas frases do autor sobre a ideia. Vira citação no destaque. */
-  statement?: string;
-  /** Perfil do autor, sem @ (ex.: "fulano.design"). */
-  instagram?: string;
-  /** A arte chapada, sobre fundo preto. */
-  art: Media;
-  /** A arte aplicada na camisa técnica preta. Sem ela, só a arte aparece. */
-  mockup?: Media;
+export type ContestPlaceId = "1st" | "2nd" | "3rd";
+
+/**
+ * Colocação de uma finalista. Só aponta para ela pelo `slug`: nome, cidade e
+ * imagens vêm de content/contestFinalists.ts, para não existirem em dois
+ * lugares.
+ */
+export type ContestWinner = {
+  /** `slug` de uma das finalistas. */
+  slug: string;
+  /** Mesmo `id` de `contest.prizes.items` — valor e percurso vêm de lá. */
+  placeId: ContestPlaceId;
 };
 
-export type ContestWinner = ContestEntry & {
-  /** Mesmo `id` de `contest.prizes.items` — valor e percurso vêm de lá. */
-  placeId: "1st" | "2nd" | "3rd";
-};
+/** Finalista com a colocação: o que as seções do resultado recebem. */
+export type RankedFinalist = ContestFinalist & { placeId: ContestPlaceId };
 
 export const contestResults = {
   // TODO(confirmar): avançar a fase conforme a produção anunciar.
@@ -48,7 +42,6 @@ export const contestResults = {
   /** Data do anúncio por extenso. Ex.: "12 de dezembro de 2026". */
   announcedAt: null as string | null,
 
-  finalists: [] as ContestEntry[],
   winners: [] as ContestWinner[],
 
   /**

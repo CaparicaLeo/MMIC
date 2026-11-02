@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
 import { contest, contestResults } from "@/content";
-import type { ContestWinner } from "@/content/contestResults";
+import type { RankedFinalist } from "@/content/contestResults";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -16,7 +16,9 @@ import { EntryArt, EntryCredit } from "./EntryArt";
  * estampa, e qualquer degradê sobre ela altera a obra que está sendo
  * premiada. O fundo vinho é o mesmo do card destacado em <PrizesSection>.
  */
-export function ChampionSection({ winner }: { winner: ContestWinner }) {
+export function ChampionSection({ winner }: { winner: RankedFinalist }) {
+  /* O conceito pode ter vários parágrafos; a citação usa só o primeiro. */
+  const quote = winner.textoConceito.split(/\n\s*\n/)[0];
   const prize = contest.prizes.items.find((item) => item.id === winner.placeId);
 
   const root = useGsapScroll<HTMLDivElement>(({ scope, prefersReducedMotion }) => {
@@ -33,7 +35,7 @@ export function ChampionSection({ winner }: { winner: ContestWinner }) {
         <figure data-reveal>
           <EntryArt entry={winner} sizes="(min-width: 1024px) 55vw, 100vw" />
           <figcaption className="label-condensed mt-3 text-[0.7rem] text-text-gray">
-            {winner.title} · {contestResults.champion.shirtLabel}
+            {winner.titulo} · {contestResults.champion.shirtLabel}
           </figcaption>
         </figure>
 
@@ -43,15 +45,15 @@ export function ChampionSection({ winner }: { winner: ContestWinner }) {
           </Badge>
 
           <h2 data-reveal className="headline mt-7 text-[clamp(2.25rem,6vw,4.5rem)]">
-            {winner.author}
+            {winner.nome}
           </h2>
 
           <EntryCredit entry={winner} className="mt-4" />
 
-          {winner.statement ? (
+          {quote ? (
             <blockquote data-reveal className="mt-10 border-l-2 border-accent-red pl-6">
               <p className="text-lg leading-relaxed text-text-white/90">
-                &ldquo;{winner.statement}&rdquo;
+                &ldquo;{quote}&rdquo;
               </p>
             </blockquote>
           ) : null}

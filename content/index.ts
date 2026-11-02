@@ -14,6 +14,11 @@ export { finalCta } from "./cta";
 export { waitlist } from "./waitlist";
 export { contest, contestSubmissionUrl, contestDeadline, contestCta, contestModal } from "./contest";
 export { contestResults } from "./contestResults";
+export {
+  contestFinalists,
+  contestFinalistsPage,
+  contestVotingUrl,
+} from "./contestFinalists";
 export { contact } from "./contact";
 export { brands } from "./brands";
 export type * from "./types";

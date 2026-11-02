@@ -4,7 +4,7 @@ import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { RegisterButton } from "@/components/registration/RegisterButton";
 import { contestResults, finalCta } from "@/content";
-import type { ContestEntry } from "@/content/contestResults";
+import type { ContestFinalist } from "@/content/contestFinalists";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -22,7 +22,7 @@ export function FinalistsSection({
   entries,
 }: {
   phase: "votacao" | "resultado";
-  entries: ContestEntry[];
+  entries: ContestFinalist[];
 }) {
   const root = useGsapScroll<HTMLDivElement>(({ scope, prefersReducedMotion }) => {
     fadeUp(scope.querySelectorAll("[data-reveal]"), {
@@ -61,10 +61,10 @@ export function FinalistsSection({
           className="mt-14 grid gap-px border border-white/10 bg-white/10 sm:grid-cols-2 lg:mt-20 lg:grid-cols-3"
         >
           {entries.map((entry) => (
-            <li key={entry.id} data-finalist-card className="flex flex-col bg-bg-dark p-6">
+            <li key={entry.slug} data-finalist-card className="flex flex-col bg-bg-dark p-6">
               <EntryArt entry={entry} sizes="(min-width: 1024px) 30vw, (min-width: 640px) 50vw, 100vw" />
-              <p className="mt-6 text-base text-text-white">{entry.title}</p>
-              <p className="mt-1 text-sm text-text-white/85">{entry.author}</p>
+              <p className="mt-6 text-base text-text-white">{entry.titulo}</p>
+              <p className="mt-1 text-sm text-text-white/85">{entry.nome}</p>
               <EntryCredit entry={entry} className="mt-2" />
             </li>
           ))}

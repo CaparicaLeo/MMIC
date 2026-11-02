@@ -1,23 +1,24 @@
+import { finalistMedia } from "@/components/contest/finalists/finalistMedia";
 import { Media } from "@/components/ui/Media";
-import type { ContestEntry } from "@/content/contestResults";
+import type { ContestFinalist } from "@/content/contestFinalists";
 import { cn } from "@/lib/cn";
 
 /**
- * Arte de uma proposta. Mostra a camisa (mockup) quando existe, porque é o
- * que o corredor vai receber; a arte chapada é o fallback.
+ * Arte de uma finalista. Mostra a camisa (mockup), porque é o que o corredor
+ * vai receber — a mesma capa do card em /concurso-de-camisetas/finalistas.
  */
 export function EntryArt({
   entry,
   sizes,
   className,
 }: {
-  entry: ContestEntry;
+  entry: ContestFinalist;
   sizes: string;
   className?: string;
 }) {
   return (
     <Media
-      media={entry.mockup ?? entry.art}
+      media={finalistMedia(entry).aplicacao}
       sizes={sizes}
       className={cn("w-full", className)}
       imageClassName="object-contain"
@@ -25,23 +26,23 @@ export function EntryArt({
   );
 }
 
-/** "Fulano · Curitiba (PR)" com o Instagram do autor, quando houver. */
-export function EntryCredit({ entry, className }: { entry: ContestEntry; className?: string }) {
+/** "Curitiba (PR) · @fulano" — cada parte só aparece quando existe. */
+export function EntryCredit({ entry, className }: { entry: ContestFinalist; className?: string }) {
+  if (!entry.cidade && !entry.instagram) return null;
+
   return (
     <p className={cn("label-condensed text-[0.7rem] text-text-gray", className)}>
-      {entry.location}
+      {entry.cidade}
+      {entry.cidade && entry.instagram ? " · " : null}
       {entry.instagram ? (
-        <>
-          {" · "}
-          <a
-            href={`https://instagram.com/${entry.instagram}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-text-white underline-offset-4 hover:underline"
-          >
-            @{entry.instagram}
-          </a>
-        </>
+        <a
+          href={`https://instagram.com/${entry.instagram}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-text-white underline-offset-4 hover:underline"
+        >
+          @{entry.instagram}
+        </a>
       ) : null}
     </p>
   );
