@@ -3,10 +3,9 @@
 import { Badge } from "@/components/ui/Badge";
 import { ContestButton } from "@/components/contest/ContestButton";
 import { ResultsLinkButton } from "@/components/contest/ResultsLinkButton";
-import { CTAButton } from "@/components/ui/CTAButton";
 import { Marquee } from "@/components/ui/Marquee";
 import { Media } from "@/components/ui/Media";
-import { contest, contestFinalistsPage, contestResults, event } from "@/content";
+import { contest, event } from "@/content";
 import { parallax } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -129,12 +128,6 @@ export function ContestHeroSection() {
         <div data-hero-fade className="mt-9 flex flex-wrap gap-4">
           <ContestButton />
           <ResultsLinkButton size="lg" />
-          {/* As finalistas só são públicas a partir da votação. */}
-          {contestResults.phase !== "curadoria" ? (
-            <CTAButton href={contestFinalistsPage.href} variant="outline" animateIn={false}>
-              {contestFinalistsPage.linkLabel}
-            </CTAButton>
-          ) : null}
         </div>
 
         <p

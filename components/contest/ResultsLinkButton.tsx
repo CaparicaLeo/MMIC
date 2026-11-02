@@ -4,7 +4,8 @@ import { CTAButton, type CTAButtonProps } from "@/components/ui/CTAButton";
 import { contestResults } from "@/content";
 
 /**
- * Atalho de /concurso-de-camisetas para a página de resultado.
+ * Atalho de /concurso-de-camisetas para as finalistas (e, com o resultado,
+ * para os vencedores).
  * Contorno, e não sólido: o vermelho segue sendo do CTA de participação.
  */
 export function ResultsLinkButton({
@@ -14,7 +15,7 @@ export function ResultsLinkButton({
   const { link, phase } = contestResults;
 
   return (
-    <CTAButton href={link.href} variant="outline" size={size} className={className}>
+    <CTAButton href={link.href[phase]} variant="outline" size={size} className={className}>
       {link.label[phase]}
     </CTAButton>
   );

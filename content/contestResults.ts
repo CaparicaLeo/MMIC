@@ -45,11 +45,16 @@ export const contestResults = {
   winners: [] as ContestWinner[],
 
   /**
-   * Botão em /concurso-de-camisetas que leva a esta página. O rótulo segue a
-   * fase para prometer só o que a página já tem.
+   * Botão em /concurso-de-camisetas. Até a votação terminar ele leva às
+   * finalistas (onde está o passo a passo); com o resultado, a esta página.
+   * O rótulo segue a fase para prometer só o que o destino já tem.
    */
   link: {
-    href: "/concurso-de-camisetas/vencedores",
+    href: {
+      curadoria: "/concurso-de-camisetas/finalistas",
+      votacao: "/concurso-de-camisetas/finalistas",
+      resultado: "/concurso-de-camisetas/vencedores",
+    } satisfies Record<ContestPhase, string>,
     label: {
       curadoria: "Acompanhar o resultado",
       votacao: "Ver as finalistas",

@@ -3,7 +3,7 @@
 import { Badge } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Section } from "@/components/ui/Section";
-import { contest, contestFinalistsPage, contestResults } from "@/content";
+import { contest, contestFinalistsPage } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -52,12 +52,9 @@ export function VotingSection() {
             {contest.voting.note}
           </p>
           <div className="flex flex-wrap gap-4">
-            {/* As finalistas só são públicas a partir da votação. */}
-            {contestResults.phase !== "curadoria" ? (
-              <CTAButton href={contestFinalistsPage.href} size="md">
-                {contestFinalistsPage.linkLabel}
-              </CTAButton>
-            ) : null}
+            <CTAButton href={contestFinalistsPage.href} size="md">
+              {contestFinalistsPage.linkLabel}
+            </CTAButton>
             <CTAButton href={contest.voting.instagramUrl} variant="outline" size="md">
               Acompanhar no Instagram
             </CTAButton>

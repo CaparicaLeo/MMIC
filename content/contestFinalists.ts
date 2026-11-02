@@ -1,4 +1,5 @@
 import { waitlistUrl } from "./event";
+import type { SectionIntro, TimelineItem } from "./types";
 
 /**
  * Finalistas do concurso de camisetas — /concurso-de-camisetas/finalistas e
@@ -250,4 +251,57 @@ export const contestFinalistsPage = {
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
+};
+
+/**
+ * "Daqui pra frente": os passos do concurso a partir da escolha das
+ * finalistas. Aparece em /concurso-de-camisetas, logo abaixo do hero, e em
+ * /concurso-de-camisetas/finalistas, abaixo da grade.
+ *
+ * Os rótulos de `time` são datas e marcos, não "agora"/"concluído": a seção
+ * continua certa depois que a votação abrir, sem precisar trocar o texto.
+ */
+export const contestSteps = {
+  intro: {
+    kicker: "Próximos passos",
+    title: "Como o concurso segue daqui.",
+    description:
+      "A curadoria já escolheu as finalistas. Daqui até a camisa oficial, o caminho é este, e qualquer pessoa pode participar da votação.",
+  } satisfies SectionIntro,
+  items: [
+    {
+      id: "finalistas",
+      time: "Concluído",
+      title: "Curadoria escolhe as finalistas",
+      description: `As propostas foram avaliadas por clareza de conceito, originalidade e viabilidade de produção. ${contestFinalists.length} artes chegaram à final.`,
+    },
+    {
+      id: "lista",
+      time: "Até 3 de novembro",
+      title: "Entre na lista de transmissão",
+      description:
+        "A votação acontece na lista de transmissão do nosso Instagram oficial. Entre pelo botão desta seção para receber o aviso de abertura.",
+    },
+    {
+      id: "votacao",
+      time: "3 a 5 de novembro",
+      title: "Vote na sua favorita",
+      description:
+        "Qualquer pessoa vota, sem precisar estar inscrita na prova. Conheça cada arte e o conceito por trás dela nas páginas das finalistas.",
+    },
+    {
+      id: "resultado",
+      time: "Depois da votação",
+      title: "Resultado",
+      description:
+        "Curadoria e voto do público definem o 1º, o 2º e o 3º lugar. O anúncio sai no Instagram oficial e aqui no site.",
+    },
+    {
+      id: "camisa",
+      time: "Rock Edition 2027",
+      title: "A arte vai para a camisa",
+      description:
+        "O 1º lugar estampa a camisa dos 21 km, o 2º a dos 10 km e o 3º a dos 5 km, cada uma assinada pelo autor.",
+    },
+  ] satisfies TimelineItem[],
 };

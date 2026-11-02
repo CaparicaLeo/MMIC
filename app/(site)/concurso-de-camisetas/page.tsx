@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { ChallengeSection } from "@/components/contest/ChallengeSection";
 import { ContestFinalCtaSection } from "@/components/contest/ContestFinalCtaSection";
 import { ContestHeroSection } from "@/components/contest/ContestHeroSection";
+import { ContestStepsSection } from "@/components/contest/ContestStepsSection";
 import { ContestTimelineSection } from "@/components/contest/ContestTimelineSection";
 import { FloatingContestCta } from "@/components/contest/FloatingContestCta";
 import { PrizesSection } from "@/components/contest/PrizesSection";
@@ -24,6 +25,7 @@ export default function ConcursoDeCamisetasPage() {
   return (
     <>
       <ContestHeroSection />
+      <ContestStepsSection />
       <ChallengeSection />
       <PrizesSection />
       <RulesSection />
