@@ -203,7 +203,7 @@ export const contestFinalistsPage = {
   votingFallback: "Votação aberta a todos pelo Instagram oficial da prova.",
   voteLabel: "Votar",
   voteNote:
-    "A votação acontece na lista de transmissão do nosso Instagram oficial. Qualquer pessoa pode votar.",
+    "A votação acontece no nosso grupo secreto no Instagram. Qualquer pessoa pode votar.",
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
@@ -250,9 +250,9 @@ export const contestSteps = {
     {
       id: "lista",
       time: "Até 3 de novembro",
-      title: "Entre na lista de transmissão",
+      title: "Entre no grupo secreto",
       description:
-        "A votação acontece na lista de transmissão do nosso Instagram oficial. Entre pelo botão desta seção para receber o aviso de abertura.",
+        "A votação acontece no nosso grupo secreto no Instagram. Entre pelo botão desta seção para receber o aviso de abertura.",
     },
     {
       id: "votacao",
