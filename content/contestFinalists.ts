@@ -1,4 +1,3 @@
-import { waitlistUrl } from "./event";
 import type { SectionIntro, TimelineItem } from "./types";
 
 /**
@@ -42,12 +41,10 @@ export type ContestFinalist = {
 };
 
 /**
- * Destino do botão "Votar": a lista de transmissão do Instagram oficial. Hoje
- * é o mesmo canal do grupo VIP; se a votação ganhar um link próprio, troque
- * só aqui.
+ * Destino dos botões de voto: o grupo secreto da votação no Instagram, com
+ * link próprio (o grupo VIP geral continua em `waitlistUrl`).
  */
-// TODO(confirmar): link da votação com a produção.
-export const contestVotingUrl: string = waitlistUrl;
+export const contestVotingUrl: string = "https://www.instagram.com/j/iK3rM3fyK0RvKVZK/";
 
 /** Caminho de uma imagem em public/images/finalistas/<slug>/. */
 const img = (slug: string, file: string) => `/images/finalistas/${slug}/${file}`;
@@ -210,6 +207,22 @@ export const contestFinalistsPage = {
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
+  /**
+   * Chamada para a votação, logo abaixo da grade. `title` tem uma linha por
+   * item (cada uma entra com máscara); a última leva o realce vermelho.
+   */
+  votingCall: {
+    kicker: "De 3 a 5 de novembro",
+    title: ["A decisão está", "nas suas mãos!"],
+    paragraphs: [
+      `Depois de uma seleção marcada por muita criatividade, talento e rigorosos testes técnicos de impressão e aplicação, apresentamos as ${contestFinalists.length} artes finalistas que estão na disputa para estampar a camiseta oficial da Meia Maratona Internacional de Curitiba 2027 – Rock Edition!`,
+      "A votação acontece exclusivamente em nosso grupo secreto no Instagram, onde a comunidade poderá escolher sua arte favorita.",
+      "Agora é com vocês! Entre no grupo, conheça as finalistas e vote na arte que vai vestir milhares de corredores em 2027!",
+    ],
+    ctaLabel: "Entrar no grupo e votar",
+    /** Fecho em caixa alta, também usado na faixa em rolagem. */
+    slogan: [`${contestFinalists.length} artes.`, "Uma escolha.", "Muito rock'n'roll!"],
+  },
 };
 
 /**

@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { ContestStepsSection } from "@/components/contest/ContestStepsSection";
 import { FinalistCard } from "@/components/contest/finalists/FinalistCard";
+import { FinalistsVotingCall } from "@/components/contest/finalists/FinalistsVotingCall";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
 import { contestFinalists, contestFinalistsPage } from "@/content";
@@ -48,6 +49,8 @@ export default function FinalistasPage() {
           ))}
         </ul>
       </Section>
+
+      <FinalistsVotingCall />
 
       {/* O CTA de voto mora nesta seção, ao lado do passo a passo. */}
       <ContestStepsSection />
