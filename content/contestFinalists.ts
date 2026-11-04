@@ -108,33 +108,6 @@ const finalists: ContestFinalist[] = [
     ordem: 4,
   },
   {
-    slug: "eduarda-guerra",
-    nome: "Eduarda Guerra",
-    cidade: "",
-    avatar: img("eduarda-guerra", "avatar.webp"),
-    titulo: "Curitiba é rock, Curitiba corre",
-    imagemCamisa: img("eduarda-guerra", "camisa.webp"),
-    imagemConceito: img("eduarda-guerra", "conceito.webp"),
-    imagemAplicacao: img("eduarda-guerra", "aplicacao.webp"),
-    textoConceito:
-      "A ilustração une elementos da identidade curitibana e da cultura brasileira à energia do rock. A capivara foi escolhida como personagem principal por sua forte associação com Curitiba e presença marcante nos parques da cidade. Ao seu lado, a arara-azul amplia a representação da fauna brasileira. Ambas aparecem em poses dinâmicas e expressões descontraídas, transmitindo a energia e a diversão da corrida.\n\nOs raios amarelos e a expressividade dos personagens trazem referências à estética do rock, sugerindo uma trilha sonora que acompanha os corredores. Ao fundo, as estações-tubo, o Museu Oscar Niemeyer e as araucárias evocam a paisagem urbana e natural de Curitiba. O resultado é uma identidade visual que conecta esporte, música e cultura local, celebrando uma Curitiba que corre ao ritmo do rock.",
-    ordem: 5,
-  },
-  {
-    slug: "gihad-hak",
-    nome: "Gihad Hak",
-    cidade: "",
-    avatar: img("gihad-hak", "avatar.webp"),
-    titulo: "A largada é em Curitiba",
-    imagemCamisa: img("gihad-hak", "camisa.webp"),
-    imagemConceito: img("gihad-hak", "conceito.webp"),
-    imagemAplicacao: img("gihad-hak", "aplicacao.webp"),
-    instagram: "gihadtattoo",
-    textoConceito:
-      "Um corredor roqueiro cruza a cidade em ritmo de show. A capivara pega carona, o MON e as araucárias marcam o percurso, e o humor faz parte da prova. A proposta junta corrida, rock e referências locais em uma cena autoral, com energia de pôster e movimento de largada.\n\nA figura do corredor homenageia o Skank Kid, desenho clássico do punk rock ilustrado pela cartunista Shawn Kerri em 1980 e usado pela banda Circle Jerks: sua atitude já sugere movimento, e essa energia foi reinterpretada na cena. O estilo de Poty Lazzarotto e a estética de pôsteres clássicos de rock aparecem nos traços e na composição. A língua para fora, a mão chifrada, a perspectiva dinâmica e o lettering reforçam a atitude, o tema e o humor da estampa.",
-    ordem: 6,
-  },
-  {
     slug: "gilberto-hass",
     nome: "Gilberto Hass",
     cidade: "",
@@ -145,7 +118,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("gilberto-hass", "aplicacao.webp"),
     textoConceito:
       "O que acontece quando o ritmo dos corredores encontra a potência do rock? A cidade vibra. Sob as passadas e as ondas sonoras, o chão de Curitiba parece estremecer: as pedras da calçada ganham movimento, o mosaico se desprende e dá forma a pulmões que se transformam em guitarra. A cidade pulsa, o corredor respira e Curitiba entra no volume máximo.\n\nO pulmão representa a respiração, a resistência e o esforço de quem enfrenta os 21 quilômetros. A guitarra emerge da própria estrutura pulmonar, integrando braço, cordas e trastes à anatomia do órgão. O mosaico é inspirado no petit-pavé das calçadas da cidade, e os pinhões estilizados em vermelho reforçam a conexão com o pinheiro, referência natural e cultural do Paraná.\n\nA calçada vibra, o mosaico ganha vida, o pulmão respira e se transforma em guitarra. Curitiba não apenas recebe a corrida e o rock: ela pulsa no volume máximo.",
-    ordem: 7,
+    ordem: 5,
   },
   {
     slug: "icaro-andrew",
@@ -159,7 +132,7 @@ const finalists: ContestFinalist[] = [
     instagram: "sec.vikare",
     textoConceito:
       "A pesquisa conceitual começou com a Sugar Kane, banda de hardcore de Curitiba. O verso Me permitir saber voar, da música Identidade, despertou a associação entre música, liberdade e superação, a sensação de ouvir uma faixa que impulsiona o corpo durante uma corrida. Daí surgiram as tatuagens tradicionais de pássaros, presentes na estética de quem se identifica com a cultura rock.\n\nEssa referência se conectou à gralha-azul, ave-símbolo do Paraná. A ilustração apresenta duas gralhas-azuis disputando um pinhão. Espinhos e grafismos reforçam a agressividade visual sem recorrer às representações mais previsíveis do gênero, e uma onda sonora forma um arco semelhante a um resplendor sobre as aves.\n\nAssim nasce MMM, Music, Mind, Motion: música que ativa a mente e coloca o corpo em movimento.",
-    ordem: 8,
+    ordem: 6,
   },
   {
     slug: "junior-designer",
@@ -172,7 +145,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("junior-designer", "aplicacao.webp"),
     textoConceito:
       "O desafio de desenvolver a estampa começou em conhecer Curitiba. Após um ciclo de pesquisas por referências, curiosidades, fatos, locais históricos e marcos, o primeiro ponto de inspiração foi o Jardim Botânico, um dos principais pontos da cidade. O segundo é o Teatro Guaíra, com sua fachada icônica, um mural do artista local Poty Lazzarotto.\n\nA partir dessas duas referências nasceram os elementos da estampa: formas com inspiração direta na geometria quase perfeita do Jardim, e símbolo e tipografia inspirados nos traços únicos de Poty. A proposta busca fazer coincidir arquitetura, arte, esporte e rock, escapando de clichês tanto das atividades quanto da cidade.",
-    ordem: 9,
+    ordem: 7,
   },
   {
     slug: "melanie-kozlowski",
@@ -185,7 +158,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("melanie-kozlowski", "aplicacao.webp"),
     textoConceito:
       "A ideia surgiu da união entre corrida, música e Curitiba. Como a edição tem o rock como tema, o disco de vinil é o elemento principal da composição, criando uma relação entre o ritmo da música e o ritmo da corrida: os dois envolvem movimento, intensidade, energia e cadência. Curitiba é o palco desse encontro.\n\nOs sulcos do vinil criam movimento e remetem à cadência da corrida. A agulha do toca-discos dá a sensação de que o disco está começando a tocar. Os corredores aparecem em diferentes pontos do vinil, acompanhando os sulcos, e no centro um corredor ganha destaque ao lado do Desde 2014, que valoriza a história da prova. Na parte inferior, pontos marcantes de Curitiba formam uma silhueta da cidade integrada à composição. As texturas em halftone remetem à expansão do som pela cidade.",
-    ordem: 10,
+    ordem: 8,
   },
   {
     slug: "ricardo-hurmus",
@@ -198,7 +171,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("ricardo-hurmus", "aplicacao.webp"),
     textoConceito:
       "A proposta traduz o encontro entre esporte, música e cidade valorizando a identidade cultural de Curitiba, a energia do rock e a diversidade dos participantes. Como alternativa aos símbolos convencionais do rock, o elemento central é o violão de Paulo Leminski, referência à escultura da Pedreira Paulo Leminski, local que recebeu a chegada das duas últimas edições da prova.\n\nAs cordas do violão se transformam em faixas de pedestres, simbolizando a música que ocupa as ruas e transforma a cidade em palco. Sobre elas, quatro personagens representam a pluralidade da corrida: um homem acima do peso, uma mulher, um atleta em cadeira de rodas esportiva e uma capivara. A disposição faz referência à capa do álbum Abbey Road, dos Beatles. A linguagem gráfica se inspira nas ilustrações de Poty Lazzarotto.\n\nUma Curitiba que corre, vibra e se encontra no volume máximo.",
-    ordem: 11,
+    ordem: 9,
   },
   {
     slug: "vitor-ferreira-martins",
@@ -211,7 +184,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("vitor-ferreira-martins", "aplicacao.webp"),
     textoConceito:
       "A estampa condensa quatro ideias em um único símbolo. A guitarra, referência máxima ao rock. Curitiba, com CWB como a marca da cidade. O percurso, em linhas contínuas que se assemelham aos trajetos indicados em apps de corrida. E o headstock, a parte da guitarra que referencia o topo da estufa do Jardim Botânico.\n\nCuritiba, rock, pace: uma manhã inesquecível.",
-    ordem: 12,
+    ordem: 10,
   },
 ];
 
