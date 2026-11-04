@@ -20,7 +20,7 @@ export function FinalistCard({ finalist }: { finalist: ContestFinalist }) {
       <div className="relative">
         <Media
           media={media.aplicacao}
-          sizes="(min-width: 1024px) 25vw, 50vw"
+          sizes="(min-width: 1024px) 20vw, 50vw"
           className="w-full"
           imageClassName="transition-transform duration-500 ease-out-expo group-hover:scale-[1.03]"
         />

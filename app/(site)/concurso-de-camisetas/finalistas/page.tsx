@@ -40,7 +40,7 @@ export default function FinalistasPage() {
           </p>
         </header>
 
-        <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:mt-20 lg:grid-cols-4">
+        <ul className="mt-14 grid grid-cols-2 gap-x-4 gap-y-10 sm:gap-x-6 lg:mt-20 lg:grid-cols-5">
           {contestFinalists.map((finalist) => (
             <li key={finalist.slug}>
               <FinalistCard finalist={finalist} />
