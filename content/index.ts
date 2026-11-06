@@ -18,7 +18,6 @@ export {
   contestFinalists,
   contestFinalistsPage,
   contestSteps,
-  contestVotingUrl,
 } from "./contestFinalists";
 export { contact } from "./contact";
 export { brands } from "./brands";

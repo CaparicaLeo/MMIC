@@ -56,12 +56,6 @@ export type FinalistLink = {
   url: string;
 };
 
-/**
- * Destino dos botões de voto: o grupo secreto da votação no Instagram, com
- * link próprio (o grupo VIP geral continua em `waitlistUrl`).
- */
-export const contestVotingUrl: string = "https://www.instagram.com/j/iK3rM3fyK0RvKVZK/";
-
 /** Caminho de uma imagem em public/images/finalistas/<slug>/. */
 const img = (slug: string, file: string) => `/images/finalistas/${slug}/${file}`;
 
@@ -248,16 +242,9 @@ export const contestFinalistsPage = {
   href: "/concurso-de-camisetas/finalistas",
   /** Botão em /concurso-de-camisetas que leva à grade. */
   linkLabel: "Ver as finalistas",
-  /**
-   * Período da votação, exibido abaixo do título da grade.
-   * Ex.: "Votação de 10 a 20 de novembro de 2026". Enquanto for null, a página
-   * mostra `votingFallback`.
-   */
-  votingPeriod: "Votação de 3 a 5 de novembro" as string | null,
-  votingFallback: "Votação aberta a todos pelo Instagram oficial da prova.",
-  voteLabel: "Votar",
-  voteNote:
-    "A votação acontece no nosso grupo secreto no Instagram. Qualquer pessoa pode votar.",
+  /** Status da votação, exibido abaixo do título da grade. */
+  votingStatus:
+    "Votação encerrada em 5 de novembro. O resultado sai no Instagram oficial e aqui no site.",
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   bioKicker: "Sobre o designer",
@@ -269,22 +256,7 @@ export const contestFinalistsPage = {
     portfolio: "Portfólio",
   },
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
-  /**
-   * Chamada para a votação, logo abaixo da grade. `title` tem uma linha por
-   * item (cada uma entra com máscara); a última leva o realce vermelho.
-   */
-  votingCall: {
-    kicker: "De 3 a 5 de novembro",
-    title: ["A decisão está", "nas suas mãos!"],
-    paragraphs: [
-      `Depois de uma seleção marcada por muita criatividade, talento e rigorosos testes técnicos de impressão e aplicação, apresentamos as ${contestFinalists.length} artes finalistas que estão na disputa para estampar a camiseta oficial da Meia Maratona Internacional de Curitiba 2027 – Rock Edition!`,
-      "A votação acontece exclusivamente em nosso grupo secreto no Instagram, onde a comunidade poderá escolher sua arte favorita.",
-      "Agora é com vocês! Entre no grupo, conheça as finalistas e vote na arte que vai vestir milhares de corredores em 2027!",
-    ],
-    ctaLabel: "Entrar no grupo e votar",
-    /** Fecho em caixa alta, também usado na faixa em rolagem. */
-    slogan: [`${contestFinalists.length} artes.`, "Uma escolha.", "Muito rock'n'roll!"],
-  },
+
 };
 
 /**
@@ -293,14 +265,14 @@ export const contestFinalistsPage = {
  * /concurso-de-camisetas/finalistas, abaixo da grade.
  *
  * Os rótulos de `time` são datas e marcos, não "agora"/"concluído": a seção
- * continua certa depois que a votação abrir, sem precisar trocar o texto.
+ * continua certa conforme o concurso avança, sem precisar trocar o texto.
  */
 export const contestSteps = {
   intro: {
     kicker: "Próximos passos",
     title: "Como o concurso segue daqui.",
     description:
-      "A curadoria já escolheu as finalistas. Daqui até a camisa oficial, o caminho é este, e qualquer pessoa pode participar da votação.",
+      "A curadoria escolheu as finalistas e a votação do público já foi encerrada. Daqui até a camisa oficial, o caminho é este.",
   } satisfies SectionIntro,
   items: [
     {
@@ -314,14 +286,14 @@ export const contestSteps = {
       time: "Até 3 de novembro",
       title: "Entre no grupo secreto",
       description:
-        "A votação acontece no nosso grupo secreto no Instagram. Entre pelo botão desta seção para receber o aviso de abertura.",
+        "A votação aconteceu no nosso grupo secreto no Instagram, aberto a qualquer pessoa.",
     },
     {
       id: "votacao",
       time: "3 a 5 de novembro",
       title: "Vote na sua favorita",
       description:
-        "Qualquer pessoa vota, sem precisar estar inscrita na prova. Conheça cada arte e o conceito por trás dela nas páginas das finalistas.",
+        "Qualquer pessoa pôde votar, sem precisar estar inscrita na prova. Conheça cada arte e o conceito por trás dela nas páginas das finalistas.",
     },
     {
       id: "resultado",

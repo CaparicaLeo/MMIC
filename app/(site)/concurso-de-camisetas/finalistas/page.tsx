@@ -3,7 +3,6 @@ import Link from "next/link";
 
 import { ContestStepsSection } from "@/components/contest/ContestStepsSection";
 import { FinalistCard } from "@/components/contest/finalists/FinalistCard";
-import { FinalistsVotingCall } from "@/components/contest/finalists/FinalistsVotingCall";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
 import { contestFinalists, contestFinalistsPage } from "@/content";
@@ -12,7 +11,7 @@ export const metadata: Metadata = {
   title: "Finalistas do Concurso de Camisetas",
   /* ≤155 chars: acima disso o Google corta no SERP. */
   description:
-    "Conheça as artes finalistas da camisa oficial da Meia Maratona Internacional de Curitiba 2027 e vote na sua favorita pelo Instagram.",
+    "Conheça as artes finalistas da camisa oficial da Meia Maratona Internacional de Curitiba 2027 e o conceito por trás de cada uma.",
   alternates: { canonical: "/concurso-de-camisetas/finalistas" },
 };
 
@@ -37,7 +36,7 @@ export default function FinalistasPage() {
           </h1>
 
           <p className="text-base leading-relaxed text-text-gray sm:text-lg">
-            {page.votingPeriod ?? page.votingFallback}
+            {page.votingStatus}
           </p>
         </header>
 
@@ -50,9 +49,6 @@ export default function FinalistasPage() {
         </ul>
       </Section>
 
-      <FinalistsVotingCall />
-
-      {/* O CTA de voto mora nesta seção, ao lado do passo a passo. */}
       <ContestStepsSection />
     </>
   );

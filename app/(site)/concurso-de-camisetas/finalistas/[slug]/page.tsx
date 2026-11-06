@@ -4,11 +4,10 @@ import { notFound } from "next/navigation";
 import { FinalistNavLink } from "@/components/contest/finalists/FinalistNavLink";
 import { finalistMedia } from "@/components/contest/finalists/finalistMedia";
 import { Badge } from "@/components/ui/Badge";
-import { CTAButton } from "@/components/ui/CTAButton";
 import { Media } from "@/components/ui/Media";
 import { ZoomableMedia } from "@/components/ui/ZoomableMedia";
 import { Section } from "@/components/ui/Section";
-import { contestFinalists, contestFinalistsPage, contestVotingUrl } from "@/content";
+import { contestFinalists, contestFinalistsPage } from "@/content";
 import type { ContestFinalist } from "@/content/contestFinalists";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -42,7 +41,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { finalist } = found;
   const title = `“${finalist.titulo}”, de ${finalist.nome} · Finalista`;
   const from = finalist.cidade ? `, de ${finalist.cidade},` : "";
-  const description = `Arte finalista de ${finalist.nome}${from} para a camisa oficial da Meia Maratona Internacional de Curitiba 2027. Vote pelo Instagram.`;
+  const description = `Arte finalista de ${finalist.nome}${from} para a camisa oficial da Meia Maratona Internacional de Curitiba 2027.`;
   const camisa = finalistMedia(finalist).camisa;
 
   return {
@@ -182,13 +181,6 @@ export default async function FinalistaPage({ params }: Props) {
             {page.applicationCaption}
           </figcaption>
         </figure>
-      </div>
-
-      <div className="mt-16 flex flex-col items-start gap-5 border-t border-white/10 pt-10 lg:mt-24">
-        <CTAButton href={contestVotingUrl} pulse ariaLabel={`${page.voteLabel} em “${finalist.titulo}”`}>
-          {page.voteLabel}
-        </CTAButton>
-        <p className="max-w-xl text-sm leading-relaxed text-text-gray">{page.voteNote}</p>
       </div>
 
       <nav

@@ -1,10 +1,9 @@
 "use client";
 
-import { CTAButton } from "@/components/ui/CTAButton";
 import { Section } from "@/components/ui/Section";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Timeline } from "@/components/ui/Timeline";
-import { contestFinalistsPage, contestSteps, contestVotingUrl } from "@/content";
+import { contestSteps } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -26,16 +25,7 @@ export function ContestStepsSection() {
     <Section id="proximos-passos">
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div ref={root} className="lg:sticky lg:top-32 lg:self-start">
-          <SectionHeader intro={contestSteps.intro}>
-            <div data-reveal className="mt-4 flex flex-col items-start gap-4">
-              <CTAButton href={contestVotingUrl} size="md" animateIn={false}>
-                {contestFinalistsPage.voteLabel}
-              </CTAButton>
-              <p className="max-w-md text-sm leading-relaxed text-text-gray">
-                {contestFinalistsPage.voteNote}
-              </p>
-            </div>
-          </SectionHeader>
+          <SectionHeader intro={contestSteps.intro} />
         </div>
 
         <Timeline items={contestSteps.items} />
