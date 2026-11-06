@@ -39,10 +39,21 @@ export type ContestFinalist = {
    * linha em branco ("\n\n"). Opcional: sem bio, o bloco não aparece.
    */
   bio?: string;
+  /**
+   * Redes e portfólio de quem criou, exibidos junto da foto na página da
+   * finalista, na ordem desta lista. Opcional: sem links, a linha não aparece.
+   */
+  redes?: FinalistLink[];
   /** Perfil do Instagram, sem @ (ex.: "fulano.design"). Opcional. */
   instagram?: string;
   /** Posição na grade e na navegação anterior/próxima, a partir de 1. */
   ordem: number;
+};
+
+/** Um link de rede social ou portfólio de quem criou a arte. */
+export type FinalistLink = {
+  tipo: "instagram" | "behance" | "linkedin" | "portfolio";
+  url: string;
 };
 
 /**
@@ -83,6 +94,10 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "E se o espírito do rock assumisse a forma de um titã, o Electric Eye, e corresse como um atleta colossal? Se esse evento ocorresse em Curitiba, ele usaria o MON como sua cabeça. Pelo tamanho, talvez seu pace não seja o melhor, mas ele dá o seu melhor e garante um espetáculo de raios vindos de seu olho elétrico. Milhares de fanáticos por rock e por corrida acompanhariam o evento de perto, correndo em volta do titã do rock, com cuidado para não serem esmagados.\n\nA proposta ilustra essa história com um estilo de texturas ásperas, linhas imperfeitas e enérgicas. As inspirações são o design gráfico punk, as obras de Jean-Michel Basquiat, a música Electric Eye, do Judas Priest, e o verso Keep your 'lectric eye on me babe, de Moonage Daydream, de David Bowie.",
     bio: "Minha história com a arte começou no jardim de infância, eu era uma criança que passava horas copiando personagens de histórias em quadrinho e mangás. O interesse em desenhar foi evoluindo comigo, nunca larguei o lápis e nunca parei de buscar novas referências. Me formei de Artes e Design em Minas Gerais, onde aprendi muito sobre história da arte e ganhei repertório visual. Hoje trabalho como designer gráfico e faço ilustrações para estampas de camiseta, e gosto de correr 5km todos os dias de manhã num pace cansado antes de trabalhar 🤣",
+    redes: [
+      { tipo: "linkedin", url: "https://www.linkedin.com/in/danielserpadesign/" },
+      { tipo: "portfolio", url: "https://readymag.website/u3041103801/5905972/" },
+    ],
     ordem: 2,
   },
   {
@@ -97,6 +112,9 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "A proposta transforma a Meia Maratona em uma edição cultural da cidade. Corrida, rock e Curitiba não aparecem como três temas separados: eles ocupam a mesma composição e constroem uma única identidade.\n\nA cidade surge na base como uma paisagem sonora. Elementos reconhecíveis de Curitiba se misturam a frequências, picos e interferências gráficas, fazendo o skyline funcionar ao mesmo tempo como cidade e onda de áudio. O personagem é Plá, músico ligado à cena roqueira curitibana, reinterpretado como corredor: uma figura associada à música assume o corpo e o movimento da corrida.\n\nA linguagem gráfica se inspira nas camisetas de bandas, pôsteres de shows e impressos underground: alto contraste, vermelho, preto e branco, textura desgastada, raios e tipografia de forte presença. A peça foge deliberadamente da estética tradicional de camiseta esportiva e se aproxima de um merch de edição única.",
     bio: "Designer há mais de 15 anos e sócio-fundador da Allpiz. Atuo com identidade visual, UX/UI e design para lançamentos digitais, unindo estratégia e criatividade para conectar marcas e pessoas. Também sou criador da CRIVIS, onde ensino profissionais a transformar ideias em imagens com intenção, explorando design, direção visual e inteligência artificial.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/o_diegorosa/" },
+    ],
     ordem: 3,
   },
   {
@@ -111,6 +129,10 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "O conceito da arte consiste em agregar os elementos que definem cada tema da edição: Curitiba, corrida e música, nesse caso o rock.\n\nA logo como marca d'água caracteriza o símbolo da cidade, junto com a silhueta do mapa de Curitiba. A combinação do cabo da guitarra com o mapa caracteriza o tema e a cidade. O tênis e o fone são peças fundamentais no dia a dia do atleta amador, e a caixa de som dá clareza ao tema, compondo uma unidade que soma rock e corrida.",
     bio: "Olá, sou Dilmar J. Kempner Junior, formado em design gráfico pelo universidade Positivo. Atuo na área de design e ilustração à 20 anos, tendo como experiência, a criação de layouts, editoração de livros, ilustração editorial e publicitária e mídias digitais.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/galeria_bokakemps" },
+      { tipo: "portfolio", url: "https://drive.google.com/drive/folders/1VjV4jDcOfFPBSdkqS5toCnpvD6aqyuY2" },
+    ],
     ordem: 4,
   },
   {
@@ -125,6 +147,11 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "O que acontece quando o ritmo dos corredores encontra a potência do rock? A cidade vibra. Sob as passadas e as ondas sonoras, o chão de Curitiba parece estremecer: as pedras da calçada ganham movimento, o mosaico se desprende e dá forma a pulmões que se transformam em guitarra. A cidade pulsa, o corredor respira e Curitiba entra no volume máximo.\n\nO pulmão representa a respiração, a resistência e o esforço de quem enfrenta os 21 quilômetros. A guitarra emerge da própria estrutura pulmonar, integrando braço, cordas e trastes à anatomia do órgão. O mosaico é inspirado no petit-pavé das calçadas da cidade, e os pinhões estilizados em vermelho reforçam a conexão com o pinheiro, referência natural e cultural do Paraná.\n\nA calçada vibra, o mosaico ganha vida, o pulmão respira e se transforma em guitarra. Curitiba não apenas recebe a corrida e o rock: ela pulsa no volume máximo.",
     bio: "Sou formado em Administração de Empresas e especialista em Comunicação, Marcas e Consumo. Atuo como designer desde 2007, unindo pensamento estratégico e sensibilidade criativa na construção de identidades visuais. Minha relação com a arte nasce da curiosidade, da paixão por viajar e conhecer diferentes culturas. Acredito que referências diversas, olhar atento e criatividade são ingredientes essenciais para transformar ideias em experiências visuais.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/gilbertohass.branding/" },
+      { tipo: "behance", url: "https://www.behance.net/GilbertoHass" },
+      { tipo: "portfolio", url: "https://gilbertohass.myportfolio.com" },
+    ],
     ordem: 5,
   },
   {
@@ -139,6 +166,9 @@ const finalists: ContestFinalist[] = [
     instagram: "sec.vikare",
     textoConceito:
       "A pesquisa conceitual começou com a Sugar Kane, banda de hardcore de Curitiba. O verso Me permitir saber voar, da música Identidade, despertou a associação entre música, liberdade e superação, a sensação de ouvir uma faixa que impulsiona o corpo durante uma corrida. Daí surgiram as tatuagens tradicionais de pássaros, presentes na estética de quem se identifica com a cultura rock.\n\nEssa referência se conectou à gralha-azul, ave-símbolo do Paraná. A ilustração apresenta duas gralhas-azuis disputando um pinhão. Espinhos e grafismos reforçam a agressividade visual sem recorrer às representações mais previsíveis do gênero, e uma onda sonora forma um arco semelhante a um resplendor sobre as aves.\n\nAssim nasce MMM, Music, Mind, Motion: música que ativa a mente e coloca o corpo em movimento.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/sec.vikare/" },
+    ],
     ordem: 6,
   },
   {
@@ -167,6 +197,10 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "A ideia surgiu da união entre corrida, música e Curitiba. Como a edição tem o rock como tema, o disco de vinil é o elemento principal da composição, criando uma relação entre o ritmo da música e o ritmo da corrida: os dois envolvem movimento, intensidade, energia e cadência. Curitiba é o palco desse encontro.\n\nOs sulcos do vinil criam movimento e remetem à cadência da corrida. A agulha do toca-discos dá a sensação de que o disco está começando a tocar. Os corredores aparecem em diferentes pontos do vinil, acompanhando os sulcos, e no centro um corredor ganha destaque ao lado do Desde 2014, que valoriza a história da prova. Na parte inferior, pontos marcantes de Curitiba formam uma silhueta da cidade integrada à composição. As texturas em halftone remetem à expansão do som pela cidade.",
     bio: "Sou designer e gosto de explorar a criatividade por meio de diferentes formas de expressão visual, especialmente ilustração e design gráfico. Além do design, a corrida também é uma das minhas grandes paixões. Foi um esporte em que me encontrei e que me ensinou a confiar mais em mim, enfrentar desafios e alcançar distâncias que antes pareciam impossíveis. Participar de um concurso que une esporte, música e criatividade foi uma oportunidade especial de conectar esses dois universos que fazem parte de quem sou.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/melkb.arts/" },
+      { tipo: "behance", url: "https://www.behance.net/melaniekozlows" },
+    ],
     ordem: 8,
   },
   {
@@ -181,6 +215,11 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "A proposta traduz o encontro entre esporte, música e cidade valorizando a identidade cultural de Curitiba, a energia do rock e a diversidade dos participantes. Como alternativa aos símbolos convencionais do rock, o elemento central é o violão de Paulo Leminski, referência à escultura da Pedreira Paulo Leminski, local que recebeu a chegada das duas últimas edições da prova.\n\nAs cordas do violão se transformam em faixas de pedestres, simbolizando a música que ocupa as ruas e transforma a cidade em palco. Sobre elas, quatro personagens representam a pluralidade da corrida: um homem acima do peso, uma mulher, um atleta em cadeira de rodas esportiva e uma capivara. A disposição faz referência à capa do álbum Abbey Road, dos Beatles. A linguagem gráfica se inspira nas ilustrações de Poty Lazzarotto.\n\nUma Curitiba que corre, vibra e se encontra no volume máximo.",
     bio: "Ricardo Hurmus (Hurmus) é designer gráfico e artista visual de Curitiba, com trajetória iniciada em 1996. Atua nas áreas de identidade visual, ilustração, direção de arte e comunicação. Sua produção combina referências culturais, experimentação e diferentes linguagens visuais. Apaixonado por arte, música e corrida, encontra no design uma forma de contar histórias, conectar universos e transformar ideias em imagens.",
+    redes: [
+      { tipo: "instagram", url: "https://www.instagram.com/hurmus78/" },
+      { tipo: "behance", url: "https://www.behance.net/hurmus" },
+      { tipo: "linkedin", url: "https://www.linkedin.com/in/hurmus/" },
+    ],
     ordem: 9,
   },
   {
@@ -220,6 +259,13 @@ export const contestFinalistsPage = {
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   bioKicker: "Sobre o designer",
+  /** Rótulos dos links de `redes`, na página da finalista. */
+  linkLabels: {
+    instagram: "Instagram",
+    behance: "Behance",
+    linkedin: "LinkedIn",
+    portfolio: "Portfólio",
+  },
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
   /**
    * Chamada para a votação, logo abaixo da grade. `title` tem uma linha por

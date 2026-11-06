@@ -104,12 +104,29 @@ export default async function FinalistaPage({ params }: Props) {
             <Media
               media={media.avatar}
               sizes="(min-width: 640px) 144px, 112px"
-              className="w-28 shrink-0 sm:w-36"
+              className="w-28 shrink-0 rounded-full sm:w-36"
             />
             <div>
               <p className="font-semibold text-text-white">{finalist.nome}</p>
               {finalist.cidade ? (
                 <p className="label-condensed mt-1 text-[0.7rem] text-text-gray">{finalist.cidade}</p>
+              ) : null}
+              {finalist.redes?.length ? (
+                <ul className="mt-3 flex flex-wrap gap-x-4 gap-y-2">
+                  {finalist.redes.map((link) => (
+                    <li key={link.url}>
+                      <a
+                        href={link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`${page.linkLabels[link.tipo]} de ${finalist.nome} (abre em nova aba)`}
+                        className="label-condensed text-[0.7rem] text-text-white underline decoration-white/30 underline-offset-4 transition-colors hover:text-accent-red hover:decoration-accent-red"
+                      >
+                        {page.linkLabels[link.tipo]} ↗
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               ) : null}
             </div>
           </div>
