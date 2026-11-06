@@ -183,6 +183,7 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "O desafio de desenvolver a estampa começou em conhecer Curitiba. Após um ciclo de pesquisas por referências, curiosidades, fatos, locais históricos e marcos, o primeiro ponto de inspiração foi o Jardim Botânico, um dos principais pontos da cidade. O segundo é o Teatro Guaíra, com sua fachada icônica, um mural do artista local Poty Lazzarotto.\n\nA partir dessas duas referências nasceram os elementos da estampa: formas com inspiração direta na geometria quase perfeita do Jardim, e símbolo e tipografia inspirados nos traços únicos de Poty. A proposta busca fazer coincidir arquitetura, arte, esporte e rock, escapando de clichês tanto das atividades quanto da cidade.",
     bio: "Tenho 27 anos, e sou paraibano. Desde criança era atraído por algo que não sabia que era design, como passar horas e horas editando camisas nos jogos de futebol e pinturas de carros de corrida, ou ficar observando fachadas por aí. Me formei em design pela UNICSUL, mas profissionalmente ainda não tive as melhores oportunidades de fazer meu trabalho. Como não tenho muito repertório prático na área, meu portfólio é quase inexistente, contando com projetos pessoais ou fictícios, mas vamos seguir tentando! Muito contente em estar entre os 10 finalistas de um projeto tão divertido de se trabalhar.",
+    redes: [{ tipo: "instagram", url: "https://www.instagram.com/junior_dsgnr/" }],
     ordem: 7,
   },
   {
