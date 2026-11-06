@@ -80,6 +80,7 @@ const finalists: ContestFinalist[] = [
     textoConceito:
       "A proposta reúne corrida, rock e Curitiba em uma única identidade visual. A composição explora uma linguagem sinestésica, transformando características sonoras em recursos gráficos: a intenção é tornar o som visível, usando formas, cores, contrastes e movimento para evocar sensações normalmente associadas à audição. O rock distorce, o rock vibra, o rock pulsa, o rock contrasta.\n\nA estampa propõe dois níveis de leitura. À distância, o contraste, o ritmo e as interferências gráficas evocam a intensidade do rock. De perto, revelam-se os detalhes que conectam música, corrida e Curitiba. Três painéis conduzem a narrativa: o impulso, com os corredores correndo dentro do próprio disco de vinil; a imersão, com o protagonismo dos atletas; e a cidade, com a cartografia revelando a dimensão da jornada por Curitiba.\n\nA música impulsiona. O corpo percorre. A cidade registra.",
     bio: "Sou rockeiro desde que nasci e formado em Desenho Industrial! Comecei a correr há cerca de um ano, e a corrida virou parte essencial da minha vida! Fiz meus primeiros 21 km na MMIC 2026, depois de meses treinando e sonhando com esse dia. Quando anunciaram a Rock Edition e o concurso, mergulhei de cabeça! Foram horas de pesquisa, testes e criação. Ver a galera correndo com uma arte minha, unindo corrida, rock e Curitiba, seria incrível! Estou ansioso para curtir cada segundo do evento, da largada aos shows!",
+    redes: [{ tipo: "instagram", url: "https://www.instagram.com/alanbarg/" }],
     ordem: 1,
   },
   {
