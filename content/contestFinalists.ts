@@ -34,6 +34,11 @@ export type ContestFinalist = {
   imagemAplicacao: string;
   /** Texto do designer. Parágrafos separados por linha em branco ("\n\n"). */
   textoConceito: string;
+  /**
+   * Bio de quem criou a arte, como a pessoa enviou. Parágrafos separados por
+   * linha em branco ("\n\n"). Opcional: sem bio, o bloco não aparece.
+   */
+  bio?: string;
   /** Perfil do Instagram, sem @ (ex.: "fulano.design"). Opcional. */
   instagram?: string;
   /** Posição na grade e na navegação anterior/próxima, a partir de 1. */
@@ -63,6 +68,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("alan-barg", "aplicacao.webp"),
     textoConceito:
       "A proposta reúne corrida, rock e Curitiba em uma única identidade visual. A composição explora uma linguagem sinestésica, transformando características sonoras em recursos gráficos: a intenção é tornar o som visível, usando formas, cores, contrastes e movimento para evocar sensações normalmente associadas à audição. O rock distorce, o rock vibra, o rock pulsa, o rock contrasta.\n\nA estampa propõe dois níveis de leitura. À distância, o contraste, o ritmo e as interferências gráficas evocam a intensidade do rock. De perto, revelam-se os detalhes que conectam música, corrida e Curitiba. Três painéis conduzem a narrativa: o impulso, com os corredores correndo dentro do próprio disco de vinil; a imersão, com o protagonismo dos atletas; e a cidade, com a cartografia revelando a dimensão da jornada por Curitiba.\n\nA música impulsiona. O corpo percorre. A cidade registra.",
+    bio: "Sou rockeiro desde que nasci e formado em Desenho Industrial! Comecei a correr há cerca de um ano, e a corrida virou parte essencial da minha vida! Fiz meus primeiros 21 km na MMIC 2026, depois de meses treinando e sonhando com esse dia. Quando anunciaram a Rock Edition e o concurso, mergulhei de cabeça! Foram horas de pesquisa, testes e criação. Ver a galera correndo com uma arte minha, unindo corrida, rock e Curitiba, seria incrível! Estou ansioso para curtir cada segundo do evento, da largada aos shows!",
     ordem: 1,
   },
   {
@@ -76,6 +82,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("daniel-serpa", "aplicacao.webp"),
     textoConceito:
       "E se o espírito do rock assumisse a forma de um titã, o Electric Eye, e corresse como um atleta colossal? Se esse evento ocorresse em Curitiba, ele usaria o MON como sua cabeça. Pelo tamanho, talvez seu pace não seja o melhor, mas ele dá o seu melhor e garante um espetáculo de raios vindos de seu olho elétrico. Milhares de fanáticos por rock e por corrida acompanhariam o evento de perto, correndo em volta do titã do rock, com cuidado para não serem esmagados.\n\nA proposta ilustra essa história com um estilo de texturas ásperas, linhas imperfeitas e enérgicas. As inspirações são o design gráfico punk, as obras de Jean-Michel Basquiat, a música Electric Eye, do Judas Priest, e o verso Keep your 'lectric eye on me babe, de Moonage Daydream, de David Bowie.",
+    bio: "Minha história com a arte começou no jardim de infância, eu era uma criança que passava horas copiando personagens de histórias em quadrinho e mangás. O interesse em desenhar foi evoluindo comigo, nunca larguei o lápis e nunca parei de buscar novas referências. Me formei de Artes e Design em Minas Gerais, onde aprendi muito sobre história da arte e ganhei repertório visual. Hoje trabalho como designer gráfico e faço ilustrações para estampas de camiseta, e gosto de correr 5km todos os dias de manhã num pace cansado antes de trabalhar 🤣",
     ordem: 2,
   },
   {
@@ -89,6 +96,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("diego-rosa", "aplicacao.webp"),
     textoConceito:
       "A proposta transforma a Meia Maratona em uma edição cultural da cidade. Corrida, rock e Curitiba não aparecem como três temas separados: eles ocupam a mesma composição e constroem uma única identidade.\n\nA cidade surge na base como uma paisagem sonora. Elementos reconhecíveis de Curitiba se misturam a frequências, picos e interferências gráficas, fazendo o skyline funcionar ao mesmo tempo como cidade e onda de áudio. O personagem é Plá, músico ligado à cena roqueira curitibana, reinterpretado como corredor: uma figura associada à música assume o corpo e o movimento da corrida.\n\nA linguagem gráfica se inspira nas camisetas de bandas, pôsteres de shows e impressos underground: alto contraste, vermelho, preto e branco, textura desgastada, raios e tipografia de forte presença. A peça foge deliberadamente da estética tradicional de camiseta esportiva e se aproxima de um merch de edição única.",
+    bio: "Designer há mais de 15 anos e sócio-fundador da Allpiz. Atuo com identidade visual, UX/UI e design para lançamentos digitais, unindo estratégia e criatividade para conectar marcas e pessoas. Também sou criador da CRIVIS, onde ensino profissionais a transformar ideias em imagens com intenção, explorando design, direção visual e inteligência artificial.",
     ordem: 3,
   },
   {
@@ -102,6 +110,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("dilmar-junior", "aplicacao.webp"),
     textoConceito:
       "O conceito da arte consiste em agregar os elementos que definem cada tema da edição: Curitiba, corrida e música, nesse caso o rock.\n\nA logo como marca d'água caracteriza o símbolo da cidade, junto com a silhueta do mapa de Curitiba. A combinação do cabo da guitarra com o mapa caracteriza o tema e a cidade. O tênis e o fone são peças fundamentais no dia a dia do atleta amador, e a caixa de som dá clareza ao tema, compondo uma unidade que soma rock e corrida.",
+    bio: "Olá, sou Dilmar J. Kempner Junior, formado em design gráfico pelo universidade Positivo. Atuo na área de design e ilustração à 20 anos, tendo como experiência, a criação de layouts, editoração de livros, ilustração editorial e publicitária e mídias digitais.",
     ordem: 4,
   },
   {
@@ -115,6 +124,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("gilberto-hass", "aplicacao.webp"),
     textoConceito:
       "O que acontece quando o ritmo dos corredores encontra a potência do rock? A cidade vibra. Sob as passadas e as ondas sonoras, o chão de Curitiba parece estremecer: as pedras da calçada ganham movimento, o mosaico se desprende e dá forma a pulmões que se transformam em guitarra. A cidade pulsa, o corredor respira e Curitiba entra no volume máximo.\n\nO pulmão representa a respiração, a resistência e o esforço de quem enfrenta os 21 quilômetros. A guitarra emerge da própria estrutura pulmonar, integrando braço, cordas e trastes à anatomia do órgão. O mosaico é inspirado no petit-pavé das calçadas da cidade, e os pinhões estilizados em vermelho reforçam a conexão com o pinheiro, referência natural e cultural do Paraná.\n\nA calçada vibra, o mosaico ganha vida, o pulmão respira e se transforma em guitarra. Curitiba não apenas recebe a corrida e o rock: ela pulsa no volume máximo.",
+    bio: "Sou formado em Administração de Empresas e especialista em Comunicação, Marcas e Consumo. Atuo como designer desde 2007, unindo pensamento estratégico e sensibilidade criativa na construção de identidades visuais. Minha relação com a arte nasce da curiosidade, da paixão por viajar e conhecer diferentes culturas. Acredito que referências diversas, olhar atento e criatividade são ingredientes essenciais para transformar ideias em experiências visuais.",
     ordem: 5,
   },
   {
@@ -142,6 +152,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("junior-designer", "aplicacao.webp"),
     textoConceito:
       "O desafio de desenvolver a estampa começou em conhecer Curitiba. Após um ciclo de pesquisas por referências, curiosidades, fatos, locais históricos e marcos, o primeiro ponto de inspiração foi o Jardim Botânico, um dos principais pontos da cidade. O segundo é o Teatro Guaíra, com sua fachada icônica, um mural do artista local Poty Lazzarotto.\n\nA partir dessas duas referências nasceram os elementos da estampa: formas com inspiração direta na geometria quase perfeita do Jardim, e símbolo e tipografia inspirados nos traços únicos de Poty. A proposta busca fazer coincidir arquitetura, arte, esporte e rock, escapando de clichês tanto das atividades quanto da cidade.",
+    bio: "Tenho 27 anos, e sou paraibano. Desde criança era atraído por algo que não sabia que era design, como passar horas e horas editando camisas nos jogos de futebol e pinturas de carros de corrida, ou ficar observando fachadas por aí. Me formei em design pela UNICSUL, mas profissionalmente ainda não tive as melhores oportunidades de fazer meu trabalho. Como não tenho muito repertório prático na área, meu portfólio é quase inexistente, contando com projetos pessoais ou fictícios, mas vamos seguir tentando! Muito contente em estar entre os 10 finalistas de um projeto tão divertido de se trabalhar.",
     ordem: 7,
   },
   {
@@ -155,6 +166,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("melanie-kozlowski", "aplicacao.webp"),
     textoConceito:
       "A ideia surgiu da união entre corrida, música e Curitiba. Como a edição tem o rock como tema, o disco de vinil é o elemento principal da composição, criando uma relação entre o ritmo da música e o ritmo da corrida: os dois envolvem movimento, intensidade, energia e cadência. Curitiba é o palco desse encontro.\n\nOs sulcos do vinil criam movimento e remetem à cadência da corrida. A agulha do toca-discos dá a sensação de que o disco está começando a tocar. Os corredores aparecem em diferentes pontos do vinil, acompanhando os sulcos, e no centro um corredor ganha destaque ao lado do Desde 2014, que valoriza a história da prova. Na parte inferior, pontos marcantes de Curitiba formam uma silhueta da cidade integrada à composição. As texturas em halftone remetem à expansão do som pela cidade.",
+    bio: "Sou designer e gosto de explorar a criatividade por meio de diferentes formas de expressão visual, especialmente ilustração e design gráfico. Além do design, a corrida também é uma das minhas grandes paixões. Foi um esporte em que me encontrei e que me ensinou a confiar mais em mim, enfrentar desafios e alcançar distâncias que antes pareciam impossíveis. Participar de um concurso que une esporte, música e criatividade foi uma oportunidade especial de conectar esses dois universos que fazem parte de quem sou.",
     ordem: 8,
   },
   {
@@ -168,6 +180,7 @@ const finalists: ContestFinalist[] = [
     imagemAplicacao: img("ricardo-hurmus", "aplicacao.webp"),
     textoConceito:
       "A proposta traduz o encontro entre esporte, música e cidade valorizando a identidade cultural de Curitiba, a energia do rock e a diversidade dos participantes. Como alternativa aos símbolos convencionais do rock, o elemento central é o violão de Paulo Leminski, referência à escultura da Pedreira Paulo Leminski, local que recebeu a chegada das duas últimas edições da prova.\n\nAs cordas do violão se transformam em faixas de pedestres, simbolizando a música que ocupa as ruas e transforma a cidade em palco. Sobre elas, quatro personagens representam a pluralidade da corrida: um homem acima do peso, uma mulher, um atleta em cadeira de rodas esportiva e uma capivara. A disposição faz referência à capa do álbum Abbey Road, dos Beatles. A linguagem gráfica se inspira nas ilustrações de Poty Lazzarotto.\n\nUma Curitiba que corre, vibra e se encontra no volume máximo.",
+    bio: "Ricardo Hurmus (Hurmus) é designer gráfico e artista visual de Curitiba, com trajetória iniciada em 1996. Atua nas áreas de identidade visual, ilustração, direção de arte e comunicação. Sua produção combina referências culturais, experimentação e diferentes linguagens visuais. Apaixonado por arte, música e corrida, encontra no design uma forma de contar histórias, conectar universos e transformar ideias em imagens.",
     ordem: 9,
   },
   {
@@ -206,6 +219,7 @@ export const contestFinalistsPage = {
     "A votação acontece no nosso grupo secreto no Instagram. Qualquer pessoa pode votar.",
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
+  bioKicker: "Sobre o designer",
   applicationCaption: "Aplicação na camisa técnica preta. Imagem ilustrativa.",
   /**
    * Chamada para a votação, logo abaixo da grade. `title` tem uma linha por

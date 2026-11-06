@@ -76,6 +76,7 @@ export default async function FinalistaPage({ params }: Props) {
   const media = finalistMedia(finalist);
   const page = contestFinalistsPage;
   const paragraphs = finalist.textoConceito.split(/\n\s*\n/);
+  const bioParagraphs = finalist.bio ? finalist.bio.split(/\n\s*\n/) : [];
 
   return (
     <Section id="finalista" tone="darker">
@@ -99,8 +100,12 @@ export default async function FinalistaPage({ params }: Props) {
             {finalist.titulo}
           </h1>
 
-          <div className="flex items-center gap-4">
-            <Media media={media.avatar} sizes="80px" className="w-16 shrink-0 sm:w-20" />
+          <div className="flex items-center gap-5">
+            <Media
+              media={media.avatar}
+              sizes="(min-width: 640px) 144px, 112px"
+              className="w-28 shrink-0 sm:w-36"
+            />
             <div>
               <p className="font-semibold text-text-white">{finalist.nome}</p>
               {finalist.cidade ? (
@@ -108,6 +113,19 @@ export default async function FinalistaPage({ params }: Props) {
               ) : null}
             </div>
           </div>
+
+          {/* Bio de quem criou, junto da foto. Só aparece quando a finalista
+              enviou uma. */}
+          {bioParagraphs.length > 0 ? (
+            <div className="max-w-xl">
+              <p className="label-condensed text-[0.7rem] text-text-gray">{page.bioKicker}</p>
+              <div className="mt-3 flex flex-col gap-3 text-sm leading-relaxed text-text-white/80">
+                {bioParagraphs.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
+            </div>
+          ) : null}
         </header>
 
         <ZoomableMedia
