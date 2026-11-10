@@ -1,4 +1,4 @@
-import type { ContestFinalist } from "./contestFinalists";
+import { contestFinalists, type ContestFinalist } from "./contestFinalists";
 import type { Media, SectionIntro } from "./types";
 
 /**
@@ -30,10 +30,15 @@ export type ContestWinner = {
   slug: string;
   /** Mesmo `id` de `contest.prizes.items` — valor e percurso vêm de lá. */
   placeId: ContestPlaceId;
+  /**
+   * Post do anúncio (1080×1350, 4:5): a camisa com a medalha e o crédito já
+   * na arte. Caminho a partir de `public`.
+   */
+  post: string;
 };
 
 /** Finalista com a colocação: o que as seções do resultado recebem. */
-export type RankedFinalist = ContestFinalist & { placeId: ContestPlaceId };
+export type RankedFinalist = ContestFinalist & { placeId: ContestPlaceId; post: string };
 
 export const contestResults = {
   // TODO(confirmar): avançar a fase conforme a produção anunciar.
@@ -42,7 +47,19 @@ export const contestResults = {
   /** Data do anúncio por extenso. Ex.: "12 de dezembro de 2026". */
   announcedAt: null as string | null,
 
-  winners: [] as ContestWinner[],
+  winners: [
+    {
+      slug: "vitor-ferreira-martins",
+      placeId: "1st",
+      post: "/images/finalistas/vitor-ferreira-martins/resultado.webp",
+    },
+    { slug: "alan-barg", placeId: "2nd", post: "/images/finalistas/alan-barg/resultado.webp" },
+    {
+      slug: "melanie-kozlowski",
+      placeId: "3rd",
+      post: "/images/finalistas/melanie-kozlowski/resultado.webp",
+    },
+  ] as ContestWinner[],
 
   /**
    * Botão em /concurso-de-camisetas. Até a votação terminar ele leva às
@@ -147,3 +164,20 @@ export const contestResults = {
       "A camisa do concurso faz parte do kit dos atletas inscritos. Entre no grupo VIP para saber antes de todo mundo quando as inscrições abrirem.",
   },
 };
+
+/**
+ * Vencedores com os dados da finalista, do 1º ao 3º. `winners` só guarda slug
+ * e colocação; um slug que não existe derruba o build, em vez de sumir um
+ * vencedor da página.
+ */
+export function getRankedWinners(): RankedFinalist[] {
+  return contestResults.winners
+    .map((winner) => {
+      const finalist = contestFinalists.find((entry) => entry.slug === winner.slug);
+      if (!finalist) {
+        throw new Error(`contestResults.winners: nenhuma finalista com o slug "${winner.slug}".`);
+      }
+      return { ...finalist, ...winner };
+    })
+    .sort((a, b) => a.placeId.localeCompare(b.placeId));
+}

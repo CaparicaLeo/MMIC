@@ -7,7 +7,7 @@ import { ResultsFinalCtaSection } from "@/components/contest/results/ResultsFina
 import { ResultsHeroSection } from "@/components/contest/results/ResultsHeroSection";
 import { ResultsVotingSection } from "@/components/contest/results/ResultsVotingSection";
 import { contestFinalists, contestResults } from "@/content";
-import type { RankedFinalist } from "@/content/contestResults";
+import { getRankedWinners } from "@/content/contestResults";
 
 export const metadata: Metadata = {
   title: "Vencedores do Concurso de Camisetas",
@@ -21,20 +21,10 @@ export default function VencedoresPage() {
   const { phase } = contestResults;
   const finalists = contestFinalists;
 
-  /* `winners` só guarda slug e colocação; o resto vem da finalista. Um slug
-     que não existe derruba o build, em vez de sumir um vencedor da página. */
-  const winners: RankedFinalist[] = contestResults.winners.map(({ slug, placeId }) => {
-    const finalist = finalists.find((entry) => entry.slug === slug);
-    if (!finalist) {
-      throw new Error(`contestResults.winners: nenhuma finalista com o slug "${slug}".`);
-    }
-    return { ...finalist, placeId };
-  });
+  const winners = getRankedWinners();
 
   const champion = winners.find((winner) => winner.placeId === "1st");
-  const podium = winners
-    .filter((winner) => winner.placeId !== "1st")
-    .sort((a, b) => a.placeId.localeCompare(b.placeId));
+  const podium = winners.filter((winner) => winner.placeId !== "1st");
   /* Depois do resultado, os vencedores já têm seção própria: a grade mostra
      só quem ficou fora do pódio. */
   const winnerSlugs = new Set(winners.map((winner) => winner.slug));

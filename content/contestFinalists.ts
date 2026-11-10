@@ -238,13 +238,26 @@ export const contestFinalists = [...finalists].sort((a, b) => a.ordem - b.ordem)
 
 /** Copy das páginas de finalistas. */
 export const contestFinalistsPage = {
-  kicker: "Concurso de Camisetas · Finalistas",
   href: "/concurso-de-camisetas/finalistas",
   /** Botão em /concurso-de-camisetas que leva à grade. */
   linkLabel: "Ver as finalistas",
-  /** Status da votação, exibido abaixo do título da grade. */
-  votingStatus:
-    "Votação encerrada em 5 de novembro. O resultado sai no Instagram oficial e aqui no site.",
+  /** Primeiro display: o pódio, com os posts do anúncio. */
+  winners: {
+    kicker: "Concurso de Camisetas · Resultado",
+    title: ["Essas são as camisas", "da Rock Edition."],
+    description:
+      "Curadoria e voto do público escolheram as três artes que vão para o peito dos corredores da Meia Maratona Internacional de Curitiba 2027.",
+    /** Camisa que cada colocação estampa (ver `contest.prizes.items`). */
+    shirtLabels: {
+      "1st": "Camisa dos 21 km",
+      "2nd": "Camisa dos 10 km",
+      "3rd": "Camisa dos 5 km",
+    },
+    linkLabel: "Ver o conceito",
+  },
+  /** Grade com todas as finalistas, abaixo do pódio. */
+  gridKicker: "Finalistas",
+  gridDescription: "As artes que passaram pela curadoria e foram para o voto do público.",
   backLabel: "Voltar para as finalistas",
   conceptKicker: "Conceito",
   bioKicker: "Sobre o designer",
