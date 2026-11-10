@@ -3,8 +3,9 @@
 import { CTAButton } from "@/components/ui/CTAButton";
 import { NumberedGrid } from "@/components/brands/NumberedGrid";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { brands } from "@/content";
+import { backdrops, brands } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -26,7 +27,8 @@ export function BrandAudienceSection() {
   });
 
   return (
-    <Section id="publico" tone="darker">
+    <Section id="publico" tone="darker" className="isolate">
+      <SectionBackdrop backdrop={backdrops.brandAudience} />
       <div ref={root}>
         <SectionHeader intro={brands.audience.intro} />
 

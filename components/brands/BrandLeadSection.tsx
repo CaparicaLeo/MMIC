@@ -2,8 +2,9 @@
 
 import { BrandLeadForm } from "@/components/brands/BrandLeadForm";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { brands } from "@/content";
+import { backdrops, brands } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -25,7 +26,8 @@ export function BrandLeadSection() {
   });
 
   return (
-    <Section id="lead" className="grain overflow-hidden">
+    <Section id="lead" className="isolate grain overflow-hidden">
+      <SectionBackdrop backdrop={backdrops.brandLead} variant="full" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_50%_at_50%_100%,var(--color-accent-red-dark)_0%,transparent_60%)] opacity-40"

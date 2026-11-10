@@ -14,7 +14,6 @@ Para substituir:
 | Arquivo    | Proporção | Onde aparece         | Conteúdo           |
 | ---------- | --------- | -------------------- | ------------------ |
 | `og.svg`   | 1200×630  | Open Graph / Twitter | `content/event.ts` |
-| `show.png` | 2080×1440 | bloco do show        | `content/show.ts`  |
 
 Já substituídos pela arte definitiva — os placeholders foram removidos:
 
@@ -23,6 +22,7 @@ Já substituídos pela arte definitiva — os placeholders foram removidos:
 | `../hero-palco.jpg`             | 2560×1429 | fundo do hero, parallax | `content/hero.ts`  |
 | `../mmic-logo-rock-edition.png` | 1078×292  | header e rodapé         | `content/event.ts` |
 | `../curitiba-e-rock.png`        | 1177×395  | fecho da seção final    | `content/cta.ts`   |
+| `../fotos/palco-show.webp`      | 2080×1440 | bloco do show           | `content/show.ts`  |
 
 Imagens remotas (CDN/DAM) exigem liberar o host em `images.remotePatterns`
 no `next.config.ts`.

@@ -3,7 +3,8 @@ import type { Metadata } from "next";
 import { ContactForm } from "@/components/contact/ContactForm";
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
-import { contact } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { backdrops, contact } from "@/content";
 
 export const metadata: Metadata = {
   title: "Contato",
@@ -15,7 +16,8 @@ export const metadata: Metadata = {
 export default function ContatoPage() {
   return (
     <>
-      <Section id="contato" tone="darker" className="min-h-svh">
+      <Section id="contato" tone="darker" className="isolate min-h-svh">
+        <SectionBackdrop backdrop={backdrops.contact} variant="full" />
         <div className="grid items-start gap-12 lg:grid-cols-[1fr_1.1fr] lg:gap-16">
           <div>
             <Badge className="w-fit">{contact.intro.kicker}</Badge>

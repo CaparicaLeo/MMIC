@@ -1,10 +1,11 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { PendingNote } from "@/components/ui/PendingNote";
 import { StatsCounter } from "@/components/ui/StatsCounter";
-import { stats } from "@/content";
+import { backdrops, stats } from "@/content";
 import { countUp, drawLine, fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 import { formatNumber } from "@/lib/format";
@@ -46,7 +47,8 @@ export function StatsSection() {
   });
 
   return (
-    <Section id="numeros" tone="darker">
+    <Section id="numeros" tone="darker" className="isolate">
+      <SectionBackdrop backdrop={backdrops.stats} />
       <div ref={root}>
         <SectionHeader intro={stats.intro} />
 

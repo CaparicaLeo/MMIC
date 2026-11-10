@@ -1,8 +1,9 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { contest } from "@/content";
+import { backdrops, contest } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -27,7 +28,8 @@ export function RaceSection() {
   });
 
   return (
-    <Section id="prova">
+    <Section id="prova" className="isolate">
+      <SectionBackdrop backdrop={backdrops.race} />
       <div ref={root}>
         <SectionHeader intro={contest.race.intro} />
 

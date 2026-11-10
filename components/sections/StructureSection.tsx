@@ -2,8 +2,9 @@
 
 import { Icon } from "@/components/ui/Icon";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { structure } from "@/content";
+import { backdrops, structure } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -25,7 +26,8 @@ export function StructureSection() {
   });
 
   return (
-    <Section id="estrutura">
+    <Section id="estrutura" className="isolate">
+      <SectionBackdrop backdrop={backdrops.structure} />
       <div ref={root}>
         <SectionHeader intro={structure.intro} />
 

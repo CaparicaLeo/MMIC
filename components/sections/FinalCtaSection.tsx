@@ -8,8 +8,9 @@ import { Countdown } from "@/components/ui/Countdown";
 import { Highlight } from "@/components/ui/Highlight";
 import { Marquee } from "@/components/ui/Marquee";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { RegisterButton } from "@/components/registration/RegisterButton";
-import { event, finalCta } from "@/content";
+import { backdrops, event, finalCta } from "@/content";
 import { fadeUp, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -29,7 +30,8 @@ export function FinalCtaSection() {
   });
 
   return (
-    <Section id="inscricao" className="grain overflow-hidden pb-0">
+    <Section id="inscricao" className="isolate grain overflow-hidden pb-0">
+      <SectionBackdrop backdrop={backdrops.finalCta} variant="full" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_100%,var(--color-accent-red-dark)_0%,transparent_60%)] opacity-80"

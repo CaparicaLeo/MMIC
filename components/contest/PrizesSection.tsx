@@ -2,8 +2,9 @@
 
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { contest } from "@/content";
+import { backdrops, contest } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 import { cn } from "@/lib/cn";
@@ -29,7 +30,8 @@ export function PrizesSection() {
   });
 
   return (
-    <Section id="premiacao">
+    <Section id="premiacao" className="isolate">
+      <SectionBackdrop backdrop={backdrops.prizes} />
       <div ref={root}>
         <SectionHeader intro={contest.prizes.intro} />
 

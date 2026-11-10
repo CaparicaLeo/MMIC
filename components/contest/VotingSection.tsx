@@ -3,7 +3,8 @@
 import { Badge } from "@/components/ui/Badge";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Section } from "@/components/ui/Section";
-import { contest, contestFinalistsPage } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { backdrops, contest, contestFinalistsPage } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -21,7 +22,8 @@ export function VotingSection() {
   });
 
   return (
-    <Section id="votacao" tone="darker">
+    <Section id="votacao" tone="darker" className="isolate">
+      <SectionBackdrop backdrop={backdrops.voting} />
       <div ref={root} className="max-w-4xl">
         <Badge data-reveal className="w-fit">
           {contest.voting.intro.kicker}

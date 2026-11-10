@@ -3,8 +3,9 @@
 import Link from "next/link";
 
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { contest, contestDeadline, contestSubmissionUrl } from "@/content";
+import { backdrops, contest, contestDeadline, contestSubmissionUrl } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -43,7 +44,8 @@ export function RulesSection() {
   });
 
   return (
-    <Section id="regras" tone="darker">
+    <Section id="regras" tone="darker" className="isolate">
+      <SectionBackdrop backdrop={backdrops.rules} variant="full" />
       <div ref={root}>
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:gap-20">
           <div data-reveal className="lg:sticky lg:top-32 lg:self-start">

@@ -1,9 +1,10 @@
 "use client";
 
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
 import { Timeline } from "@/components/ui/Timeline";
-import { contestSteps } from "@/content";
+import { backdrops, contestSteps } from "@/content";
 import { fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -22,7 +23,8 @@ export function ContestStepsSection() {
   });
 
   return (
-    <Section id="proximos-passos">
+    <Section id="proximos-passos" className="isolate">
+      <SectionBackdrop backdrop={backdrops.steps} variant="full" />
       <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-20">
         <div ref={root} className="lg:sticky lg:top-32 lg:self-start">
           <SectionHeader intro={contestSteps.intro} />

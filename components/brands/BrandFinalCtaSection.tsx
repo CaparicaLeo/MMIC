@@ -2,7 +2,8 @@
 
 import { CTAButton } from "@/components/ui/CTAButton";
 import { Section } from "@/components/ui/Section";
-import { brands } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { backdrops, brands } from "@/content";
 import { fadeUp, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -29,7 +30,8 @@ export function BrandFinalCtaSection() {
   });
 
   return (
-    <Section className="grain overflow-hidden pb-0">
+    <Section className="isolate grain overflow-hidden pb-0">
+      <SectionBackdrop backdrop={backdrops.brandFinalCta} variant="full" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_100%,var(--color-accent-red-dark)_0%,transparent_60%)] opacity-80"

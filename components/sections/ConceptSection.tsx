@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Highlight } from "@/components/ui/Highlight";
 import { Section } from "@/components/ui/Section";
 import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
-import { concept, hero } from "@/content";
+import { backdrops, concept } from "@/content";
 import { fadeUp, revealLines } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -28,9 +28,9 @@ export function ConceptSection() {
       {/*
         `isolate` é o que deixa a foto do fundo aparecer: sem contexto de
         empilhamento, o preto da seção é pintado por cima da camada `-z-10`.
-        Seção sim, uma não — a próxima com foto é a de distâncias.
+        Cada seção tem a própria foto: ver `backdrops` em content/photos.ts.
       */}
-      <SectionBackdrop media={hero.background} />
+      <SectionBackdrop backdrop={backdrops.concept} />
 
       <div ref={root} className="max-w-4xl">
         <Badge data-reveal className="w-fit">

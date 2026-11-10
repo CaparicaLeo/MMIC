@@ -54,12 +54,12 @@ export const show = {
 
   media: {
     /**
-     * Placeholder até a arte da banda chegar. A proporção 2080x1440 é a
-     * mesma da foto anterior de propósito: mantém o quadro e o parallax
-     * calibrados, então trocar pela arte definitiva é mexer só no `src`.
+     * Corredores atravessando o palco com a banda tocando. Sem rosto de
+     * músico em destaque nem nome: a atração continua surpresa. Proporção
+     * 2080x1440, a mesma do quadro e do parallax do bloco.
      */
-    src: "/images/placeholders/show.png",
-    alt: "Atração principal da Rock Edition ainda não anunciada",
+    src: "/images/fotos/palco-show.webp",
+    alt: "Corredores atravessam o palco entre a banda e o público, no fim da tarde",
     width: 2080,
     height: 1440,
   } satisfies Media,

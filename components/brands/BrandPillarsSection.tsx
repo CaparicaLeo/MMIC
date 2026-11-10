@@ -2,8 +2,9 @@
 
 import { NumberedGrid } from "@/components/brands/NumberedGrid";
 import { Section } from "@/components/ui/Section";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
 import { SectionHeader } from "@/components/ui/SectionHeader";
-import { brands } from "@/content";
+import { backdrops, brands } from "@/content";
 import { fadeUp, staggerIn } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -32,7 +33,8 @@ export function BrandPillarsSection() {
   });
 
   return (
-    <Section id="porque" tone="darker">
+    <Section id="porque" tone="darker" className="isolate">
+      <SectionBackdrop backdrop={backdrops.brandPillars} />
       <div ref={root}>
         <SectionHeader intro={brands.pillars.intro} />
 

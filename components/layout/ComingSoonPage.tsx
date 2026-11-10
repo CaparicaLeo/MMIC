@@ -3,7 +3,8 @@ import type { ReactNode } from "react";
 
 import { Badge } from "@/components/ui/Badge";
 import { Section } from "@/components/ui/Section";
-import { event, raceDateFollow } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { backdrops, event, raceDateFollow } from "@/content";
 
 /**
  * Casca das páginas que ainda não têm conteúdo.
@@ -40,7 +41,8 @@ export function ComingSoonPage({
   raceDatePending?: boolean;
 }) {
   return (
-    <Section className="grain min-h-[80vh] pt-40">
+    <Section className="isolate grain min-h-[80vh] pt-40">
+      <SectionBackdrop backdrop={backdrops.comingSoon} />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(90%_60%_at_20%_0%,var(--color-accent-red-dark)_0%,transparent_55%)] opacity-50"

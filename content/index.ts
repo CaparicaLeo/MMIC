@@ -14,6 +14,7 @@ export { finalCta } from "./cta";
 export { waitlist } from "./waitlist";
 export { contest, contestSubmissionUrl, contestDeadline, contestCta, contestModal } from "./contest";
 export { contestResults } from "./contestResults";
+export { backdrops, photos } from "./photos";
 export {
   contestFinalists,
   contestFinalistsPage,

@@ -6,7 +6,8 @@ import { Badge } from "@/components/ui/Badge";
 import { ContestButton } from "@/components/contest/ContestButton";
 import { ResultsLinkButton } from "@/components/contest/ResultsLinkButton";
 import { Section } from "@/components/ui/Section";
-import { contest, contestDeadline } from "@/content";
+import { SectionBackdrop } from "@/components/ui/SectionBackdrop";
+import { backdrops, contest, contestDeadline } from "@/content";
 import { revealLines, fadeUp } from "@/lib/animations/presets";
 import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
 
@@ -39,7 +40,8 @@ export function ContestFinalCtaSection() {
   });
 
   return (
-    <Section className="grain overflow-hidden pb-0">
+    <Section className="isolate grain overflow-hidden pb-0">
+      <SectionBackdrop backdrop={backdrops.contestFinalCta} variant="full" />
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0 bg-[radial-gradient(100%_70%_at_50%_100%,var(--color-accent-red-dark)_0%,transparent_60%)] opacity-80"
