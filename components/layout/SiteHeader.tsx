@@ -4,18 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { RegisterButton } from "@/components/registration/RegisterButton";
-import { backstage, event, mainNav } from "@/content";
+import { event, mainNav } from "@/content";
 import { cn } from "@/lib/cn";
 
-const headerCta = {
-  label: backstage.ctaLabel,
-  action: "register" as const,
-};
-
 /**
- * Header do site (compartilhado por todas as páginas via app/(site)/layout.tsx).
- * Fica transparente sobre o hero e ganha fundo ao sair dele.
+ * Cabeçalho do site. Fica transparente sobre o hero e ganha fundo ao rolar.
+ * O botão "Inscreva-se" leva à página de inscrição, onde ficam os lotes.
  */
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -38,16 +32,8 @@ export function SiteHeader() {
       )}
     >
       <div className="container-page flex h-16 items-center justify-between gap-5 lg:h-20">
-        <Link
-          href="/"
-          className="flex shrink-0 leading-none"
-          aria-label={`${event.name} ${event.year}`}
-        >
-          {/*
-            alt vazio: o nome do evento já é anunciado pelo aria-label do link.
-            A linha "Rock Edition - 2027" faz parte da arte, por isso não há
-            mais texto abaixo da logo.
-          */}
+        <Link href="/" className="flex shrink-0 leading-none" aria-label={`${event.name} ${event.year}`}>
+          {/* alt vazio: o nome do evento já é anunciado pelo aria-label do link. */}
           <Image
             src={event.logo.src}
             alt=""
@@ -59,20 +45,15 @@ export function SiteHeader() {
           />
         </Link>
 
-        <nav aria-label="Navegação principal" className="hidden lg:block">
-          <ul className="flex items-center gap-4 xl:gap-5">
+        <nav aria-label="Navegação principal" className="hidden xl:block">
+          <ul className="flex items-center gap-4">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="label-condensed whitespace-nowrap text-[0.7rem] text-text-gray transition-colors hover:text-text-white"
+                  className="label-condensed whitespace-nowrap text-[0.66rem] text-text-white/80 transition-colors hover:text-accent-red"
                 >
                   {item.label}
-                  {item.comingSoon ? (
-                    <span className="ml-1.5 align-super text-[0.55rem] text-accent-red">
-                      breve
-                    </span>
-                  ) : null}
                 </Link>
               </li>
             ))}
@@ -80,63 +61,47 @@ export function SiteHeader() {
         </nav>
 
         <div className="flex items-center gap-3">
-          <RegisterButton
-            cta={headerCta}
-            source="header"
-            size="md"
-            animateIn={false}
-            /*
-              `xl` e não `sm`: o rótulo do CTA principal passou a ser a frase
-              completa ("Quero entrar no Backstage"), e entre 640px e 1280px ela
-              competia por largura com as oito entradas do menu. Abaixo de `xl`
-              quem converte é a barra fixa do rodapé, não o header.
-            */
-            className="hidden shrink-0 whitespace-nowrap xl:inline-flex"
-          />
+          <Link
+            href="/inscricao"
+            className="label-condensed hidden shrink-0 whitespace-nowrap bg-accent-red px-5 py-3 text-xs text-text-white transition-colors hover:bg-[#ef2a32] xl:inline-flex"
+          >
+            Inscreva-se
+          </Link>
 
           <button
             type="button"
             onClick={() => setIsMenuOpen((open) => !open)}
             aria-expanded={isMenuOpen}
             aria-controls="menu-mobile"
-            className="label-condensed cursor-pointer border border-white/20 px-4 py-2.5 text-[0.7rem] lg:hidden"
+            className="label-condensed cursor-pointer border border-white/20 px-4 py-2.5 text-[0.7rem] xl:hidden"
           >
             {isMenuOpen ? "Fechar" : "Menu"}
           </button>
         </div>
       </div>
 
-      <div
-        id="menu-mobile"
-        hidden={!isMenuOpen}
-        className="border-t border-white/10 bg-bg-dark lg:hidden"
-      >
+      <div id="menu-mobile" hidden={!isMenuOpen} className="border-t border-white/10 bg-bg-dark xl:hidden">
         <nav aria-label="Navegação principal (mobile)" className="container-page py-6">
-          <ul className="flex flex-col gap-1">
+          <ul className="flex flex-col">
             {mainNav.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className="headline block py-3 text-2xl text-text-white"
+                  className="headline block py-2.5 text-2xl text-text-white"
                 >
                   {item.label}
-                  {item.comingSoon ? (
-                    <span className="label-condensed ml-2 align-middle text-[0.6rem] text-accent-red">
-                      em breve
-                    </span>
-                  ) : null}
                 </Link>
               </li>
             ))}
           </ul>
-
-          <RegisterButton
-            cta={headerCta}
-            source="header-mobile"
-            className="mt-5 w-full sm:hidden"
-            animateIn={false}
-          />
+          <Link
+            href="/inscricao"
+            onClick={() => setIsMenuOpen(false)}
+            className="label-condensed mt-6 inline-flex w-full items-center justify-center bg-accent-red px-6 py-4 text-xs text-text-white"
+          >
+            Inscreva-se
+          </Link>
         </nav>
       </div>
     </header>

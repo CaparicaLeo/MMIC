@@ -16,6 +16,12 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/patrocinadores", destination: "/marcas", permanent: true },
+      /* /vencedores virou o próprio /concurso-de-camisetas, agora com o resultado. */
+      {
+        source: "/concurso-de-camisetas/vencedores",
+        destination: "/concurso-de-camisetas",
+        permanent: true,
+      },
     ];
   },
 };

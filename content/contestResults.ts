@@ -41,8 +41,8 @@ export type ContestWinner = {
 export type RankedFinalist = ContestFinalist & { placeId: ContestPlaceId; post: string };
 
 export const contestResults = {
-  // TODO(confirmar): avançar a fase conforme a produção anunciar.
-  phase: "curadoria" as ContestPhase,
+  /** Concurso encerrado: votação fechada e vencedoras anunciadas. */
+  phase: "resultado" as ContestPhase,
 
   /** Data do anúncio por extenso. Ex.: "12 de dezembro de 2026". */
   announcedAt: null as string | null,

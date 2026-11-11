@@ -1,47 +1,30 @@
 import type { NavItem } from "./types";
 
 /**
- * Navegação do site. As rotas marcadas com `comingSoon` já existem no App
- * Router como stubs — conforme o evento se aproxima, cada uma recebe conteúdo
- * e o flag cai.
+ * Navegação do site, na ordem do cabeçalho do briefing da edição 2027.
+ * Âncoras da home (`/#kit`, `/#arena`) para o que não tem página própria.
  */
 export const mainNav: NavItem[] = [
-  { label: "A experiência", href: "/#conceito" },
-  { label: "Distâncias", href: "/#distancias" },
-  { label: "O dia", href: "/#o-dia" },
-  { label: "Cronograma", href: "/cronograma", comingSoon: true },
+  { label: "A Meia", href: "/" },
+  { label: "Inscrições", href: "/inscricao" },
+  { label: "Grupo VIP", href: "/grupo-vip" },
+  { label: "Kit", href: "/#kit" },
+  { label: "Arena", href: "/#arena" },
+  { label: "Percurso", href: "/percurso" },
+  { label: "O domingo", href: "/cronograma" },
+  { label: "Curitiba", href: "/curitiba" },
+  { label: "Camiseta", href: "/concurso-de-camisetas" },
   { label: "Marcas", href: "/marcas" },
-  { label: "Concurso de Camisetas", href: "/concurso-de-camisetas/finalistas" },
-  { label: "Imprensa", href: "/imprensa", comingSoon: true },
-  { label: "Contato", href: "/contato" },
+  { label: "Imprensa", href: "/imprensa" },
 ];
 
 export const footerNav: { title: string; items: NavItem[] }[] = [
   {
-    title: "Evento",
+    title: "Fale com a gente",
     items: [
-      { label: "A experiência", href: "/#conceito" },
-      { label: "Como funciona o dia", href: "/#o-dia" },
-      { label: "Distâncias", href: "/#distancias" },
-      { label: "Estrutura", href: "/#estrutura" },
-      { label: "Dúvidas", href: "/#faq" },
-    ],
-  },
-  {
-    title: "Marcas",
-    items: [{ label: "Patrocine o evento", href: "/marcas" }],
-  },
-  {
-    /**
-     * Sem `comingSoon` nos itens de propósito: o título da coluna já é
-     * "Em breve" e o selo em cada item repetia a expressão cinco vezes no
-     * mesmo bloco. No `mainNav` o selo continua, porque lá não há título.
-     */
-    title: "Em breve",
-    items: [
-      { label: "Inscrição", href: "/inscricao" },
-      { label: "Cronograma", href: "/cronograma" },
-      { label: "Concurso de Camisetas", href: "/concurso-de-camisetas/finalistas" },
+      { label: "Contato", href: "/contato" },
+      { label: "Dúvidas", href: "/contato#faq" },
+      { label: "Marcas", href: "/marcas" },
       { label: "Imprensa", href: "/imprensa" },
     ],
   },

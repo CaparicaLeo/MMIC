@@ -2,23 +2,22 @@ import type { MetadataRoute } from "next";
 
 import { contestFinalists, siteUrl } from "@/content";
 
-/**
- * Sitemap. Já inclui as rotas futuras — elas existem como páginas de
- * "em breve" e devem ser indexáveis desde o lançamento.
- */
+/** Sitemap das rotas públicas da edição 2027. */
 export default function sitemap(): MetadataRoute.Sitemap {
   const routes = [
-  "",
-  "/inscricao",
-  "/cronograma",
-  "/marcas",
-  "/concurso-de-camisetas",
-  "/concurso-de-camisetas/vencedores",
-  "/concurso-de-camisetas/finalistas",
-  ...contestFinalists.map((finalist) => `/concurso-de-camisetas/finalistas/${finalist.slug}`),
-  "/imprensa",
-  "/contato",
-];
+    "",
+    "/inscricao",
+    "/grupo-vip",
+    "/percurso",
+    "/cronograma",
+    "/curitiba",
+    "/concurso-de-camisetas",
+    "/concurso-de-camisetas/finalistas",
+    ...contestFinalists.map((finalist) => `/concurso-de-camisetas/finalistas/${finalist.slug}`),
+    "/marcas",
+    "/imprensa",
+    "/contato",
+  ];
 
   return routes.map((route) => ({
     url: `${siteUrl}${route}`,

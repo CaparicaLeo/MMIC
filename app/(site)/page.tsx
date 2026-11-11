@@ -1,45 +1,46 @@
 import { EventJsonLd } from "@/components/seo/EventJsonLd";
-import { FaqJsonLd } from "@/components/seo/FaqJsonLd";
 import { WebsiteJsonLd } from "@/components/seo/WebsiteJsonLd";
-import { ConceptSection } from "@/components/sections/ConceptSection";
-import { DaySection } from "@/components/sections/DaySection";
-import { DistancesSection } from "@/components/sections/DistancesSection";
-import { FaqSection } from "@/components/sections/FaqSection";
-import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
-import { HeroSection } from "@/components/sections/HeroSection";
-import { ShowSection } from "@/components/sections/ShowSection";
-import { StatsSection } from "@/components/sections/StatsSection";
-import { StructureSection } from "@/components/sections/StructureSection";
+import {
+  HomeAbout,
+  HomeArena,
+  HomeBand,
+  HomeConcurso,
+  HomeCuritiba,
+  HomeDomingo,
+  HomeHero,
+  HomeKit,
+  HomeLots,
+  HomePercurso,
+  HomeStats,
+  HomeTrio,
+  HomeVip,
+} from "@/components/home/HomeSections";
 
 /**
- * Landing page de lançamento.
- *
- * A ordem das seções é a do briefing. Cada uma é autocontida e lê o próprio
- * conteúdo de /content — reordenar ou reaproveitar em outra página é mover
- * uma linha.
+ * Home da edição 2027, na ordem do briefing (PDF "MMIC27_site_completo"):
+ * hero, faixa, o que você vai viver, lotes, Grupo VIP, kit, arena, percurso,
+ * domingo, Curitiba, concurso, números e os três atalhos do rodapé.
  */
 export default function HomePage() {
   return (
     <>
-      {/*
-        Dados estruturados só aqui: descrevem o evento (SportsEvent), o site
-        (WebSite + Organization) e o FAQ da página — repetir esses blocos nas
-        rotas de "em breve" criaria declarações concorrentes da mesma
-        entidade.
-      */}
+      {/* Dados estruturados só na home: as demais rotas não repetem as entidades. */}
       <EventJsonLd />
       <WebsiteJsonLd />
-      <FaqJsonLd />
 
-      <HeroSection />
-      <ConceptSection />
-      <DaySection />
-      <DistancesSection />
-      <StructureSection />
-      <ShowSection />
-      <StatsSection />
-      <FaqSection />
-      <FinalCtaSection />
+      <HomeHero />
+      <HomeBand />
+      <HomeAbout />
+      <HomeLots />
+      <HomeVip />
+      <HomeKit />
+      <HomeArena />
+      <HomePercurso />
+      <HomeDomingo />
+      <HomeCuritiba />
+      <HomeConcurso />
+      <HomeStats />
+      <HomeTrio />
     </>
   );
 }

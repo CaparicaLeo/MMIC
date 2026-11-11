@@ -8,9 +8,9 @@ import type { ContactPage } from "./types";
 export const contact: ContactPage = {
   intro: {
     kicker: "Contato",
-    title: "Fale com a equipe da Meia Maratona de Curitiba 2027.",
+    title: "Fala com a produção.",
     description:
-      "Dúvidas sobre a prova, negócios e parcerias ou propostas de imprensa: escolha o assunto e deixe sua mensagem. A equipe responde pelo e-mail informado.",
+      "Escolha o assunto e vá direto ao caminho certo. Dúvida de corredor passa pelo FAQ antes do formulário; negócios vão para Marcas; imprensa e assessorias têm caminho próprio. Resposta em 48 h, pelo e-mail informado.",
   },
 
   form: {
@@ -41,9 +41,11 @@ export const contact: ContactPage = {
     type: {
       label: "Assunto",
       options: [
-        { value: "duvida", label: "Dúvida" },
-        { value: "negocios", label: "Negócios" },
+        { value: "duvida", label: "Dúvida de corredor" },
+        { value: "negocios", label: "Marcas e negócios" },
         { value: "inscricao", label: "Inscrição" },
+        { value: "reserva-bloco", label: "Reserva de bloco (assessoria)" },
+        { value: "imprensa", label: "Imprensa" },
         { value: "newsletter", label: "Newsletter" },
       ],
     },

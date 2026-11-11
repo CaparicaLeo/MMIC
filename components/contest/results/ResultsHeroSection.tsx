@@ -24,7 +24,6 @@ const currentStep: Record<ContestPhase, string> = {
 const marqueeItems = [
   "CONCURSO DE CAMISETAS",
   "RESULTADO",
-  "VOTAÇÃO ABERTA A TODOS",
   "ROCK EDITION",
   event.year,
 ];

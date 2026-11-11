@@ -273,8 +273,7 @@ export const contestFinalistsPage = {
 };
 
 /**
- * "Daqui pra frente": os passos do concurso a partir da escolha das
- * finalistas. Aparece em /concurso-de-camisetas, logo abaixo do hero, e em
+ * Passos do concurso, do envio ao resultado. Aparece em
  * /concurso-de-camisetas/finalistas, abaixo da grade.
  *
  * Os rótulos de `time` são datas e marcos, não "agora"/"concluído": a seção
@@ -282,10 +281,10 @@ export const contestFinalistsPage = {
  */
 export const contestSteps = {
   intro: {
-    kicker: "Próximos passos",
-    title: "Como o concurso segue daqui.",
+    kicker: "Como foi o concurso",
+    title: "Do envio da arte à camisa oficial.",
     description:
-      "A curadoria escolheu as finalistas e a votação do público já foi encerrada. Daqui até a camisa oficial, o caminho é este.",
+      "A curadoria escolheu as finalistas, o público votou e o resultado está anunciado. O caminho até a camisa foi este.",
   } satisfies SectionIntro,
   items: [
     {
@@ -296,24 +295,24 @@ export const contestSteps = {
     },
     {
       id: "lista",
-      time: "Até 3 de novembro",
-      title: "Entre no grupo secreto",
+      time: "Concluído",
+      title: "Votação no grupo",
       description:
-        "A votação aconteceu no nosso grupo secreto no Instagram, aberto a qualquer pessoa.",
+        "A votação aconteceu no nosso grupo do Instagram, aberto a qualquer pessoa.",
     },
     {
       id: "votacao",
       time: "3 a 5 de novembro",
-      title: "Vote na sua favorita",
+      title: "Voto do público",
       description:
-        "Qualquer pessoa pôde votar, sem precisar estar inscrita na prova. Conheça cada arte e o conceito por trás dela nas páginas das finalistas.",
+        "Qualquer pessoa pôde votar, sem precisar estar inscrita na prova. As finalistas estão nas páginas de cada uma.",
     },
     {
       id: "resultado",
-      time: "Depois da votação",
+      time: "Concluído",
       title: "Resultado",
       description:
-        "Curadoria e voto do público definem o 1º, o 2º e o 3º lugar. O anúncio sai no Instagram oficial e aqui no site.",
+        "Curadoria e voto do público definiram o 1º, o 2º e o 3º lugar. O anúncio saiu no Instagram oficial e aqui no site.",
     },
     {
       id: "camisa",

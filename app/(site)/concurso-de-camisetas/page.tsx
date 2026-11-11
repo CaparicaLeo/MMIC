@@ -1,39 +1,40 @@
 import type { Metadata } from "next";
 
-import { ChallengeSection } from "@/components/contest/ChallengeSection";
-import { ContestFinalCtaSection } from "@/components/contest/ContestFinalCtaSection";
-import { ContestHeroSection } from "@/components/contest/ContestHeroSection";
-import { ContestStepsSection } from "@/components/contest/ContestStepsSection";
-import { ContestTimelineSection } from "@/components/contest/ContestTimelineSection";
-import { FloatingContestCta } from "@/components/contest/FloatingContestCta";
-import { PrizesSection } from "@/components/contest/PrizesSection";
-import { RaceSection } from "@/components/contest/RaceSection";
-import { RulesSection } from "@/components/contest/RulesSection";
-import { VotingSection } from "@/components/contest/VotingSection";
+import { ChampionSection } from "@/components/contest/results/ChampionSection";
+import { FinalistsSection } from "@/components/contest/results/FinalistsSection";
+import { PodiumSection } from "@/components/contest/results/PodiumSection";
+import { ResultsFinalCtaSection } from "@/components/contest/results/ResultsFinalCtaSection";
+import { ResultsHeroSection } from "@/components/contest/results/ResultsHeroSection";
+import { contestFinalists } from "@/content";
+import { getRankedWinners } from "@/content/contestResults";
 
 export const metadata: Metadata = {
   title: "Concurso de Camisetas",
   /* ≤155 chars: acima disso o Google corta no SERP. */
   description:
-    "Concurso de design da camisa oficial da Meia Maratona Internacional de Curitiba 2027: a arte vencedora vai para os corredores.",
-  /* Canonical próprio: sem ele a rota herda o da home (app/layout.tsx)
-     e se declara duplicata dela. Relativo, resolvido por metadataBase. */
+    "Resultado do concurso de design da camisa oficial da Meia Maratona Internacional de Curitiba 2027: campeã, pódio e finalistas.",
   alternates: { canonical: "/concurso-de-camisetas" },
 };
 
+/**
+ * Concurso encerrado: a página é o resultado (campeã, pódio e finalistas).
+ * Antes era a landing de envio; /vencedores redireciona para cá.
+ */
 export default function ConcursoDeCamisetasPage() {
+  const winners = getRankedWinners();
+
+  const champion = winners.find((winner) => winner.placeId === "1st");
+  const podium = winners.filter((winner) => winner.placeId !== "1st");
+  const winnerSlugs = new Set(winners.map((winner) => winner.slug));
+  const otherFinalists = contestFinalists.filter((entry) => !winnerSlugs.has(entry.slug));
+
   return (
     <>
-      <ContestHeroSection />
-      <ContestStepsSection />
-      <ChallengeSection />
-      <PrizesSection />
-      <RulesSection />
-      <ContestTimelineSection />
-      <VotingSection />
-      <RaceSection />
-      <ContestFinalCtaSection />
-      <FloatingContestCta />
+      <ResultsHeroSection />
+      {champion ? <ChampionSection winner={champion} /> : null}
+      {podium.length > 0 ? <PodiumSection winners={podium} /> : null}
+      {otherFinalists.length > 0 ? <FinalistsSection phase="resultado" entries={otherFinalists} /> : null}
+      <ResultsFinalCtaSection />
     </>
   );
 }

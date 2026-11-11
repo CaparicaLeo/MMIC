@@ -48,7 +48,8 @@ export function SectionBackdrop({
           src={wide.src}
           alt=""
           fill
-          loading="lazy"
+          loading="eager"
+          fetchPriority="low"
           sizes="100vw"
           className={imageClass}
           style={{ objectPosition: position }}
@@ -61,7 +62,8 @@ export function SectionBackdrop({
             src={portrait.src}
             alt=""
             fill
-            loading="lazy"
+            loading="eager"
+            fetchPriority="low"
             sizes="100vw"
             className={imageClass}
             style={{ objectPosition: backdrop.portraitPosition ?? "center" }}

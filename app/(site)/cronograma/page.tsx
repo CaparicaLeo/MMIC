@@ -1,30 +1,53 @@
 import type { Metadata } from "next";
 
-import { ComingSoonPage } from "@/components/layout/ComingSoonPage";
+import { TimeList } from "@/components/editorial/altimetria";
+import { Block, InfoCard, PageHero, SectionTitle } from "@/components/editorial/primitives";
+import { domingo } from "@/content/paginas/paginas";
 
 export const metadata: Metadata = {
-  title: "Cronograma",
+  title: "O domingo",
   description:
-    "Programação da Meia Maratona Internacional de Curitiba 2027: largadas de 5 km, 10 km e 21 km, retirada de kit e o show ao vivo na arena.",
-  /* Canonical próprio: sem ele a rota herda o da home (app/layout.tsx)
-     e se declara duplicata dela. Relativo, resolvido por metadataBase. */
+    "Programação da Meia Maratona Internacional de Curitiba 2027: expo e retirada de kit no sábado, largadas de 5, 10 e 21 km e o show na arena.",
   alternates: { canonical: "/cronograma" },
 };
 
-/** Placeholder. Vai reaproveitar o <Timeline /> com a programação completa. */
+/** Cronograma completo: sábado da expo, domingo da prova e como chegar. */
 export default function CronogramaPage() {
+  const { hero, saturday, sunday, access } = domingo;
   return (
-    <ComingSoonPage
-      kicker="Cronograma"
-      title="Meia Maratona de Curitiba: cronograma em breve."
-      description="A linha do tempo do dia da prova já está na home, em versão resumida. Esta página vai trazer a programação completa, incluindo os dias de retirada de kit."
-      whatsNext={[
-        "Programação hora a hora do dia da prova",
-        "Datas e horários de retirada de kit",
-        "Mapa do percurso por distância",
-        "Guia de acessos e transporte até a arena",
-      ]}
-      raceDatePending
-    />
+    <>
+      <PageHero
+        kicker={hero.kicker}
+        title={hero.title}
+        slashWord={hero.slashWord}
+        description={hero.description}
+        media={hero.media}
+      />
+
+      <Block id="sabado" tone="darker">
+        <SectionTitle kicker={saturday.kicker} title={saturday.title} slashWord={saturday.slashWord} />
+        <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-3">
+          {saturday.items.map((item) => (
+            <InfoCard key={item.id} kicker={item.time} title={item.title} text={item.description} className="bg-[#060606]" />
+          ))}
+        </div>
+      </Block>
+
+      <Block id="domingo-hora-a-hora">
+        <SectionTitle kicker={sunday.kicker} title={sunday.title} slashWord={sunday.slashWord} />
+        <div className="mt-14">
+          <TimeList items={sunday.items} />
+        </div>
+      </Block>
+
+      <Block id="como-chegar" tone="darker">
+        <SectionTitle kicker={access.kicker} title={access.title} slashWord={access.slashWord} />
+        <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-2">
+          {access.items.map((item) => (
+            <InfoCard key={item.id} title={item.title} text={item.description} className="bg-[#060606]" />
+          ))}
+        </div>
+      </Block>
+    </>
   );
 }
