@@ -7,7 +7,6 @@ import type { NavItem } from "./types";
 export const mainNav: NavItem[] = [
   { label: "A Meia", href: "/" },
   { label: "Inscrições", href: "/inscricao" },
-  { label: "Grupo VIP", href: "/grupo-vip" },
   { label: "Kit", href: "/#kit" },
   { label: "Arena", href: "/#arena" },
   { label: "Percurso", href: "/percurso" },

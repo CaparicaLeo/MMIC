@@ -16,6 +16,8 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       { source: "/patrocinadores", destination: "/marcas", permanent: true },
+      /* O Grupo VIP saiu do site; quem tiver o link cai na inscrição. */
+      { source: "/grupo-vip", destination: "/inscricao", permanent: true },
       /* /vencedores virou o próprio /concurso-de-camisetas, agora com o resultado. */
       {
         source: "/concurso-de-camisetas/vencedores",

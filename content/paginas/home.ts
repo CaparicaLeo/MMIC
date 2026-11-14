@@ -80,21 +80,17 @@ export const home = {
     cta: "Garantir minha vaga",
   },
 
-  vip: {
-    kicker: "Grupo VIP · quem está dentro passa na frente",
-    title: "Entrar no VIP não é desconto. É acesso.",
-    slashWord: "acesso.",
-    description:
-      "Seis coisas que só quem está no Grupo VIP tem. Três já valem hoje, três entram com a operação.",
-    cta: "Ver o Grupo VIP",
-  },
-
   kit: {
     kicker: "Kit do atleta",
     title: "O uniforme da banda.",
     slashWord: "banda.",
-    caption: "Camiseta 2026 · a camisa 2027 sai do concurso",
-    media: img("/images/camisa-template.png", 1536, 768, "Camisa técnica preta oficial da prova"),
+    caption: "Camisetas 2027 · 21 km, 10 km e 5 km",
+    media: img(
+      "/images/camisas-2027.webp",
+      1350,
+      998,
+      "As três camisetas pretas da edição 2027, uma para cada distância: 21 km, 10 km e 5 km",
+    ),
     items: [
       {
         title: "Camiseta oficial",
@@ -193,7 +189,7 @@ export const home = {
     {
       kicker: "Dúvidas",
       title: "FAQ do corredor",
-      text: "Reescrito a partir das perguntas reais do Grupo VIP.",
+      text: "Reescrito a partir das perguntas reais dos corredores.",
       href: "/contato#faq",
     },
   ],

@@ -8,7 +8,7 @@ import { Block, InfoCard, Kicker, Photo, SectionTitle, StatNumber, withSlash } f
 import { LotCounter, LotTable, TicketButton } from "@/components/editorial/lots";
 import { CTAButton } from "@/components/ui/CTAButton";
 import { home } from "@/content/paginas/home";
-import { curitiba, domingo, inscricao, percurso, vip } from "@/content/paginas/paginas";
+import { curitiba, domingo, inscricao, percurso } from "@/content/paginas/paginas";
 import { lotes } from "@/content/paginas/lotes";
 import { getRankedWinners } from "@/content/contestResults";
 import { cn } from "@/lib/cn";
@@ -80,7 +80,7 @@ export function HomeHero() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4 pt-2">
-            <CTAButton href="/inscricao" size="lg">
+            <CTAButton href={inscricao.ticketSportsUrl ?? "/inscricao"} size="lg">
               Garantir minha vaga
             </CTAButton>
             <CTAButton href="/percurso" variant="outline" size="lg">
@@ -190,44 +190,6 @@ export function HomeLots() {
   );
 }
 
-/* ------------------------------------------------------------------ VIP */
-
-export function HomeVip() {
-  const { vip: vipHome } = home;
-  return (
-    <Block id="grupo-vip" tone="red">
-      <SectionTitle kicker={vipHome.kicker} title={vipHome.title} slashWord={vipHome.slashWord} description={vipHome.description} className="text-text-white" />
-      <div className="mt-14 grid gap-px bg-white/25 sm:grid-cols-2 lg:grid-cols-3">
-        {vip.benefits.slice(0, 3).map((benefit) => (
-          <InfoCard
-            key={benefit.title}
-            kicker={benefit.status}
-            title={benefit.title}
-            text={benefit.text}
-            className="bg-[#a31a1f] text-text-white"
-          />
-        ))}
-      </div>
-      <div className="mt-px grid gap-px bg-white/25 sm:grid-cols-2 lg:grid-cols-3">
-        {vip.benefits.slice(3).map((benefit) => (
-          <InfoCard
-            key={benefit.title}
-            kicker={benefit.status}
-            title={benefit.title}
-            text={benefit.text}
-            className="bg-[#a31a1f] text-text-white"
-          />
-        ))}
-      </div>
-      <div className="mt-12">
-        <CTAButton href="/grupo-vip" variant="outline" size="md">
-          {vipHome.cta}
-        </CTAButton>
-      </div>
-    </Block>
-  );
-}
-
 /* ------------------------------------------------------------------ Kit */
 
 export function HomeKit() {
@@ -238,7 +200,8 @@ export function HomeKit() {
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
         <figure className="relative">
           <Photo media={kit.media} className="aspect-[4/3] w-full" sizes="(min-width: 1024px) 50vw, 100vw" />
-          <figcaption className="label-condensed absolute bottom-0 left-0 bg-bg-dark/85 px-4 py-3 text-[0.6rem] text-text-white">
+          {/* No topo: embaixo a própria arte traz os rótulos "Camisa 21km/10km/5km". */}
+          <figcaption className="label-condensed absolute top-0 left-0 bg-bg-dark/85 px-4 py-3 text-[0.6rem] text-text-white">
             {kit.caption}
           </figcaption>
         </figure>

@@ -17,7 +17,7 @@ const routes: { kicker: string; title: string; text: string; href: string }[] = 
   {
     kicker: "Primeiro",
     title: "FAQ primeiro",
-    text: "As perguntas reais do Grupo VIP, respondidas antes de abrir o formulário.",
+    text: "As perguntas reais dos corredores, respondidas antes de abrir o formulário.",
     href: "#faq",
   },
   {

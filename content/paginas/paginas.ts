@@ -42,7 +42,7 @@ export const inscricao = {
     {
       kicker: "Abaixo",
       title: "Tabela de lotes",
-      text: "Pré-venda do Grupo VIP e Lotes 1 a 5, com preço por distância e a quantidade em que cada lote fecha. O que fechou aparece riscado: prova de que o preço sobe.",
+      text: "Lotes 1 a 5, com preço por distância e a quantidade em que cada lote fecha. O que fechou aparece riscado: prova de que o preço sobe.",
     },
     {
       kicker: "Rodapé",
@@ -50,79 +50,6 @@ export const inscricao = {
       text: "Regulamento oficial, política de transferência até 30 dias antes, parcelamento e reserva de bloco para assessorias.",
     },
   ],
-};
-
-/* ---------------------------------------------------------------- Grupo VIP */
-
-export const vip = {
-  hero: {
-    kicker: "Grupo VIP",
-    title: ["Entrar no VIP não é desconto.", "É acesso."],
-    slashWord: "acesso.",
-    description:
-      "Os seis benefícios, o que já valeu para quem entrou antes e o caminho para o grupo do Instagram em um clique.",
-    media: img("/images/fotos/pelotao-noite.webp", 2048, 2048, "Pelotão vibrando numa rua de Curitiba à noite"),
-  },
-  cards: [
-    {
-      kicker: "Benefícios",
-      title: "Seis, três valendo hoje",
-      text: "Preço de pré-venda, fila própria no kit e série de número 001 a 500. Os outros três entram com a operação.",
-    },
-    {
-      kicker: "Prova",
-      title: "O que o grupo já viu",
-      text: "A linha do tempo do que foi revelado primeiro no grupo: camiseta, data e arena.",
-    },
-    {
-      kicker: "CTA",
-      title: "Entrar no grupo",
-      text: "Link direto para o grupo do Instagram, onde os avisos do evento saem primeiro.",
-    },
-  ],
-  benefits: [
-    {
-      status: "Vale hoje",
-      title: "Preço de pré-venda",
-      text: "De 10 a 14/11, 5 e 10 km a R$ 139,90 e 21 km a R$ 199,90: R$ 30 a 40 abaixo do Lote 1 e o menor valor da edição.",
-    },
-    {
-      status: "Vale hoje",
-      title: "Fila própria na retirada de kit",
-      text: "Balcão VIP na expo, sem fila, com horário estendido no sábado. Chega, pega, vai curtir a praça.",
-    },
-    {
-      status: "Vale hoje",
-      title: "Número de peito da série VIP",
-      text: "Numeração 001 a 500 reservada ao grupo. Quem vê o número sabe que chegou primeiro.",
-    },
-    {
-      status: "A confirmar com a operação",
-      title: "Passagem de som",
-      text: "Sorteio de vagas para assistir à passagem de som da banda no sábado, na arena. Custo zero, valor alto.",
-    },
-    {
-      status: "A confirmar com a operação",
-      title: "Playlist e bastidores",
-      text: "As músicas do grupo tocam no pré-show. O grupo vê o percurso, a camiseta e a arena antes do anúncio público.",
-    },
-    {
-      status: "A confirmar com a operação",
-      title: "Troca sem taxa",
-      text: "Mudou de ideia? Quem é VIP troca de distância ou transfere a inscrição sem taxa até 30 dias antes. Os outros pagam.",
-    },
-  ],
-  revealed: {
-    kicker: "O que o grupo já viu",
-    title: "Antes do anúncio público.",
-    slashWord: "público.",
-    items: [
-      { id: "camiseta", time: "3 a 5/11", title: "Votação da camiseta", description: "As finalistas do concurso foram para votação primeiro no grupo." },
-      { id: "data", time: "Previsão", title: "Data da prova", description: "20 de junho de 2027, Curitiba, a data prevista para a corrida." },
-      { id: "arena", time: "Croqui", title: "Arena e pontos de encontro", description: "O croqui da praça e a localização do palco, da chegada e da expo." },
-    ],
-  },
-  cta: "Entrar no grupo do Instagram",
 };
 
 /* ---------------------------------------------------------------- Percurso */
@@ -221,12 +148,6 @@ export const domingo = {
         time: "16h",
         title: "Shakeout run",
         description: "Corrida curta de aquecimento para quem quer sentir o percurso antes do domingo.",
-      },
-      {
-        id: "vip",
-        time: "Horário estendido",
-        title: "Balcão VIP",
-        description: "Fila própria para o Grupo VIP, com horário estendido no sábado.",
       },
     ],
   },

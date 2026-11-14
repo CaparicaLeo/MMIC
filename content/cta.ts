@@ -1,6 +1,7 @@
 import type { Cta, Media } from "./types";
 import { backstage } from "./backstage";
 import { event } from "./event";
+import { inscricao } from "./paginas/paginas";
 
 /**
  * Assinatura do evento. Fonte única: entra como texto no rodapé e como `alt`
@@ -12,13 +13,14 @@ export const finalCta = {
   kicker: `${event.edition} · ${event.year}`,
   title: "Quando o esporte encontra o rock, Curitiba vira o palco.",
   description:
-    "O grupo VIP entra antes: no concurso de camisetas, no line-up e na venda do primeiro lote.",
+    "Inscrições abertas no Ticket Sports: o primeiro lote é sempre o mais barato.",
   dateNote: event.dateLabel,
+  /** Vai direto para a venda no Ticket Sports (sem link, cai em /inscricao). */
   cta: {
-    label: backstage.ctaLabel,
-    action: "register",
+    label: "Garantir minha vaga",
+    action: "link",
+    href: inscricao.ticketSportsUrl ?? "/inscricao",
   } satisfies Cta,
-  /** Benefícios do Grupo VIP — mesma lista em qualquer lugar que venda o CTA. */
   benefitsTitle: backstage.benefitsTitle,
   benefits: backstage.benefits,
   closing,

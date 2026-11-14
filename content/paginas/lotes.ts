@@ -37,16 +37,8 @@ export const lotes = {
     price21: 239.9,
   },
 
-  /** Pré-venda do Grupo VIP mais os cinco lotes, em ordem. */
+  /** Os cinco lotes, em ordem. */
   table: [
-    {
-      id: "pre-venda-vip",
-      name: "Pré-venda Grupo VIP",
-      closesAt: 500,
-      price5and10: 139.9,
-      price21: 199.9,
-      status: "esgotado",
-    },
     {
       id: "lote-1",
       name: "Lote 1",
