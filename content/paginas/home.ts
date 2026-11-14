@@ -19,7 +19,7 @@ const img = (
 
 export const home = {
   hero: {
-    kicker: "Rock Edition · 20 de junho de 2027 (data prevista) · Curitiba",
+    kicker: "Rock Edition · 20 de junho de 2027 · Curitiba",
     /** Última palavra recebe a faixa vermelha inclinada. */
     title: ["A Meia", "Maratona", "de Curitiba."],
     slashWord: "Curitiba.",
@@ -49,8 +49,8 @@ export const home = {
     cards: [
       {
         tag: "21 km pela cidade",
-        title: "21 km. Ruas fechadas. Zero grau. Sem desculpa.",
-        text: "Largada às 6h com a cidade ainda no escuro e o bafo saindo pela boca. A rua é sua: Centro Cívico, avenidas fechadas, os cartões-postais passando do lado. Cada quilômetro é um verso. O último é o refrão, e ele toca na frente do palco.",
+        title: "21 km. Ruas fechadas. Manhã fria. Sem desculpa.",
+        text: "Largada às 6h30 com a cidade ainda acordando e o bafo saindo pela boca. A rua é sua: Centro Cívico, avenidas fechadas, os cartões-postais passando do lado. Cada quilômetro é um verso. O último é o refrão, e ele toca na frente do palco.",
         media: img(
           "/images/fotos/corredor-porta-de-aco-vertical.webp",
           1228,
@@ -61,7 +61,7 @@ export const home = {
       {
         tag: "Show na linha de chegada",
         title: "Você cruza o pórtico e cai na frente do palco.",
-        text: "Medalha no peito, poncho nas costas e a banda já está no palco. Das 8h às 10h a arena é festival, e quem acabou de correr fica na grade. Palco coberto: chuva não cancela, chuva vira cenário. Atração principal: anúncio em breve.",
+        text: "Medalha no peito e a banda já está no palco. A partir das 7h30 a arena é festival, e quem acabou de correr fica na grade. Palco coberto, de frente para a avenida. Atração principal: anúncio em breve, pelos canais oficiais.",
         media: img(
           "/images/fotos/palco-show.webp",
           1856,
@@ -82,8 +82,8 @@ export const home = {
         ),
       },
       {
-        title: "Sábado já é dia de show: a expo",
-        text: "Retirada de kit um dia antes, na expo das marcas, com a playlist da Meia tocando, shakeout run às 16h e a camiseta na mão. Você dorme sabendo que amanhã é o dia.",
+        title: "Antes da prova, a expo",
+        text: "A retirada de kit acontece na Expo da Meia, antes do domingo, com as marcas e a playlist da Meia tocando. Data, horário e endereço serão anunciados; no dia da prova não há entrega de kit.",
         media: img(
           "/images/fotos/megafone-grupo-vertical.webp",
           896,
@@ -100,11 +100,11 @@ export const home = {
   },
 
   lots: {
-    kicker: "Inscrições · lotes por quantidade",
+    kicker: "Inscrições · lotes por data e por vagas",
     title: "Ingresso de show: o primeiro lote é sempre o mais barato.",
     slashWord: "barato.",
     description:
-      "Aqui é igual show: o lote fecha quando enche, não quando o calendário manda. Quem decide cedo paga menos. O contador lá em cima mostra quantas vagas faltam no lote de agora.",
+      "Aqui é igual show: cada lote fecha na data final ou quando as vagas dele acabam, o que vier primeiro. Quem decide cedo paga menos. São 10.000 vagas, com inscrições até 11 de junho de 2027.",
     cta: "Garantir minha vaga",
   },
 
@@ -121,20 +121,20 @@ export const home = {
     ),
     items: [
       {
+        title: "Três kits",
+        text: "Básico: número de peito e chip eletrônico. Plus: soma a camiseta oficial e 2 ingressos para o show. Camarote: soma camarote, 2 ingressos para o camarote, ALOHA Recovery e retirada, guarda-volume, banheiro e lounge bar exclusivos (100 vagas).",
+      },
+      {
         title: "Camiseta oficial",
-        text: "Técnica, preta, estampa escolhida por concurso nacional (votação de 3 a 5/11, vencedora anunciada em 10/11). Feita pela Zarina, fábrica da Thomé & Santos. Detalhes de tecnologia e modelo ainda em confirmação.",
+        text: "Nos kits Plus e Camarote. Técnica, preta, com tecnologia AERUN da Zarina e estampa definida por concurso público de design. Feminina baby look P/M/G; masculina P/M/G/GG/XG. O tamanho é escolhido na compra, sem troca na entrega.",
       },
       {
-        title: "Medalha 21 · 10 · 5 km",
-        text: "Design da Rock Edition.",
+        title: "Medalha de participação",
+        text: "Para todos que cruzarem a linha de chegada, nos 21, 10 e 5 km. Design da Rock Edition.",
       },
       {
-        title: "Poncho de chegada",
-        text: "Para a chegada a zero grau. Preto para todos. Vermelho só para quem correu os 21 km.",
-      },
-      {
-        title: "Número de peito com chip, sacola e hidratação",
-        text: "Retirada na expo, no sábado.",
+        title: "Retirada do kit",
+        text: "Na Expo da Meia, com documento original com foto, CPF e comprovante de pagamento. Data, horário e endereço a definir. Não há entrega no dia da prova.",
       },
     ],
   },
@@ -177,7 +177,7 @@ export const home = {
     title: "Três faixas. Um refrão.",
     slashWord: "refrão.",
     description:
-      "Cada distância com mapa, altimetria, água, onde sobe e onde desce. Altimetria real das rotas 2027, que seguem em homologação.",
+      "Cada distância com mapa, altimetria real, água, onde sobe e onde desce. Percursos definitivos da edição 2027.",
   },
 
   domingo: {
@@ -196,8 +196,8 @@ export const home = {
         ),
       },
       {
-        time: "07h30",
-        label: "As primeiras chegadas",
+        time: "06h30",
+        label: "A largada",
         media: img(
           "/images/fotos/corredora-dia-vertical.webp",
           1228,
@@ -206,7 +206,7 @@ export const home = {
         ),
       },
       {
-        time: "08h",
+        time: "07h30",
         label: "O show começa",
         media: img(
           "/images/fotos/palco-show.webp",

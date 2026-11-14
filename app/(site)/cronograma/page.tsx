@@ -7,7 +7,7 @@ import { domingo } from "@/content/paginas/paginas";
 export const metadata: Metadata = {
   title: "O domingo",
   description:
-    "Programação da Meia Maratona Internacional de Curitiba 2027: expo e retirada de kit no sábado, largadas de 5, 10 e 21 km e o show na arena.",
+    "Programação da Meia Maratona Internacional de Curitiba 2027: expo e retirada de kit, largadas de 5, 10 e 21 km e o show na arena.",
   alternates: { canonical: "/cronograma" },
 };
 

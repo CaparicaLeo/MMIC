@@ -8,6 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "",
     "/inscricao",
     "/percurso",
+    "/regulamento",
     "/cronograma",
     "/curitiba",
     "/concurso-de-camisetas",

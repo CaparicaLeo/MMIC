@@ -25,7 +25,7 @@ export const inscricao = {
     title: ["O primeiro lote é", "sempre o mais", "barato."],
     slashWord: "barato.",
     description:
-      "Contador público, lote atual com as vagas que restam, tabela por distância e o botão direto para o Ticket Sports. Regulamento e transferência logo abaixo, sem esconder.",
+      "Contador público, lote atual, valores por kit e o botão direto para o Ticket Sports. Regulamento, reembolso e transferência logo abaixo, sem esconder.",
     media: img(
       "/images/fotos/pelotao-dia-largo.webp",
       2048,
@@ -46,17 +46,18 @@ export const inscricao = {
     {
       kicker: "Agora",
       title: "Contador + lote atual",
-      text: "Contador e lote atual, com vagas restantes e botão por distância (21 km, 10 km e 5 km).",
+      text: "Contador de inscritos, lote atual e o botão direto para o Ticket Sports.",
     },
     {
       kicker: "Abaixo",
       title: "Tabela de lotes",
-      text: "Lotes 1 a 5, com preço por distância e a quantidade em que cada lote fecha. O que fechou aparece riscado: prova de que o preço sobe.",
+      text: "Pré-venda e 1º a 4º lote, com o período e o valor de cada kit. O que encerrou aparece riscado: prova de que o preço sobe.",
     },
     {
       kicker: "Rodapé",
       title: "Regulamento e transferência",
-      text: "Regulamento oficial, política de transferência até 30 dias antes, parcelamento e reserva de bloco para assessorias.",
+      href: "/regulamento",
+      text: "Regulamento oficial completo: reembolso em até 7 dias da compra, transferência até 11/06/2027 e condições para assessorias.",
     },
   ],
 };
@@ -69,7 +70,7 @@ export const percurso = {
     title: ["Três faixas.", "Um refrão."],
     slashWord: "refrão.",
     description:
-      "Mapa, altimetria com km marcado, água, isotônico, som, torcida, banheiros e pontos de corte. O que o corredor estuda na semana da prova.",
+      "Mapa, altimetria com km marcado, água, banheiros e pontos de corte. O que o corredor estuda na semana da prova.",
     media: img(
       "/images/fotos/faixa-de-pedestre.webp",
       1800,
@@ -77,7 +78,6 @@ export const percurso = {
       "Corredor atravessando a faixa de pedestres, visto de cima",
     ),
   },
-  note: "Percurso 2027 em homologação. Mapa e altimetria vêm do GPX das rotas 2027 e podem mudar até a homologação.",
   distances: [
     {
       id: "21k" as const,
@@ -87,13 +87,15 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556342497964110110",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6799928532",
       name: "A faixa-título",
-      start: "06h",
+      start: "06h30",
       limit: "3h",
       highlights: [
-        "Água e isotônico a cada 3 km",
-        "Aferição CBAt",
+        "Elite às 6h30; ondas de pace a partir das 6h32",
+        "Água na arena, a cada 3 km (do 3 ao 18) e na chegada",
+        "Percurso aferido e certificado pela CBAt",
         "A subida do km 17 ao 20, já no fim",
-        "Pacers e tempo limite de 3h",
+        "Pontos de corte: km 5 às 7h45, km 10 às 8h36, km 15 às 9h20",
+        "A partir de 18 anos",
       ],
       note: "A subida do km 17 ao 20 é o solo de guitarra: vem no fim, quando as pernas já pesam. É ali que a prova se decide.",
       /** Trecho em vermelho na altimetria (sem ele, vale a maior subida do GPX). */
@@ -107,14 +109,15 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556346442066786650",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800162596",
       name: "O lado B",
-      start: "06h20",
-      limit: null,
+      start: "06h32",
+      limit: "2h",
       highlights: [
         "Ondulado, com a subida mais forte perto do km 8",
-        "Pelotões por ritmo",
-        "Mapa real em homologação",
+        "Largada em ondas de pace",
+        "Mapa oficial no Strava e no MapMyRun",
+        "A partir de 16 anos",
       ],
-      note: "Pelotões por ritmo para correr em grupo, do início à chegada.",
+      note: "Largada em ondas de pace, para correr no seu ritmo do início à chegada.",
       highlightKm: undefined as [number, number] | undefined,
     },
     {
@@ -125,12 +128,13 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556333941235583870",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800155027",
       name: "A abertura",
-      start: "06h40",
-      limit: null,
+      start: "06h32",
+      limit: "2h",
       highlights: [
         "Aberto a caminhada, com uma subida curta perto do km 3,5",
         "Para quem está começando ou vem com a família",
         "Mesma chegada, mesmo palco",
+        "A partir de 14 anos",
       ],
       note: "Mesma chegada, mesmo palco. Para quem está começando ou vem com a família.",
       highlightKm: [3.2, 3.9] as [number, number],
@@ -146,7 +150,7 @@ export const domingo = {
     title: ["Setlist do", "domingo."],
     slashWord: "domingo.",
     description:
-      "A programação completa: a expo de sábado, o dia da prova hora a hora e os acessos à arena. É a página para imprimir.",
+      "A programação completa: a expo, o dia da prova hora a hora e os acessos à arena. É a página para imprimir.",
     media: img(
       "/images/fotos/pelotao-dia-largo.webp",
       2048,
@@ -155,23 +159,30 @@ export const domingo = {
     ),
   },
   saturday: {
-    kicker: "Sábado · expo e retirada",
-    title: "Retirada de kit no sábado.",
-    slashWord: "sábado.",
+    kicker: "Antes da prova · expo e retirada",
+    title: "Expo e retirada de kit.",
+    slashWord: "kit.",
     items: [
       {
-        id: "manha",
-        time: "9h · 11h · 15h",
-        title: "Ônibus do hotel para a expo",
+        id: "entrega",
+        time: "Data a definir",
+        title: "Entrega na Expo da Meia",
         description:
-          "Saídas em horários fora do pico. Retirada de kit, expo das marcas e playlist da Meia.",
+          "Data, horário e endereço serão anunciados pelos canais oficiais. Não há entrega de kit no dia da prova nem depois dela.",
       },
       {
-        id: "shakeout",
-        time: "16h",
-        title: "Shakeout run",
+        id: "documentos",
+        time: "O que levar",
+        title: "Documentos",
         description:
-          "Corrida curta de aquecimento para quem quer sentir o percurso antes do domingo.",
+          "Documento original com foto, CPF e comprovante de pagamento. A retirada é individual.",
+      },
+      {
+        id: "terceiros",
+        time: "Por outra pessoa",
+        title: "Retirada por terceiros",
+        description:
+          "Só com cópia impressa da identificação do inscrito, documento com foto, comprovante de pagamento e carta de autorização assinada. Para 60+ com desconto, a retirada é pessoal.",
       },
     ],
   },
@@ -185,14 +196,14 @@ export const domingo = {
         time: "05h",
         title: "Portões",
         description:
-          "Guarda-volumes, aquecimento coletivo com a playlist da Meia. A cidade dorme, a arena não.",
+          "Abertura do camarote, guarda-volumes gratuito e aquecimento coletivo com a playlist da Meia. A cidade dorme, a arena não.",
       },
       {
-        id: "06h",
-        time: "06h",
+        id: "06h30",
+        time: "06h30",
         title: "Largadas",
         description:
-          "21 km às 6h, 10 km às 6h20 e 5 km às 6h40. Perto de zero grau.",
+          "21 km elite às 6h30, pessoas com deficiência às 6h31 e ondas de pace (21, 10 e 5 km) a partir das 6h32.",
       },
       {
         id: "07h",
@@ -202,18 +213,25 @@ export const domingo = {
           "Pontos de som e de torcida no percurso. Cada bairro, uma faixa.",
       },
       {
-        id: "08h",
-        time: "08h",
+        id: "07h30",
+        time: "07h30",
         title: "Chegada + show",
         description:
-          "Medalha, poncho e o palco liga. Quem chega depois, pega o meio do show.",
+          "Medalha de participação e o palco liga: a programação musical começa às 7h30. Quem chega depois, pega o meio do show.",
       },
       {
         id: "10h",
         time: "10h",
-        title: "Bis",
+        title: "Fim do tempo dos 21 km",
         description:
-          "Praça do palco, foto oficial, comércio do entorno aberto. O domingo continua.",
+          "Encerramento do 21 km (tempo máximo de 3h). Os 10 e 5 km têm até 2h.",
+      },
+      {
+        id: "10h30",
+        time: "10h30",
+        title: "Premiação",
+        description:
+          "Do 1º ao 5º geral do 21 km e, em seguida, as categorias. O troféu só é entregue a quem estiver presente.",
       },
     ],
   },
@@ -303,7 +321,7 @@ export const curitiba = {
       id: "domingo",
       number: "05",
       day: "Domingo · a Meia",
-      text: "Ônibus do hotel para a largada, saindo às 4h30. Largada às 6h, chegada na frente do palco, show às 10h. Depois: Feira do Largo da Ordem ou Domingo no Centro (edição de inverno em 2026: 21/6).",
+      text: "Ônibus do hotel para a largada, saindo às 4h30. Largada a partir das 6h30, chegada na frente do palco, show a partir das 7h30. Depois: Feira do Largo da Ordem ou Domingo no Centro (edição de inverno em 2026: 21/6).",
       tag: "O dia",
     },
     {
@@ -395,11 +413,11 @@ export const imprensa = {
 export const arena = {
   points: [
     { n: 9, label: "Praça de alimentação", x: 22, y: 12 },
-    { n: 4, label: "Funil · medalha, poncho", x: 60, y: 14 },
+    { n: 4, label: "Funil · medalha e água", x: 60, y: 14 },
     { n: 10, label: "Espaço Kids", x: 36, y: 30 },
     { n: 8, label: "WC", x: 48, y: 30 },
     { n: 1, label: "Palco · show", x: 66, y: 40, highlight: true },
-    { n: 2, label: "Área VIP", x: 66, y: 54 },
+    { n: 2, label: "Camarote", x: 66, y: 54 },
     { n: 3, label: "Linha de chegada", x: 80, y: 60 },
     { n: 11, label: "Arena livre · torcida", x: 52, y: 66 },
     { n: 7, label: "Guarda-volumes", x: 14, y: 74 },
@@ -411,17 +429,17 @@ export const arena = {
   legend: [
     {
       n: 1,
-      text: "Palco coberto, de frente para a avenida. Show das 8h às 10h.",
+      text: "Palco coberto, de frente para a avenida. Programação musical a partir das 7h30.",
     },
-    { n: 2, text: "Área VIP entre o palco e a chegada." },
+    { n: 2, text: "Camarote do Kit Camarote, entre o palco e a chegada. Acesso a partir das 5h." },
     {
       n: 3,
       text: "Linha de chegada na Av. Cândido de Abreu, em frente ao palco.",
     },
-    { n: 4, text: "Funil de chegada: medalha, poncho e água." },
+    { n: 4, text: "Funil de chegada: medalha de participação e água." },
     { n: 5, text: "Área dos atletas: aquecimento e banheiros exclusivos." },
     { n: 6, text: "Recovery e massagem (faculdade parceira, a fechar)." },
-    { n: 7, text: "Guarda-volumes por etiqueta, filas por distância." },
+    { n: 7, text: "Guarda-volumes gratuito, em saco identificado com o número de peito." },
     { n: 8, text: "Banheiros e água." },
     { n: 9, text: "Praça de alimentação no gramado norte." },
     { n: 10, text: "Espaço Kids monitorado." },

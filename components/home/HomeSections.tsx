@@ -27,7 +27,7 @@ import {
   inscricao,
   percurso,
 } from "@/content/paginas/paginas";
-import { lotes } from "@/content/paginas/lotes";
+import { currentLot, lotes } from "@/content/paginas/lotes";
 import { getRankedWinners } from "@/content/contestResults";
 import { cn } from "@/lib/cn";
 
@@ -234,11 +234,9 @@ export function HomeLots() {
       />
 
       <div className="mt-14 grid gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
-        <div className="flex flex-col gap-8">
+        <div className="flex min-w-0 flex-col gap-8">
           <p className="headline text-[clamp(2.2rem,4vw,3.4rem)] leading-none">
-            Faltam{" "}
-            <span className="text-accent-red">{lotes.current.remaining}</span>{" "}
-            vagas no {lotes.current.name}.
+            <span className="text-accent-red">{currentLot.name}</span> até {currentLot.endsLabel}.
           </p>
           <TicketButton
             href={inscricao.ticketSportsUrl}
@@ -461,7 +459,6 @@ export function HomePercurso() {
           </article>
         ))}
       </div>
-      <p className="mt-6 text-xs text-text-gray">{percurso.note}</p>
       <div className="mt-10">
         <CTAButton href="/percurso" variant="outline" size="md">
           Ver o percurso completo

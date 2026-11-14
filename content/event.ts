@@ -19,7 +19,8 @@ export const event = {
    * e o <Countdown /> passa a renderizar automaticamente, sem mudar componente.
    * Enquanto `date` for null, nada de data/contador aparece na página.
    */
-  date: null as string | null,
+  // Regulamento, item 1: domingo, 20 de junho de 2027; largada da elite às 6h30.
+  date: "2027-06-20T06:30:00-03:00" as string | null,
 
   /**
    * Abertura das inscrições — a data concreta que o site pode anunciar hoje.
@@ -45,7 +46,7 @@ export const event = {
    * partir do ISO sem depender de locale.
    */
   // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
-  registrationOpensLabel: "15 de novembro de 2026" as string,
+  registrationOpensLabel: "20 de junho de 2027" as string,
 
   /**
    * Texto curto do prazo, usado no rodapé, no hero e nas páginas "em breve".
@@ -56,7 +57,7 @@ export const event = {
    * `registrationOpensAt` mudar, este campo muda junto.
    */
   // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
-  dateLabel: "Inscrições em 15/11/2026" as string,
+  dateLabel: "20 de junho de 2027 · inscrições abertas" as string,
 
   /**
    * Versão em caixa alta do prazo, para o marquee do hero.
@@ -66,7 +67,7 @@ export const event = {
    * e é o que a pessoa precisa ler duas vezes por rolagem.
    */
   // TODO(confirmar): mesmo prazo de `registrationOpensAt`.
-  registrationLabel: "INSCRIÇÕES 15/11" as string,
+  registrationLabel: "20/06/2027 · INSCRIÇÕES ABERTAS" as string,
 
   distances: ["5 KM", "10 KM", "21 KM"],
 
@@ -124,7 +125,7 @@ export const waitlistUrl = "https://ig.me/j/t5la8vc57GKOevuM/";
 // e publicar o evento com `event.date` preenchido.
 export const raceDateFollow = {
   note:
-    "A data e os horários do dia da prova ainda não foram anunciados — eles saem primeiro no grupo do Instagram.",
+    "A prova é em 20 de junho de 2027. Novidades, line-up e a data da entrega de kits saem primeiro no grupo do Instagram.",
   label: "Entrar no grupo do Instagram",
   handle: "@meiainternacionalcuritiba",
   href: waitlistUrl,

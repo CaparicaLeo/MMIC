@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { LotCounter, LotTable, TicketButton } from "@/components/editorial/lots";
 import { Block, InfoCard, PageHero, SectionTitle } from "@/components/editorial/primitives";
 import { inscricao } from "@/content/paginas/paginas";
-import { lotes } from "@/content/paginas/lotes";
+import { currentLot } from "@/content/paginas/lotes";
 
 export const metadata: Metadata = {
   title: "Inscrições",
@@ -35,10 +35,10 @@ export default function InscricaoPage() {
       <Block id="lotes" tone="darker">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
           <LotCounter />
-          <div className="flex flex-col gap-8">
+          <div className="flex min-w-0 flex-col gap-8">
             <SectionTitle
-              title={`Faltam ${lotes.current.remaining} vagas no ${lotes.current.name}.`}
-              description="Preço por distância, lote a lote. O que já fechou fica riscado na tabela."
+              title={`${currentLot.name} até ${currentLot.endsLabel}.`}
+              description="Valor por kit, lote a lote, como no regulamento. O que já encerrou fica riscado na tabela."
             />
             <LotTable />
           </div>
@@ -53,6 +53,7 @@ export default function InscricaoPage() {
               kicker={card.kicker}
               title={card.title}
               text={card.text}
+              href={"href" in card ? card.href : undefined}
               accent={index === 0}
               className="bg-bg-dark"
             />

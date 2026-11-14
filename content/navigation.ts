@@ -10,6 +10,7 @@ export const mainNav: NavItem[] = [
   { label: "Kit", href: "/#kit" },
   { label: "Arena", href: "/#arena" },
   { label: "Percurso", href: "/percurso" },
+  { label: "Regulamento", href: "/regulamento" },
   { label: "O domingo", href: "/cronograma" },
   { label: "Curitiba", href: "/curitiba" },
   { label: "Camiseta", href: "/concurso-de-camisetas" },
@@ -23,6 +24,7 @@ export const footerNav: { title: string; items: NavItem[] }[] = [
     items: [
       { label: "Contato", href: "/contato" },
       { label: "Dúvidas", href: "/contato#faq" },
+      { label: "Regulamento", href: "/regulamento" },
       { label: "Marcas", href: "/marcas" },
       { label: "Imprensa", href: "/imprensa" },
     ],

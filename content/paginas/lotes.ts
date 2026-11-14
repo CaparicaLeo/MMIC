@@ -2,64 +2,119 @@
  * Lotes de inscrição. Fonte única: a home (bloco de lotes) e /inscricao leem
  * daqui, para o preço não existir em dois lugares.
  *
- * Os números são os do briefing da edição 2027 (PDF "MMIC27_site_completo").
- * O contador e as vagas são valores fixos por enquanto; quando a venda for
- * integrada ao Ticket Sports, `registrations` passa a vir da API.
+ * Períodos, valores e kits seguem o regulamento oficial (item 6.8, ver
+ * /regulamento): cada lote fecha na data final ou quando as vagas dele
+ * acabam, o que vier primeiro (item 6.9). O regulamento só traz valores para
+ * 5 km e 10 km; o 21 km é vendido no Ticket Sports.
+ *
+ * O contador de inscritos ainda é fixo; quando a venda for integrada ao
+ * Ticket Sports, `registrations` passa a vir da API.
  */
 
-export type LotStatus = "esgotado" | "aberto" | "proximo" | "ultimo" | null;
+export type LotStatus = "encerrado" | "aberto" | "proximo" | "ultimo" | null;
+
+export type KitId = "basico" | "plus" | "camarote";
 
 export type Lot = {
   id: string;
   name: string;
-  /** Quantidade de inscritos em que o lote fecha. */
-  closesAt: number;
-  price5and10: number;
-  price21: number;
+  /** Período do regulamento, por extenso curto. */
+  period: string;
+  /** Último dia do lote, para o texto "até …". */
+  endsLabel: string;
+  /** Valores por kit, para 5 km e 10 km, sem as taxas. */
+  prices: Record<KitId, number>;
   status: LotStatus;
 };
 
 export const lotes = {
   /** Inscritos até agora, do contador público. */
+  // TODO(confirmar): vem do Ticket Sports quando a integração existir.
   registrations: 1284,
   /** Inscritos adicionados no dia, do contador público. */
   registrationsToday: 212,
   /** Origem do contador, exibida ao lado dele. */
   registrationsSource: "atualizado às 14:10 · fonte Ticket Sports",
+  /** Vagas totais da edição (regulamento, item 6.1). */
+  totalSpots: 10000,
+  /** Fim das inscrições (regulamento, item 6.1). */
+  closesLabel: "11 de junho de 2027",
 
-  /** Lote aberto: o que o visitante vê no topo da home. */
-  current: {
-    name: "Lote 1",
-    closesAt: 2000,
-    /** Vagas que ainda faltam no lote aberto. */
-    remaining: 716,
-    price5and10: 169.9,
-    price21: 239.9,
-  },
+  /** Os três kits (regulamento, item 4). */
+  kits: [
+    {
+      id: "basico",
+      name: "Kit Básico",
+      items: "Número de peito e chip eletrônico.",
+    },
+    {
+      id: "plus",
+      name: "Kit Plus",
+      items: "Número de peito, chip eletrônico, camiseta oficial e 2 ingressos para o show.",
+    },
+    {
+      id: "camarote",
+      name: "Kit Camarote",
+      items:
+        "Número de peito, chip eletrônico, camiseta oficial, camarote, 2 ingressos para o camarote, ALOHA Recovery, retirada de kit, guarda-volume, banheiro e lounge bar exclusivos. Limitado a 100 vagas.",
+    },
+  ] satisfies { id: KitId; name: string; items: string }[],
 
-  /** Os cinco lotes, em ordem. */
+  /** Pré-venda e os quatro lotes, em ordem (regulamento, item 6.8). */
   table: [
     {
+      id: "pre-venda",
+      name: "Pré-venda",
+      period: "10/11 a 13/11/2026",
+      endsLabel: "13/11/2026",
+      prices: { basico: 139.9, plus: 179.9, camarote: 319.9 },
+      status: "encerrado",
+    },
+    {
       id: "lote-1",
-      name: "Lote 1",
-      closesAt: 2000,
-      price5and10: 169.9,
-      price21: 239.9,
+      name: "1º Lote",
+      period: "14/11 a 13/12/2026",
+      endsLabel: "13/12/2026",
+      prices: { basico: 179.9, plus: 199.9, camarote: 349.9 },
       status: "aberto",
     },
-    { id: "lote-2", name: "Lote 2", closesAt: 4000, price5and10: 179.9, price21: 259.9, status: "proximo" },
-    { id: "lote-3", name: "Lote 3", closesAt: 7000, price5and10: 189.9, price21: 279.9, status: null },
-    { id: "lote-4", name: "Lote 4", closesAt: 9000, price5and10: 209.9, price21: 299.9, status: null },
-    { id: "lote-5", name: "Lote 5", closesAt: 10000, price5and10: 229.9, price21: 319.9, status: "ultimo" },
+    {
+      id: "lote-2",
+      name: "2º Lote",
+      period: "14/12/2026 a 31/01/2027",
+      endsLabel: "31/01/2027",
+      prices: { basico: 199.9, plus: 219.9, camarote: 369.9 },
+      status: "proximo",
+    },
+    {
+      id: "lote-3",
+      name: "3º Lote",
+      period: "01/02 a 28/03/2027",
+      endsLabel: "28/03/2027",
+      prices: { basico: 219.9, plus: 249.9, camarote: 399.9 },
+      status: null,
+    },
+    {
+      id: "lote-4",
+      name: "4º Lote",
+      period: "29/03 a 11/06/2027",
+      endsLabel: "11/06/2027",
+      prices: { basico: 239.9, plus: 269.9, camarote: 419.9 },
+      status: "ultimo",
+    },
   ] satisfies Lot[],
 
   /** Rótulo de cada status, na coluna "Status" da tabela. */
   statusLabel: {
-    esgotado: "Esgotado",
+    encerrado: "Encerrado",
     aberto: "Aberto",
     proximo: "Próximo",
     ultimo: "Último",
   } satisfies Record<Exclude<LotStatus, null>, string>,
+
+  /** Rodapé da tabela. */
+  priceNote:
+    "Valores para 5 km e 10 km, mais taxas. O valor do 21 km aparece no Ticket Sports. 60+ pagam 50% (item 6.7); assessorias com 10 ou mais inscritos pagam sempre o 1º Lote (item 15).",
 
   /** Preço em reais, no formato da tabela. */
   format: (value: number) =>
@@ -69,18 +124,21 @@ export const lotes = {
   notes: [
     {
       kicker: "Regra do lote",
-      title: "Lote fecha quando enche",
-      text: "Não tem data. Quando o inscrito número 2.000 entrar, o Lote 1 fecha e o preço sobe. O contador no topo mostra quantas vagas faltam.",
+      title: "Fecha na data ou quando esgota",
+      text: "Cada lote tem período e quantidade própria de vagas. O que vier primeiro encerra o lote, e o seguinte entra automaticamente, com o novo valor.",
     },
     {
-      kicker: "Distâncias",
-      title: "21 km custa mais, e é de propósito",
-      text: "É a prova. Percurso homologado, pacers, poncho vermelho, 3 h de rua fechada. O 5 km e o 10 km são a porta de entrada e custam o mesmo.",
+      kicker: "Kits",
+      title: "Básico, Plus ou Camarote",
+      text: "O Básico tem número de peito e chip. O Plus soma a camiseta oficial e 2 ingressos para o show. O Camarote, limitado a 100 vagas, tem área e serviços exclusivos.",
     },
     {
-      kicker: "Preço",
-      title: "O preço de hoje é o menor que vai existir",
-      text: "Nenhum lote volta. O que fechou fica riscado na tabela, para você ver o que deixou passar. Kit completo em todos os lotes, parcelamento e transferência até 30 dias antes.",
+      kicker: "Depois da compra",
+      title: "Reembolso e transferência",
+      text: "Reembolso em até 7 dias da compra, pelo e-mail contato@thomeesantos.com.br. Transferência de titularidade até 11/06/2027, com taxa de R$ 25 via Pix.",
     },
   ],
 };
+
+/** O lote aberto: o que o visitante vê no topo da home e da inscrição. */
+export const currentLot = lotes.table.find((lot) => lot.status === "aberto") ?? lotes.table[0];

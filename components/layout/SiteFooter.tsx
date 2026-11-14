@@ -5,7 +5,7 @@ import { event, footerNav } from "@/content";
 
 /**
  * Rodapé: a marca do evento e o lockup "Curitiba é Rock" na faixa de cima;
- * abaixo, local, data prevista, Instagram e os links de contato.
+ * abaixo, local, data da prova, Instagram e os links de contato.
  */
 export function SiteFooter() {
   return (
@@ -42,7 +42,7 @@ export function SiteFooter() {
       <div className="container-page grid gap-12 border-t border-white/10 py-12 md:grid-cols-[1fr_1fr] lg:py-14">
         <div className="flex flex-col gap-2 text-sm text-text-gray">
           <p className="label-condensed text-[0.66rem] text-text-white">Curitiba · PR</p>
-          <p className="label-condensed text-[0.66rem]">20 de junho de 2027 (previsão)</p>
+          <p className="label-condensed text-[0.66rem]">20 de junho de 2027</p>
           <a
             href={event.social.instagram}
             target="_blank"

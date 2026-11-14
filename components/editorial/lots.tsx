@@ -1,20 +1,18 @@
 import { CTAButton } from "@/components/ui/CTAButton";
-import { lotes, type Lot } from "@/content/paginas/lotes";
+import { currentLot, lotes, type Lot } from "@/content/paginas/lotes";
 import { cn } from "@/lib/cn";
 
 const brl = (value: number) => lotes.format(value);
 
 /**
- * Contador público + barra do lote atual. Os números vêm de lotes.ts; a
- * barra mostra o quanto do lote aberto já foi vendido.
+ * Contador público + barra das vagas da edição. Os números vêm de lotes.ts;
+ * a barra mostra quanto das 10.000 vagas (regulamento, item 6.1) já foi.
  */
 export function LotCounter() {
-  const { current } = lotes;
-  const sold = current.closesAt - current.remaining;
-  const percent = Math.round((sold / current.closesAt) * 100);
+  const percent = Math.min(100, Math.round((lotes.registrations / lotes.totalSpots) * 100));
 
   return (
-    <div className="flex flex-col gap-6">
+    <div className="flex min-w-0 flex-col gap-6">
       <div>
         <p className="label-condensed text-[0.68rem] text-text-gray">Inscritos até agora</p>
         <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
@@ -34,7 +32,7 @@ export function LotCounter() {
       <div>
         <div
           role="progressbar"
-          aria-label={`Lote 1: ${percent}% das vagas vendidas`}
+          aria-label={`${percent}% das ${lotes.totalSpots.toLocaleString("pt-BR")} vagas preenchidas`}
           aria-valuenow={percent}
           aria-valuemin={0}
           aria-valuemax={100}
@@ -43,11 +41,10 @@ export function LotCounter() {
           <div data-bar className="h-full bg-accent-red" style={{ width: `${percent}%` }} />
         </div>
         <p className="label-condensed mt-3 text-[0.7rem] text-text-white">
-          {current.name} · faltam {current.remaining} vagas · 5 e 10 km {brl(current.price5and10)} · 21 km{" "}
-          {brl(current.price21)}
+          {lotes.totalSpots.toLocaleString("pt-BR")} vagas · {currentLot.name} até {currentLot.endsLabel} · Kit
+          Básico {brl(currentLot.prices.basico)} + taxas
         </p>
       </div>
-
     </div>
   );
 }
@@ -80,53 +77,58 @@ export function TicketButton({
   );
 }
 
-/** Tabela de lotes: o lote aberto em vermelho, o fechado riscado. */
+/** Tabela de lotes: o lote aberto em vermelho, o encerrado riscado. */
 export function LotTable() {
   return (
-    <div className="overflow-x-auto border border-white/10">
-      <table className="w-full min-w-[640px] border-collapse text-left text-sm">
-        <caption className="sr-only">Lotes de inscrição por distância</caption>
-        <thead>
-          <tr className="border-b border-white/10 text-text-gray">
-            <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Lote</th>
-            <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Fecha em</th>
-            <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">5 km e 10 km</th>
-            <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">21 km</th>
-            <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          {lotes.table.map((lot) => (
-            <LotRow key={lot.id} lot={lot} />
-          ))}
-        </tbody>
-      </table>
+    <div className="flex min-w-0 flex-col gap-4">
+      <div className="overflow-x-auto border border-white/10">
+        <table className="w-full min-w-[720px] border-collapse text-left text-sm">
+          <caption className="sr-only">Lotes de inscrição e valores por kit, para 5 km e 10 km</caption>
+          <thead>
+            <tr className="border-b border-white/10 text-text-gray">
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Lote</th>
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Período</th>
+              {lotes.kits.map((kit) => (
+                <th key={kit.id} scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">
+                  {kit.name}
+                </th>
+              ))}
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            {lotes.table.map((lot) => (
+              <LotRow key={lot.id} lot={lot} />
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <p className="text-xs leading-relaxed text-text-gray">{lotes.priceNote}</p>
     </div>
   );
 }
 
 function LotRow({ lot }: { lot: Lot }) {
   const isOpen = lot.status === "aberto";
-  const isSoldOut = lot.status === "esgotado";
+  const isClosed = lot.status === "encerrado";
 
   return (
     <tr
       className={cn(
         "border-b border-white/10 last:border-b-0",
         isOpen && "bg-accent-red text-text-white",
-        isSoldOut && "text-text-gray/70 line-through decoration-white/40",
+        isClosed && "text-text-gray/70 line-through decoration-white/40",
       )}
     >
-      <th scope="row" className="px-5 py-5 font-semibold">{lot.name}</th>
-      <td className="px-5 py-5">{lot.closesAt.toLocaleString("pt-BR")} inscritos</td>
-      <td className={cn("px-5 py-5", isOpen ? "headline text-2xl" : "")}>{brl(lot.price5and10)}</td>
-      <td className={cn("px-5 py-5", isOpen ? "headline text-2xl" : "")}>{brl(lot.price21)}</td>
+      <th scope="row" className="px-5 py-5 font-semibold whitespace-nowrap">{lot.name}</th>
+      <td className="px-5 py-5 whitespace-nowrap">{lot.period}</td>
+      {lotes.kits.map((kit) => (
+        <td key={kit.id} className={cn("px-5 py-5 whitespace-nowrap", isOpen && "headline text-xl")}>
+          {brl(lot.prices[kit.id])}
+        </td>
+      ))}
       <td className="label-condensed px-5 py-5 text-[0.66rem] leading-tight">
-        {lot.status === "aberto" ? (
-          <span>Aberto · faltam {lotes.current.remaining} vagas</span>
-        ) : lot.status ? (
-          lotes.statusLabel[lot.status]
-        ) : null}
+        {lot.status ? lotes.statusLabel[lot.status] : null}
       </td>
     </tr>
   );

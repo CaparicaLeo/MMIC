@@ -2,11 +2,7 @@ import type { Metadata } from "next";
 
 import { Altimetria } from "@/components/editorial/altimetria";
 import { altimetria } from "@/content/paginas/altimetria";
-import {
-  Block,
-  PageHero,
-  SectionTitle,
-} from "@/components/editorial/primitives";
+import { Block, PageHero } from "@/components/editorial/primitives";
 import { RouteLinks } from "@/components/editorial/route-links";
 import { percurso } from "@/content/paginas/paginas";
 
@@ -98,13 +94,6 @@ export default function PercursoPage() {
           </div>
         </Block>
       ))}
-
-      <Block tone="darker">
-        <SectionTitle
-          title="Percurso 2027 em homologação."
-          description={percurso.note}
-        />
-      </Block>
     </>
   );
 }

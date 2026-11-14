@@ -22,13 +22,13 @@ export const faq = {
       id: "kit",
       question: "Como funciona a retirada de kit?",
       answer:
-        "A retirada acontece em dias específicos antes da prova, em ponto único na cidade, mediante documento com foto e comprovante de inscrição. Não há entrega de kit no dia do evento. Datas, endereço e horários serão anunciados com antecedência.",
+        "A retirada acontece na Expo da Meia, antes da prova, com documento original com foto, CPF e comprovante de pagamento. Retirada por terceiros só com cópia dos documentos e carta de autorização assinada. Não há entrega de kit no dia do evento. Data, horário e endereço serão anunciados.",
     },
     {
       id: "inscricao",
       question: "Qual é a política de inscrição?",
       answer:
-        "A inscrição é individual e nominal, com lotes por ordem de compra. Transferência de titularidade e troca de distância seguem prazos definidos em regulamento, publicado na abertura das vendas. Cancelamentos seguem a política vigente informada no ato da compra.",
+        "A inscrição é pessoal e nominal. O reembolso só vale em até 7 dias corridos da compra, pedido pelo e-mail contato@thomeesantos.com.br. A transferência de titularidade pode ser feita até 11/06/2027, às 23h59, com taxa de R$ 25 via Pix. Pessoas com 60 anos ou mais pagam 50%. Não há cupons de desconto.",
     },
 {
         id: "data",
@@ -39,7 +39,7 @@ export const faq = {
         // dizer o que está confirmado (a abertura das inscrições) em vez de
         // repetir que nada está.
         answer:
-          "A data da prova ainda não foi anunciada. O que já está confirmado é a abertura das inscrições, em 15 de novembro de 2026. Para saber a data e os horários assim que saírem, siga o Instagram oficial (@meiainternacionalcuritiba).",
+          "Sim: domingo, 20 de junho de 2027, em Curitiba. A largada da elite do 21 km é às 6h30, e as ondas de pace saem a partir das 6h32. As inscrições já estão abertas e vão até 11 de junho de 2027 ou até esgotarem as 10.000 vagas.",
       },
     {
       id: "iniciante",
@@ -57,19 +57,19 @@ export const faq = {
       id: "distancias",
       question: "Quais distâncias tem na Meia Maratona de Curitiba?",
       answer:
-        "São três: 5 km, 10 km e 21 km. Os 5 km são abertos inclusive para caminhada, o 10 km é a distância mais disputada e os 21 km são a prova principal, com percurso homologado. Todas terminam na mesma arena, no mesmo show.",
+        "São três: 5 km, 10 km e 21 km. Os 5 km são abertos inclusive para caminhada, o 10 km é a distância mais disputada e os 21 km são a prova principal, com percurso aferido e certificado pela CBAt. Todas terminam na mesma arena, no mesmo show.",
     },
     {
       id: "abertura-inscricoes",
-      question: "Quando abrem as inscrições?",
+      question: "Até quando vão as inscrições?",
       answer:
-        "As inscrições da Meia Maratona Internacional de Curitiba 2027 abrem em 15 de novembro de 2026.",
+        "As inscrições da Meia Maratona Internacional de Curitiba 2027 estão abertas no Ticket Sports e vão até 11 de junho de 2027, ou até esgotarem as 10.000 vagas. Cada lote fecha na data final ou quando acabam as vagas dele.",
     },
     {
       id: "show",
       question: "Tem show na chegada?",
       answer:
-        "Tem. Quando o último pelotão cruza a chegada, a arena troca de função e a linha de chegada vira a frente do palco, com show ao vivo para corredores e público. A atração principal ainda é uma surpresa.",
+        "Tem. A programação musical na arena começa às 7h30, com a linha de chegada de frente para o palco. O acesso à arena e ao show é exclusivo dos inscritos e credenciados. O Kit Plus inclui 2 ingressos para o show. A atração principal será anunciada pelos canais oficiais.",
     },
   ] satisfies FaqItem[],
 };
