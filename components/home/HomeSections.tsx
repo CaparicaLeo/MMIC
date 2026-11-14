@@ -44,7 +44,7 @@ export function HomeHero() {
 
           {/* Cada linha é `w-fit` e não quebra; o "Internacional" vai dentro da
               caixa de "Maratona" e se distribui letra a letra na largura dela. */}
-          <h1 className="headline text-[clamp(3.1rem,10vw,7.4rem)] leading-[0.98]!">
+          <h1 className="headline isolate text-[clamp(3.1rem,10vw,7.4rem)] leading-[0.98]!">
             {hero.title.map((line, index) => (
               <span key={`${line}-${index}`} data-hero-line className="block w-fit whitespace-nowrap">
                 {withSlash(line, hero.slashWord)}

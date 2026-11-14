@@ -67,14 +67,17 @@ export function Kicker({ children, className }: { children: ReactNode; className
  * (entalhe e risco de velocidade à esquerda, corte inclinado à direita).
  *
  * As pontas são SVGs com `h-full w-auto`: a largura sai da proporção, então o
- * desenho não deforma com o comprimento da palavra — só o miolo estica. O
- * risco da esquerda avança sobre o espaço antes da palavra (`-left-[0.4em]`).
- * O `-z-10` só funciona com o pai `isolate`.
+ * desenho não deforma com o comprimento da palavra — só o miolo estica.
+ *
+ * O rastro (entalhe + risco) avança para a esquerda (`-left-[1em]`) e passa
+ * POR TRÁS das palavras anteriores, sem abrir espaço antes da palavra. Para
+ * isso a faixa não cria contexto próprio: o `-z-10` cai no contexto do título,
+ * que precisa ter `isolate` (todos os h1/h2 que usam `withSlash` têm).
  */
 export function Slash({ children }: { children: ReactNode }) {
   return (
-    <span className="relative isolate inline-block whitespace-nowrap pr-[0.3em] pl-[0.72em]">
-      <span aria-hidden data-slash-bg className="absolute inset-y-0 right-0 -left-[0.4em] -z-10 flex text-accent-red">
+    <span className="relative inline-block whitespace-nowrap pr-[0.3em] pl-[0.25em]">
+      <span aria-hidden data-slash-bg className="absolute inset-y-0 right-0 -left-[1em] -z-10 flex text-accent-red">
         <svg viewBox="0 0 388 358" className="h-full w-auto shrink-0" fill="currentColor">
           <polygon points="148,0 389,0 389,358 148,358 364,331 388,99" />
           <polygon points="0,126 345,126 340,179" />
@@ -131,7 +134,7 @@ export function SectionTitle({
       )}
     >
       {kicker ? <Kicker>{kicker}</Kicker> : null}
-      <h2 className="headline text-[clamp(2.4rem,6vw,4.5rem)]">{withSlash(title, slashWord)}</h2>
+      <h2 className="headline isolate text-[clamp(2.4rem,6vw,4.5rem)]">{withSlash(title, slashWord)}</h2>
       {description ? (
         <p className="max-w-2xl text-base leading-relaxed text-text-gray sm:text-lg">
           {description}
@@ -257,7 +260,7 @@ export function PageHero({
         <div className="grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="flex flex-col gap-7">
             <Kicker>{kicker}</Kicker>
-            <h1 className="headline text-[clamp(2.75rem,7vw,5.6rem)]">
+            <h1 className="headline isolate text-[clamp(2.75rem,7vw,5.6rem)]">
               {title.map((line, index) => (
                 <span key={`${line}-${index}`} className="block">
                   {withSlash(line, slashWord)}
