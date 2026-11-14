@@ -1,4 +1,3 @@
-import { HomeMotion } from "@/components/animation/HomeMotion";
 import { EventJsonLd } from "@/components/seo/EventJsonLd";
 import { WebsiteJsonLd } from "@/components/seo/WebsiteJsonLd";
 import {
@@ -29,21 +28,19 @@ export default function HomePage() {
       <EventJsonLd />
       <WebsiteJsonLd />
 
-      <HomeMotion>
-        <HomeHero />
-        <HomeBand />
-        <HomeAbout />
-        <HomeLots />
-        <HomeKit />
-        <HomeZarina />
-        <HomeArena />
-        <HomePercurso />
-        <HomeDomingo />
-        <HomeCuritiba />
-        <HomeConcurso />
-        <HomeStats />
-        <HomeTrio />
-      </HomeMotion>
+      <HomeHero />
+      <HomeBand />
+      <HomeAbout />
+      <HomeLots />
+      <HomeKit />
+      <HomeZarina />
+      <HomeArena />
+      <HomePercurso />
+      <HomeDomingo />
+      <HomeCuritiba />
+      <HomeConcurso />
+      <HomeStats />
+      <HomeTrio />
     </>
   );
 }

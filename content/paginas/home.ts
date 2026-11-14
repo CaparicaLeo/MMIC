@@ -5,7 +5,12 @@ import type { Media } from "../types";
  * Cada bloco da home lê uma chave daqui. Os lotes e o contador estão em lotes.ts.
  */
 
-const img = (src: string, width: number, height: number, alt: string): Media => ({
+const img = (
+  src: string,
+  width: number,
+  height: number,
+  alt: string,
+): Media => ({
   src,
   alt,
   width,
@@ -20,12 +25,14 @@ export const home = {
     slashWord: "Curitiba.",
     /** Linha fina e espaçada entre "Maratona" e "de Curitiba." (índice da linha de cima). */
     tagline: { text: "Internacional", after: 1 },
-    lines: [
-      "21,097 km pela cidade modelo.",
-      "Show na linha de chegada.",
-    ],
+    lines: ["21,097 km pela cidade modelo.", "Show na linha de chegada."],
     brand: "Um evento Thomé & Santos.",
-    background: img("/images/fotos/pelotao-noite-largo.webp", 2400, 1340, "Pelotão vibrando numa rua de Curitiba à noite"),
+    background: img(
+      "/images/fotos/pelotao-noite-largo.webp",
+      2400,
+      1340,
+      "Pelotão vibrando numa rua de Curitiba à noite",
+    ),
   },
 
   band: {
@@ -44,29 +51,50 @@ export const home = {
         tag: "21 km pela cidade",
         title: "21 km. Ruas fechadas. Zero grau. Sem desculpa.",
         text: "Largada às 6h com a cidade ainda no escuro e o bafo saindo pela boca. A rua é sua: Centro Cívico, avenidas fechadas, os cartões-postais passando do lado. Cada quilômetro é um verso. O último é o refrão, e ele toca na frente do palco.",
-        media: img("/images/fotos/corredor-porta-de-aco-vertical.webp", 1228, 2200, "Corredor em velocidade diante de uma porta de aço, no fim da tarde"),
+        media: img(
+          "/images/fotos/corredor-porta-de-aco-vertical.webp",
+          1228,
+          2200,
+          "Corredor em velocidade diante de uma porta de aço, no fim da tarde",
+        ),
       },
       {
         tag: "Show na linha de chegada",
         title: "Você cruza o pórtico e cai na frente do palco.",
         text: "Medalha no peito, poncho nas costas e a banda já está no palco. Das 8h às 10h a arena é festival, e quem acabou de correr fica na grade. Palco coberto: chuva não cancela, chuva vira cenário. Atração principal: anúncio em breve.",
-        media: img("/images/fotos/palco-show.webp", 1856, 1285, "Corredores atravessam o palco entre a banda e o público, no fim da tarde"),
+        media: img(
+          "/images/fotos/palco-show.webp",
+          1856,
+          1285,
+          "Corredores atravessam o palco entre a banda e o público, no fim da tarde",
+        ),
       },
     ],
     smallCards: [
       {
         title: "Curitiba no inverno, com o amplificador ligado",
         text: "A capital fria do país no fim de semana em que ela liga o som: Feiras do Largo da Ordem, Domingo no Centro, Restaurant Week, bar com lareira depois da prova. Quem vem de fora compra o fim de semana. Quem é daqui redescobre a cidade com número no peito.",
-        media: img("/images/fotos/pelotao-noite-pb-vertical.webp", 1228, 2200, "Pelotão à noite, em preto e branco"),
+        media: img(
+          "/images/fotos/pelotao-noite-pb-vertical.webp",
+          1228,
+          2200,
+          "Pelotão à noite, em preto e branco",
+        ),
       },
       {
         title: "Sábado já é dia de show: a expo",
         text: "Retirada de kit um dia antes, na expo das marcas, com a playlist da Meia tocando, shakeout run às 16h e a camiseta na mão. Você dorme sabendo que amanhã é o dia.",
-        media: img("/images/fotos/megafone-grupo-vertical.webp", 896, 1200, "Turma com megafone num tubo de ônibus"),
+        media: img(
+          "/images/fotos/megafone-grupo-vertical.webp",
+          896,
+          1200,
+          "Turma com megafone num tubo de ônibus",
+        ),
       },
     ],
     statement: {
-      first: "Curitiba vai respirar a Meia. Outdoor na avenida, bar parceiro, hotel com a bandeira, vitrine do comércio.",
+      first:
+        "Curitiba vai respirar a Meia. Outdoor na avenida, bar parceiro, hotel com a bandeira, vitrine do comércio.",
       red: "Um fim de semana em que a cidade inteira sabe que você vai correr.",
     },
   },
@@ -127,12 +155,13 @@ export const home = {
     signature: "AERUN — Engineered for Motion. Designed for Performance.",
     signatureBy: "Uma tecnologia Zarina.",
     cta: "Em breve no site",
-    /**
-     * Mockup da coleção ainda não produzido. Enquanto for `null`, a seção mostra
-     * um quadro reservado no lugar da foto; quando a arte chegar, basta trocar
-     * por `img("/images/...", largura, altura, "alt")` (proporção 4:5).
-     */
-    media: null as Media | null,
+    /** Sem imagem (`null`), a seção mostra um quadro reservado no lugar da foto. */
+    media: img(
+      "/images/zarina-aerun-2.webp",
+      1350,
+      998,
+      "Atleta de costas com a camiseta preta da MMIC 2027 ao lado do tecido AERUN em close, com as marcas AERUN Performance Technology e Zarina",
+    ) as Media | null,
   },
 
   arena: {
@@ -148,7 +177,7 @@ export const home = {
     title: "Três faixas. Um refrão.",
     slashWord: "refrão.",
     description:
-      "Cada distância com mapa, altimetria, água, onde sobe e onde desce. O percurso de 2027 está em homologação; o de 2026 segue como referência.",
+      "Cada distância com mapa, altimetria, água, onde sobe e onde desce. Altimetria real das rotas 2027, que seguem em homologação.",
   },
 
   domingo: {
@@ -156,9 +185,36 @@ export const home = {
     title: "Setlist do domingo.",
     slashWord: "domingo.",
     photos: [
-      { time: "05h", label: "A arena acorda", media: img("/images/fotos/pelotao-dia.webp", 1536, 1536, "Pelotão de corredores de camisa preta numa avenida, de dia") },
-      { time: "07h30", label: "As primeiras chegadas", media: img("/images/fotos/corredora-dia-vertical.webp", 1228, 2200, "Corredora sorrindo à frente do pelotão") },
-      { time: "08h", label: "O show começa", media: img("/images/fotos/palco-show.webp", 1856, 1285, "Corredores atravessam o palco entre a banda e o público, no fim da tarde") },
+      {
+        time: "05h",
+        label: "A arena acorda",
+        media: img(
+          "/images/fotos/pelotao-dia.webp",
+          1536,
+          1536,
+          "Pelotão de corredores de camisa preta numa avenida, de dia",
+        ),
+      },
+      {
+        time: "07h30",
+        label: "As primeiras chegadas",
+        media: img(
+          "/images/fotos/corredora-dia-vertical.webp",
+          1228,
+          2200,
+          "Corredora sorrindo à frente do pelotão",
+        ),
+      },
+      {
+        time: "08h",
+        label: "O show começa",
+        media: img(
+          "/images/fotos/palco-show.webp",
+          1856,
+          1285,
+          "Corredores atravessam o palco entre a banda e o público, no fim da tarde",
+        ),
+      },
     ],
   },
 
@@ -169,9 +225,24 @@ export const home = {
     description:
       "O fim de semana da Meia cai dentro do Inverno Curitiba, o programa de atrações da cidade. Calendário de 2026 como referência; 2027 a confirmar com a Prefeitura.",
     media: [
-      img("/images/fotos/parque-rua-vertical.webp", 896, 1200, "Trio correndo numa rua arborizada"),
-      img("/images/fotos/roda-vertical.webp", 1228, 2200, "Corredores em roda vistos de baixo, contra o céu"),
-      img("/images/fotos/dupla-centro-pb-vertical.webp", 1476, 2200, "Dupla correndo entre prédios do centro, em preto e branco"),
+      img(
+        "/images/fotos/parque-rua-vertical.webp",
+        896,
+        1200,
+        "Trio correndo numa rua arborizada",
+      ),
+      img(
+        "/images/fotos/roda-vertical.webp",
+        1228,
+        2200,
+        "Corredores em roda vistos de baixo, contra o céu",
+      ),
+      img(
+        "/images/fotos/dupla-centro-pb-vertical.webp",
+        1476,
+        2200,
+        "Dupla correndo entre prédios do centro, em preto e branco",
+      ),
     ] satisfies Media[],
   },
 

@@ -394,3 +394,21 @@ export type BrandsPage = {
 
   finalCta: { intro: SectionIntro; cta: PageCta };
 };
+
+/** Perfil de altitude real de uma distância, gerado de GPX por scripts/altimetria.mjs. */
+export type AltimetriaData = {
+  /** Caminho público do GPX, para download. */
+  gpx: string;
+  distanceKm: number;
+  /** Distância entre amostras de `samples`, em km. */
+  stepKm: number;
+  gainM: number;
+  lossM: number;
+  minM: number;
+  maxM: number;
+  maxAtKm: number;
+  /** Maior subida contínua do percurso. */
+  climb: { fromKm: number; toKm: number; riseM: number };
+  /** Altitude em metros a cada `stepKm`, do km 0 à chegada. */
+  samples: number[];
+};

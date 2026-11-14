@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import { Altimetria } from "@/components/editorial/altimetria";
+import { altimetria } from "@/content/paginas/altimetria";
 import {
   Block,
   PageHero,
@@ -80,14 +81,15 @@ export default function PercursoPage() {
                 distance={distance.distance}
                 stravaUrl={distance.stravaUrl}
                 mapMyRunUrl={distance.mapMyRunUrl}
+                gpxUrl={altimetria[distance.id].gpx}
               />
             </div>
 
             <div className="flex flex-col gap-6 bg-[#141414] p-6 sm:p-8">
               <Altimetria
-                profile={distance.profile}
-                highlight={distance.id === "21k" ? [14, 17] : undefined}
-                label={`Altimetria ilustrativa do percurso de ${distance.distance} km`}
+                data={altimetria[distance.id]}
+                highlightKm={distance.highlightKm}
+                label={`Altimetria do percurso de ${distance.distance} km`}
               />
               <p className="text-sm leading-relaxed text-text-gray">
                 {distance.note}

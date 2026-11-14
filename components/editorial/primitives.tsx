@@ -31,7 +31,10 @@ export function Photo({
   preload?: boolean;
 }) {
   return (
-    <div data-photo className={cn("relative overflow-hidden bg-[#141414]", className)}>
+    <div
+      data-photo
+      className={cn("relative overflow-hidden bg-[#141414]", className)}
+    >
       <Image
         src={media.src}
         alt={media.alt}
@@ -48,7 +51,13 @@ export function Photo({
 }
 
 /** Rótulo de seção: quadradinho vermelho + caixa-alta espaçada. */
-export function Kicker({ children, className }: { children: ReactNode; className?: string }) {
+export function Kicker({
+  children,
+  className,
+}: {
+  children: ReactNode;
+  className?: string;
+}) {
   return (
     <p
       className={cn(
@@ -77,13 +86,25 @@ export function Kicker({ children, className }: { children: ReactNode; className
 export function Slash({ children }: { children: ReactNode }) {
   return (
     <span className="relative inline-block whitespace-nowrap pr-[0.3em] pl-[0.25em]">
-      <span aria-hidden data-slash-bg className="absolute inset-y-0 right-0 -left-[1em] -z-10 flex text-accent-red">
-        <svg viewBox="0 0 388 358" className="h-full w-auto shrink-0" fill="currentColor">
+      <span
+        aria-hidden
+        data-slash-bg
+        className="absolute inset-y-0 right-0 -left-[1em] -z-10 flex text-accent-red"
+      >
+        <svg
+          viewBox="0 0 388 358"
+          className="h-full w-auto shrink-0"
+          fill="currentColor"
+        >
           <polygon points="148,0 389,0 389,358 148,358 364,331 388,99" />
           <polygon points="0,126 345,126 340,179" />
         </svg>
         <span className="-mx-px flex-1 bg-current" />
-        <svg viewBox="0 0 69 358" className="h-full w-auto shrink-0" fill="currentColor">
+        <svg
+          viewBox="0 0 69 358"
+          className="h-full w-auto shrink-0"
+          fill="currentColor"
+        >
           <polygon points="-1,0 69,0 0,358 -1,358" />
         </svg>
       </span>
@@ -134,7 +155,9 @@ export function SectionTitle({
       )}
     >
       {kicker ? <Kicker>{kicker}</Kicker> : null}
-      <h2 className="headline isolate text-[clamp(2.4rem,6vw,4.5rem)]">{withSlash(title, slashWord)}</h2>
+      <h2 className="headline isolate text-[clamp(2.4rem,6vw,4.5rem)]">
+        {withSlash(title, slashWord)}
+      </h2>
       {description ? (
         <p className="max-w-2xl text-base leading-relaxed text-text-gray sm:text-lg">
           {description}
@@ -160,6 +183,7 @@ export function Block({
   return (
     <section
       id={id}
+      data-motion="block"
       className={cn(
         "relative scroll-mt-24 py-20 sm:py-24 lg:py-28",
         tone === "dark" && "bg-bg-dark text-text-white",
@@ -195,12 +219,26 @@ export function InfoCard({
 }) {
   const body = (
     <>
-      {media ? <Photo media={media} className="mb-6 aspect-[4/3]" sizes="(min-width: 1024px) 30vw, 100vw" /> : null}
-      {kicker ? (
-        <p className="label-condensed text-[0.68rem] text-text-gray">{kicker}</p>
+      {media ? (
+        <Photo
+          media={media}
+          className="mb-6 aspect-[4/3]"
+          sizes="(min-width: 1024px) 30vw, 100vw"
+        />
       ) : null}
-      <h3 className="headline mt-3 text-[1.9rem] leading-[1.02] sm:text-[2.1rem]">{title}</h3>
-      {text ? <p className="mt-4 text-sm leading-relaxed text-text-gray sm:text-[0.95rem]">{text}</p> : null}
+      {kicker ? (
+        <p className="label-condensed text-[0.68rem] text-text-gray">
+          {kicker}
+        </p>
+      ) : null}
+      <h3 className="headline mt-3 text-[1.9rem] leading-[1.02] sm:text-[2.1rem]">
+        {title}
+      </h3>
+      {text ? (
+        <p className="mt-4 text-sm leading-relaxed text-text-gray sm:text-[0.95rem]">
+          {text}
+        </p>
+      ) : null}
       {children}
     </>
   );
@@ -214,12 +252,16 @@ export function InfoCard({
 
   if (href) {
     return (
-      <Link href={href} className={classes}>
+      <Link href={href} data-card className={classes}>
         {body}
       </Link>
     );
   }
-  return <div className={classes}>{body}</div>;
+  return (
+    <div data-card className={classes}>
+      {body}
+    </div>
+  );
 }
 
 /**
@@ -250,6 +292,7 @@ export function PageHero({
   return (
     <section
       id={id}
+      data-motion="hero"
       className={cn(
         "relative scroll-mt-24 pt-32 pb-16 sm:pt-40 sm:pb-20 lg:pt-44",
         tone === "dark" ? "bg-bg-dark" : "bg-[#060606]",
@@ -259,27 +302,41 @@ export function PageHero({
       <div className="container-page">
         <div className="grid items-end gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16">
           <div className="flex flex-col gap-7">
-            <Kicker>{kicker}</Kicker>
+            <div data-hero-fade>
+              <Kicker>{kicker}</Kicker>
+            </div>
             <h1 className="headline isolate text-[clamp(2.75rem,7vw,5.6rem)]">
               {title.map((line, index) => (
-                <span key={`${line}-${index}`} className="block">
+                <span key={`${line}-${index}`} data-hero-line className="block">
                   {withSlash(line, slashWord)}
                 </span>
               ))}
             </h1>
-            <p className="max-w-xl text-base leading-relaxed text-text-white/85 sm:text-lg">
+            <p
+              data-hero-fade
+              className="max-w-xl text-base leading-relaxed text-text-white/85 sm:text-lg"
+            >
               {description}
             </p>
-            {actions ? <div className="flex flex-wrap items-center gap-4 pt-2">{actions}</div> : null}
+            {actions ? (
+              <div
+                data-hero-fade
+                className="flex flex-wrap items-center gap-4 pt-2"
+              >
+                {actions}
+              </div>
+            ) : null}
           </div>
 
           {media ? (
-            <Photo
-              media={media}
-              className="aspect-[4/3] w-full lg:aspect-[5/4]"
-              sizes="(min-width: 1024px) 45vw, 100vw"
-              preload
-            />
+            <div data-hero-media>
+              <Photo
+                media={media}
+                className="aspect-[4/3] w-full lg:aspect-[5/4]"
+                sizes="(min-width: 1024px) 45vw, 100vw"
+                preload
+              />
+            </div>
           ) : null}
         </div>
 
@@ -307,8 +364,12 @@ export function PageHero({
 export function StatNumber({ value, label }: { value: string; label: string }) {
   return (
     <div className="flex flex-col gap-3">
-      <p className="headline text-[clamp(3rem,7vw,5rem)] text-accent-red">{value}</p>
-      <p className="label-condensed text-[0.68rem] leading-relaxed text-text-gray">{label}</p>
+      <p className="headline text-[clamp(3rem,7vw,5rem)] text-accent-red">
+        {value}
+      </p>
+      <p className="label-condensed text-[0.68rem] leading-relaxed text-text-gray">
+        {label}
+      </p>
     </div>
   );
 }

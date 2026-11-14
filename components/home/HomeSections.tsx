@@ -4,6 +4,7 @@ import { ArenaMap } from "@/components/editorial/arena";
 import { RoteiroList } from "@/components/editorial/roteiro";
 import { RouteLinks } from "@/components/editorial/route-links";
 import { Altimetria } from "@/components/editorial/altimetria";
+import { altimetria } from "@/content/paginas/altimetria";
 import {
   Block,
   InfoCard,
@@ -37,7 +38,7 @@ export function HomeHero() {
   return (
     <section
       id="a-meia"
-      data-hero
+      data-motion="hero"
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-bg-dark pt-32 pb-16 text-text-white sm:pb-20"
     >
       <div aria-hidden data-hero-bg className="absolute inset-0 -z-10">
@@ -311,7 +312,7 @@ export function HomeZarina() {
   const { zarina } = home;
   return (
     <Block id="zarina" tone="darker" className="border-y border-white/10">
-      <div className="grid gap-14 lg:grid-cols-[1.05fr_0.95fr] lg:items-center lg:gap-20">
+      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
         <div className="flex flex-col gap-8">
           <div className="-mb-2 flex flex-col gap-3">
             <Kicker>{zarina.kicker}</Kicker>
@@ -362,11 +363,11 @@ export function HomeZarina() {
           </span>
         </div>
 
-        <figure className="relative">
+        <figure className="relative lg:sticky lg:top-28">
           {zarina.media ? (
             <Photo
               media={zarina.media}
-              className="aspect-[4/5] w-full"
+              className="aspect-[1350/998] w-full"
               sizes="(min-width: 1024px) 45vw, 100vw"
             />
           ) : (
@@ -442,9 +443,9 @@ export function HomePercurso() {
               {distance.limit ? ` · tempo limite ${distance.limit}` : ""}
             </p>
             <Altimetria
-              profile={distance.profile}
-              highlight={distance.id === "21k" ? [14, 17] : undefined}
-              label={`Altimetria ilustrativa do percurso de ${distance.distance} km`}
+              data={altimetria[distance.id]}
+              highlightKm={distance.highlightKm}
+              label={`Altimetria do percurso de ${distance.distance} km`}
             />
             <p className="text-sm leading-relaxed text-text-gray">
               {distance.note}
@@ -454,6 +455,7 @@ export function HomePercurso() {
                 distance={distance.distance}
                 stravaUrl={distance.stravaUrl}
                 mapMyRunUrl={distance.mapMyRunUrl}
+                gpxUrl={altimetria[distance.id].gpx}
               />
             </div>
           </article>

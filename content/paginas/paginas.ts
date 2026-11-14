@@ -5,7 +5,12 @@ import type { Media } from "../types";
  * Um objeto por rota; cada página lê só o seu.
  */
 
-const img = (src: string, width: number, height: number, alt: string): Media => ({
+const img = (
+  src: string,
+  width: number,
+  height: number,
+  alt: string,
+): Media => ({
   src,
   alt,
   width,
@@ -21,7 +26,12 @@ export const inscricao = {
     slashWord: "barato.",
     description:
       "Contador público, lote atual com as vagas que restam, tabela por distância e o botão direto para o Ticket Sports. Regulamento e transferência logo abaixo, sem esconder.",
-    media: img("/images/fotos/pelotao-dia-largo.webp", 2048, 1152, "Pelotão de corredores de camisa preta numa avenida, de dia"),
+    media: img(
+      "/images/fotos/pelotao-dia-largo.webp",
+      2048,
+      1152,
+      "Pelotão de corredores de camisa preta numa avenida, de dia",
+    ),
   },
   /**
    * Link de venda do Ticket Sports (evento 88966). `origem=novo-site` marca no
@@ -30,8 +40,7 @@ export const inscricao = {
    */
   ticketSportsUrl:
     "https://site.ticketsports.com.br/Inscricao/categoria.aspx?__idEvento=88966&origem=novo-site&lang=pt-BR" as
-      | string
-      | null,
+      string | null,
   ticketPendingLabel: "Venda pelo Ticket Sports em breve",
   cards: [
     {
@@ -61,12 +70,17 @@ export const percurso = {
     slashWord: "refrão.",
     description:
       "Mapa, altimetria com km marcado, água, isotônico, som, torcida, banheiros e pontos de corte. O que o corredor estuda na semana da prova.",
-    media: img("/images/fotos/faixa-de-pedestre.webp", 1800, 1800, "Corredor atravessando a faixa de pedestres, visto de cima"),
+    media: img(
+      "/images/fotos/faixa-de-pedestre.webp",
+      1800,
+      1800,
+      "Corredor atravessando a faixa de pedestres, visto de cima",
+    ),
   },
-  note: "Percurso 2027 em homologação. Abaixo, o perfil de referência; o mapa oficial sai com a homologação.",
+  note: "Percurso 2027 em homologação. Mapa e altimetria vêm do GPX das rotas 2027 e podem mudar até a homologação.",
   distances: [
     {
-      id: "21k",
+      id: "21k" as const,
       distance: "21",
       unit: "km",
       /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
@@ -78,15 +92,15 @@ export const percurso = {
       highlights: [
         "Água e isotônico a cada 3 km",
         "Aferição CBAt",
-        "A subida longa do km 14 ao 17",
+        "A subida do km 17 ao 20, já no fim",
         "Pacers e tempo limite de 3h",
       ],
-      note: "A subida longa do km 14 ao 17 é o solo de guitarra: é ali que a prova se decide.",
-      /** Altitude relativa por km (0 a 1), só para o perfil ilustrativo. */
-      profile: [0.1, 0.2, 0.25, 0.3, 0.35, 0.3, 0.45, 0.55, 0.6, 0.5, 0.4, 0.5, 0.7, 0.85, 0.95, 0.9, 0.7, 0.55, 0.45, 0.4, 0.35, 0.3, 0.2],
+      note: "A subida do km 17 ao 20 é o solo de guitarra: vem no fim, quando as pernas já pesam. É ali que a prova se decide.",
+      /** Trecho em vermelho na altimetria (sem ele, vale a maior subida do GPX). */
+      highlightKm: [17, 20] as [number, number],
     },
     {
-      id: "10k",
+      id: "10k" as const,
       distance: "10",
       unit: "km",
       /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
@@ -96,15 +110,15 @@ export const percurso = {
       start: "06h20",
       limit: null,
       highlights: [
-        "Ondulado, com a subida mais forte perto do km 7",
+        "Ondulado, com a subida mais forte perto do km 8",
         "Pelotões por ritmo",
         "Mapa real em homologação",
       ],
       note: "Pelotões por ritmo para correr em grupo, do início à chegada.",
-      profile: [0.2, 0.3, 0.35, 0.45, 0.5, 0.6, 0.85, 0.95, 0.8, 0.6, 0.5, 0.45, 0.4, 0.35, 0.3, 0.25, 0.2, 0.3, 0.35, 0.3, 0.25],
+      highlightKm: undefined as [number, number] | undefined,
     },
     {
-      id: "5k",
+      id: "5k" as const,
       distance: "5",
       unit: "km",
       /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
@@ -114,12 +128,12 @@ export const percurso = {
       start: "06h40",
       limit: null,
       highlights: [
-        "Plano, aberto a caminhada",
+        "Aberto a caminhada, com uma subida curta perto do km 3,5",
         "Para quem está começando ou vem com a família",
         "Mesma chegada, mesmo palco",
       ],
       note: "Mesma chegada, mesmo palco. Para quem está começando ou vem com a família.",
-      profile: [0.3, 0.32, 0.3, 0.33, 0.31, 0.3, 0.32, 0.31, 0.3, 0.3],
+      highlightKm: [3.2, 3.9] as [number, number],
     },
   ],
 };
@@ -133,7 +147,12 @@ export const domingo = {
     slashWord: "domingo.",
     description:
       "A programação completa: a expo de sábado, o dia da prova hora a hora e os acessos à arena. É a página para imprimir.",
-    media: img("/images/fotos/pelotao-dia-largo.webp", 2048, 1152, "Pelotão de corredores de camisa preta numa avenida, de dia"),
+    media: img(
+      "/images/fotos/pelotao-dia-largo.webp",
+      2048,
+      1152,
+      "Pelotão de corredores de camisa preta numa avenida, de dia",
+    ),
   },
   saturday: {
     kicker: "Sábado · expo e retirada",
@@ -144,13 +163,15 @@ export const domingo = {
         id: "manha",
         time: "9h · 11h · 15h",
         title: "Ônibus do hotel para a expo",
-        description: "Saídas em horários fora do pico. Retirada de kit, expo das marcas e playlist da Meia.",
+        description:
+          "Saídas em horários fora do pico. Retirada de kit, expo das marcas e playlist da Meia.",
       },
       {
         id: "shakeout",
         time: "16h",
         title: "Shakeout run",
-        description: "Corrida curta de aquecimento para quem quer sentir o percurso antes do domingo.",
+        description:
+          "Corrida curta de aquecimento para quem quer sentir o percurso antes do domingo.",
       },
     ],
   },
@@ -159,11 +180,41 @@ export const domingo = {
     title: "O dia da prova.",
     slashWord: "prova.",
     items: [
-      { id: "05h", time: "05h", title: "Portões", description: "Guarda-volumes, aquecimento coletivo com a playlist da Meia. A cidade dorme, a arena não." },
-      { id: "06h", time: "06h", title: "Largadas", description: "21 km às 6h, 10 km às 6h20 e 5 km às 6h40. Perto de zero grau." },
-      { id: "07h", time: "07h", title: "A cidade", description: "Pontos de som e de torcida no percurso. Cada bairro, uma faixa." },
-      { id: "08h", time: "08h", title: "Chegada + show", description: "Medalha, poncho e o palco liga. Quem chega depois, pega o meio do show." },
-      { id: "10h", time: "10h", title: "Bis", description: "Praça do palco, foto oficial, comércio do entorno aberto. O domingo continua." },
+      {
+        id: "05h",
+        time: "05h",
+        title: "Portões",
+        description:
+          "Guarda-volumes, aquecimento coletivo com a playlist da Meia. A cidade dorme, a arena não.",
+      },
+      {
+        id: "06h",
+        time: "06h",
+        title: "Largadas",
+        description:
+          "21 km às 6h, 10 km às 6h20 e 5 km às 6h40. Perto de zero grau.",
+      },
+      {
+        id: "07h",
+        time: "07h",
+        title: "A cidade",
+        description:
+          "Pontos de som e de torcida no percurso. Cada bairro, uma faixa.",
+      },
+      {
+        id: "08h",
+        time: "08h",
+        title: "Chegada + show",
+        description:
+          "Medalha, poncho e o palco liga. Quem chega depois, pega o meio do show.",
+      },
+      {
+        id: "10h",
+        time: "10h",
+        title: "Bis",
+        description:
+          "Praça do palco, foto oficial, comércio do entorno aberto. O domingo continua.",
+      },
     ],
   },
   access: {
@@ -171,8 +222,17 @@ export const domingo = {
     title: "Acesso à arena.",
     slashWord: "arena.",
     items: [
-      { id: "publico", title: "Transporte público, app e estacionamento", description: "Acessos sinalizados, pontos de embarque e desembarque demarcados e estacionamento no entorno." },
-      { id: "pcd", title: "PCD e desembarque", description: "Desembarque de app e PCD pela Rua Ernani Santiago." },
+      {
+        id: "publico",
+        title: "Transporte público, app e estacionamento",
+        description:
+          "Acessos sinalizados, pontos de embarque e desembarque demarcados e estacionamento no entorno.",
+      },
+      {
+        id: "pcd",
+        title: "PCD e desembarque",
+        description: "Desembarque de app e PCD pela Rua Ernani Santiago.",
+      },
     ],
   },
 };
@@ -186,7 +246,12 @@ export const curitiba = {
     slashWord: "show.",
     description:
       "Roteiro de sexta a segunda, hotéis oficiais, transfer, o calendário do Inverno Curitiba e os parceiros que aceitam o número de peito.",
-    media: img("/images/fotos/faixa-de-pedestre.webp", 1800, 1800, "Corredor atravessando a faixa de pedestres, visto de cima"),
+    media: img(
+      "/images/fotos/faixa-de-pedestre.webp",
+      1800,
+      1800,
+      "Corredor atravessando a faixa de pedestres, visto de cima",
+    ),
   },
   cards: [
     {
@@ -258,9 +323,24 @@ export const curitiba = {
   sourceNote:
     "Fonte: programa Inverno Curitiba 2026 (Prefeitura). O número de peito funciona como passaporte de desconto no comércio parceiro, com QR rastreado em cada ponto.",
   media: [
-    img("/images/fotos/parque-vertical.webp", 1228, 2200, "Corredoras sorrindo num parque"),
-    img("/images/fotos/roda-vertical-2.webp", 1228, 2200, "Corredores em roda vistos de baixo, contra o céu"),
-    img("/images/fotos/megafone-vertical.webp", 896, 1200, "Corredor sorrindo com um megafone"),
+    img(
+      "/images/fotos/parque-vertical.webp",
+      1228,
+      2200,
+      "Corredoras sorrindo num parque",
+    ),
+    img(
+      "/images/fotos/roda-vertical-2.webp",
+      1228,
+      2200,
+      "Corredores em roda vistos de baixo, contra o céu",
+    ),
+    img(
+      "/images/fotos/megafone-vertical.webp",
+      896,
+      1200,
+      "Corredor sorrindo com um megafone",
+    ),
   ] satisfies Media[],
 };
 
@@ -273,7 +353,12 @@ export const imprensa = {
     slashWord: "Meia.",
     description:
       "Releases, dados próprios da prova, bastidores da produção, kit de mídia e a revista da Thomé & Santos. Credenciamento pela página de contato, com a assessoria.",
-    media: img("/images/fotos/pelotao-noite.webp", 2048, 2048, "Pelotão vibrando numa rua de Curitiba à noite"),
+    media: img(
+      "/images/fotos/pelotao-noite.webp",
+      2048,
+      2048,
+      "Pelotão vibrando numa rua de Curitiba à noite",
+    ),
   },
   cards: [
     {
@@ -324,9 +409,15 @@ export const arena = {
     { n: 13, label: "Acesso · app · PCD", x: 34, y: 93 },
   ],
   legend: [
-    { n: 1, text: "Palco coberto, de frente para a avenida. Show das 8h às 10h." },
+    {
+      n: 1,
+      text: "Palco coberto, de frente para a avenida. Show das 8h às 10h.",
+    },
     { n: 2, text: "Área VIP entre o palco e a chegada." },
-    { n: 3, text: "Linha de chegada na Av. Cândido de Abreu, em frente ao palco." },
+    {
+      n: 3,
+      text: "Linha de chegada na Av. Cândido de Abreu, em frente ao palco.",
+    },
     { n: 4, text: "Funil de chegada: medalha, poncho e água." },
     { n: 5, text: "Área dos atletas: aquecimento e banheiros exclusivos." },
     { n: 6, text: "Recovery e massagem (faculdade parceira, a fechar)." },
@@ -336,7 +427,10 @@ export const arena = {
     { n: 10, text: "Espaço Kids monitorado." },
     { n: 11, text: "Arena livre para torcida e público." },
     { n: 12, text: "Ponto de encontro de assessorias." },
-    { n: 13, text: "Acesso, desembarque de app e PCD pela Rua Ernani Santiago." },
+    {
+      n: 13,
+      text: "Acesso, desembarque de app e PCD pela Rua Ernani Santiago.",
+    },
   ],
   note: "Croqui ilustrativo · sujeito a mudanças · norte para cima.",
 };
