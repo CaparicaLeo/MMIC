@@ -18,7 +18,10 @@ export function LotCounter() {
       <div>
         <p className="label-condensed text-[0.68rem] text-text-gray">Inscritos até agora</p>
         <div className="mt-2 flex flex-wrap items-end gap-x-5 gap-y-2">
-          <p className="headline text-[clamp(4.5rem,13vw,8.5rem)] leading-none text-accent-red tabular-nums">
+          <p
+            data-count={lotes.registrations}
+            className="headline text-[clamp(4.5rem,13vw,8.5rem)] leading-none text-accent-red tabular-nums"
+          >
             {lotes.registrations.toLocaleString("pt-BR")}
           </p>
           <div className="pb-3 text-sm text-text-gray">
@@ -37,7 +40,7 @@ export function LotCounter() {
           aria-valuemax={100}
           className="h-2 w-full bg-white/10"
         >
-          <div className="h-full bg-accent-red" style={{ width: `${percent}%` }} />
+          <div data-bar className="h-full bg-accent-red" style={{ width: `${percent}%` }} />
         </div>
         <p className="label-condensed mt-3 text-[0.7rem] text-text-white">
           {current.name} · faltam {current.remaining} vagas · 5 e 10 km {brl(current.price5and10)} · 21 km{" "}

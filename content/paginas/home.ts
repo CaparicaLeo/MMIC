@@ -18,6 +18,8 @@ export const home = {
     /** Última palavra recebe a faixa vermelha inclinada. */
     title: ["A Meia", "Maratona", "de Curitiba."],
     slashWord: "Curitiba.",
+    /** Linha fina e espaçada entre "Maratona" e "de Curitiba." (índice da linha de cima). */
+    tagline: { text: "Internacional", after: 1 },
     lines: [
       "21,097 km pela cidade modelo.",
       "Show na linha de chegada.",
@@ -169,7 +171,7 @@ export const home = {
   },
 
   stats: [
-    { value: "5.000", label: "Atletas em 2026 · realizado" },
+    { value: "7.500", label: "Atletas em 2026 · realizado" },
     { value: "10 mil", label: "Meta 2027 · não realizado" },
     { value: "3", label: "Distâncias, um refrão" },
     { value: "2016", label: "Desde quando a T&S faz a prova da cidade" },

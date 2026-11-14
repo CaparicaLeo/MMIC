@@ -5,12 +5,16 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import { event, mainNav } from "@/content";
+import { inscricao } from "@/content/paginas/paginas";
 import { cn } from "@/lib/cn";
 
 /**
  * Cabeçalho do site. Fica transparente sobre o hero e ganha fundo ao rolar.
- * O botão "Inscreva-se" leva à página de inscrição, onde ficam os lotes.
+ * O botão "Inscreva-se" vai direto para a venda no Ticket Sports; sem o link,
+ * cai na página de inscrição.
  */
+const ticketHref = inscricao.ticketSportsUrl ?? "/inscricao";
+
 export function SiteHeader() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -62,7 +66,7 @@ export function SiteHeader() {
 
         <div className="flex items-center gap-3">
           <Link
-            href="/inscricao"
+            href={ticketHref}
             className="label-condensed hidden shrink-0 whitespace-nowrap bg-accent-red px-5 py-3 text-xs text-text-white transition-colors hover:bg-[#ef2a32] xl:inline-flex"
           >
             Inscreva-se
@@ -96,7 +100,7 @@ export function SiteHeader() {
             ))}
           </ul>
           <Link
-            href="/inscricao"
+            href={ticketHref}
             onClick={() => setIsMenuOpen(false)}
             className="label-condensed mt-6 inline-flex w-full items-center justify-center bg-accent-red px-6 py-4 text-xs text-text-white"
           >

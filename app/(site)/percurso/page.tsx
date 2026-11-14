@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 
 import { Altimetria } from "@/components/editorial/altimetria";
 import { Block, PageHero, SectionTitle } from "@/components/editorial/primitives";
+import { StravaLink } from "@/components/editorial/strava";
 import { percurso } from "@/content/paginas/paginas";
 
 export const metadata: Metadata = {
@@ -53,6 +54,7 @@ export default function PercursoPage() {
                   </li>
                 ))}
               </ul>
+              <StravaLink href={distance.stravaUrl} distance={distance.distance} />
             </div>
 
             <div className="flex flex-col gap-6 bg-[#141414] p-6 sm:p-8">

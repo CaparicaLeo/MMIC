@@ -2,6 +2,7 @@ import Image from "next/image";
 
 import { ArenaMap } from "@/components/editorial/arena";
 import { RoteiroList } from "@/components/editorial/roteiro";
+import { StravaLink } from "@/components/editorial/strava";
 import { Altimetria } from "@/components/editorial/altimetria";
 import { Block, InfoCard, Kicker, Photo, SectionTitle, StatNumber, withSlash } from "@/components/editorial/primitives";
 import { LotCounter, LotTable, TicketButton } from "@/components/editorial/lots";
@@ -19,9 +20,10 @@ export function HomeHero() {
   return (
     <section
       id="a-meia"
+      data-hero
       className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-bg-dark pt-32 pb-16 text-text-white sm:pb-20"
     >
-      <div aria-hidden className="absolute inset-0 -z-10">
+      <div aria-hidden data-hero-bg className="absolute inset-0 -z-10">
         <Image
           src={hero.background.src}
           alt=""
@@ -36,17 +38,37 @@ export function HomeHero() {
 
       <div className="container-page grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
         <div className="flex flex-col gap-7">
-          <Kicker>{hero.kicker}</Kicker>
+          <div data-hero-fade>
+            <Kicker>{hero.kicker}</Kicker>
+          </div>
 
-          <h1 className="headline text-[clamp(3.1rem,10vw,8.2rem)]">
+          {/* Cada linha é `w-fit` e não quebra; o "Internacional" vai dentro da
+              caixa de "Maratona" e se distribui letra a letra na largura dela. */}
+          <h1 className="headline text-[clamp(3.1rem,10vw,7.4rem)] leading-[0.98]!">
             {hero.title.map((line, index) => (
-              <span key={`${line}-${index}`} className="block">
+              <span key={`${line}-${index}`} data-hero-line className="block w-fit whitespace-nowrap">
                 {withSlash(line, hero.slashWord)}
+                {index === hero.tagline.after && (
+                  /* `pl-[0.025em]`, no tamanho do título, é o respiro que a Anton deixa
+                     antes da letra: sem ele o "I" ficava 3px à esquerda do "M". */
+                  <span className="my-[0.022em] block pl-[0.025em]">
+                    <span className="block font-condensed text-[max(0.22em,0.8rem)] leading-none font-normal tracking-normal">
+                      <span className="sr-only"> {hero.tagline.text}</span>
+                      <span aria-hidden className="flex justify-between">
+                        {Array.from(hero.tagline.text).map((letter, i) => (
+                          <span key={i} data-hero-letter className="inline-block">
+                            {letter}
+                          </span>
+                        ))}
+                      </span>
+                    </span>
+                  </span>
+                )}
               </span>
             ))}
           </h1>
 
-          <div className="flex flex-col gap-1">
+          <div data-hero-fade className="flex flex-col gap-1">
             {hero.lines.map((line) => (
               <p key={line} className="label-condensed text-[clamp(1rem,2.2vw,1.35rem)] font-semibold text-text-white">
                 {line}
@@ -67,7 +89,7 @@ export function HomeHero() {
           </div>
         </div>
 
-        <div className="flex flex-col gap-8 bg-bg-dark/70 p-6 backdrop-blur-sm sm:p-8">
+        <div data-hero-card className="flex flex-col gap-8 bg-bg-dark/70 p-6 backdrop-blur-sm sm:p-8">
           <LotCounter />
         </div>
       </div>
@@ -280,6 +302,9 @@ export function HomePercurso() {
               label={`Altimetria ilustrativa do percurso de ${distance.distance} km`}
             />
             <p className="text-sm leading-relaxed text-text-gray">{distance.note}</p>
+            <div className="mt-auto pt-2">
+              <StravaLink href={distance.stravaUrl} distance={distance.distance} />
+            </div>
           </article>
         ))}
       </div>

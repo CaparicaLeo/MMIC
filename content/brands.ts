@@ -419,7 +419,7 @@ export const brands = {
         id: "realizado",
         title: "Edição realizada",
         description:
-          "7 mil corredores confirmados na edição de 2026, com percurso internacional homologado e cronometragem oficial.",
+          "7.500 corredores inscritos na edição de 2026, com percurso internacional homologado e cronometragem oficial.",
       },
       {
         id: "cenario",

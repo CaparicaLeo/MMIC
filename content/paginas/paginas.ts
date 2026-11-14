@@ -24,11 +24,14 @@ export const inscricao = {
     media: img("/images/fotos/pelotao-dia-largo.webp", 2048, 1152, "Pelotão de corredores de camisa preta numa avenida, de dia"),
   },
   /**
-   * Link de venda do Ticket Sports. Ainda não recebido: enquanto for `null`,
-   * o botão de compra fica desabilitado em vez de apontar para um lugar errado.
+   * Link de venda do Ticket Sports (evento 88966). `origem=novo-site` marca no
+   * Ticket Sports as inscrições vindas daqui. Se voltar a `null`, o botão de
+   * compra fica desabilitado em vez de apontar para um lugar errado.
    */
-  // TODO(confirmar): link de venda do Ticket Sports.
-  ticketSportsUrl: null as string | null,
+  ticketSportsUrl:
+    "https://site.ticketsports.com.br/Inscricao/categoria.aspx?__idEvento=88966&origem=novo-site&lang=pt-BR" as
+      | string
+      | null,
   ticketPendingLabel: "Venda pelo Ticket Sports em breve",
   cards: [
     {
@@ -139,6 +142,8 @@ export const percurso = {
       id: "21k",
       distance: "21",
       unit: "km",
+      /** Rota no Strava (mapa navegável, exporta GPX). */
+      stravaUrl: "https://www.strava.com/routes/3556342497964110110",
       name: "A faixa-título",
       start: "06h",
       limit: "3h",
@@ -156,6 +161,8 @@ export const percurso = {
       id: "10k",
       distance: "10",
       unit: "km",
+      /** Rota no Strava (mapa navegável, exporta GPX). */
+      stravaUrl: "https://www.strava.com/routes/3556346442066786650",
       name: "O lado B",
       start: "06h20",
       limit: null,
@@ -171,6 +178,8 @@ export const percurso = {
       id: "5k",
       distance: "5",
       unit: "km",
+      /** Rota no Strava (mapa navegável, exporta GPX). */
+      stravaUrl: "https://www.strava.com/routes/3556333941235583870",
       name: "A abertura",
       start: "06h40",
       limit: null,
@@ -360,7 +369,7 @@ export const imprensa = {
     },
   ],
   stats: [
-    { value: "5.000", label: "Atletas em 2026 · realizado" },
+    { value: "7.500", label: "Atletas em 2026 · realizado" },
     { value: "10 mil", label: "Meta 2027 · não realizado" },
     { value: "3", label: "Distâncias, um refrão" },
     { value: "2016", label: "Desde quando a T&S faz a prova da cidade" },

@@ -10,8 +10,8 @@ import { event, footerNav } from "@/content";
 export function SiteFooter() {
   return (
     <footer className="border-t border-white/10 bg-[#060606]">
-      <div className="container-page flex flex-col gap-10 py-12 sm:flex-row sm:items-end sm:justify-between lg:py-14">
-        <div className="flex flex-col gap-4">
+      <div className="container-page flex flex-col items-center gap-10 py-12 sm:flex-row sm:items-end sm:justify-between lg:py-14">
+        <div className="flex flex-col items-center gap-4 text-center sm:items-start sm:text-left">
           <Image
             src={event.logo.src}
             alt={event.logo.alt}

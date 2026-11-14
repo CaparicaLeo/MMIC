@@ -31,7 +31,7 @@ export function Photo({
   preload?: boolean;
 }) {
   return (
-    <div className={cn("relative overflow-hidden bg-[#141414]", className)}>
+    <div data-photo className={cn("relative overflow-hidden bg-[#141414]", className)}>
       <Image
         src={media.src}
         alt={media.alt}
@@ -63,16 +63,27 @@ export function Kicker({ children, className }: { children: ReactNode; className
 }
 
 /**
- * Palavra final do título com a faixa vermelha inclinada atrás dela.
- * O texto fica sobre a faixa; o `-z-10` só funciona com o pai `isolate`.
+ * Palavra final do título sobre a bandeira vermelha da identidade 2027
+ * (entalhe e risco de velocidade à esquerda, corte inclinado à direita).
+ *
+ * As pontas são SVGs com `h-full w-auto`: a largura sai da proporção, então o
+ * desenho não deforma com o comprimento da palavra — só o miolo estica. O
+ * risco da esquerda avança sobre o espaço antes da palavra (`-left-[0.4em]`).
+ * O `-z-10` só funciona com o pai `isolate`.
  */
 export function Slash({ children }: { children: ReactNode }) {
   return (
-    <span className="relative isolate inline-block whitespace-nowrap px-[0.14em]">
-      <span
-        aria-hidden
-        className="absolute inset-0 -z-10 -skew-x-[9deg] bg-accent-red"
-      />
+    <span className="relative isolate inline-block whitespace-nowrap pr-[0.3em] pl-[0.72em]">
+      <span aria-hidden data-slash-bg className="absolute inset-y-0 right-0 -left-[0.4em] -z-10 flex text-accent-red">
+        <svg viewBox="0 0 388 358" className="h-full w-auto shrink-0" fill="currentColor">
+          <polygon points="148,0 389,0 389,358 148,358 364,331 388,99" />
+          <polygon points="0,126 345,126 340,179" />
+        </svg>
+        <span className="-mx-px flex-1 bg-current" />
+        <svg viewBox="0 0 69 358" className="h-full w-auto shrink-0" fill="currentColor">
+          <polygon points="-1,0 69,0 0,358 -1,358" />
+        </svg>
+      </span>
       {children}
     </span>
   );
