@@ -61,7 +61,7 @@ export const home = {
       },
       {
         title: "Sábado já é dia de show: a expo",
-        text: "Retirada de kit na praça, um dia antes, com a expo das marcas, a playlist da Meia tocando, shakeout run às 16h e a camiseta na mão. Você dorme sabendo que amanhã é o dia.",
+        text: "Retirada de kit um dia antes, na expo das marcas, com a playlist da Meia tocando, shakeout run às 16h e a camiseta na mão. Você dorme sabendo que amanhã é o dia.",
         media: img("/images/fotos/megafone-grupo-vertical.webp", 896, 1200, "Turma com megafone num tubo de ônibus"),
       },
     ],
@@ -106,7 +106,7 @@ export const home = {
       },
       {
         title: "Número de peito com chip, sacola e hidratação",
-        text: "Retirada na expo, sábado, na praça.",
+        text: "Retirada na expo, no sábado.",
       },
     ],
   },

@@ -69,8 +69,9 @@ export const percurso = {
       id: "21k",
       distance: "21",
       unit: "km",
-      /** Rota no Strava (mapa navegável, exporta GPX). */
+      /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
       stravaUrl: "https://www.strava.com/routes/3556342497964110110",
+      mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6799928532",
       name: "A faixa-título",
       start: "06h",
       limit: "3h",
@@ -88,8 +89,9 @@ export const percurso = {
       id: "10k",
       distance: "10",
       unit: "km",
-      /** Rota no Strava (mapa navegável, exporta GPX). */
+      /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
       stravaUrl: "https://www.strava.com/routes/3556346442066786650",
+      mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800162596",
       name: "O lado B",
       start: "06h20",
       limit: null,
@@ -105,8 +107,9 @@ export const percurso = {
       id: "5k",
       distance: "5",
       unit: "km",
-      /** Rota no Strava (mapa navegável, exporta GPX). */
+      /** Rotas no Strava e no MapMyRun (mapa navegável, exporta GPX). */
       stravaUrl: "https://www.strava.com/routes/3556333941235583870",
+      mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800155027",
       name: "A abertura",
       start: "06h40",
       limit: null,
@@ -134,8 +137,8 @@ export const domingo = {
   },
   saturday: {
     kicker: "Sábado · expo e retirada",
-    title: "Retirada de kit na praça.",
-    slashWord: "praça.",
+    title: "Retirada de kit no sábado.",
+    slashWord: "sábado.",
     items: [
       {
         id: "manha",
@@ -307,19 +310,18 @@ export const imprensa = {
 export const arena = {
   points: [
     { n: 9, label: "Praça de alimentação", x: 22, y: 12 },
-    { n: 11, label: "Expo · kit (sáb.)", x: 40, y: 12 },
     { n: 4, label: "Funil · medalha, poncho", x: 60, y: 14 },
     { n: 10, label: "Espaço Kids", x: 36, y: 30 },
     { n: 8, label: "WC", x: 48, y: 30 },
     { n: 1, label: "Palco · show", x: 66, y: 40, highlight: true },
     { n: 2, label: "Área VIP", x: 66, y: 54 },
     { n: 3, label: "Linha de chegada", x: 80, y: 60 },
-    { n: 12, label: "Arena livre · torcida", x: 52, y: 66 },
+    { n: 11, label: "Arena livre · torcida", x: 52, y: 66 },
     { n: 7, label: "Guarda-volumes", x: 14, y: 74 },
     { n: 6, label: "Recovery", x: 30, y: 74 },
     { n: 5, label: "Área atletas", x: 42, y: 74 },
-    { n: 13, label: "Assessorias", x: 56, y: 80 },
-    { n: 14, label: "Acesso · app · PCD", x: 34, y: 93 },
+    { n: 12, label: "Assessorias", x: 56, y: 80 },
+    { n: 13, label: "Acesso · app · PCD", x: 34, y: 93 },
   ],
   legend: [
     { n: 1, text: "Palco coberto, de frente para a avenida. Show das 8h às 10h." },
@@ -332,10 +334,9 @@ export const arena = {
     { n: 8, text: "Banheiros e água." },
     { n: 9, text: "Praça de alimentação no gramado norte." },
     { n: 10, text: "Espaço Kids monitorado." },
-    { n: 11, text: "Expo das marcas e retirada de kit (sábado)." },
-    { n: 12, text: "Arena livre para torcida e público." },
-    { n: 13, text: "Ponto de encontro de assessorias." },
-    { n: 14, text: "Acesso, desembarque de app e PCD pela Rua Ernani Santiago." },
+    { n: 11, text: "Arena livre para torcida e público." },
+    { n: 12, text: "Ponto de encontro de assessorias." },
+    { n: 13, text: "Acesso, desembarque de app e PCD pela Rua Ernani Santiago." },
   ],
   note: "Croqui ilustrativo · sujeito a mudanças · norte para cima.",
 };

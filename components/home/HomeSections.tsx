@@ -2,7 +2,7 @@ import Image from "next/image";
 
 import { ArenaMap } from "@/components/editorial/arena";
 import { RoteiroList } from "@/components/editorial/roteiro";
-import { StravaLink } from "@/components/editorial/strava";
+import { RouteLinks } from "@/components/editorial/route-links";
 import { Altimetria } from "@/components/editorial/altimetria";
 import {
   Block,
@@ -321,15 +321,15 @@ export function HomeZarina() {
           </div>
           <SectionTitle title={zarina.title} slashWord={zarina.slashWord} />
 
-          <p className="font-condensed text-[clamp(1.35rem,2.4vw,1.75rem)] leading-snug font-semibold text-text-white uppercase">
-            {zarina.lead}
-          </p>
-
           <div className="flex flex-col gap-4 text-base leading-relaxed text-text-gray">
             {zarina.paragraphs.map((paragraph) => (
               <p key={paragraph}>{paragraph}</p>
             ))}
           </div>
+
+          <p className="font-condensed text-[clamp(1.35rem,2.4vw,1.75rem)] leading-snug font-semibold text-text-white uppercase">
+            {zarina.lead}
+          </p>
 
           <p className="label-condensed flex flex-wrap gap-x-4 gap-y-1 border-y border-white/10 py-5 text-[clamp(1rem,2vw,1.25rem)] text-text-white">
             {zarina.manifesto.map((item, index) => (
@@ -450,9 +450,10 @@ export function HomePercurso() {
               {distance.note}
             </p>
             <div className="mt-auto pt-2">
-              <StravaLink
-                href={distance.stravaUrl}
+              <RouteLinks
                 distance={distance.distance}
+                stravaUrl={distance.stravaUrl}
+                mapMyRunUrl={distance.mapMyRunUrl}
               />
             </div>
           </article>
