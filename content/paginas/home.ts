@@ -82,8 +82,8 @@ export const home = {
 
   kit: {
     kicker: "Kit do atleta",
-    title: "O uniforme da banda.",
-    slashWord: "banda.",
+    title: "O uniforme da Meia.",
+    slashWord: "Meia.",
     caption: "Camisetas 2027 · 21 km, 10 km e 5 km",
     media: img(
       "/images/camisas-2027.webp",
@@ -109,6 +109,30 @@ export const home = {
         text: "Retirada na expo, sábado, na praça.",
       },
     ],
+  },
+
+  /** Coleção Zarina com a tecnologia AERUN, que veste as camisetas oficiais 2027. */
+  zarina: {
+    kicker: "Nova coleção Zarina",
+    product: "AERUN Performance Technology",
+    title: "Desenvolvida para o movimento. Projetada para a performance.",
+    slashWord: "performance.",
+    lead: "Seu corpo foi feito para superar limites. Sua roupa precisa acompanhar.",
+    paragraphs: [
+      "A Zarina apresenta sua nova coleção de moda esportiva com AERUN PERFORMANCE TECHNOLOGY, uma inovação têxtil desenvolvida a partir das pesquisas de Nora Márcia dos Santos, que une tecnologia, conforto e liberdade de movimentos.",
+      "Presente nas camisetas oficiais da Meia Maratona Internacional de Curitiba – Rock Edition 2027, a tecnologia AERUN foi projetada para favorecer a regulação térmica, a respirabilidade e a rápida evaporação do suor, além de incorporar recursos de proteção UV e controle de odores.",
+      "Uma nova geração de vestuário esportivo que trabalha a favor do seu corpo, do primeiro ao último quilômetro.",
+    ],
+    manifesto: ["Menos distrações.", "Mais conforto.", "Máxima performance."],
+    signature: "AERUN — Engineered for Motion. Designed for Performance.",
+    signatureBy: "Uma tecnologia Zarina.",
+    cta: "Em breve no site",
+    /**
+     * Mockup da coleção ainda não produzido. Enquanto for `null`, a seção mostra
+     * um quadro reservado no lugar da foto; quando a arte chegar, basta trocar
+     * por `img("/images/...", largura, altura, "alt")` (proporção 4:5).
+     */
+    media: null as Media | null,
   },
 
   arena: {

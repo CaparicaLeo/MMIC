@@ -14,11 +14,12 @@ import {
   HomePercurso,
   HomeStats,
   HomeTrio,
+  HomeZarina,
 } from "@/components/home/HomeSections";
 
 /**
  * Home da edição 2027, na ordem do briefing (PDF "MMIC27_site_completo"):
- * hero, faixa, o que você vai viver, lotes, kit, arena, percurso,
+ * hero, faixa, o que você vai viver, lotes, kit, coleção Zarina, arena, percurso,
  * domingo, Curitiba, concurso, números e os três atalhos do rodapé.
  */
 export default function HomePage() {
@@ -33,7 +34,8 @@ export default function HomePage() {
         <HomeBand />
         <HomeAbout />
         <HomeLots />
-          <HomeKit />
+        <HomeKit />
+        <HomeZarina />
         <HomeArena />
         <HomePercurso />
         <HomeDomingo />
