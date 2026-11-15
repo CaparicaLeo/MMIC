@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 import { Altimetria } from "@/components/editorial/altimetria";
 import { altimetria } from "@/content/paginas/altimetria";
@@ -9,11 +10,11 @@ import { percurso } from "@/content/paginas/paginas";
 export const metadata: Metadata = {
   title: "Percurso",
   description:
-    "Percurso da Meia Maratona Internacional de Curitiba 2027: 21 km, 10 km e 5 km, com altimetria, pontos de água e pontos de corte.",
+    "Percurso da Meia Maratona Internacional de Curitiba 2027: 21 km, 10 km e 5 km, com mapa, altimetria, pontos de água e pontos de corte.",
   alternates: { canonical: "/percurso" },
 };
 
-/** Percurso por distância: largada, altimetria ilustrativa e o que importa em cada faixa. */
+/** Percurso por distância: largada, mapa oficial, altimetria e o que importa em cada faixa. */
 export default function PercursoPage() {
   const { hero } = percurso;
   return (
@@ -82,6 +83,24 @@ export default function PercursoPage() {
             </div>
 
             <div className="flex flex-col gap-6 bg-[#141414] p-6 sm:p-8">
+              <a
+                href={distance.map.src}
+                target="_blank"
+                rel="noopener"
+                className="group block focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-accent-red"
+              >
+                <Image
+                  src={distance.map.src}
+                  alt={distance.map.alt}
+                  width={distance.map.width}
+                  height={distance.map.height}
+                  sizes="(min-width: 1024px) 55vw, 100vw"
+                  className="h-auto w-full"
+                />
+                <span className="label-condensed mt-3 block text-[0.66rem] text-text-gray transition-colors group-hover:text-text-white">
+                  Abrir mapa em tamanho real ↗
+                </span>
+              </a>
               <Altimetria
                 data={altimetria[distance.id]}
                 highlightKm={distance.highlightKm}

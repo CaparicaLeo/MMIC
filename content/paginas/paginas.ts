@@ -100,6 +100,13 @@ export const percurso = {
       note: "A subida do km 17 ao 20 é o solo de guitarra: vem no fim, quando as pernas já pesam. É ali que a prova se decide.",
       /** Trecho em vermelho na altimetria (sem ele, vale a maior subida do GPX). */
       highlightKm: [17, 20] as [number, number],
+      /** Mapa oficial do percurso, arte da organização. */
+      map: img(
+        "/images/percurso/mapa-21km.webp",
+        1080,
+        1350,
+        "Mapa do percurso de 21 km pelas ruas de Curitiba, com largada, chegada, marcação a cada quilômetro e pontos de referência",
+      ),
     },
     {
       id: "10k" as const,
@@ -119,6 +126,13 @@ export const percurso = {
       ],
       note: "Largada em ondas de pace, para correr no seu ritmo do início à chegada.",
       highlightKm: undefined as [number, number] | undefined,
+      /** Mapa oficial do percurso, arte da organização. */
+      map: img(
+        "/images/percurso/mapa-10km.webp",
+        1080,
+        1350,
+        "Mapa do percurso de 10 km pelas ruas de Curitiba, com largada, chegada, marcação a cada quilômetro e pontos de referência",
+      ),
     },
     {
       id: "5k" as const,
@@ -138,6 +152,13 @@ export const percurso = {
       ],
       note: "Mesma chegada, mesmo palco. Para quem está começando ou vem com a família.",
       highlightKm: [3.2, 3.9] as [number, number],
+      /** Mapa oficial do percurso, arte da organização. */
+      map: img(
+        "/images/percurso/mapa-5km.webp",
+        1080,
+        1350,
+        "Mapa do percurso de 5 km pelas ruas de Curitiba, com largada, chegada, marcação a cada quilômetro e pontos de referência",
+      ),
     },
   ],
 };
