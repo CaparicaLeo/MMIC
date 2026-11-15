@@ -61,7 +61,7 @@ export const home = {
       {
         tag: "Show na linha de chegada",
         title: "Você cruza o pórtico e cai na frente do palco.",
-        text: "Medalha no peito e a banda já está no palco. A partir das 7h30 a arena é festival, e quem acabou de correr fica na grade. Palco coberto, de frente para a avenida. Atração principal: anúncio em breve, pelos canais oficiais.",
+        text: "Medalha no peito, banda no palco e o melhor lugar do show é de quem correu. A partir das 7h30 a arena vira festival. Atração principal: em breve, pelos canais oficiais.",
         media: img(
           "/images/fotos/palco-show.webp",
           1856,
