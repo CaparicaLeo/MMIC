@@ -151,7 +151,7 @@ export const contestResults = {
         kicker: "Finalistas",
         title: "Quem chegou até a final.",
         description:
-          "As artes que passaram pela curadoria e foram para o voto do público.",
+          "A camiseta da Meia 2027 não saiu de uma agência. Saiu de um concurso aberto a qualquer artista, com curadoria técnica e dez artes finalistas. A decisão foi do público: quase 6 mil votos no Grupo VIP escolheram as três estampas oficiais, uma para cada distância. Vitor Ferreira veste os 21 km, Alan Barg os 10 km e Melanie Kozlowski os 5 km. Abaixo, todas as que chegaram à final.",
       },
     } satisfies Record<Exclude<ContestPhase, "curadoria">, SectionIntro>,
   },
