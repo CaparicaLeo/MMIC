@@ -251,8 +251,8 @@ export const home = {
     title: "A capa do disco é de quem corre.",
     slashWord: "corre.",
     description:
-      "Concurso nacional encerrado. A campeã assina a camiseta dos 21 km, e as finalistas seguem em exibição na página do concurso.",
-    cta: "Ver a campeã e as finalistas",
+      "Concurso nacional encerrado. O campeão assina a camiseta dos 21 km, e as finalistas seguem em exibição na página do concurso.",
+    cta: "Ver o campeão e os finalistas",
     media: img(
       "/images/finalistas/vitor-ferreira-martins/resultado.webp",
       1080,
