@@ -147,7 +147,7 @@ export const home = {
     slashWord: "performance.",
     lead: "Seu corpo foi feito para superar limites. Sua roupa precisa acompanhar.",
     paragraphs: [
-      "A Zarina apresenta sua nova coleção de moda esportiva com AERUN PERFORMANCE TECHNOLOGY, uma inovação têxtil desenvolvida a partir das pesquisas de Nora Márcia dos Santos, que une tecnologia, conforto e liberdade de movimentos.",
+      "A Zarina apresenta sua nova coleção de moda esportiva com AERUN PERFORMANCE TECHNOLOGY, uma inovação têxtil que une tecnologia, conforto e liberdade de movimentos.",
       "Presente nas camisetas oficiais da Meia Maratona Internacional de Curitiba – Rock Edition 2027, a tecnologia AERUN foi projetada para favorecer a regulação térmica, a respirabilidade e a rápida evaporação do suor, além de incorporar recursos de proteção UV e controle de odores.",
       "Uma nova geração de vestuário esportivo que trabalha a favor do seu corpo, do primeiro ao último quilômetro.",
     ],
