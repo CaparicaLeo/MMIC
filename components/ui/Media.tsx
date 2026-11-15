@@ -34,7 +34,9 @@ export function Media({
         alt={media.alt}
         fill
         sizes={sizes}
-        preload={preload}
+        priority={preload}
+        loading={preload ? undefined : "eager"}
+        fetchPriority={preload ? "high" : "low"}
         className={cn("object-cover", imageClassName)}
       />
     </div>

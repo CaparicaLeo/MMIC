@@ -1,3 +1,4 @@
+import { SiteMotion } from "@/components/animation/SiteMotion";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
 
@@ -24,7 +25,9 @@ export default function SiteLayout({
       </a>
 
       <SiteHeader />
-      <main id="conteudo">{children}</main>
+      <main id="conteudo">
+        <SiteMotion>{children}</SiteMotion>
+      </main>
       <SiteFooter />
     </>
   );

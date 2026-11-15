@@ -39,11 +39,11 @@ export const hero = {
    * do Backstage junto. Tudo que é texto mora aqui; o componente só formata.
    */
   registrationCard: {
-    label: "Abertura das inscrições",
+    label: "Data da prova",
     date: event.registrationOpensLabel,
-    countdownCaption: "Inscrições abrem em",
+    countdownCaption: "Faltam",
     /** Benefício colado no CTA: o que quem entra agora leva a mais. */
-    note: "Quem está no grupo VIP compra 24h antes de todo mundo.",
+    note: "Inscrições pelo Ticket Sports.",
   },
   cta: {
     label: backstage.ctaLabel,

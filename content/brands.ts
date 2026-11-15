@@ -419,13 +419,13 @@ export const brands = {
         id: "realizado",
         title: "Edição realizada",
         description:
-          "7 mil corredores confirmados na edição de 2026, com percurso internacional homologado e cronometragem oficial.",
+          "7.500 corredores inscritos na edição de 2026, com percurso certificado pela CBAt e cronometragem oficial.",
       },
       {
         id: "cenario",
         title: "Cenário",
         description:
-          "Rua fechada na capital do Paraná, com percurso internacional homologado e cronometragem oficial.",
+          "Rua fechada na capital do Paraná, com percurso certificado pela CBAt e cronometragem oficial.",
       },
       {
         id: "alcance",

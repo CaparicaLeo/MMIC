@@ -41,8 +41,8 @@ export type ContestWinner = {
 export type RankedFinalist = ContestFinalist & { placeId: ContestPlaceId; post: string };
 
 export const contestResults = {
-  // TODO(confirmar): avançar a fase conforme a produção anunciar.
-  phase: "curadoria" as ContestPhase,
+  /** Concurso encerrado: votação fechada e vencedoras anunciadas. */
+  phase: "resultado" as ContestPhase,
 
   /** Data do anúncio por extenso. Ex.: "12 de dezembro de 2026". */
   announcedAt: null as string | null,
@@ -105,15 +105,14 @@ export const contestResults = {
 
   /**
    * Como votar. Aparece enquanto não há resultado: qualquer pessoa vota pelo
-   * Instagram oficial, e o caminho para não perder a abertura da votação é o
-   * grupo VIP — por isso o CTA abre o grupo, não o perfil.
+   * Instagram oficial.
    */
   voting: {
     intro: {
       kicker: "Votação aberta a todos",
       title: "Qualquer pessoa vota.",
       description:
-        "Não precisa estar inscrito na prova nem ter enviado arte: qualquer um participa da votação das finalistas pelo nosso Instagram oficial. Entre no grupo VIP e receba o aviso assim que a votação abrir.",
+        "Não precisa estar inscrito na prova nem ter enviado arte: qualquer um participa da votação das finalistas pelo nosso Instagram oficial.",
     } satisfies SectionIntro,
     /** Ilustra o que está em jogo: a camisa técnica preta da prova. */
     media: {
@@ -146,13 +145,13 @@ export const contestResults = {
         kicker: "Finalistas",
         title: "Escolha a sua.",
         description:
-          "Estas são as artes que passaram pela curadoria. Qualquer pessoa pode votar pelo nosso Instagram oficial. Entre no grupo VIP para não perder o prazo.",
+          "Estas são as artes que passaram pela curadoria. Qualquer pessoa pode votar pelo nosso Instagram oficial.",
       },
       resultado: {
         kicker: "Finalistas",
         title: "Quem chegou até a final.",
         description:
-          "As artes que passaram pela curadoria e foram para o voto do público.",
+          "A camiseta da Meia 2027 não saiu de uma agência. Saiu de um concurso aberto a qualquer artista, com curadoria técnica e dez artes finalistas. A decisão foi do público: quase 6 mil votos no Grupo VIP escolheram as três estampas oficiais, uma para cada distância. Vitor Ferreira veste os 21 km, Alan Barg os 10 km e Melanie Kozlowski os 5 km. Abaixo, todas as que chegaram à final.",
       },
     } satisfies Record<Exclude<ContestPhase, "curadoria">, SectionIntro>,
   },
@@ -161,7 +160,7 @@ export const contestResults = {
     kicker: "Rock Edition 2027",
     title: ["A arte está pronta.", "Falta você vestir."],
     description:
-      "A camisa do concurso faz parte do kit dos atletas inscritos. Entre no grupo VIP para saber antes de todo mundo quando as inscrições abrirem.",
+      "A camisa do concurso faz parte do kit dos atletas inscritos. Garanta sua vaga e corra com ela.",
   },
 };
 

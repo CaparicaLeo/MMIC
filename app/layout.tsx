@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Analytics } from "@vercel/analytics/react";
 
+import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { AnimationProvider } from "@/components/animation/AnimationProvider";
 import { RegistrationProvider } from "@/components/registration/RegistrationProvider";
 import { event, seoDescription, siteUrl } from "@/content";
@@ -105,6 +106,8 @@ export default function RootLayout({
           <RegistrationProvider>{children}</RegistrationProvider>
         </AnimationProvider>
         <Analytics />
+        {/* Pixel da Meta: PageView em todas as páginas e InitiateCheckout nos links da Ticket Sports. */}
+        <MetaPixel />
       </body>
     </html>
   );

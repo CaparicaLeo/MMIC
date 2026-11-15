@@ -22,13 +22,13 @@ export const faq = {
       id: "kit",
       question: "Como funciona a retirada de kit?",
       answer:
-        "A retirada acontece em dias específicos antes da prova, em ponto único na cidade, mediante documento com foto e comprovante de inscrição. Não há entrega de kit no dia do evento. Datas, endereço e horários serão anunciados com antecedência.",
+        "A retirada acontece na Expo da Meia, antes da prova, com documento original com foto, CPF e comprovante de pagamento. Retirada por terceiros só com cópia dos documentos e carta de autorização assinada. Não há entrega de kit no dia do evento. Data, horário e endereço serão anunciados.",
     },
     {
       id: "inscricao",
       question: "Qual é a política de inscrição?",
       answer:
-        "A inscrição é individual e nominal, com lotes por ordem de compra. Transferência de titularidade e troca de distância seguem prazos definidos em regulamento, publicado na abertura das vendas. Cancelamentos seguem a política vigente informada no ato da compra.",
+        "A inscrição é pessoal e nominal. A transferência de titularidade pode ser feita até 20/05/2027, com taxa de R$ 50,00 via Pix. Pessoas com 60 anos ou mais pagam 50%. Não há cupons de desconto.",
     },
 {
         id: "data",
@@ -39,13 +39,13 @@ export const faq = {
         // dizer o que está confirmado (a abertura das inscrições) em vez de
         // repetir que nada está.
         answer:
-          "A data da prova ainda não foi anunciada. O que já está confirmado é a abertura das inscrições, em 15 de novembro de 2026. Quem entra no grupo VIP recebe o primeiro lote antes da venda aberta. Para saber a data e os horários assim que saírem, entre no grupo do Instagram (@meiainternacionalcuritiba).",
+          "Sim: domingo, 20 de junho de 2027, em Curitiba. A largada da elite do 21 km é às 6h30, e as ondas de pace saem a partir das 6h32. As inscrições já estão abertas e vão até 11 de junho de 2027 ou até esgotarem as 10.000 vagas.",
       },
     {
       id: "iniciante",
       question: "Nunca corri uma prova de rua. Dá para participar?",
       answer:
-        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena, com guarda-volumes, hidratação, Recovery Zone e Espaço Kids, foi pensada para quem está estreando e vem com a família.",
+        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena, com guarda-volumes, hidratação e Recovery Zone, foi pensada para quem está estreando e vem com a família.",
     },
     /*
       Três perguntas novas para as buscas por "meia maratona" + "Curitiba":
@@ -57,19 +57,19 @@ export const faq = {
       id: "distancias",
       question: "Quais distâncias tem na Meia Maratona de Curitiba?",
       answer:
-        "São três: 5 km, 10 km e 21 km. Os 5 km são abertos inclusive para caminhada, o 10 km é a distância mais disputada e os 21 km são a prova principal, com percurso homologado. Todas terminam na mesma arena, no mesmo show.",
+        "São três: 5 km, 10 km e 21 km. Os 5 km são abertos inclusive para caminhada, o 10 km é a distância mais disputada e os 21 km são a prova principal, com percurso aferido e certificado pela CBAt. Todas terminam na mesma arena, no mesmo show.",
     },
     {
       id: "abertura-inscricoes",
-      question: "Quando abrem as inscrições?",
+      question: "Até quando vão as inscrições?",
       answer:
-        "As inscrições da Meia Maratona Internacional de Curitiba 2027 abrem em 15 de novembro de 2026. Quem está no grupo VIP compra 24 horas antes de todo mundo.",
+        "As inscrições da Meia Maratona Internacional de Curitiba 2027 estão abertas no Ticket Sports e vão até 11 de junho de 2027, ou até esgotarem as 10.000 vagas. Cada lote tem um número de vagas e fecha quando elas acabam.",
     },
     {
       id: "show",
       question: "Tem show na chegada?",
       answer:
-        "Tem. Quando o último pelotão cruza a chegada, a arena troca de função e a linha de chegada vira a frente do palco, com show ao vivo para corredores e público. A atração principal ainda é uma surpresa.",
+        "Tem. A programação musical na arena começa às 7h30, com a linha de chegada de frente para o palco. O acesso à arena e ao show é exclusivo dos inscritos e credenciados. O Kit Plus inclui 2 ingressos para o show. A atração principal será anunciada pelos canais oficiais.",
     },
   ] satisfies FaqItem[],
 };

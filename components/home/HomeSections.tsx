@@ -1,0 +1,628 @@
+import Image from "next/image";
+
+import { ArenaMap } from "@/components/editorial/arena";
+import { RoteiroList } from "@/components/editorial/roteiro";
+import { RouteLinks } from "@/components/editorial/route-links";
+import { Altimetria } from "@/components/editorial/altimetria";
+import { altimetria } from "@/content/paginas/altimetria";
+import {
+  Block,
+  InfoCard,
+  Kicker,
+  Photo,
+  SectionTitle,
+  StatNumber,
+  withSlash,
+} from "@/components/editorial/primitives";
+import {
+  LotCounter,
+  LotTable,
+  TicketButton,
+} from "@/components/editorial/lots";
+import { CTAButton } from "@/components/ui/CTAButton";
+import { home } from "@/content/paginas/home";
+import {
+  curitiba,
+  domingo,
+  inscricao,
+  percurso,
+} from "@/content/paginas/paginas";
+import { currentLot, lotes } from "@/content/paginas/lotes";
+import { getRankedWinners } from "@/content/contestResults";
+import { cn } from "@/lib/cn";
+
+/* ----------------------------------------------------------------- Hero */
+
+export function HomeHero() {
+  const { hero } = home;
+  return (
+    <section
+      id="a-meia"
+      data-motion="hero"
+      className="relative isolate flex min-h-svh flex-col justify-end overflow-hidden bg-bg-dark pt-32 pb-16 text-text-white sm:pb-20"
+    >
+      <div aria-hidden data-hero-bg className="absolute inset-0 -z-10">
+        <Image
+          src={hero.background.src}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[75%_35%] opacity-75"
+        />
+        <div className="absolute inset-0 bg-linear-to-r from-bg-dark via-bg-dark/55 to-bg-dark/10" />
+        <div className="absolute inset-0 bg-linear-to-t from-bg-dark via-transparent to-bg-dark/30" />
+      </div>
+
+      <div className="container-page grid gap-12 lg:grid-cols-[1.1fr_0.9fr] lg:items-end">
+        <div className="flex flex-col gap-7">
+          <div data-hero-fade>
+            <Kicker>{hero.kicker}</Kicker>
+          </div>
+
+          {/* Cada linha é `w-fit` e não quebra; o "Internacional" vai dentro da
+              caixa de "Maratona" e se distribui letra a letra na largura dela. */}
+          <h1 className="headline isolate text-[clamp(3.1rem,10vw,7.4rem)] leading-[0.98]!">
+            {hero.title.map((line, index) => (
+              <span
+                key={`${line}-${index}`}
+                data-hero-line
+                className="block w-fit whitespace-nowrap"
+              >
+                {withSlash(line, hero.slashWord)}
+                {index === hero.tagline.after && (
+                  /* `pl-[0.025em]`, no tamanho do título, é o respiro que a Anton deixa
+                     antes da letra: sem ele o "I" ficava 3px à esquerda do "M". */
+                  <span className="my-[0.022em] block pl-[0.025em]">
+                    <span className="block font-condensed text-[max(0.22em,0.8rem)] leading-none font-normal tracking-normal">
+                      <span className="sr-only"> {hero.tagline.text}</span>
+                      <span aria-hidden className="flex justify-between">
+                        {Array.from(hero.tagline.text).map((letter, i) => (
+                          <span
+                            key={i}
+                            data-hero-letter
+                            className="inline-block"
+                          >
+                            {letter}
+                          </span>
+                        ))}
+                      </span>
+                    </span>
+                  </span>
+                )}
+              </span>
+            ))}
+          </h1>
+
+          <div data-hero-fade className="flex flex-col gap-1">
+            {hero.lines.map((line) => (
+              <p
+                key={line}
+                className="label-condensed text-[clamp(1rem,2.2vw,1.35rem)] font-semibold text-text-white"
+              >
+                {line}
+              </p>
+            ))}
+            <p className="label-condensed text-[clamp(1rem,2.2vw,1.35rem)] font-semibold text-accent-red">
+              {hero.brand}
+            </p>
+          </div>
+
+          <div className="flex flex-wrap items-center gap-4 pt-2">
+            <CTAButton
+              href={inscricao.ticketSportsUrl ?? "/inscricao"}
+              size="lg"
+            >
+              Garantir minha vaga
+            </CTAButton>
+            <CTAButton href="/percurso" variant="outline" size="lg">
+              Ver o percurso
+            </CTAButton>
+          </div>
+        </div>
+
+        <div
+          data-hero-card
+          className="flex flex-col gap-8 bg-bg-dark/70 p-6 backdrop-blur-sm sm:p-8"
+        >
+          <LotCounter />
+        </div>
+      </div>
+    </section>
+  );
+}
+
+/* ----------------------------------------------------------------- Band */
+
+export function HomeBand() {
+  return (
+    <div className="bg-accent-red text-text-white">
+      <p className="headline container-page py-6 text-[clamp(1.4rem,3.6vw,2.6rem)] leading-tight">
+        {home.band.first}
+        <span className="mx-3 inline-block align-middle text-text-white/70">
+          ·
+        </span>
+        {home.band.second}
+      </p>
+    </div>
+  );
+}
+
+/* ---------------------------------------------------------------- About */
+
+export function HomeAbout() {
+  const { about } = home;
+  return (
+    <Block>
+      <SectionTitle
+        kicker={about.kicker}
+        title={about.title}
+        slashWord={about.slashWord}
+        description={about.description}
+      />
+
+      <div className="mt-14 grid gap-px bg-white/10 lg:grid-cols-2">
+        {about.cards.map((card, index) => (
+          <article key={card.title} className="flex flex-col bg-bg-dark">
+            <Photo
+              media={card.media}
+              className="aspect-[4/3] w-full"
+              sizes="(min-width: 1024px) 50vw, 100vw"
+            />
+            <div
+              className={cn(
+                "flex flex-1 flex-col gap-4 border-t-2 bg-[#141414] p-7",
+                index === 0 ? "border-accent-red" : "border-white/15",
+              )}
+            >
+              <p className="label-condensed text-[0.66rem] text-text-gray">
+                {card.tag}
+              </p>
+              <h3 className="headline text-[clamp(1.9rem,3.6vw,2.6rem)] leading-[1.02]">
+                {card.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-text-gray sm:text-base">
+                {card.text}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div className="mt-px grid gap-px bg-white/10 md:grid-cols-2">
+        {about.smallCards.map((card) => (
+          <article
+            key={card.title}
+            className="grid gap-6 bg-bg-dark p-0 sm:grid-cols-[0.9fr_1.1fr]"
+          >
+            <Photo
+              media={card.media}
+              className="aspect-[4/5] w-full sm:aspect-auto sm:h-full"
+              sizes="(min-width: 640px) 35vw, 100vw"
+            />
+            <div className="flex flex-col justify-center gap-4 p-7 sm:py-10 sm:pr-8 sm:pl-0">
+              <h3 className="headline text-2xl leading-tight sm:text-3xl">
+                {card.title}
+              </h3>
+              <p className="text-sm leading-relaxed text-text-gray">
+                {card.text}
+              </p>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p className="headline mt-20 max-w-4xl text-[clamp(1.8rem,4.2vw,3.2rem)] leading-[1.08]">
+        {about.statement.first}{" "}
+        <span className="text-accent-red">{about.statement.red}</span>
+      </p>
+    </Block>
+  );
+}
+
+/* ----------------------------------------------------------------- Lots */
+
+export function HomeLots() {
+  const { lots } = home;
+  return (
+    <Block id="inscricoes" tone="darker">
+      <SectionTitle
+        kicker={lots.kicker}
+        title={lots.title}
+        slashWord={lots.slashWord}
+        description={lots.description}
+      />
+
+      <div className="mt-14 grid gap-12 lg:grid-cols-[0.8fr_1.4fr] lg:items-start">
+        <div className="flex min-w-0 flex-col gap-8">
+          <p className="headline text-[clamp(2.2rem,4vw,3.4rem)] leading-none">
+            <span className="text-accent-red">{currentLot.name}</span> até {lotes.endsLabel(currentLot)}.
+          </p>
+          <TicketButton
+            href={inscricao.ticketSportsUrl}
+            label={lots.cta}
+            pendingLabel={inscricao.ticketPendingLabel}
+          />
+        </div>
+        <LotTable />
+      </div>
+
+      <div className="mt-16 grid gap-px bg-white/10 md:grid-cols-3">
+        {lotes.notes.map((note, index) => (
+          <InfoCard
+            key={note.title}
+            kicker={note.kicker}
+            title={note.title}
+            text={note.text}
+            accent={index === 0}
+            className="bg-[#060606]"
+          />
+        ))}
+      </div>
+    </Block>
+  );
+}
+
+/* ------------------------------------------------------------------ Kit */
+
+export function HomeKit() {
+  const { kit } = home;
+  return (
+    <Block id="kit">
+      <SectionTitle
+        kicker={kit.kicker}
+        title={kit.title}
+        slashWord={kit.slashWord}
+      />
+      <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_1fr] lg:items-start">
+        <figure className="relative">
+          <Photo
+            media={kit.media}
+            className="aspect-[4/3] w-full"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+          />
+          {/* No topo: embaixo a própria arte traz os rótulos "Camisa 21km/10km/5km". */}
+          <figcaption className="label-condensed absolute top-0 left-0 bg-bg-dark/85 px-4 py-3 text-[0.6rem] text-text-white">
+            {kit.caption}
+          </figcaption>
+        </figure>
+        <div className="grid gap-px bg-white/10">
+          {kit.items.map((item) => (
+            <div
+              key={item.title}
+              className="flex flex-col gap-2 bg-[#141414] p-6"
+            >
+              <h3 className="headline text-2xl">{item.title}</h3>
+              <p className="text-sm leading-relaxed text-text-gray">
+                {item.text}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </Block>
+  );
+}
+
+/* --------------------------------------------------------------- Zarina */
+
+export function HomeZarina() {
+  const { zarina } = home;
+  return (
+    <Block id="zarina" tone="darker" className="border-y border-white/10">
+      <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-start lg:gap-16">
+        <div className="flex flex-col gap-8">
+          <div className="-mb-2 flex flex-col gap-3">
+            <Kicker>{zarina.kicker}</Kicker>
+            <p className="label-condensed text-sm text-accent-red">
+              {zarina.product}
+            </p>
+          </div>
+          <SectionTitle title={zarina.title} slashWord={zarina.slashWord} />
+
+          <div className="flex flex-col gap-4 text-base leading-relaxed text-text-gray">
+            {zarina.paragraphs.map((paragraph) => (
+              <p key={paragraph}>{paragraph}</p>
+            ))}
+          </div>
+
+          <p className="font-condensed text-[clamp(1.35rem,2.4vw,1.75rem)] leading-snug font-semibold text-text-white uppercase">
+            {zarina.lead}
+          </p>
+
+          <p className="label-condensed flex flex-wrap gap-x-4 gap-y-1 border-y border-white/10 py-5 text-[clamp(1rem,2vw,1.25rem)] text-text-white">
+            {zarina.manifesto.map((item, index) => (
+              <span
+                key={item}
+                className={
+                  index === zarina.manifesto.length - 1
+                    ? "text-accent-red"
+                    : undefined
+                }
+              >
+                {item}
+              </span>
+            ))}
+          </p>
+
+          <div className="flex flex-col gap-1">
+            <p className="label-condensed text-xs text-text-white">
+              {zarina.signature}
+            </p>
+            <p className="text-sm text-text-gray">{zarina.signatureBy}</p>
+          </div>
+
+          <span
+            aria-disabled="true"
+            className="label-condensed inline-flex w-fit items-center gap-3 border border-white/25 px-6 py-3.5 text-xs text-text-white/70"
+          >
+            <span aria-hidden className="size-1.5 bg-accent-red" />
+            {zarina.cta}
+          </span>
+        </div>
+
+        <figure className="relative lg:sticky lg:top-28">
+          {zarina.media ? (
+            <Photo
+              media={zarina.media}
+              className="aspect-[1350/998] w-full"
+              sizes="(min-width: 1024px) 45vw, 100vw"
+            />
+          ) : (
+            /* Quadro reservado para o mockup da coleção, que ainda não existe. */
+            <div
+              role="img"
+              aria-label="Imagem da coleção Zarina AERUN em produção"
+              className="grain relative flex aspect-[4/5] w-full flex-col items-center justify-center gap-4 overflow-hidden border border-white/10 bg-[radial-gradient(90%_70%_at_50%_40%,#2a0c0e_0%,#0d0d0d_70%)] p-8 text-center"
+            >
+              <p className="headline text-[clamp(4rem,10vw,7rem)] leading-none text-text-white">
+                AERUN
+              </p>
+              <p className="label-condensed text-[0.7rem] text-text-gray">
+                Performance Technology · Zarina
+              </p>
+              <p className="label-condensed absolute bottom-0 left-0 bg-bg-dark/85 px-4 py-3 text-[0.6rem] text-text-white">
+                Mockup da coleção em produção
+              </p>
+            </div>
+          )}
+        </figure>
+      </div>
+    </Block>
+  );
+}
+
+/* ---------------------------------------------------------------- Arena */
+
+export function HomeArena() {
+  return (
+    <Block id="arena" tone="darker">
+      <SectionTitle
+        kicker={home.arena.kicker}
+        title={home.arena.title}
+        slashWord={home.arena.slashWord}
+        description={home.arena.description}
+      />
+      <div className="mt-14">
+        <ArenaMap />
+      </div>
+    </Block>
+  );
+}
+
+/* ------------------------------------------------------------- Percurso */
+
+export function HomePercurso() {
+  return (
+    <Block id="percurso">
+      <SectionTitle
+        kicker={home.percurso.kicker}
+        title={home.percurso.title}
+        slashWord={home.percurso.slashWord}
+        description={home.percurso.description}
+      />
+      <div className="mt-14 grid gap-px bg-white/10 lg:grid-cols-3">
+        {percurso.distances.map((distance) => (
+          <article
+            key={distance.id}
+            className="flex flex-col gap-5 bg-[#141414] p-7"
+          >
+            <div className="flex items-baseline gap-3">
+              <p className="headline text-[clamp(3.5rem,6vw,5rem)] text-accent-red">
+                {distance.distance}
+              </p>
+              <p className="label-condensed text-sm">{distance.unit}</p>
+            </div>
+            <p className="label-condensed text-[0.7rem] text-text-gray">
+              {distance.name}
+            </p>
+            <p className="text-sm leading-relaxed text-text-gray">
+              Largada {distance.start}
+              {distance.limit ? ` · tempo limite ${distance.limit}` : ""}
+            </p>
+            <Altimetria
+              data={altimetria[distance.id]}
+              highlightKm={distance.highlightKm}
+              label={`Altimetria do percurso de ${distance.distance} km`}
+            />
+            <p className="text-sm leading-relaxed text-text-gray">
+              {distance.note}
+            </p>
+            <div className="mt-auto pt-2">
+              <RouteLinks
+                distance={distance.distance}
+                stravaUrl={distance.stravaUrl}
+                mapMyRunUrl={distance.mapMyRunUrl}
+                gpxUrl={altimetria[distance.id].gpx}
+              />
+            </div>
+          </article>
+        ))}
+      </div>
+      <div className="mt-10">
+        <CTAButton href="/percurso" variant="outline" size="md">
+          Ver o percurso completo
+        </CTAButton>
+      </div>
+    </Block>
+  );
+}
+
+/* --------------------------------------------------------------- Domingo */
+
+export function HomeDomingo() {
+  return (
+    <Block id="o-domingo" tone="darker">
+      <SectionTitle
+        kicker={home.domingo.kicker}
+        title={home.domingo.title}
+        slashWord={home.domingo.slashWord}
+      />
+      <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-3">
+        {home.domingo.photos.map((photo) => (
+          <figure key={photo.time} className="relative bg-bg-dark">
+            <Photo
+              media={photo.media}
+              className="aspect-[4/5] w-full"
+              sizes="(min-width: 768px) 33vw, 100vw"
+            />
+            <figcaption className="label-condensed absolute bottom-0 left-0 right-0 bg-bg-dark/85 px-4 py-3 text-[0.62rem] text-text-white">
+              {photo.time} · {photo.label}
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+      <div className="mt-14 grid gap-px bg-white/10 md:grid-cols-5">
+        {domingo.sunday.items.map((item) => (
+          <div key={item.id} className="flex flex-col gap-3 bg-[#060606] p-6">
+            <p className="headline text-4xl text-accent-red">{item.time}</p>
+            <p className="label-condensed text-[0.72rem] text-text-white">
+              {item.title}
+            </p>
+            <p className="text-sm leading-relaxed text-text-gray">
+              {item.description}
+            </p>
+          </div>
+        ))}
+      </div>
+    </Block>
+  );
+}
+
+/* -------------------------------------------------------------- Curitiba */
+
+export function HomeCuritiba() {
+  return (
+    <Block id="curitiba">
+      <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-16">
+        <div>
+          <SectionTitle
+            kicker={home.curitiba.kicker}
+            title={home.curitiba.title}
+            slashWord={home.curitiba.slashWord}
+            description={home.curitiba.description}
+          />
+          <div className="mt-12">
+            <RoteiroList items={curitiba.itinerary} />
+          </div>
+          <div className="mt-8 flex flex-wrap gap-2">
+            {curitiba.pills.map((pill) => (
+              <span
+                key={pill}
+                className="label-condensed border border-white/15 px-3 py-2 text-[0.62rem] text-text-white/80"
+              >
+                {pill}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <div className="grid gap-4 self-start">
+          {home.curitiba.media.map((media, index) => (
+            <Photo
+              key={index}
+              media={media}
+              className="aspect-[4/3] w-full"
+              sizes="(min-width: 1024px) 30vw, 100vw"
+            />
+          ))}
+          <p className="text-xs leading-relaxed text-text-gray">
+            {curitiba.sourceNote}
+          </p>
+        </div>
+      </div>
+    </Block>
+  );
+}
+
+/* ------------------------------------------------------------- Concurso */
+
+export function HomeConcurso() {
+  const winners = getRankedWinners();
+  const champion = winners.find((winner) => winner.placeId === "1st");
+  return (
+    <Block id="concurso" tone="darker">
+      <div className="grid items-center gap-12 lg:grid-cols-[1fr_0.9fr] lg:gap-20">
+        <div className="flex flex-col gap-7">
+          <SectionTitle
+            kicker={home.concurso.kicker}
+            title={home.concurso.title}
+            slashWord={home.concurso.slashWord}
+            description={home.concurso.description}
+          />
+          {champion ? (
+            <p className="label-condensed text-[0.72rem] text-text-white">
+              Campeão: <span className="text-accent-red">{champion.nome}</span> ·
+              arte “{champion.titulo}”
+            </p>
+          ) : null}
+          <div>
+            <CTAButton href="/concurso-de-camisetas" size="md">
+              {home.concurso.cta}
+            </CTAButton>
+          </div>
+        </div>
+        <Photo
+          media={home.concurso.media}
+          className="aspect-[4/5] w-full max-w-md justify-self-center"
+          sizes="(min-width: 1024px) 35vw, 100vw"
+        />
+      </div>
+    </Block>
+  );
+}
+
+/* ---------------------------------------------------------------- Stats */
+
+export function HomeStats() {
+  return (
+    <Block>
+      <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
+        {home.stats.map((stat) => (
+          <StatNumber key={stat.label} value={stat.value} label={stat.label} />
+        ))}
+      </div>
+    </Block>
+  );
+}
+
+/* ----------------------------------------------------------------- Trio */
+
+export function HomeTrio() {
+  return (
+    <Block tone="darker">
+      <div className="grid gap-px bg-white/10 md:grid-cols-3">
+        {home.trio.map((card) => (
+          <InfoCard
+            key={card.title}
+            kicker={card.kicker}
+            title={card.title}
+            text={card.text}
+            href={card.href}
+            className="bg-[#060606]"
+          />
+        ))}
+      </div>
+    </Block>
+  );
+}

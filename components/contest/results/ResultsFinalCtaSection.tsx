@@ -13,8 +13,7 @@ import { useGsapScroll } from "@/lib/hooks/useGsapScroll";
  * Fecho da página de resultado.
  *
  * Quem chegou até aqui viu a camisa: o próximo passo é correr com ela. O CTA
- * é o mesmo do fecho da home (grupo VIP), via <RegisterButton>, para trocar
- * junto quando o checkout real entrar.
+ * (`finalCta.cta`) leva direto à venda no Ticket Sports.
  */
 export function ResultsFinalCtaSection() {
   const root = useGsapScroll<HTMLDivElement>(({ scope, prefersReducedMotion }) => {

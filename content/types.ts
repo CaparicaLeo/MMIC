@@ -78,7 +78,7 @@ export type StatItem = {
    * Origem do número, exibida ao lado dele.
    *
    * Todo número público do site precisa dizer de onde veio — é o que separa
-   * "5.000 atletas em 2026" (realizado) de "meta 10.000" (intenção). Sem
+   * "7.500 atletas em 2026" (realizado) de "meta 10.000" (intenção). Sem
    * `source`, o card não deveria render: o campo existe justamente para não
    * haver número sem procedência.
    */
@@ -393,4 +393,22 @@ export type BrandsPage = {
   };
 
   finalCta: { intro: SectionIntro; cta: PageCta };
+};
+
+/** Perfil de altitude real de uma distância, gerado de GPX por scripts/altimetria.mjs. */
+export type AltimetriaData = {
+  /** Caminho público do GPX, para download. */
+  gpx: string;
+  distanceKm: number;
+  /** Distância entre amostras de `samples`, em km. */
+  stepKm: number;
+  gainM: number;
+  lossM: number;
+  minM: number;
+  maxM: number;
+  maxAtKm: number;
+  /** Maior subida contínua do percurso. */
+  climb: { fromKm: number; toKm: number; riseM: number };
+  /** Altitude em metros a cada `stepKm`, do km 0 à chegada. */
+  samples: number[];
 };

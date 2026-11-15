@@ -9,6 +9,7 @@ import { BrandMethodSection } from "@/components/brands/BrandMethodSection";
 import { BrandPillarsSection } from "@/components/brands/BrandPillarsSection";
 import { BrandTiersSection } from "@/components/brands/BrandTiersSection";
 import { FloatingBrandCta } from "@/components/brands/FloatingBrandCta";
+import { BrandArenaSection, BrandProofSection } from "@/components/brands/BrandEditorialSections";
 
 export const metadata: Metadata = {
   title: "Marcas",
@@ -33,9 +34,11 @@ export default function MarcasPage() {
   return (
     <>
       <BrandHeroSection />
+      <BrandProofSection />
       <BrandActivationsSection />
       <BrandMethodSection />
       <BrandTiersSection />
+      <BrandArenaSection />
       <BrandAudienceSection />
       <BrandLeadSection />
       <BrandPillarsSection />
