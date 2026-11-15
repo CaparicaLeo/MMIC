@@ -130,7 +130,7 @@ export const lotes = {
     {
       kicker: "Kits",
       title: "Básico, Plus ou Camarote",
-      text: "O Básico tem número de peito e chip. O Plus soma a camiseta oficial e 2 ingressos para o show. O Camarote, limitado a 100 vagas, tem área e serviços exclusivos.",
+      text: "Básico: número de peito e chip eletrônico. Plus: soma a camiseta oficial e 2 ingressos para o show. Camarote: soma camarote, 2 ingressos para o camarote, ALOHA Recovery, retirada, guarda-volume, banheiro e lounge bar exclusivos (100 vagas).",
     },
     {
       kicker: "Depois da compra",

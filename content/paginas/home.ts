@@ -122,11 +122,11 @@ export const home = {
     items: [
       {
         title: "Três kits",
-        text: "Básico: número de peito e chip eletrônico. Plus: soma a camiseta oficial e 2 ingressos para o show. Camarote: soma camarote, 2 ingressos para o camarote, ALOHA Recovery e retirada, guarda-volume, banheiro e lounge bar exclusivos (100 vagas).",
+        text: "Básico: número de peito e chip eletrônico. Plus: soma a camiseta oficial e 2 ingressos para o show. Camarote: soma camarote, 2 ingressos para o camarote, ALOHA Recovery, retirada, guarda-volume, banheiro e lounge bar exclusivos (100 vagas).",
       },
       {
         title: "Camiseta oficial",
-        text: "Nos kits Plus e Camarote. Técnica, preta, com tecnologia AERUN da Zarina e estampa definida por concurso público de design. Feminina baby look P/M/G; masculina P/M/G/GG/XG. O tamanho é escolhido na compra, sem troca na entrega.",
+        text: "Três estampas, uma para cada distância, escolhidas por quase 6 mil votos no concurso de design da Meia. Camiseta técnica preta com tecnologia AERUN, da Zarina. Nos kits Plus e Camarote. Feminina baby look P/M/G; masculina P/M/G/GG/XG. Tamanho escolhido na compra, sem troca na entrega.",
       },
       {
         title: "Medalha de participação",
