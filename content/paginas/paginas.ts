@@ -321,7 +321,7 @@ export const curitiba = {
       id: "domingo",
       number: "05",
       day: "Domingo · a Meia",
-      text: "Ônibus do hotel para a largada, saindo às 4h30. Largada a partir das 6h, chegada na frente do palco, show a partir das 7h30 e show principal às 9h30. Depois: Feira do Largo da Ordem ou Domingo no Centro (edição de inverno em 2026: 21/6).",
+      text: "O dia. Largada às 6h na Praça Nossa Senhora da Salete, chegada na frente do palco, arena aberta desde as 7h30 e show principal a partir das 9h30. Depois, a cidade é sua. Você conquistou.",
       tag: "O dia",
     },
     {
