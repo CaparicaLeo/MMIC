@@ -87,14 +87,14 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556342497964110110",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6799928532",
       name: "A faixa-título",
-      start: "06h",
+      start: "06h30",
       limit: "3h",
       highlights: [
-        "Elite às 6h; ondas de pace a partir das 6h02",
+        "Elite às 6h30; ondas de pace a partir das 6h32",
         "Água na arena, a cada 3 km (do 3 ao 18) e na chegada",
         "Percurso aferido e certificado pela CBAt",
         "A subida do km 17 ao 20, já no fim",
-        "Pontos de corte: km 5 às 7h15, km 10 às 8h06, km 15 às 8h50",
+        "Pontos de corte: km 5 às 7h45, km 10 às 8h36, km 15 às 9h20",
         "A partir de 18 anos",
       ],
       note: "A subida do km 17 ao 20 é o solo de guitarra: vem no fim, quando as pernas já pesam. É ali que a prova se decide.",
@@ -116,7 +116,7 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556346442066786650",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800162596",
       name: "O lado B",
-      start: "06h02",
+      start: "06h32",
       limit: "2h",
       highlights: [
         "Ondulado, com a subida mais forte perto do km 8",
@@ -142,7 +142,7 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556333941235583870",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800155027",
       name: "A abertura",
-      start: "06h02",
+      start: "06h32",
       limit: "2h",
       highlights: [
         "Aberto a caminhada, com uma subida curta perto do km 3,5",
@@ -220,11 +220,11 @@ export const domingo = {
           "Abertura do camarote, guarda-volumes gratuito e aquecimento coletivo com a playlist da Meia. A cidade dorme, a arena não.",
       },
       {
-        id: "06h",
-        time: "06h",
+        id: "06h30",
+        time: "06h30",
         title: "Largadas",
         description:
-          "21 km elite às 6h, pessoas com deficiência às 6h01 e ondas de pace (21, 10 e 5 km) a partir das 6h02.",
+          "21 km elite às 6h30, pessoas com deficiência às 6h31 e ondas de pace (21, 10 e 5 km) a partir das 6h32.",
       },
       {
         id: "07h",
@@ -241,18 +241,25 @@ export const domingo = {
           "Medalha de participação e o palco liga: a programação musical começa às 7h30.",
       },
       {
-        id: "09h",
-        time: "09h",
-        title: "Fim do tempo dos 21 km",
-        description:
-          "Encerramento do 21 km (tempo máximo de 3h). Os 10 e 5 km têm até 2h.",
-      },
-      {
         id: "09h30",
         time: "09h30",
         title: "Show principal",
         description:
           "Começa o show principal no palco da arena. Atração: em breve, pelos canais oficiais.",
+      },
+      {
+        id: "10h",
+        time: "10h",
+        title: "Fim do tempo dos 21 km",
+        description:
+          "Encerramento do 21 km (tempo máximo de 3h). Os 10 e 5 km têm até 2h.",
+      },
+      {
+        id: "10h30",
+        time: "10h30",
+        title: "Premiação",
+        description:
+          "Do 1º ao 5º geral do 21 km e, em seguida, as categorias. O troféu só é entregue a quem estiver presente.",
       },
     ],
   },
@@ -342,7 +349,7 @@ export const curitiba = {
       id: "domingo",
       number: "05",
       day: "Domingo · a Meia",
-      text: "O dia. Largada às 6h na Praça Nossa Senhora da Salete, chegada na frente do palco, arena aberta desde as 7h30 e show principal a partir das 9h30. Depois, a cidade é sua. Você conquistou.",
+      text: "O dia. Largada às 6h30 na Praça Nossa Senhora da Salete, chegada na frente do palco, programação musical desde as 7h30 e show principal a partir das 9h30. Depois, a cidade é sua. Você conquistou.",
       tag: "O dia",
     },
     {

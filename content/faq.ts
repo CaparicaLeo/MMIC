@@ -39,7 +39,7 @@ export const faq = {
         // dizer o que está confirmado (a abertura das inscrições) em vez de
         // repetir que nada está.
         answer:
-          "Sim: domingo, 20 de junho de 2027, em Curitiba. A largada da elite do 21 km é às 6h, e as ondas de pace saem a partir das 6h02. As inscrições já estão abertas e vão até 11 de junho de 2027 ou até esgotarem as 10.000 vagas.",
+          "Sim: domingo, 20 de junho de 2027, em Curitiba. A largada da elite do 21 km é às 6h30, e as ondas de pace saem a partir das 6h32. As inscrições já estão abertas e vão até 11 de junho de 2027 ou até esgotarem as 10.000 vagas.",
       },
     {
       id: "iniciante",

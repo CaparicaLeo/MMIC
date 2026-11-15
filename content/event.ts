@@ -19,8 +19,8 @@ export const event = {
    * e o <Countdown /> passa a renderizar automaticamente, sem mudar componente.
    * Enquanto `date` for null, nada de data/contador aparece na página.
    */
-  // Regulamento, item 1: domingo, 20 de junho de 2027; largada às 6h.
-  date: "2027-06-20T06:00:00-03:00" as string | null,
+  // Regulamento, item 1: domingo, 20 de junho de 2027; largada da elite às 6h30.
+  date: "2027-06-20T06:30:00-03:00" as string | null,
 
   /**
    * Abertura das inscrições — a data concreta que o site pode anunciar hoje.
