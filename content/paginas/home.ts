@@ -45,7 +45,7 @@ export const home = {
     title: "Isso não é uma corrida. É um show de 21 km.",
     slashWord: "21 km.",
     description:
-      "Você não compra uma inscrição. Compra um fim de semana inteiro em que a cidade toca só pra você.",
+      "Chegar dura um segundo. A MMIC fica pra vida inteira.",
     cards: [
       {
         tag: "21 km pela cidade",
