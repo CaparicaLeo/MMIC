@@ -263,7 +263,7 @@ export const home = {
 
   stats: [
     { value: "7.500", label: "Atletas em 2026 · realizado" },
-    { value: "10 mil", label: "Meta 2027 · não realizado" },
+    { value: "10 mil", label: "Meta · 2027" },
     { value: "3", label: "Distâncias, um refrão" },
     { value: "2016", label: "Desde quando a T&S faz a prova da cidade" },
   ],
