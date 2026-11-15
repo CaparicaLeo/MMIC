@@ -196,7 +196,7 @@ export const home = {
         ),
       },
       {
-        time: "06h30",
+        time: "06h",
         label: "A largada",
         media: img(
           "/images/fotos/corredora-dia-vertical.webp",
