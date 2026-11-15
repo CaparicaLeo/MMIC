@@ -45,7 +45,7 @@ export const faq = {
       id: "iniciante",
       question: "Nunca corri uma prova de rua. Dá para participar?",
       answer:
-        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena, com guarda-volumes, hidratação, Recovery Zone e Espaço Kids, foi pensada para quem está estreando e vem com a família.",
+        "Dá. Os 5 km são abertos inclusive para caminhada, e a estrutura da arena, com guarda-volumes, hidratação e Recovery Zone, foi pensada para quem está estreando e vem com a família.",
     },
     /*
       Três perguntas novas para as buscas por "meia maratona" + "Curitiba":

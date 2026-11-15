@@ -36,10 +36,10 @@ export function BrandArenaSection() {
         kicker="Onde a marca aparece"
         title="Cada cota tem um lugar na arena."
         slashWord="arena."
-        description="Os pontos destacados são os que cabem a uma marca: palco, pórtico de chegada, expo, funil de medalha e espaço kids. Croqui sujeito a mudanças."
+        description="Os pontos destacados são os que cabem a uma marca: palco, pórtico de chegada, expo, funil de medalha e arena livre. Croqui sujeito a mudanças."
       />
       <div className="mt-14">
-        <ArenaMap highlight={[1, 3, 4, 10, 11]} />
+        <ArenaMap highlight={[1, 3, 4, 10]} />
       </div>
     </Block>
   );
