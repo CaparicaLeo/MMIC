@@ -55,6 +55,8 @@ export const metadata: Metadata = {
     apple: [{ url: "/apple-icon.png", sizes: "180x180", type: "image/png" }],
   },
   applicationName: event.name,
+    verification: { other: { "facebook-domain-verification": "bwhefxq3iswn3ja969u48s0qfi4yao" } },
+
   keywords: [
     "meia maratona",
     "Curitiba",
