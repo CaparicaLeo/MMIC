@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/
+import { Analytics } from "@vercel/analytics/react";
 import Script from "next/script";
 
 import { MetaPixel } from "@/components/analytics/MetaPixel";
