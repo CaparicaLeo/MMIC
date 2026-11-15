@@ -25,7 +25,7 @@ export const inscricao = {
     title: ["O primeiro lote é", "sempre o mais", "barato."],
     slashWord: "barato.",
     description:
-      "Contador público, lote atual, valores por kit e o botão direto para o Ticket Sports. Regulamento, reembolso e transferência logo abaixo, sem esconder.",
+      "Contador público, lote atual, valores por kit e o botão direto para o Ticket Sports. Regulamento e transferência logo abaixo, sem esconder.",
     media: img(
       "/images/fotos/pelotao-dia-largo.webp",
       2048,
@@ -57,7 +57,7 @@ export const inscricao = {
       kicker: "Rodapé",
       title: "Regulamento e transferência",
       href: "/regulamento",
-      text: "Regulamento oficial completo: reembolso em até 7 dias da compra, transferência até 11/06/2027 e condições para assessorias.",
+      text: "Regulamento oficial completo: transferência até 20/05/2027, com taxa de R$ 50,00, e condições para assessorias.",
     },
   ],
 };

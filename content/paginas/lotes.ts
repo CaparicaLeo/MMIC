@@ -134,8 +134,8 @@ export const lotes = {
     },
     {
       kicker: "Depois da compra",
-      title: "Reembolso e transferência",
-      text: "Reembolso em até 7 dias da compra, pelo e-mail contato@thomeesantos.com.br. Transferência de titularidade até 11/06/2027, com taxa de R$ 25 via Pix.",
+      title: "Transferência de inscrição",
+      text: "Transferência de titularidade até 20/05/2027, com taxa de R$ 50,00 via Pix.",
     },
   ],
 };

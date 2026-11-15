@@ -28,7 +28,7 @@ export const faq = {
       id: "inscricao",
       question: "Qual é a política de inscrição?",
       answer:
-        "A inscrição é pessoal e nominal. O reembolso só vale em até 7 dias corridos da compra, pedido pelo e-mail contato@thomeesantos.com.br. A transferência de titularidade pode ser feita até 11/06/2027, às 23h59, com taxa de R$ 25 via Pix. Pessoas com 60 anos ou mais pagam 50%. Não há cupons de desconto.",
+        "A inscrição é pessoal e nominal. A transferência de titularidade pode ser feita até 20/05/2027, com taxa de R$ 50,00 via Pix. Pessoas com 60 anos ou mais pagam 50%. Não há cupons de desconto.",
     },
 {
         id: "data",
