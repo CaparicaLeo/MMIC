@@ -435,46 +435,32 @@ export const imprensa = {
 /* ------------------------------------------------------------------- Arena */
 
 /**
- * Pontos do croqui da arena. `x` e `y` são posições em % do croqui. Os
- * números são os do briefing; a posição é aproximada e vale só para o croqui.
+ * Croqui oficial da arena (arte da organização, sem a legenda impressa, que
+ * fica aqui em texto). O número de cada item é o do desenho.
  */
 export const arena = {
-  points: [
-    { n: 9, label: "Praça de alimentação", x: 22, y: 12 },
-    { n: 4, label: "Funil · medalha e água", x: 60, y: 14 },
-    { n: 8, label: "WC", x: 48, y: 30 },
-    { n: 1, label: "Palco · show", x: 66, y: 40, highlight: true },
-    { n: 2, label: "Camarote", x: 66, y: 54 },
-    { n: 3, label: "Linha de chegada", x: 80, y: 60 },
-    { n: 10, label: "Arena livre · torcida", x: 52, y: 66 },
-    { n: 7, label: "Guarda-volumes", x: 14, y: 74 },
-    { n: 6, label: "Recovery", x: 30, y: 74 },
-    { n: 5, label: "Área atletas", x: 42, y: 74 },
-    { n: 11, label: "Assessorias", x: 56, y: 80 },
-    { n: 12, label: "Acesso · app · PCD", x: 34, y: 93 },
-  ],
+  image: img(
+    "/images/arena/croqui-arena-2027.webp",
+    1920,
+    1450,
+    "Croqui da Arena MMIC 2027: palco principal ao fundo, camarote e serviços à direita, praças de alimentação e áreas de ativação à esquerda, funil de chegada em primeiro plano, cada ponto marcado com um número de 01 a 15",
+  ),
   legend: [
-    {
-      n: 1,
-      text: "Palco coberto, de frente para a avenida. Programação musical a partir das 7h30.",
-    },
-    { n: 2, text: "Camarote do Kit Camarote, entre o palco e a chegada. Acesso a partir das 5h." },
-    {
-      n: 3,
-      text: "Linha de chegada na Av. Cândido de Abreu, em frente ao palco.",
-    },
-    { n: 4, text: "Funil de chegada: medalha de participação e água." },
-    { n: 5, text: "Área dos atletas: aquecimento e banheiros exclusivos." },
-    { n: 6, text: "Recovery e massagem (faculdade parceira, a fechar)." },
-    { n: 7, text: "Guarda-volumes gratuito, em saco identificado com o número de peito." },
-    { n: 8, text: "Banheiros e água." },
-    { n: 9, text: "Praça de alimentação no gramado norte." },
-    { n: 10, text: "Arena livre para torcida e público." },
-    { n: 11, text: "Ponto de encontro de assessorias." },
-    {
-      n: 12,
-      text: "Acesso, desembarque de app e PCD pela Rua Ernani Santiago.",
-    },
+    { n: 1, text: "Palco Principal" },
+    { n: 2, text: "Banheiro camarote" },
+    { n: 3, text: "Camarote do Kit Camarote" },
+    { n: 4, text: "Espaço Recovery" },
+    { n: 5, text: "Praça de alimentação 01" },
+    { n: 6, text: "Ativação Zarina" },
+    { n: 7, text: "Guarda Volumes" },
+    { n: 8, text: "Banheiros e água" },
+    { n: 9, text: "Funil de chegada: entrega medalha" },
+    { n: 10, text: "Backdrop / Pódio" },
+    { n: 11, text: "Praça de alimentação 02" },
+    { n: 12, text: "Área de ativações" },
+    { n: 13, text: "Ponto de encontro de assessorias" },
+    { n: 14, text: "Área de ativação premium" },
+    { n: 15, text: "Arena MMIC27" },
   ],
-  note: "Croqui ilustrativo · sujeito a mudanças · norte para cima.",
+  note: "Croqui ilustrativo · sujeito a mudanças.",
 };
