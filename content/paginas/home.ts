@@ -83,7 +83,7 @@ export const home = {
       },
       {
         title: "Antes da prova, a expo",
-        text: "A retirada de kit acontece na Expo da Meia, antes do domingo, com as marcas e a playlist da Meia tocando. Data, horário e endereço serão anunciados; no dia da prova não há entrega de kit.",
+        text: "A festa começa antes da largada. Na semana da prova, a Expo da Meia reúne marcas, playlist e a retirada do seu kit. Data, horário e endereço serão divulgados nos canais oficiais. No domingo, só corre.",
         media: img(
           "/images/fotos/megafone-grupo-vertical.webp",
           896,
