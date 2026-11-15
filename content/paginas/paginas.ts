@@ -25,7 +25,7 @@ export const inscricao = {
     title: ["O primeiro lote é", "sempre o mais", "barato."],
     slashWord: "barato.",
     description:
-      "Contador público, lote atual, valores por kit e o botão direto para o Ticket Sports. Regulamento e transferência logo abaixo, sem esconder.",
+      "Contador público, lote atual, valores de cada lote e o botão direto para o Ticket Sports. Regulamento e transferência logo abaixo, sem esconder.",
     media: img(
       "/images/fotos/pelotao-dia-largo.webp",
       2048,
@@ -51,7 +51,7 @@ export const inscricao = {
     {
       kicker: "Abaixo",
       title: "Tabela de lotes",
-      text: "Pré-venda e 1º a 4º lote, com o período e o valor de cada kit. O que encerrou aparece riscado: prova de que o preço sobe.",
+      text: "Lotes 1 a 5, com as vagas e os valores de cada um. O que encerrou aparece riscado: prova de que o preço sobe.",
     },
     {
       kicker: "Rodapé",

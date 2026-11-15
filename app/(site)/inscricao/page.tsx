@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { LotCounter, LotTable, TicketButton } from "@/components/editorial/lots";
 import { Block, InfoCard, PageHero, SectionTitle } from "@/components/editorial/primitives";
 import { inscricao } from "@/content/paginas/paginas";
-import { currentLot } from "@/content/paginas/lotes";
+import { currentLot, lotes } from "@/content/paginas/lotes";
 
 export const metadata: Metadata = {
   title: "Inscrições",
@@ -37,8 +37,8 @@ export default function InscricaoPage() {
           <LotCounter />
           <div className="flex min-w-0 flex-col gap-8">
             <SectionTitle
-              title={`${currentLot.name} até ${currentLot.endsLabel}.`}
-              description="Valor por kit, lote a lote, como no regulamento. O que já encerrou fica riscado na tabela."
+              title={`${currentLot.name} até ${lotes.endsLabel(currentLot)}.`}
+              description="Vagas e valores de cada lote. O que já encerrou fica riscado na tabela."
             />
             <LotTable />
           </div>

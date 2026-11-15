@@ -63,7 +63,7 @@ export const faq = {
       id: "abertura-inscricoes",
       question: "Até quando vão as inscrições?",
       answer:
-        "As inscrições da Meia Maratona Internacional de Curitiba 2027 estão abertas no Ticket Sports e vão até 11 de junho de 2027, ou até esgotarem as 10.000 vagas. Cada lote fecha na data final ou quando acabam as vagas dele.",
+        "As inscrições da Meia Maratona Internacional de Curitiba 2027 estão abertas no Ticket Sports e vão até 11 de junho de 2027, ou até esgotarem as 10.000 vagas. Cada lote tem um número de vagas e fecha quando elas acabam.",
     },
     {
       id: "show",

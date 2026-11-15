@@ -2,10 +2,9 @@
  * Lotes de inscrição. Fonte única: a home (bloco de lotes) e /inscricao leem
  * daqui, para o preço não existir em dois lugares.
  *
- * Períodos, valores e kits seguem o regulamento oficial (item 6.8, ver
- * /regulamento): cada lote fecha na data final ou quando as vagas dele
- * acabam, o que vier primeiro (item 6.9). O regulamento só traz valores para
- * 5 km e 10 km; o 21 km é vendido no Ticket Sports.
+ * Cada lote tem um número de vagas e fecha quando o total de inscritos chega
+ * ao seu limite (`closesAt`); aí o seguinte entra com o novo valor. Não há
+ * data de encerramento por lote. Cada lote tem dois valores.
  *
  * O contador de inscritos ainda é fixo; quando a venda for integrada ao
  * Ticket Sports, `registrations` passa a vir da API.
@@ -18,12 +17,12 @@ export type KitId = "basico" | "plus" | "camarote";
 export type Lot = {
   id: string;
   name: string;
-  /** Período do regulamento, por extenso curto. */
-  period: string;
-  /** Último dia do lote, para o texto "até …". */
-  endsLabel: string;
-  /** Valores por kit, para 5 km e 10 km, sem as taxas. */
-  prices: Record<KitId, number>;
+  /** Vagas do lote. */
+  spots: number;
+  /** Total de inscritos em que o lote fecha. */
+  closesAt: number;
+  /** Os dois valores do lote, sem as taxas. */
+  prices: [number, number];
   status: LotStatus;
 };
 
@@ -60,46 +59,46 @@ export const lotes = {
     },
   ] satisfies { id: KitId; name: string; items: string }[],
 
-  /** Pré-venda e os quatro lotes, em ordem (regulamento, item 6.8). */
+  /** Os cinco lotes, em ordem. */
   table: [
     {
-      id: "pre-venda",
-      name: "Pré-venda",
-      period: "10/11 a 13/11/2026",
-      endsLabel: "13/11/2026",
-      prices: { basico: 139.9, plus: 179.9, camarote: 319.9 },
-      status: "encerrado",
-    },
-    {
       id: "lote-1",
-      name: "1º Lote",
-      period: "14/11 a 13/12/2026",
-      endsLabel: "13/12/2026",
-      prices: { basico: 179.9, plus: 199.9, camarote: 349.9 },
+      name: "Lote 1",
+      spots: 1_500,
+      closesAt: 2_000,
+      prices: [169.9, 239.9],
       status: "aberto",
     },
     {
       id: "lote-2",
-      name: "2º Lote",
-      period: "14/12/2026 a 31/01/2027",
-      endsLabel: "31/01/2027",
-      prices: { basico: 199.9, plus: 219.9, camarote: 369.9 },
+      name: "Lote 2",
+      spots: 2_000,
+      closesAt: 4_000,
+      prices: [179.9, 259.9],
       status: "proximo",
     },
     {
       id: "lote-3",
-      name: "3º Lote",
-      period: "01/02 a 28/03/2027",
-      endsLabel: "28/03/2027",
-      prices: { basico: 219.9, plus: 249.9, camarote: 399.9 },
+      name: "Lote 3",
+      spots: 3_000,
+      closesAt: 7_000,
+      prices: [189.9, 279.9],
       status: null,
     },
     {
       id: "lote-4",
-      name: "4º Lote",
-      period: "29/03 a 11/06/2027",
-      endsLabel: "11/06/2027",
-      prices: { basico: 239.9, plus: 269.9, camarote: 419.9 },
+      name: "Lote 4",
+      spots: 2_000,
+      closesAt: 9_000,
+      prices: [209.9, 299.9],
+      status: null,
+    },
+    {
+      id: "lote-5",
+      name: "Lote 5",
+      spots: 1_000,
+      closesAt: 10_000,
+      prices: [229.9, 319.9],
       status: "ultimo",
     },
   ] satisfies Lot[],
@@ -114,7 +113,10 @@ export const lotes = {
 
   /** Rodapé da tabela. */
   priceNote:
-    "Valores para 5 km e 10 km, mais taxas. O valor do 21 km aparece no Ticket Sports. 60+ pagam 50% (item 6.7); assessorias com 10 ou mais inscritos pagam sempre o 1º Lote (item 15).",
+    "Valores mais taxas. 60+ pagam 50% (item 6.7); assessorias com 10 ou mais inscritos pagam sempre o Lote 1 (item 15).",
+
+  /** Inscrito em que o lote fecha, para o texto "até …". */
+  endsLabel: (lot: Lot) => `o inscrito ${lot.closesAt.toLocaleString("pt-BR")}`,
 
   /** Preço em reais, no formato da tabela. */
   format: (value: number) =>
@@ -124,8 +126,8 @@ export const lotes = {
   notes: [
     {
       kicker: "Regra do lote",
-      title: "Fecha na data ou quando esgota",
-      text: "Cada lote tem período e quantidade própria de vagas. O que vier primeiro encerra o lote, e o seguinte entra automaticamente, com o novo valor.",
+      title: "Fecha quando as vagas acabam",
+      text: "Cada lote tem um número de vagas. Quando elas acabam, o lote fecha e o seguinte entra automaticamente, com o novo valor.",
     },
     {
       kicker: "Kits",

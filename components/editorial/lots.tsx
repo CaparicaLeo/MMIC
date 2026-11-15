@@ -41,8 +41,8 @@ export function LotCounter() {
           <div data-bar className="h-full bg-accent-red" style={{ width: `${percent}%` }} />
         </div>
         <p className="label-condensed mt-3 text-[0.7rem] text-text-white">
-          {lotes.totalSpots.toLocaleString("pt-BR")} vagas · {currentLot.name} até {currentLot.endsLabel} · Kit
-          Básico {brl(currentLot.prices.basico)} + taxas
+          {lotes.totalSpots.toLocaleString("pt-BR")} vagas · {currentLot.name} até {lotes.endsLabel(currentLot)} · a
+          partir de {brl(currentLot.prices[0])} + taxas
         </p>
       </div>
     </div>
@@ -83,16 +83,13 @@ export function LotTable() {
     <div className="flex min-w-0 flex-col gap-4">
       <div className="overflow-x-auto border border-white/10">
         <table className="w-full min-w-[720px] border-collapse text-left text-sm">
-          <caption className="sr-only">Lotes de inscrição e valores por kit, para 5 km e 10 km</caption>
+          <caption className="sr-only">Lotes de inscrição: vagas, inscrito em que fecha e valores</caption>
           <thead>
             <tr className="border-b border-white/10 text-text-gray">
               <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Lote</th>
-              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Período</th>
-              {lotes.kits.map((kit) => (
-                <th key={kit.id} scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">
-                  {kit.name}
-                </th>
-              ))}
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Vagas</th>
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Fecha no inscrito</th>
+              <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Valores</th>
               <th scope="col" className="label-condensed px-5 py-4 text-[0.66rem] font-medium">Status</th>
             </tr>
           </thead>
@@ -121,12 +118,11 @@ function LotRow({ lot }: { lot: Lot }) {
       )}
     >
       <th scope="row" className="px-5 py-5 font-semibold whitespace-nowrap">{lot.name}</th>
-      <td className="px-5 py-5 whitespace-nowrap">{lot.period}</td>
-      {lotes.kits.map((kit) => (
-        <td key={kit.id} className={cn("px-5 py-5 whitespace-nowrap", isOpen && "headline text-xl")}>
-          {brl(lot.prices[kit.id])}
-        </td>
-      ))}
+      <td className="px-5 py-5 whitespace-nowrap tabular-nums">{lot.spots.toLocaleString("pt-BR")}</td>
+      <td className="px-5 py-5 whitespace-nowrap tabular-nums">{lot.closesAt.toLocaleString("pt-BR")}</td>
+      <td className={cn("px-5 py-5 whitespace-nowrap", isOpen && "headline text-xl")}>
+        {brl(lot.prices[0])} e {brl(lot.prices[1])}
+      </td>
       <td className="label-condensed px-5 py-5 text-[0.66rem] leading-tight">
         {lot.status ? lotes.statusLabel[lot.status] : null}
       </td>

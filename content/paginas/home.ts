@@ -100,7 +100,7 @@ export const home = {
   },
 
   lots: {
-    kicker: "Inscrições · lotes por data e por vagas",
+    kicker: "Inscrições · lotes por vagas",
     title: "Foi dada a largada. Quem chega primeiro, paga menos.",
     slashWord: "menos.",
     description:
