@@ -12,12 +12,12 @@ export const metadata: Metadata = {
   title: "Concurso de Camisetas",
   /* ≤155 chars: acima disso o Google corta no SERP. */
   description:
-    "Resultado do concurso de design da camisa oficial da Meia Maratona Internacional de Curitiba 2027: campeã, pódio e finalistas.",
+    "Resultado do concurso de design da camisa oficial da Meia Maratona Internacional de Curitiba 2027: campeão, pódio e finalistas.",
   alternates: { canonical: "/concurso-de-camisetas" },
 };
 
 /**
- * Concurso encerrado: a página é o resultado (campeã, pódio e finalistas).
+ * Concurso encerrado: a página é o resultado (campeão, pódio e finalistas).
  * Antes era a landing de envio; /vencedores redireciona para cá.
  */
 export default function ConcursoDeCamisetasPage() {

@@ -572,7 +572,7 @@ export function HomeConcurso() {
           />
           {champion ? (
             <p className="label-condensed text-[0.72rem] text-text-white">
-              Campeã: <span className="text-accent-red">{champion.nome}</span> ·
+              Campeão: <span className="text-accent-red">{champion.nome}</span> ·
               arte “{champion.titulo}”
             </p>
           ) : null}
