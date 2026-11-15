@@ -2,12 +2,12 @@ import type { NavItem } from "./types";
 
 /**
  * Navegação do site, na ordem do cabeçalho do briefing da edição 2027.
- * Âncoras da home (`/#kit`, `/#arena`) para o que não tem página própria.
+ * Âncoras da home (`/#concurso`, `/#arena`) para o que não tem página própria.
  */
 export const mainNav: NavItem[] = [
   { label: "A Meia", href: "/" },
   { label: "Inscrições", href: "/inscricao" },
-  { label: "Kit", href: "/#kit" },
+  { label: "Kit", href: "/#concurso" },
   { label: "Arena", href: "/#arena" },
   { label: "Percurso", href: "/percurso" },
   { label: "Regulamento", href: "/regulamento" },
