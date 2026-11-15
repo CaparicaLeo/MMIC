@@ -49,8 +49,8 @@ export const home = {
     cards: [
       {
         tag: "21 km pela cidade",
-        title: "21 km. Ruas fechadas. Manhã fria. Sem desculpa.",
-        text: "Largada às 6h30 com a cidade ainda acordando e o bafo saindo pela boca. A rua é sua: Centro Cívico, avenidas fechadas, os cartões-postais passando do lado. Cada quilômetro é um verso. O último é o refrão, e ele toca na frente do palco.",
+        title: "A cidade vai te ver correr.",
+        text: "Outras provas fecham rua. A Meia leva Curitiba pra calçada: torcida nas avenidas, show esperando na chegada e a cidade inteira olhando pra quem teve coragem de largar. Por um dia, o centro não é dos carros. É seu.",
         media: img(
           "/images/fotos/corredor-porta-de-aco-vertical.webp",
           1228,
