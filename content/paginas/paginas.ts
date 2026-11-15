@@ -314,7 +314,7 @@ export const curitiba = {
       id: "sabado-noite",
       number: "04",
       day: "Sábado à noite · carbo",
-      text: "Massa em Santa Felicidade ou Rua da Música, cedo. Festival Bom Gourmet (em 2026: 18/6 a 4/8). Cama às 21h: amanhã é dia de show.",
+      text: "Massa em Santa Felicidade ou na Rua da Música, ou a Pizza T&S na sua porta. Cama às 21h: amanhã é dia de show.",
       tag: "Gastronomia",
     },
     {
