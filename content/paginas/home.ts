@@ -101,10 +101,10 @@ export const home = {
 
   lots: {
     kicker: "Inscrições · lotes por data e por vagas",
-    title: "Ingresso de show: o primeiro lote é sempre o mais barato.",
-    slashWord: "barato.",
+    title: "Foi dada a largada. Quem chega primeiro, paga menos.",
+    slashWord: "menos.",
     description:
-      "Aqui é igual show: cada lote fecha na data final ou quando as vagas dele acabam, o que vier primeiro. Quem decide cedo paga menos. São 10.000 vagas, com inscrições até 11 de junho de 2027.",
+      "Aqui é igual show: cada lote tem um número de vagas, e quando acaba, o preço sobe. Não tem data, tem fila. Quem garante agora corre pelo menor preço que a Meia vai ter.",
     cta: "Garantir minha vaga",
   },
 
