@@ -109,7 +109,7 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556346442066786650",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800162596",
       name: "O lado B",
-      start: "06h32",
+      start: "06h02",
       limit: "2h",
       highlights: [
         "Ondulado, com a subida mais forte perto do km 8",
@@ -128,7 +128,7 @@ export const percurso = {
       stravaUrl: "https://www.strava.com/routes/3556333941235583870",
       mapMyRunUrl: "https://www.mapmyrun.com/routes/view/6800155027",
       name: "A abertura",
-      start: "06h32",
+      start: "06h02",
       limit: "2h",
       highlights: [
         "Aberto a caminhada, com uma subida curta perto do km 3,5",
@@ -293,21 +293,21 @@ export const curitiba = {
       id: "sexta",
       number: "01",
       day: "Sexta · chegada",
-      text: "Recepção no aeroporto Afonso Pena e ônibus de translado até o hotel oficial correspondente. Jantar: Restaurant Week (em 2026: 28/5 a 28/6).",
+      text: "Chegue, faça o check-in no hotel parceiro e sinta a cidade. À noite, Curitiba é gastronomia. Hotéis parceiros e condições especiais serão divulgados em breve.",
       tag: "Hotel",
     },
     {
       id: "sabado-manha",
       number: "02",
-      day: "Sábado de manhã · expo",
-      text: "Ônibus do hotel para a expo em horários fora do pico (9h, 11h e 15h). Retirada de kit, expo das marcas e shakeout run às 16h.",
+      day: "Sábado · expo",
+      text: "Dia de Expo: retirada do kit, marcas parceiras e o clima de véspera que só quem está lá sente. Horário e endereço serão divulgados nos canais oficiais.",
       tag: "Arena",
     },
     {
       id: "sabado-tarde",
       number: "03",
       day: "Sábado à tarde · a cidade",
-      text: "Jardim Botânico, Ópera de Arame, Museu Oscar Niemeyer, Feiras de Inverno nas praças Osório e Santos Andrade (em 2026: 11/6 a 18/7).",
+      text: "Jardim Botânico, Ópera de Arame, Museu Oscar Niemeyer, Feiras de Inverno nas praças Osório e Santos Andrade.",
       tag: "Turismo",
     },
     {
