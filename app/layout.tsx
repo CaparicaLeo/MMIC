@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/
+import Script from "next/script";
 
 import { MetaPixel } from "@/components/analytics/MetaPixel";
 import { AnimationProvider } from "@/components/animation/AnimationProvider";
@@ -108,6 +109,10 @@ export default function RootLayout({
         <Analytics />
         {/* Pixel da Meta: PageView em todas as páginas e InitiateCheckout nos links da Ticket Sports. */}
         <MetaPixel />
+        <<Script id="clarity" strategy="afterInteractive">{`(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","ze310rakrw");`}</Script>
+<Script src="https://www.googletagmanager.com/gtag/js?id=G-HDKSRPNQD5" strategy="afterInteractive" />
+<Script id="ga4" strategy="afterInteractive">{`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-HDKSRPNQD5');`}</Script>
+
       </body>
     </html>
   );
