@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 
+import { CookiePreferencesButton } from "@/components/analytics/CookiePreferencesButton";
 import { event, footerNav } from "@/content";
 
 /**
@@ -70,11 +71,17 @@ export function SiteFooter() {
       </div>
 
       <div className="border-t border-white/10">
-        <div className="container-page py-6 text-xs text-text-gray">
+        <div className="container-page flex flex-col gap-3 py-6 text-xs text-text-gray sm:flex-row sm:items-center sm:justify-between">
           {/* Ano corrente, não event.year: o aviso de direitos vale para a publicação. */}
           <p>
             © {new Date().getFullYear()} {event.name}. Todos os direitos reservados.
           </p>
+          <div className="flex flex-wrap gap-x-6 gap-y-2">
+            <Link href="/politica-de-privacidade" className="transition-colors hover:text-accent-red">
+              Política de Privacidade
+            </Link>
+            <CookiePreferencesButton className="transition-colors hover:text-accent-red" />
+          </div>
         </div>
       </div>
     </footer>

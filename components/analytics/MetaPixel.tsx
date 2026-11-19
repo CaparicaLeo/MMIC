@@ -4,6 +4,8 @@ import { usePathname } from "next/navigation";
 import Script from "next/script";
 import { useEffect } from "react";
 
+import { ticketLinkFrom } from "./UtmForwarder";
+
 /**
  * Pixel da Meta (conta de anúncios Thomeesantos-cartão), conforme o PDF
  * "MMIC27_Pixel_Meta_instrucoes_site" de 14/11/2026.
@@ -16,15 +18,11 @@ import { useEffect } from "react";
  *    `onclick` em cada botão, um único ouvinte de clique no documento pega
  *    qualquer <a> que aponte para ticketsports.com.br, inclusive links que
  *    entrarem depois.
- * 3. UTMs do anúncio: os `utm_*` que chegam na URL ficam guardados na sessão
- *    e são repassados ao link da Ticket Sports no momento do clique, sem
- *    sobrescrever parâmetros que o link já tenha (como `origem=novo-site`).
+ * 3. Só monta depois do aceite no aviso de cookies (ver <TrackingScripts>).
+ *    O repasse dos UTMs para a Ticket Sports saiu daqui para o
+ *    <UtmForwarder>, que não depende do aceite.
  */
 export const META_PIXEL_ID = "1427951651768151";
-
-const TICKET_HOST = "ticketsports.com.br";
-const UTM_KEYS = ["utm_source", "utm_medium", "utm_campaign", "utm_term", "utm_content"];
-const UTM_STORAGE = "mmic27-utms";
 
 type Fbq = (...args: unknown[]) => void;
 
@@ -39,55 +37,9 @@ function fbq(...args: unknown[]) {
   if (typeof fn === "function") fn(...args);
 }
 
-function readStoredUtms(): Record<string, string> {
-  try {
-    return JSON.parse(sessionStorage.getItem(UTM_STORAGE) ?? "{}");
-  } catch {
-    return {};
-  }
-}
-
-/** Guarda os UTMs da URL atual, se houver; senão mantém os da sessão. */
-function captureUtms() {
-  const params = new URLSearchParams(window.location.search);
-  const found: Record<string, string> = {};
-  for (const key of UTM_KEYS) {
-    const value = params.get(key);
-    if (value) found[key] = value;
-  }
-  if (Object.keys(found).length === 0) return;
-  try {
-    sessionStorage.setItem(UTM_STORAGE, JSON.stringify(found));
-  } catch {
-    /* sessão bloqueada: segue sem repassar */
-  }
-}
-
-function withUtms(href: string): string {
-  const utms = readStoredUtms();
-  if (Object.keys(utms).length === 0) return href;
-  try {
-    const url = new URL(href);
-    for (const [key, value] of Object.entries(utms)) {
-      if (!url.searchParams.has(key)) url.searchParams.set(key, value);
-    }
-    return url.toString();
-  } catch {
-    return href;
-  }
-}
-
-function ticketLinkFrom(target: EventTarget | null): HTMLAnchorElement | null {
-  if (!(target instanceof Element)) return null;
-  const link = target.closest("a[href]");
-  if (!(link instanceof HTMLAnchorElement)) return null;
-  return link.hostname.endsWith(TICKET_HOST) ? link : null;
-}
-
 export function MetaPixel() {
   const pathname = usePathname();
   useEffect(() => {
-    captureUtms();
     // O PageView da primeira carga sai do próprio código base.
     if (lastTrackedPath === null) {
       lastTrackedPath = pathname;
@@ -99,16 +51,9 @@ export function MetaPixel() {
   }, [pathname]);
 
   useEffect(() => {
-    // Repassa os UTMs antes de o navegador seguir o link (clique, botão do
-    // meio ou "abrir em nova aba" pelo teclado).
-    const prepare = (event: Event) => {
-      const link = ticketLinkFrom(event.target);
-      if (link) link.href = withUtms(link.href);
-    };
+    // Os UTMs vão para o link pelo <UtmForwarder>; aqui só o evento.
     const onClick = (event: MouseEvent) => {
-      const link = ticketLinkFrom(event.target);
-      if (!link) return;
-      link.href = withUtms(link.href);
+      if (!ticketLinkFrom(event.target)) return;
       fbq("track", "InitiateCheckout", { content_name: "MMIC2027" });
     };
     const onAuxClick = (event: MouseEvent) => {
@@ -116,13 +61,9 @@ export function MetaPixel() {
       fbq("track", "InitiateCheckout", { content_name: "MMIC2027" });
     };
 
-    document.addEventListener("pointerdown", prepare, true);
-    document.addEventListener("focusin", prepare, true);
     document.addEventListener("click", onClick, true);
     document.addEventListener("auxclick", onAuxClick, true);
     return () => {
-      document.removeEventListener("pointerdown", prepare, true);
-      document.removeEventListener("focusin", prepare, true);
       document.removeEventListener("click", onClick, true);
       document.removeEventListener("auxclick", onAuxClick, true);
     };

@@ -17,6 +17,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/marcas",
     "/imprensa",
     "/contato",
+    "/politica-de-privacidade",
   ];
 
   return routes.map((route) => ({
